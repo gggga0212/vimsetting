@@ -88,9 +88,9 @@ nmap ce :cs find e <C-R>=expand("<cword>")<CR><CR>
 " f:尋找檔案
 nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
 " i:尋找include此檔案的檔案
-nmap zi :cs find i <C-R>=expand("<cfile>")<CR><CR>
+nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " d:尋找name裡面使用到的函式
-nmap zd :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 set ut=100

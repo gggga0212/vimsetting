@@ -97,14 +97,14 @@ And need to add the terminal's fonts as Meslo LG M
   Ctrl-L: right to the vim screan   
   Ctrl-O: Jump to SrcExpl screan  
   ### cscope find cmd
-  zs: 's'   symbol: find all references to the token under cursor.  
-  zg: 'g'   global: find global definition(s) of the token under cursor.  
-  zc: 'c'   calls:  find all calls to the function name under cursor.   
-  zt: 't'   text:   find all instances of the text under cursor.   
-  ze: 'e'   egrep:  egrep search for the word under cursor.    
-  zf: 'f'   file:   open the filename under cursor.   
-  zi: 'i'   includes: find files that include the filename under cursor.   
-  zd: 'd'   called: find functions that function under cursor calls.  
+  cs: 's'   symbol: find all references to the token under cursor.  
+  cg: 'g'   global: find global definition(s) of the token under cursor.  
+  cc: 'c'   calls:  find all calls to the function name under cursor.   
+  ct: 't'   text:   find all instances of the text under cursor.   
+  ce: 'e'   egrep:  egrep search for the word under cursor.    
+  cf: 'f'   file:   open the filename under cursor.   
+  ci: 'i'   includes: find files that include the filename under cursor.   
+  cd: 'd'   called: find functions that function under cursor calls.  
   
   ### Final vim photo of MacOS 
 ![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg) 

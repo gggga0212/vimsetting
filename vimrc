@@ -76,17 +76,17 @@ highlight ModeMsg ctermfg=green
 :nn <M-9> 9gt
 :nn <M-0> :tablast<CR>
 " s:找出C語言name的符號
-nmap zs :cs find s <C-R>=expand("<cword>")<CR><CR> 
+nmap cs :cs find s <C-R>=expand("<cword>")<CR><CR> 
 " g:找出name定義的地方
-nmap zg :cs find g <C-R>=expand("<cword>")<CR><CR> 
+nmap cg :cs find g <C-R>=expand("<cword>")<CR><CR> 
 " c:找出使用name的地方
-nmap zc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap cc :cs find c <C-R>=expand("<cword>")<CR><CR>
 " t:找出name的字串
-nmap zt :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap ct :cs find t <C-R>=expand("<cword>")<CR><CR>
 " e:相當於egrep功能，但速度更佳
-nmap ze :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap ce :cs find e <C-R>=expand("<cword>")<CR><CR>
 " f:尋找檔案
-nmap zf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
 " i:尋找include此檔案的檔案
 nmap zi :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " d:尋找name裡面使用到的函式
@@ -151,7 +151,9 @@ let g:SrcExpl_updateTagsKey = "<F12>"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+"Check the code error"
 let g:syntastic_error_symbol='>e'
+"Check the code warning"
 let g:syntastic_warning_symbol='>w'
 let g:syntastic_check_on_open= 1 
 let g:syntastic_check_on_wq= 0 

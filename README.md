@@ -107,7 +107,8 @@ And need to add the terminal's fonts as Meslo LG M
   cd: 'd'   called: find functions that function under cursor calls.  
   
   ### Final vim photo of MacOS 
-![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg) 
+![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg)    
+![quick_key](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)
 
 ## Author
 Chang-Han, Kuo

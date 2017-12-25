@@ -10,8 +10,9 @@ filetype off        "required
 " call vundle#begin('/usr/share/vim/vim74/bundle/') "
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
+Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'junegunn/fzf'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'

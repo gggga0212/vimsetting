@@ -1,4 +1,6 @@
-# vimsetting by SamKuo
+# VIM setting by SamKuo    
+![quick_key](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)   
+
 ## Step 0: Check the environment  
   ### The vim need the following tool, if not, please install by the following command    
 #### Debian (ubuntu)  
@@ -10,7 +12,7 @@
   sudo apt-get install cscope  
   ```
 #### MacOS
-  1. Press Press Command+Space and type Terminal and press enter/return key.  
+  1. Press Command+Space and type Terminal and press enter/return key.  
   2. Run in Terminal app:  
   ``` vim
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
@@ -33,15 +35,26 @@
   cp vimrc ~/.vimrc 
 ```
 ## Step 3: Install the vimrc plugin function  
-  Enter to vim  
+  Enter to vim normal mode  
 ```vim
   :PluginInstall
 
 ```
   When install Done, exit the vim and re-enter to the vim  
-
-## If you want to uninstall the plugin function  
+## Step 4: Others install   
+### fzf   
+```vim
+cd ~/.vim/bundle/fzf    
+./install
+```
+### powerline-fonts
+```vim
+cd ~/.vim/bundle/powerline-fonts    
+./install.sh
+```
+## If you want to uninstall the plugin function  
   Remove the vimrc Plugin root, and save the vimrc. 
+  Enter to vim normal mode    
   ```vim
   :PluginClean  
 
@@ -59,7 +72,8 @@
   
   Select what folder you want to open and press "o" to open it.
 ## What are Plugin in vimrc 
-* [airline](https://github.com/vim-airline/vim-airline): lean & mean status/tabline for vim that's light as air 
+* [airline](https://github.com/vim-airline/vim-airline): lean & mean status/tabline for vim that's light as air   
+* [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder   
 * [vim-monokai](https://github.com/sickill/vim-monokai): Monokai color scheme for Vim converted from Textmate theme
 * [Nerd Tree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for navigating the filesystem.  
 * [NERDCommenter](https://github.com/scrooloose/nerdcommenter): Vim plugin for intensely orgasmic commenting  
@@ -69,7 +83,7 @@
 * [Snippets](https://github.com/honza/vim-snippets): vim-snipmate default snippets (Previously snipmate-snippets) 
 * [SuperTab](https://github.com/ervandew/supertab): Perform all your vim insert mode complete with tab  
 * [TagList](https://github.com/vim-scripts/taglist.vim): The "Tag List" plugin is a source code browser for the Vim editor. 
-* [Trinity](https://github.com/trinityrnaseq/trinityrnaseq): the Trinity of taglist, NERDtree and SrcExpl: an IDE works like "Source Insight" 
+* [Trinity](https://github.com/trinityrnaseq/trinityrnaseq): the Trinity of taglist, NERDtree and SrcExpl: an IDE works like "Source Insight"   
 
 ## how to init the airline in macOS
 ```vim
@@ -108,7 +122,7 @@ And need to add the terminal's fonts as Meslo LG M
   
   ### Final vim photo of MacOS 
 ![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg)    
-![quick_key](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)
+
 
 ## Author
 Chang-Han, Kuo

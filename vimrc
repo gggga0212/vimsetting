@@ -13,6 +13,8 @@ call vundle#rc()
 Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'junegunn/fzf'
+"Plugin 'Shougo/unite.vim'
+"Plugin 'rking/ag.vim'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
@@ -27,8 +29,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
 Plugin 'romainl/vim-qf'
-"Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
-"Plugin 'vim/vim'
+Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
+Plugin 'vim/vim'
 "Plugin 'Valloric/YouCompleteMe' "install.sh neet to be active
 filetype plugin indent on
 colorscheme monokai 
@@ -61,6 +63,10 @@ set cscopeverbose
 set guifont=Literation_Mono_Powerline:h16
 " set status line
 set laststatus=2
+" if u do not want vim check database update when firstly load vim 
+let g:check_when_first_load_vim=0
+" if u do want to audo update database during edit you file
+let g:auto_run_function_when_cscope_connect=1
 " enable powerline-fonts
 let g:airline_powerline_fonts = 1
 

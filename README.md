@@ -33,10 +33,10 @@
   git clone https://github.com/gggga0212/vimsetting.git  
   cd vimsetting 
   cp vimrc ~/.vimrc 
-```
+```   
 ## Step 3: Install the vimrc plugin function  
   Enter to vim normal mode  
-```vim
+```vim    
   :PluginInstall
 
 ```
@@ -51,14 +51,43 @@ cd ~/.vim/bundle/fzf
 ```vim
 cd ~/.vim/bundle/powerline-fonts    
 ./install.sh
+```   
+### auto_update_cscope_ctags_database    
+
+python2   
+```vim    
+cd ~/.vim/bundle/vim    
+./configure -with-features=huge --enable-rubyinterp --enable-perlinterp=yes --enable-tclinterp=yes --enable-pythoninterp=yes --enable-python=yes --with-python-config-dir=/usr/lib/python2.7/config-arm-linux-gnueabihf/    
+(this dir may diff between diff pc)  
 ```
+python3   
+```vim    
+cd ~/.vim/bundle/vim    
+./configure -with-features=huge --enable-rubyinterp --enable-perlinterp=yes --enable-tclinterp=yes -enable-python3interp=yes --enable-python3=yes --with-python-config-dir=/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf/    
+(this dir may diff between diff pc)   
+```
+suggest build with python2    
+
+```vim
+make -j2
+sudo make install   
+```   
+when see the error message    
+no terminal library found
+checking for tgetent()... configure: error: NOT FOUND!
+
+please install the ncurses    
+on ubuntu 16.04:    
+```vim    
+sudo apt-get install ncurses-dev    
+```
+open a new terminal input command: vim --version to check vim support feature
 ## If you want to uninstall the plugin function  
   Remove the vimrc Plugin root, and save the vimrc. 
   Enter to vim normal mode    
   ```vim
   :PluginClean  
-
-  ```
+  ```   
 ## When you first time to use the vimrc 
   At the first time, please create the cscope file and tags files.    
   1. Enter to the folder you want to choose for using vim in terminal.   
@@ -72,8 +101,9 @@ cd ~/.vim/bundle/powerline-fonts
   
   Select what folder you want to open and press "o" to open it.
 ## What are Plugin in vimrc 
-* [airline](https://github.com/vim-airline/vim-airline): lean & mean status/tabline for vim that's light as air   
+* [airline](https://github.com/vim-airline/vim-airline): lean & mean status/tabline for vim that's light as air     
 * [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder   
+    * [fzf Chinese](https://segmentfault.com/a/1190000011328080) :   
 * [vim-monokai](https://github.com/sickill/vim-monokai): Monokai color scheme for Vim converted from Textmate theme
 * [Nerd Tree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for navigating the filesystem.  
 * [NERDCommenter](https://github.com/scrooloose/nerdcommenter): Vim plugin for intensely orgasmic commenting  

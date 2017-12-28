@@ -18,6 +18,9 @@ Plugin 'junegunn/fzf'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'kshenoy/vim-signature'
+Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'wesleyche/SrcExpl'
@@ -28,7 +31,6 @@ Plugin 'sickill/vim-monokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
-Plugin 'romainl/vim-qf'
 Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 Plugin 'vim/vim'
 "Plugin 'Valloric/YouCompleteMe' "install.sh neet to be active
@@ -50,7 +52,7 @@ set makeprg=mmake
 set errorformat+=%E%f:%l:%c:\ error:%m,%Z%m
 set errorformat+=%-G%.%#
 set tags=./tags,./TAGS,tags;~,TAGS;~
-
+set backspace=2
 set cscopetag
 set csto=0
 

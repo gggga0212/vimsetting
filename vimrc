@@ -15,6 +15,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'junegunn/fzf'
 "Plugin 'Shougo/unite.vim'
 "Plugin 'rking/ag.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
@@ -73,17 +75,6 @@ let g:auto_run_function_when_cscope_connect=1
 let g:airline_powerline_fonts = 1
 
 highlight ModeMsg ctermfg=green
-" Alt+數字切換tab
-:nn <M-1> 1gt
-:nn <M-2> 2gt
-:nn <M-3> 3gt
-:nn <M-4> 4gt
-:nn <M-5> 5gt
-:nn <M-6> 6gt
-:nn <M-7> 7gt
-:nn <M-8> 8gt
-:nn <M-9> 9gt
-:nn <M-0> :tablast<CR>
 " s:找出C語言name的符號
 nmap cs :cs find s <C-R>=expand("<cword>")<CR><CR> 
 " g:找出name定義的地方
@@ -135,6 +126,35 @@ let g:SrcExpl_pluginList = [
         \ "Source_Explorer"
     \ ]
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                    ctrlp setting                           "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_map = '<leader>p'
+let g:ctrlp_cmd = 'CtrlP'
+map <leader>f :CtrlPMRU<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+    \ }
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_max_height=15
+let g:ctrlp_match_window_reversed=0
+let g:ctrlp_mruf_max=500
+let g:ctrlp_follow_symlinks=1
+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                ctrlp-funky                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+let g:ctrlp_funky_syntax_highlight = 1
+
+let g:ctrlp_extensions = ['funky']
+
+"<<<<<<
 " Enable/Disable the local definition searching, and note that this is not  
 " guaranteed to work, the Source Explorer doesn't check the syntax for now. 
 " It only searches for a match with the keyword according to command 'gd'   

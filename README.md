@@ -102,7 +102,13 @@ open a new terminal input command: vim --version to check vim support feature
   Select what folder you want to open and press "o" to open it.
 ## What are Plugin in vimrc 
 * [airline](https://github.com/vim-airline/vim-airline): lean & mean status/tabline for vim that's light as air     
-* [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder   
+* [ctrlp](https://github.com/ctrlpvim/ctrlp.vim) : Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.   
+* [ctrlp-funky](https://github.com/tacahiroy/ctrlp-funky) : Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.  
+    * [ctrlp Chinese](http://www.wklken.me/posts/2015/06/07/vim-plugin-ctrlp.html#shi-yong)   
+* [multiple-cursors](https://github.com/terryma/vim-multiple-cursors) :True Sublime Text style multiple selections for Vim.   
+* [auto_update_cscope_ctags_database](https://github.com/haolongzhangm/auto_update_cscope_ctags_database) :Auto update cscops and tags.   
+* [bufexplorer](https://github.com/jlanzarotta/bufexplorer) :BufExplorer Plugin for Vim.    
+* [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder   
     * [fzf Chinese](https://segmentfault.com/a/1190000011328080) :   
 * [vim-monokai](https://github.com/sickill/vim-monokai): Monokai color scheme for Vim converted from Textmate theme
 * [Nerd Tree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for navigating the filesystem.  
@@ -149,8 +155,19 @@ And need to add the terminal's fonts as Meslo LG M
   cf: 'f'   file:   open the filename under cursor.   
   ci: 'i'   includes: find files that include the filename under cursor.   
   cd: 'd'   called: find functions that function under cursor calls.  
+  ### ctrlp   
+  <leader>f 模糊搜尋最近打開的文件
+  <leader>p 模糊搜尋此目錄及子目錄的文件
+  搜索框出來後，輸入關鍵字，然後可以下列指令打開文件   
+  ctrl + j/k 進行上下的選擇    
+  ctrl + x 在當前窗口水平分屏打開文件    
+  ctrl + v 同上, 垂直分屏打開文件   
+  ctrl + t 在tab 中打開文件   
+  ### ctrlp-funky   
+  <leader>fu 進入當前文件的function列表搜索    
+  ### vim basic mark    
   
-  ### Final vim photo of MacOS 
+ ### Final vim photo of MacOS 
 ![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg)    
 
 

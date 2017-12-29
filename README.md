@@ -156,21 +156,27 @@ And need to add the terminal's fonts as Meslo LG M
   ci: 'i'   includes: find files that include the filename under cursor.   
   cd: 'd'   called: find functions that function under cursor calls.  
   ### ctrlp   
-  <leader>f 模糊搜尋最近打開的文件
-  <leader>p 模糊搜尋此目錄及子目錄的文件
+  leader+f 模糊搜尋最近打開的文件    
+  leader+p 模糊搜尋此目錄及子目錄的文件
   搜索框出來後，輸入關鍵字，然後可以下列指令打開文件   
   ctrl + j/k 進行上下的選擇    
   ctrl + x 在當前窗口水平分屏打開文件    
   ctrl + v 同上, 垂直分屏打開文件   
   ctrl + t 在tab 中打開文件   
   ### ctrlp-funky   
-  <leader>fu 進入當前文件的function列表搜索    
+  leader+fu 進入當前文件的function列表搜索    
   ### vim basic mark    
-  
- ### Final vim photo of MacOS 
+  m 創見標記    
+  ' 移動到標記的文本行首    
+  ` 移動到標記的光標位置    
+  :marks 列示所有標記   
+  :delmarks 刪除指定標記。例：:delmarks a b c 可以指定或刪除多標記   
+  :delmarks! 刪除所有標記   
+  ### Final vim photo of MacOS 
 ![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg)    
 
-
+## NICE REFERENCE   
+[BASIC VIM CMD](http://blog.jex.tw/blog/2013/05/15/vim/)    
 ## Author
 Chang-Han, Kuo
 

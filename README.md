@@ -172,6 +172,9 @@ And need to add the terminal's fonts as Meslo LG M
   :marks 列示所有標記   
   :delmarks 刪除指定標記。例：:delmarks a b c 可以指定或刪除多標記   
   :delmarks! 刪除所有標記   
+  ### Windows vimrc setting SOP
+  * [WIN](https://www.jianshu.com/p/3e3f881bb5bd) : Windows setting for vim.    
+  
   ### Final vim photo of MacOS 
 ![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg)    
 

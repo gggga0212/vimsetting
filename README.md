@@ -1,6 +1,6 @@
 # VIM setting by SamKuo    
 ![quick_key](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)   
-
+![quick_key2](http://www.viemu.com/vi-vim-cheat-sheet.gif)
 ## Step 0: Check the environment  
   ### The vim need the following tool, if not, please install by the following command    
 #### Debian (ubuntu)  

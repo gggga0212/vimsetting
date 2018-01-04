@@ -26,7 +26,7 @@
 #### Windows Cygwin   
   1. Cygwin download and install in https://www.cygwin.com/   
   2. Cygwin install as the following tool   
-    *1. [Need for programmer] gcc, make, wget, lynx, svn, git, vim,      
+    *1. [Need for programmer] gcc, make, wget, lynx, svn, git, vim, curl   
     *2. [Need for apt-get] wget, tar, gawk, bzip2   
   3. Install the apt-cyg    
   

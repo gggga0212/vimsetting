@@ -20,6 +20,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jlanzarotta/bufexplorer'
@@ -30,6 +31,7 @@ Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'sickill/vim-monokai'
+Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
@@ -37,7 +39,7 @@ Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 Plugin 'vim/vim'
 "Plugin 'Valloric/YouCompleteMe' "install.sh neet to be active
 filetype plugin indent on
-colorscheme monokai 
+colorscheme desert 
 set t_Co=256
 syntax on
 set nu
@@ -91,13 +93,19 @@ nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " d:尋找name裡面使用到的函式
 nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                     tagbar setting                         "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let tagbar_left=1
+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 set ut=100
 " NERDTree setting defaults to work around
 let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = 'v'
 let g:NERDTreeGlyphReadOnly = "RO"
 let NERDTreeWinPos=1
 "切換視窗
@@ -120,6 +128,7 @@ nmap <F8> :TrinityToggleTagList<CR>
 nmap <F9> :TrinityToggleNERDTree<CR>
 "nmap <F9> :NERDTree<CR>
 nmap <F10> :TrinityToggleSourceExplorer<CR>
+nmap <F11> :TagbarToggle<CR>
 let g:SrcExpl_pluginList = [
         \ "__Tag_List__",
         \ "_NERD_tree_",

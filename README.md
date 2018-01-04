@@ -22,6 +22,23 @@
   brew install ctags  
   brew install cscope  
   brew install git  
+  ```   
+#### Windows Cygwin   
+  1. Cygwin download and install in https://www.cygwin.com/   
+  2. Cygwin install as the following tool   
+    *1. [Need for programmer] gcc, make, wget, lynx, svn, git, vim,      
+    *2. [Need for apt-get] wget, tar, gawk, bzip2   
+  3. Install the apt-cyg    
+  
+  ```vim    
+  lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg   
+  install apt-cyg /bin    
+  ```   
+
+  4. Install the cscope     
+  ```vim    
+  apt-cyg install cscope    
+  apt-cyg install ctags   
   ```
 ## Step 1: Download the Vundle by git   
 ```vim

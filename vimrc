@@ -59,12 +59,13 @@ set tags=./tags,./TAGS,tags;~,TAGS;~
 set backspace=2
 set cscopetag
 set csto=0
-
+set nocsverb
 if filereadable("cscope.out")
    cs add cscope.out   
 elseif $CSCOPE_DB != ""
     cs add $CSCOPE_DB
 endif
+" show msg when any other cscope db added
 set cscopeverbose
 set guifont=Literation_Mono_Powerline:h16
 " set status line

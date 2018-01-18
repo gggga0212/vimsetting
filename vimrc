@@ -124,9 +124,13 @@ nmap <C-O> :call g:SrcExpl_GoBack()<CR>
 
 "map <F5> :cs k 0<CR>:!find %:p:h -name '*.c' -or -name '*.s' -or -name '*.h' -or -name '*.cpp'>cscope.files<CR>:!cscope -b -q -k -i cscope.files<CR>:cs a cscope.out<CR>	
 nmap <F5> :cs reset<CR>
-nmap <F6> :!find %:p:h . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
   \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
   \:cs reset<CR>
+
+"nmap <F6> :!find %:p:h . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+"  \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
+"  \:cs reset<CR>
 nmap <F7> :TrinityToggleAll<CR>
 nmap <F8> :TrinityToggleTagList<CR>
 nmap <F9> :TrinityToggleNERDTree<CR>

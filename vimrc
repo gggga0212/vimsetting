@@ -16,6 +16,7 @@ Plugin 'junegunn/fzf'
 "Plugin 'Shougo/unite.vim'
 "Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Yggdroot/LeaderF',{'d':'./install.sh'}
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
@@ -35,11 +36,16 @@ Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
-Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
+""Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 Plugin 'vim/vim'
 "Plugin 'Valloric/YouCompleteMe' "install.sh neet to be active
+
 filetype plugin indent on
 colorscheme desert 
+
+set encoding=utf-8
+setglobal fileencoding=utf-8
+
 set t_Co=256
 syntax on
 set nu
@@ -60,6 +66,22 @@ set backspace=2
 set cscopetag
 set csto=0
 set nocsverb
+set laststatus=2
+
+let g:airline_powerline_fonts = 1  
+" supportted powerline front
+"let g:airline_theme='moloai'  
+" murmur color
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '==>'
+let g:airline_left_alt_sep = '->'
+let g:airline_right_sep = '<=='
+let g:airline_right_alt_sep = '<='
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+
 if filereadable("cscope.out")
    cs add cscope.out   
 elseif $CSCOPE_DB != ""

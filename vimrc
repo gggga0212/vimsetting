@@ -23,6 +23,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'https://github.com/nanotech/jellybeans.vim'
+Plugin 'https://github.com/tomasr/molokai'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdtree'
@@ -41,7 +43,7 @@ Plugin 'vim/vim'
 "Plugin 'Valloric/YouCompleteMe' "install.sh neet to be active
 
 filetype plugin indent on
-colorscheme desert 
+colorscheme slate 
 
 set encoding=utf-8
 setglobal fileencoding=utf-8
@@ -75,12 +77,13 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = '==>'
-let g:airline_left_alt_sep = '->'
-let g:airline_right_sep = '<=='
-let g:airline_right_alt_sep = '<='
+let g:airline_left_sep = '>>'
+let g:airline_left_alt_sep = '>'
+let g:airline_right_sep = '<<'
+let g:airline_right_alt_sep = '<'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
+
 
 if filereadable("cscope.out")
    cs add cscope.out   
@@ -100,21 +103,21 @@ let g:auto_run_function_when_cscope_connect=1
 let g:airline_powerline_fonts = 1
 
 highlight ModeMsg ctermfg=green
-" s:找出C語言name的符號
+" s: Find this C symbol.
 nmap cs :cs find s <C-R>=expand("<cword>")<CR><CR> 
-" g:找出name定義的地方
+" g: Find this definition.
 nmap cg :cs find g <C-R>=expand("<cword>")<CR><CR> 
-" c:找出使用name的地方
+" c: Find functions calling this function.
 nmap cc :cs find c <C-R>=expand("<cword>")<CR><CR>
-" t:找出name的字串
+" t: Find this file.
 nmap ct :cs find t <C-R>=expand("<cword>")<CR><CR>
-" e:相當於egrep功能，但速度更佳
+" e: Find this grep pattern.
 nmap ce :cs find e <C-R>=expand("<cword>")<CR><CR>
-" f:尋找檔案
+" f: Find this file.
 nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
-" i:尋找include此檔案的檔案
+" i: Find files #including this file.
 nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
-" d:尋找name裡面使用到的函式
+" d: Find functions called by this function.
 nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                     tagbar setting                         "
@@ -146,18 +149,16 @@ nmap <C-O> :call g:SrcExpl_GoBack()<CR>
 
 "map <F5> :cs k 0<CR>:!find %:p:h -name '*.c' -or -name '*.s' -or -name '*.h' -or -name '*.cpp'>cscope.files<CR>:!cscope -b -q -k -i cscope.files<CR>:cs a cscope.out<CR>	
 nmap <F5> :cs reset<CR>
+
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
   \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
   \:cs reset<CR>
-
-"nmap <F6> :!find %:p:h . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
-"  \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
-"  \:cs reset<CR>
 nmap <F7> :TrinityToggleAll<CR>
 nmap <F8> :TrinityToggleTagList<CR>
 nmap <F9> :TrinityToggleNERDTree<CR>
 "nmap <F9> :NERDTree<CR>
-nmap <F10> :TrinityToggleSourceExplorer<CR>
+"nmap <F10> :TrinityToggleSourceExplorer<CR>
+nmap <F10> :SrcExplToggle<CR>
 nmap <F11> :TagbarToggle<CR>
 let g:SrcExpl_pluginList = [
         \ "__Tag_List__",
@@ -188,9 +189,8 @@ let g:ctrlp_follow_symlinks=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap <Leader>uu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
-
 let g:ctrlp_extensions = ['funky']
 
 "<<<<<<

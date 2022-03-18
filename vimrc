@@ -4,10 +4,11 @@ filetype off        "required
 " set rtp+=/usr/share/vim/vim74/bundle/Vundle.vim/ "
 " call vundle#begin('/usr/share/vim/vim74/bundle/') "
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'junegunn/fzf'
+"Plugin 'junegunn/fzf.vim'
 "Plugin 'Shougo/unite.vim'
 "Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -16,7 +17,7 @@ Plugin 'Yggdroot/LeaderF',{'d':'./install.sh'}
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'https://github.com/nanotech/jellybeans.vim'
 Plugin 'https://github.com/tomasr/molokai'
@@ -25,7 +26,8 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 "Plugin 'wesleyche/SrcExpl'
-Plugin 'wenlongche/SrcExpl'
+"Plugin 'wenlongche/SrcExpl'
+Plugin 'BurntSushi/ripgrep'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -34,9 +36,10 @@ Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
-""Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
+"Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim/vim'
-"Plugin 'Valloric/YouCompleteMe' "install.sh neet to be active
+call vundle#end()
 
 filetype plugin indent on
 colorscheme slate 
@@ -80,6 +83,8 @@ let g:airline_right_alt_sep = '<'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
 
+"gtags setting
+let $GTAGSLABEL = 'native-pygments'
 
 if filereadable("cscope.out")
    cs add cscope.out   
@@ -116,10 +121,13 @@ nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " d: Find functions called by this function.
 nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
+nmap cv :<C-U><C-R>=printf("Leaderf! rg -w %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
+"nmap ct :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                     tagbar setting                         "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let tagbar_left=1
+"let tagbar_left=1
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 let Tlist_Show_One_File=1
@@ -131,51 +139,73 @@ let g:NERDTreeDirArrowExpandable = '>'
 let g:NERDTreeDirArrowCollapsible = 'v'
 let g:NERDTreeGlyphReadOnly = "RO"
 let NERDTreeWinPos=1
+
 nmap <C-H> <C-W>h 
 nmap <C-J> <C-W>j	
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
+"nmap <C-U> <C-W>u:call g:SrcExpl_Jump()<CR>
+"nmap <C-O> <C-W>o:call g:SrcExpl_GoBack()<CR>
 
-nmap <C-U> <C-W>u:call g:SrcExpl_Jump()<CR>
-nmap <C-O> <C-W>o:call g:SrcExpl_GoBack()<CR>
+
 nmap <F5> :cs reset<CR>
 
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
   \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
   \:cs reset<CR>
-nmap <F7> :TrinityToggleAll<CR>
+nmap <F7> :LeaderfSelf<CR>
 nmap <F8> :TrinityToggleTagList<CR>
 nmap <F9> :TrinityToggleNERDTree<CR>
-nmap <F10> :SrcExplToggle<CR>
+"nmap <F10> :SrcExplToggle<CR>
 nmap <F11> :TagbarToggle<CR>
-let g:SrcExpl_pluginList = [
-    \ "__Tag_List__",
-    \ "_NERD_tree_",
-    \ "Source_Explorer"
-    \]
-let g:SrcExpl_colorSchemeList = [
-    \ "Red",
-    \ "Cyan",
-    \ "Green",
-    \ "Yellow",
-    \ "Magenta"
-    \]
-" Enable/Disable the local definition searching, and note that this is not  
-" guaranteed to work, the Source Explorer doesn't check the syntax for now. 
-" It only searches for a match with the keyword according to command 'gd'   
-let g:SrcExpl_searchLocalDef = 1
-" Do not let the Source Explorer update the tags file when opening          
-let g:SrcExpl_isUpdateTags = 0
-" Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to 
-" create/update a tags file                                                
-let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R" 
-"let g:SrcExpl_updateTagsCmd = "ctags -L cscope.files"
-" Set "<F3>" key for displaying the previous definition in the jump list    
- let g:SrcExpl_prevDefKey = "<F3>"
-" Set "<F4>" key for displaying the next definition in the jump list        
- let g:SrcExpl_nextDefKey = "<F4>"
- " Set "<F12>" key for updating the tags file artificially                   
-let g:SrcExpl_updateTagsKey = "<F12>"
+
+"let g:SrcExpl_pluginList = [
+"    \ "__Tag_List__",
+"    \ "_NERD_tree_",
+"    \ "Source_Explorer"
+"    \]
+"let g:SrcExpl_colorSchemeList = [
+"    \ "Red",
+"    \ "Cyan",
+"    \ "Green",
+"    \ "Yellow",
+"    \ "Magenta"
+"    \]
+"" Enable/Disable the local definition searching, and note that this is not  
+"" guaranteed to work, the Source Explorer doesn't check the syntax for now. 
+"" It only searches for a match with the keyword according to command 'gd'   
+"let g:SrcExpl_searchLocalDef = 1
+"" Do not let the Source Explorer update the tags file when opening          
+"let g:SrcExpl_isUpdateTags = 0
+"" Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to 
+"" create/update a tags file                                                
+"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R" 
+""let g:SrcExpl_updateTagsCmd = "ctags -L cscope.files"
+"" Set "<F3>" key for displaying the previous definition in the jump list    
+" let g:SrcExpl_prevDefKey = "<F3>"
+"" Set "<F4>" key for displaying the next definition in the jump list        
+" let g:SrcExpl_nextDefKey = "<F4>"
+" " Set "<F12>" key for updating the tags file artificially                   
+"let g:SrcExpl_updateTagsKey = "<F12>"
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                    youCompleteMe
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_server_log_level = 'info'
+let g:ycm_min_num_identifier_candidate_chars = 2
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_complete_in_strings=1
+let g:ycm_key_invoke_completion = '<c-z>'
+set completeopt=menu,menuone
+
+noremap <c-z> <NOP>
+let g:ycm_semantic_triggers =  {
+           \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+           \ 'cs,lua,javascript': ['re!\w{2}'],
+           \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    ctrlp setting                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -222,5 +252,4 @@ let g:syntastic_c_compiler_options ='-Wpedantic -g'
 let g:syntastic_always_populate_loc_list = 0 
 let g:syntastic_auto_loc_list = 0 
 
-let g:Lf_ShortcutF = '<c-p>'
-noremap <leader>f :LeaderfSelf<cr>
+noremap <c-p> :source ~/.vimrc<CR>

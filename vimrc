@@ -4,7 +4,8 @@ filetype off        "required
 " set rtp+=/usr/share/vim/vim74/bundle/Vundle.vim/ "
 " call vundle#begin('/usr/share/vim/vim74/bundle/') "
 set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+"call vundle#begin()
+call vundle#rc()
 Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'junegunn/fzf'
@@ -13,6 +14,7 @@ Plugin 'junegunn/fzf'
 "Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Yggdroot/LeaderF',{'d':'./install.sh'}
+"Plugin 'Yggdroot/indentLine'
 "Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
@@ -38,17 +40,15 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
 "Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 "Plugin 'Valloric/YouCompleteMe'
+"Plug 'luochen1990/rainbow'
 Plugin 'vim/vim'
-call vundle#end()
-
 filetype plugin indent on
 colorscheme slate 
-
+syntax on
 set encoding=utf-8
 setglobal fileencoding=utf-8
 
 set t_Co=256
-syntax on
 set nu
 set hls
 set noic
@@ -150,8 +150,10 @@ nmap <C-L> <C-W>l
 "nmap <C-O> <C-W>o:call g:SrcExpl_GoBack()<CR>
 
 
-nmap <F5> :cs reset<CR>
-
+nmap <F2> :tabe ~/.vimrc<CR>
+nmap <F3> :source ~/.vimrc<CR>
+"nmap <F5> :cs reset<CR>
+"nmap <F5> :cs reset<CR>
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
   \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
   \:cs reset<CR>
@@ -253,5 +255,8 @@ let g:syntastic_c_compiler_options ='-Wpedantic -g'
 let g:syntastic_always_populate_loc_list = 0 
 let g:syntastic_auto_loc_list = 0 
 
-noremap <c-p> :source ~/.vimrc<CR>
+let g:indent_guides_guide_size            = 1
+let g:indent_guides_start_level           = 2
+
+let g:rainbow_active = 1
 noremap <c-i> :<C-U><C-R>=printf("%%s/%s/",expand("<cword>"))<CR>

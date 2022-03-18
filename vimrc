@@ -103,6 +103,8 @@ let g:auto_run_function_when_cscope_connect=1
 " enable powerline-fonts
 let g:airline_powerline_fonts = 1
 
+let g:SuperTabDefaultCompletionType = "<c-n>"
+"let g:SuperTabContextDefaultCompletionType = "<c-n>"
 highlight ModeMsg ctermfg=green
 " s: Find this C symbol.
 nmap cs :cs find s <C-R>=expand("<cword>")<CR><CR>
@@ -157,7 +159,7 @@ nmap <F7> :LeaderfSelf<CR>
 nmap <F8> :TrinityToggleTagList<CR>
 nmap <F9> :TrinityToggleNERDTree<CR>
 "nmap <F10> :SrcExplToggle<CR>
-nmap <F11> :TagbarToggle<CR>
+"nmap <F11> :TagbarToggle<CR>
 
 "let g:SrcExpl_pluginList = [
 "    \ "__Tag_List__",
@@ -201,7 +203,6 @@ let g:ycm_complete_in_strings=1
 let g:ycm_key_invoke_completion = '<c-z>'
 set completeopt=menu,menuone
 
-noremap <c-z> <NOP>
 let g:ycm_semantic_triggers =  {
            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
            \ 'cs,lua,javascript': ['re!\w{2}'],
@@ -253,3 +254,4 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0 
 
 noremap <c-p> :source ~/.vimrc<CR>
+noremap <c-i> :<C-U><C-R>=printf("%%s/%s/",expand("<cword>"))<CR>

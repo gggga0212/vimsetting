@@ -14,7 +14,7 @@ Plugin 'junegunn/fzf'
 "Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Yggdroot/LeaderF',{'d':'./install.sh'}
-"Plugin 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 "Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
@@ -30,7 +30,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'wesleyche/SrcExpl'
 "Plugin 'wenlongche/SrcExpl'
 Plugin 'BurntSushi/ripgrep'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'sickill/vim-monokai'
@@ -40,7 +40,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
 "Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 "Plugin 'Valloric/YouCompleteMe'
-"Plug 'luochen1990/rainbow'
+Plugin 'luochen1990/rainbow'
 Plugin 'vim/vim'
 filetype plugin indent on
 colorscheme slate 
@@ -126,6 +126,8 @@ nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 nmap cv :<C-U><C-R>=printf("Leaderf! rg -w %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
 "nmap ct :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
 
+nmap <c-i> :<C-U><C-R>=printf("%%s/%s/",expand("<cword>"))<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                     tagbar setting                         "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -152,6 +154,7 @@ nmap <C-L> <C-W>l
 
 nmap <F2> :tabe ~/.vimrc<CR>
 nmap <F3> :source ~/.vimrc<CR>
+nmap <F4> :RainbowToggle<CR>
 "nmap <F5> :cs reset<CR>
 "nmap <F5> :cs reset<CR>
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
@@ -259,4 +262,7 @@ let g:indent_guides_guide_size            = 1
 let g:indent_guides_start_level           = 2
 
 let g:rainbow_active = 1
-noremap <c-i> :<C-U><C-R>=printf("%%s/%s/",expand("<cword>"))<CR>
+let g:rainbow_conf = {
+    \   'guifgs' : ['#6A5ACD', '#B22222', '#C0FF3E', '#EEC900', '#9A32CD', '#EE7600', '#98fb98', '#686868'],
+    \   'ctermfgs': 'xterm-256color' == $TERM ? ['141', '196', '112', '208', '129', '166', '85', '33'] : ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+    \}

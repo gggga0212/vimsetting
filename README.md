@@ -196,7 +196,18 @@ And need to add the terminal's fonts as Meslo LG M
 ![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg)    
 
 ## NICE REFERENCE   
-[BASIC VIM CMD](http://blog.jex.tw/blog/2013/05/15/vim/)    
+[BASIC VIM CMD](http://blog.jex.tw/blog/2013/05/15/vim/)
+
+## Terminal color
+How to show colors in terminal. (ubuntu)
+```vim
+vim ~/.bashrc
+force_color_prompt=yes
+```
+```vim
+wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O ~/.dircolors
+vim ~/.dircolors
+```
 ## Author
 Chang-Han, Kuo
 

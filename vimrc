@@ -30,7 +30,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'wesleyche/SrcExpl'
 "Plugin 'wenlongche/SrcExpl'
 Plugin 'BurntSushi/ripgrep'
-"Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'sickill/vim-monokai'
@@ -82,6 +82,9 @@ let g:airline_right_sep = '<<'
 let g:airline_right_alt_sep = '<'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
+
+"nerdTree
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 "gtags setting
 let $GTAGSLABEL = 'native-pygments'
@@ -261,7 +264,7 @@ let g:syntastic_auto_loc_list = 0
 let g:indent_guides_guide_size            = 1
 let g:indent_guides_start_level           = 2
 
-let g:rainbow_active = 1
+"let g:rainbow_active = 1
 let g:rainbow_conf = {
     \   'guifgs' : ['#6A5ACD', '#B22222', '#C0FF3E', '#EEC900', '#9A32CD', '#EE7600', '#98fb98', '#686868'],
     \   'ctermfgs': 'xterm-256color' == $TERM ? ['141', '196', '112', '208', '129', '166', '85', '33'] : ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']

@@ -210,6 +210,19 @@ vim ~/.dircolors
 ```
 
 git config --global core.autocrlf true
+git config --global core.autocrlf false
+
+## To config keyboard.
+vim /etc/default/keyboard
+## To swap Caps Lock and Control.
+XKBOPTIONS="ctrl:swapcaps"
+## To make Caps Lock an additional Control key
+XKBOPTIONS="ctrl:nocaps"
+
+then reboot
+
+
+
 ## Author
 Chang-Han, Kuo
 

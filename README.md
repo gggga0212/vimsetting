@@ -208,6 +208,8 @@ force_color_prompt=yes
 wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O ~/.dircolors
 vim ~/.dircolors
 ```
+
+git config --global core.autocrlf true
 ## Author
 Chang-Han, Kuo
 

@@ -1,15 +1,13 @@
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"git config --global core.autocrlf false 
 set nocompatible    "be iMproved, required"
 filetype off        "required
-" set rtp+=/usr/share/vim/vim74/bundle/Vundle.vim/ "
-" call vundle#begin('/usr/share/vim/vim74/bundle/') "
 set rtp+=~/.vim/bundle/vundle/
-"call vundle#begin()
 call vundle#rc()
 Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/a.vim'
 Plugin 'junegunn/fzf'
-"Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf.vim'
 "Plugin 'Shougo/unite.vim'
 "Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -48,7 +46,6 @@ syntax on
 set encoding=utf-8
 setglobal fileencoding=utf-8
 
-set t_Co=256
 set nu
 set hls
 set noic
@@ -67,7 +64,12 @@ set backspace=2
 set cscopetag
 set csto=0
 set nocsverb
+" set status line
 set laststatus=2
+set t_Co=256
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 
 let g:airline_powerline_fonts = 1  
 " supportted powerline front
@@ -97,8 +99,6 @@ endif
 " show msg when any other cscope db added
 set cscopeverbose
 set guifont=Literation_Mono_Powerline:h16
-" set status line
-set laststatus=2
 " if u do not want vim check database update when firstly load vim 
 let g:check_when_first_load_vim=0
 " if u do want to audo update database during edit you file
@@ -129,7 +129,8 @@ nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 nmap cv :<C-U><C-R>=printf("Leaderf! rg -w %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
 "nmap ct :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
 
-nmap <c-i> :<C-U><C-R>=printf("%%s/%s/",expand("<cword>"))<CR>
+nmap <c-a> :<C-U><C-R>=printf("%%s/%s/",expand("<cword>"))<CR>
+map <C-i> :e %:p:s,.H$,.X123X,:s,.C$,.H,:s,.X123X$,.C,<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                     tagbar setting                         "

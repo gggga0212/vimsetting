@@ -208,10 +208,23 @@ force_color_prompt=yes
 wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O ~/.dircolors
 vim ~/.dircolors
 ```
-
+## autoCrlf
+```vim
 git config --global core.autocrlf true
 git config --global core.autocrlf false
-
+```
+## gitconfig
+```vim
+[core]
+    editor = vim
+    autocrlf = true
+[alias]
+    co = checkout
+    st = status
+    br = branch -a
+    ls = log --stat --graph
+    sub = submodule
+```
 ## To config keyboard.
 vim /etc/default/keyboard
 ## To swap Caps Lock and Control.

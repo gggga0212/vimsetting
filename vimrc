@@ -126,8 +126,8 @@ nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " d: Find functions called by this function.
 nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
+nmap cj :<C-U><C-R>=printf("cs find ")<CR>
 nmap cv :<C-U><C-R>=printf("Leaderf! rg -w %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
-"nmap ct :<C-U><C-R>=printf("Leaderf! rg -e %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
 
 nmap <c-a> :<C-U><C-R>=printf("%%s/%s/",expand("<cword>"))<CR>
 map <C-i> :e %:p:s,.H$,.X123X,:s,.C$,.H,:s,.X123X$,.C,<CR>
@@ -159,7 +159,6 @@ nmap <C-L> <C-W>l
 nmap <F2> :tabe ~/.vimrc<CR>
 nmap <F3> :source ~/.vimrc<CR>
 nmap <F4> :RainbowToggle<CR>
-"nmap <F5> :cs reset<CR>
 "nmap <F5> :cs reset<CR>
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
   \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>

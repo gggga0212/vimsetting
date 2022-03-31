@@ -213,6 +213,11 @@ vim ~/.dircolors
 git config --global core.autocrlf true
 git config --global core.autocrlf false
 ```
+## diff-so-fancy
+```vim
+sudo apt-get install npm
+npm install -g diff-so-fancy
+```
 ## gitconfig
 ```vim
 [core]

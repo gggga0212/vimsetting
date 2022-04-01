@@ -116,7 +116,7 @@ nmap <Leader>gu :GitGutterUndoHunk<CR>
 "vimagit
 nnoremap <Leader>gs :Magit<CR>" git status
 " Enable deletion of untracked files in Magit
-let g:magit_discard_untracked_do_delete=1
+"let g:magit_discard_untracked_do_delete=1
 
 "vim-fugitive
 " Show commits for every source line

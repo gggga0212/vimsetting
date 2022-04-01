@@ -1,9 +1,9 @@
 [user]
-    name = ABC
-    email = ABC@ABC.com
+    name = 
+    email = 
 [core]
     editor = vim
-	autocrlf = true
+	autocrlf = false
     pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     co = checkout
@@ -33,3 +33,9 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[color "status"]
+	added = green normal bold
+	changed = yellow normal bold
+	untracked = red normal bold
+[color "branch"]
+	remote = yellow normal bold

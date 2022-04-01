@@ -1,6 +1,6 @@
 [user]
-    name = Sam Kuo
-    email = sam.kuo@microchip.com
+    name = 
+    email = 
 [core]
     editor = vim
 	autocrlf = true
@@ -14,8 +14,6 @@
     cotest = checkout host_stack_test
     coteam = checkout host_stack_team
     autocrlf = config --global core.autocrlf
-[credential "https://bitbucket.microchip.com"]
-    provider = bitbucket
 [credential]
 	helper = store
 [color "diff"]

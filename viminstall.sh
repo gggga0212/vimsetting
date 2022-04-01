@@ -2,11 +2,13 @@ sudo apt-get install git
 sudo apt-get install curl  
 sudo apt-get install exuberant-ctags  
 sudo apt-get install cscope  
+sudo apt-get install npm
 
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git clone https://github.com/gggga0212/vimsetting.git  
 cd vimsetting 
 cp vimrc ~/.vimrc
+cp gitconfig ~/.gitconfig
 
 #fzf
 #cd ~/.vim/bundle/fzf

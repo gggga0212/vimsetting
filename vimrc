@@ -98,6 +98,12 @@ let g:gitgutter_sign_removed_above_and_below = '{'
 let g:gitgutter_sign_modified_removed = '<'
 let g:gitgutter_override_sign_column_highlight = 1
 
+"let g:indentLine_setColors = 2 
+"let g:indentLine_defaultGroup = 'SpecialKey'
+"let g:indentLine_color_term = 225
+"let g:indentLine_char = 'c'
+"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 highlight GitGutterAdd    ctermfg=lightgreen
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red

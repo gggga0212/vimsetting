@@ -17,7 +17,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
-"Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'https://github.com/nanotech/jellybeans.vim'
 Plugin 'https://github.com/tomasr/molokai'
@@ -39,6 +39,7 @@ Plugin 'Lokaltog/powerline-fonts.git'
 "Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'luochen1990/rainbow'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'vim/vim'
 filetype plugin indent on
 colorscheme slate 
@@ -129,7 +130,7 @@ nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 nmap cj :<C-U><C-R>=printf("cs find ")<CR>
 nmap cv :<C-U><C-R>=printf("Leaderf! rg -w %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
 
-nmap <c-a> :<C-U><C-R>=printf("%%s/%s/",expand("<cword>"))<CR>
+nmap <c-a> :<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>
 map <C-i> :e %:p:s,.H$,.X123X,:s,.C$,.H,:s,.X123X$,.C,<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

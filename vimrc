@@ -40,6 +40,9 @@ Plugin 'Lokaltog/powerline-fonts.git'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'luochen1990/rainbow'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'jreybert/vimagit'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'vim/vim'
 filetype plugin indent on
 colorscheme slate 
@@ -85,6 +88,45 @@ let g:airline_right_sep = '<<'
 let g:airline_right_alt_sep = '<'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
+
+"Vim-gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_removed_above_and_below = '{'
+let g:gitgutter_sign_modified_removed = '<'
+let g:gitgutter_override_sign_column_highlight = 1
+
+highlight GitGutterAdd    ctermfg=lightgreen
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+" git next
+nmap gn :GitGutterNextHunk<CR>
+" git previous
+nmap gp :GitGutterPrevHunk<CR>
+" Hunk-add and hunk-revert for chunk staging
+"git add (chunk)
+nmap <Leader>ga :GitGutterStageHunk<CR>
+" git undo (chunk)
+nmap <Leader>gu :GitGutterUndoHunk<CR>
+"set updatetime=250
+
+
+"vimagit
+nnoremap <Leader>gs :Magit<CR>" git status
+" Enable deletion of untracked files in Magit
+let g:magit_discard_untracked_do_delete=1
+
+"vim-fugitive
+" Show commits for every source line
+nnoremap <Leader>gb :Gblame<CR>  " git blame
+"Open current line in the browser
+"nnoremap <Leader>gb :.Gbrowse<CR>
+" Open visual selection in the browser
+"vnoremap <Leader>gb :Gbrowse<CR>
+" Add the entire file to the staging area
+nnoremap <Leader>gaf :Gw<CR>  " git add file
 
 "nerdTree
 let g:NERDTreeNodeDelimiter = "\u00a0"

@@ -43,6 +43,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'jreybert/vimagit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
+Plugin 'bootleq/vim-gitdiffall'
 Plugin 'vim/vim'
 filetype plugin indent on
 colorscheme slate 
@@ -126,7 +127,7 @@ nnoremap <Leader>gs :Magit<CR>" git status
 
 "vim-fugitive
 " Show commits for every source line
-nnoremap <Leader>gb :Gblame<CR>  " git blame
+nnoremap gb:Git blame<CR>  " git blame
 "Open current line in the browser
 "nnoremap <Leader>gb :.Gbrowse<CR>
 " Open visual selection in the browser

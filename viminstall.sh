@@ -4,6 +4,7 @@ sudo apt-get install exuberant-ctags
 sudo apt-get install cscope  
 sudo apt-get install npm
 
+npm install -g diff-so-fancy
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git clone https://github.com/gggga0212/vimsetting.git  
 cd vimsetting 
@@ -26,3 +27,8 @@ cp gitconfig ~/.gitconfig
 #wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O ~/.dircolors
 #vim ~/.dircolors
 
+#To swap Caps Lock and Control.
+#XKBOPTIONS="ctrl:swapcaps"
+
+#To make Caps Lock and additional Control key.
+#XKBOPTIONS="ctrl:nocaps"

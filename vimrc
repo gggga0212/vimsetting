@@ -98,6 +98,10 @@ let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_removed_above_and_below = '{'
 let g:gitgutter_sign_modified_removed = '<'
 let g:gitgutter_override_sign_column_highlight = 1
+"set signcolumn=number
+highlight clear SignColumn
+"highlight SignColumn guibg=darkgrey
+"highlight SignColumn ctermbg=black
 
 "let g:indentLine_setColors = 2 
 "let g:indentLine_defaultGroup = 'SpecialKey'
@@ -127,7 +131,7 @@ nnoremap <Leader>gs :Magit<CR>" git status
 
 "vim-fugitive
 " Show commits for every source line
-nnoremap gb:Git blame<CR>  " git blame
+nnoremap <Leader>gb:Git blame<CR>  " git blame
 "Open current line in the browser
 "nnoremap <Leader>gb :.Gbrowse<CR>
 " Open visual selection in the browser
@@ -319,3 +323,11 @@ let g:rainbow_conf = {
     \   'guifgs' : ['#6A5ACD', '#B22222', '#C0FF3E', '#EEC900', '#9A32CD', '#EE7600', '#98fb98', '#686868'],
     \   'ctermfgs': 'xterm-256color' == $TERM ? ['141', '196', '112', '208', '129', '166', '85', '33'] : ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
     \}
+"git diff New Line
+hi DiffAdd    ctermbg=235  ctermfg=108  guibg=#262626 guifg=#87af87 cterm=reverse gui=reverse
+"git diff Modify Line
+hi DiffChange ctermbg=235  ctermfg=103  guibg=#262626 guifg=#8787af cterm=reverse gui=reverse
+"git diff Delete Line
+hi DiffDelete ctermbg=235  ctermfg=131  guibg=#262626 guifg=#af5f5f cterm=reverse gui=reverse
+"git diff Modify Word
+hi DiffText   ctermbg=235  ctermfg=208  guibg=#262626 guifg=#ff8700 cterm=reverse gui=reverse

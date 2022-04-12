@@ -1,7 +1,14 @@
 "git config --global core.autocrlf false 
 set nocompatible    "be iMproved, required"
 filetype off        "required
-set rtp+=~/.vim/bundle/vundle/
+if has('nvim')
+    let s:editor_root=expand("~/.config/nvim")
+    set rtp+=~/.config/nvim/bundle/vundle/
+else
+    let s:editor_root=expand("~/.vim")
+    set rtp+=~/.vim/bundle/vundle/
+endif
+
 call vundle#rc()
 Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
@@ -45,6 +52,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'bootleq/vim-gitdiffall'
 Plugin 'vim/vim'
+"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+"so ~/.config/nvim/coc-config.vim
+
 filetype plugin indent on
 colorscheme slate 
 syntax on
@@ -131,7 +141,7 @@ nnoremap <Leader>gs :Magit<CR>" git status
 
 "vim-fugitive
 " Show commits for every source line
-nnoremap <Leader>gb:Git blame<CR>  " git blame
+nnoremap <Leader>gb :Git blame<CR>  " git blame
 "Open current line in the browser
 "nnoremap <Leader>gb :.Gbrowse<CR>
 " Open visual selection in the browser
@@ -209,9 +219,14 @@ nmap <C-L> <C-W>l
 "nmap <C-U> <C-W>u:call g:SrcExpl_Jump()<CR>
 "nmap <C-O> <C-W>o:call g:SrcExpl_GoBack()<CR>
 
+if has('nvim')
+    nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
+else    
+    nmap <F2> :tabe ~/.vimrc<CR>
+endif
+nmap <F3> :tabe ~/.gitconfig<CR>
+"nmap <F3> :source ~/.vimrc ~/.config/nvim/init.vim<CR>
 
-nmap <F2> :tabe ~/.vimrc<CR>
-nmap <F3> :source ~/.vimrc<CR>
 nmap <F4> :RainbowToggle<CR>
 "nmap <F5> :cs reset<CR>
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>

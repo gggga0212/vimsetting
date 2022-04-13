@@ -1,6 +1,7 @@
 "git config --global core.autocrlf false 
 set nocompatible    "be iMproved, required"
 filetype off        "required
+
 if has('nvim')
     let s:editor_root=expand("~/.config/nvim")
     set rtp+=~/.config/nvim/bundle/vundle/
@@ -52,8 +53,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'bootleq/vim-gitdiffall'
 Plugin 'vim/vim'
-"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-"so ~/.config/nvim/coc-config.vim
+
+if has('nvim')
+    Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+    "so ~/.config/nvim/coc-config.vim
+    nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
+else
+    nmap <F2> :tabe ~/.vimrc<CR>
+endif
 
 filetype plugin indent on
 colorscheme slate 
@@ -219,11 +226,6 @@ nmap <C-L> <C-W>l
 "nmap <C-U> <C-W>u:call g:SrcExpl_Jump()<CR>
 "nmap <C-O> <C-W>o:call g:SrcExpl_GoBack()<CR>
 
-if has('nvim')
-    nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
-else    
-    nmap <F2> :tabe ~/.vimrc<CR>
-endif
 nmap <F3> :tabe ~/.gitconfig<CR>
 "nmap <F3> :source ~/.vimrc ~/.config/nvim/init.vim<CR>
 

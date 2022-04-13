@@ -29,6 +29,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'https://github.com/nanotech/jellybeans.vim'
 Plugin 'https://github.com/tomasr/molokai'
+Plugin 'hzchirs/vim-material'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'scrooloose/nerdtree'
@@ -202,7 +203,7 @@ nmap cv :<C-U><C-R>=printf("Leaderf! rg -w %s -g *.h -g *.c", expand("<cword>"))
 
 nmap <c-a> :<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>
 map <C-i> :e %:p:s,.H$,.X123X,:s,.C$,.H,:s,.X123X$,.C,<CR>
-
+nnoremap / ms/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                     tagbar setting                         "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

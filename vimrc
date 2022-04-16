@@ -38,8 +38,8 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'wenlongche/SrcExpl'
 Plugin 'BurntSushi/ripgrep'
 Plugin 'ervandew/supertab'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
 Plugin 'sickill/vim-monokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
@@ -63,13 +63,18 @@ if has('nvim')
     Plugin 'nvim-lua/plenary.nvim'
     Plugin 'sindrets/diffview.nvim'
     Plugin 'jwiegley/use-package'
-    Plugin 'wbthomason/packer.nvim'
-    Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+    Plugin 'neovim/neovim'
+    "Plugin 'wbthomason/packer.nvim'
+    "packer
+    lua require('plugins')
+    "source ~/.config/nvim/lua/plugins.lua
+    "lua require('start')
+    "Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "so ~/.config/nvim/coc-config.vim
    
     "vim.cmd [[packadd packer.nvim]]
     "return require('packer').startup(function()     
-    "    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    "   "use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
     "end)
 
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>

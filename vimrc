@@ -10,7 +10,7 @@ else
     set rtp+=~/.vim/bundle/vundle/
 endif
 
-call vundle#rc()
+call vundle#rc(s:editor_root . '/bundle')
 Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/a.vim'
@@ -54,10 +54,24 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'bootleq/vim-gitdiffall'
 Plugin 'vim/vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 if has('nvim')
+    "call 'lua require('plugins')'
+    "Plugin 'https://github.com/f-person/git-blame.nvim'
+    Plugin 'nvim-lua/plenary.nvim'
+    Plugin 'sindrets/diffview.nvim'
+    Plugin 'jwiegley/use-package'
+    Plugin 'wbthomason/packer.nvim'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "so ~/.config/nvim/coc-config.vim
+   
+    "vim.cmd [[packadd packer.nvim]]
+    "return require('packer').startup(function()     
+    "    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    "end)
+
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
 else
     nmap <F2> :tabe ~/.vimrc<CR>

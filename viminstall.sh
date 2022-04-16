@@ -1,15 +1,22 @@
-sudo apt-get install git  
-sudo apt-get install curl  
-sudo apt-get install exuberant-ctags  
-sudo apt-get install cscope  
+sudo apt-get install git
+sudo apt-get install curl
+sudo apt-get install exuberant-ctags
+sudo apt-get install cscope
 sudo apt-get install npm
 
 npm install -g diff-so-fancy
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-git clone https://github.com/gggga0212/vimsetting.git  
-cd vimsetting 
+git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
+git clone https://github.com/gggga0212/vimsetting.git
+cd vimsetting
 cp vimrc ~/.vimrc
+cp vimrc ~/.config/nvim/init.vim
 cp gitconfig ~/.gitconfig
+cp tmux.conf ~/.tmux.conf
+
+#coc.vim
+#cd ~/.config/nvim/bundle/coc.nvim
+#npm install
 
 #fzf
 #cd ~/.vim/bundle/fzf
@@ -23,11 +30,12 @@ cp gitconfig ~/.gitconfig
 #vim ~/.bashrc
 #force_color_prompt=yes
 
-#>>>Show dir colors.
+#>>>Show dir colors
 #wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O ~/.dircolors
 #vim ~/.dircolors
 
 #To swap Caps Lock and Control.
+#/etc/default/keyboard
 #XKBOPTIONS="ctrl:swapcaps"
 
 #To make Caps Lock and additional Control key.

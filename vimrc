@@ -64,13 +64,13 @@ if has('nvim')
     Plugin 'sindrets/diffview.nvim'
     Plugin 'jwiegley/use-package'
     Plugin 'neovim/neovim'
-    "Plugin 'wbthomason/packer.nvim'
-    "packer
-    lua require('plugins')
-    "source ~/.config/nvim/lua/plugins.lua
-    "lua require('start')
+    Plugin 'wbthomason/packer.nvim'
     "Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "so ~/.config/nvim/coc-config.vim
+    "packer
+    lua require('plugins')
+    source ~/.config/nvim/lua/plugins.lua
+    "lua require('start')
    
     "vim.cmd [[packadd packer.nvim]]
     "return require('packer').startup(function()     

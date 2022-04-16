@@ -4,6 +4,7 @@ sudo apt-get install exuberant-ctags
 sudo apt-get install cscope
 sudo apt-get install npm
 sudo apt-get install lua
+sudo apt-get install pip
 
 #npm install -g diff-so-fancy
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -15,6 +16,10 @@ cp vimrc ~/.vimrc
 cp vimrc ~/.config/nvim/init.vim
 cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
+
+cd ~/.config/nvim
+mkdir lua
+#cp plugins.lua ~/.config/nvim/lua/plugins.lua
 
 #coc.vim
 #cd ~/.config/nvim/bundle/coc.nvim
@@ -45,9 +50,14 @@ cp tmux.conf ~/.tmux.conf
 
 #nvim
 #:checkhealth
-
 #nvim ubuntu
 sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt-get update
 sudo apt-get install neovim
-#sudo apt-get install python-dev python-pip python3-dev python3-pip
+sudo apt-get install python-dev python-pip python3-dev python3-pip
+
+#To install nodejs 12.x
+#sudo apt udpate
+#sudo apt -y upgrade
+#sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+#curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -

@@ -39,6 +39,8 @@ cp tmux.conf ~/.tmux.conf
 #:CocInstall coc-json coc-tsserver
 #:CocInstall coc-marketplace
 #:CocList marketplace
+#:checkhealth
+#npm install -g neovim
 
 #packer
 #cp plugins.lua ~/.config/nvim/lua/plugins.lua

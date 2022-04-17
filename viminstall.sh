@@ -1,3 +1,5 @@
+sudo apt udpate
+sudo apt -y upgrade
 sudo apt-get install git
 sudo apt-get install curl
 sudo apt-get install exuberant-ctags
@@ -6,11 +8,24 @@ sudo apt-get install npm
 sudo apt-get install lua
 sudo apt-get install pip
 
+#To install nodejs 12.x
+sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
+#nvim
+#:checkhealth
+#nvim ubuntu
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install neovim
+sudo apt-get install python-dev python-pip python3-dev python3-pip
+
 #npm install -g diff-so-fancy
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
 git clone https://github.com/gggga0212/vimsetting.git
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+pip3 install --user neovim
 cd vimsetting
 cp vimrc ~/.vimrc
 cp vimrc ~/.config/nvim/init.vim
@@ -24,6 +39,7 @@ mkdir lua
 #coc.vim
 #cd ~/.config/nvim/bundle/coc.nvim
 #npm install
+#CocInstall coc-json coc-tsserver
 
 #fzf
 #cd ~/.vim/bundle/fzf
@@ -48,16 +64,3 @@ mkdir lua
 #To make Caps Lock and additional Control key.
 #XKBOPTIONS="ctrl:nocaps"
 
-#nvim
-#:checkhealth
-#nvim ubuntu
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install neovim
-sudo apt-get install python-dev python-pip python3-dev python3-pip
-
-#To install nodejs 12.x
-#sudo apt udpate
-#sudo apt -y upgrade
-#sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-#curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -

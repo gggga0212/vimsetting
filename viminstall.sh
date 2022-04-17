@@ -33,13 +33,13 @@ cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
 
 cd ~/.config/nvim
-mkdir lua
+#mkdir lua
 #cp plugins.lua ~/.config/nvim/lua/plugins.lua
 
 #coc.vim
 #cd ~/.config/nvim/bundle/coc.nvim
 #npm install
-#CocInstall coc-json coc-tsserver
+#:CocInstall coc-json coc-tsserver
 
 #fzf
 #cd ~/.vim/bundle/fzf
@@ -64,3 +64,5 @@ mkdir lua
 #To make Caps Lock and additional Control key.
 #XKBOPTIONS="ctrl:nocaps"
 
+#ubuntu github authentication
+#curl -u username:token https://api.github.com/user

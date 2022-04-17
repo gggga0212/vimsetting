@@ -61,21 +61,16 @@ if has('nvim')
     "call 'lua require('plugins')'
     "Plugin 'https://github.com/f-person/git-blame.nvim'
     Plugin 'nvim-lua/plenary.nvim'
-    Plugin 'sindrets/diffview.nvim'
+    "Plugin 'sindrets/diffview.nvim'
     Plugin 'jwiegley/use-package'
     Plugin 'neovim/neovim'
-    Plugin 'wbthomason/packer.nvim'
-    "Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-    "so ~/.config/nvim/coc-config.vim
+    Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plugin 'wbthomason/packer.nvim'
     "packer
     lua require('plugins')
-    source ~/.config/nvim/lua/plugins.lua
+    "source ~/.config/nvim/lua/plugins.lua
     "lua require('start')
-   
-    "vim.cmd [[packadd packer.nvim]]
-    "return require('packer').startup(function()     
-    "   "use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-    "end)
+    "so ~/.config/nvim/coc-config.vim
 
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
 else

@@ -32,6 +32,7 @@ cp vimrc ~/.vimrc
 cp vimrc ~/.config/nvim/init.vim
 cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
+tmux source-file ~/.tmux.conf
 
 #coc.vim
 #cd ~/.config/nvim/bundle/coc.nvim

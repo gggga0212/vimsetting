@@ -32,8 +32,8 @@ Plugin 'https://github.com/tomasr/molokai'
 Plugin 'hzchirs/vim-material'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jlanzarotta/bufexplorer'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdcommenter'
 Plugin 'BurntSushi/ripgrep'
 "Plugin 'ervandew/supertab'
 "Plugin 'SirVer/ultisnips'
@@ -62,7 +62,7 @@ if has('nvim')
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
     lua require('plugins')
-
+    nmap <space>e <Cmd>CocCommand explorer<CR>
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
 else
     nmap <F2> :tabe ~/.vimrc<CR>
@@ -242,7 +242,7 @@ nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.h
   \:cs reset<CR>
 nmap <F7> :LeaderfSelf<CR>
 nmap <F8> :TrinityToggleTagList<CR>
-nmap <F9> :TrinityToggleNERDTree<CR>
+"nmap <F9> :TrinityToggleNERDTree<CR>
 nmap <F12> :tabe ~/.config/nvim/lua/plugins.lua<CR>
 "nmap <F10> :SrcExplToggle<CR>
 "nmap <F11> :TagbarToggle<CR>
@@ -339,16 +339,10 @@ hi DiffDelete ctermbg=235  ctermfg=131  guibg=#262626 guifg=#af5f5f cterm=revers
 "git diff Modify Word
 hi DiffText   ctermbg=235  ctermfg=208  guibg=#262626 guifg=#ff8700 cterm=reverse gui=reverse
 
-"coc
-"let g:markdown_fenced_languages = [
-"    \ 'vim',
-"    \ 'help'
-"    \]
-
+if has('nvim')
 "coc.nvim setting start >>
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
-set encoding=utf-8
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -513,3 +507,66 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 "coc.nvim setting end <<
+endif
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                coc-explorer                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('nvim')
+let g:coc_explorer_global_presets = {
+    \   '.vim': {
+    \     'root-uri': '~/.config/nvim',
+    \   },
+    \   'cocConfig': {
+    \      'root-uri': '~/.config/coc',
+    \   },
+    \   'tab': {
+    \     'position': 'tab',
+    \     'quit-on-open': v:true,
+    \   },
+    \   'tab:$': {
+    \     'position': 'tab:$',
+    \     'quit-on-open': v:true,
+    \   },
+    \   'floating': {
+    \     'position': 'floating',
+    \     'open-action-strategy': 'sourceWindow',
+    \   },
+    \   'floatingTop': {
+    \     'position': 'floating',
+    \     'floating-position': 'center-top',
+    \     'open-action-strategy': 'sourceWindow',
+    \   },
+    \   'floatingLeftside': {
+    \     'position': 'floating',
+    \     'floating-position': 'left-center',
+    \     'floating-width': 50,
+    \     'open-action-strategy': 'sourceWindow',
+    \   },
+    \   'floatingRightside': {
+    \     'position': 'floating',
+    \     'floating-position': 'right-center',
+    \     'floating-width': 50,
+    \     'open-action-strategy': 'sourceWindow',
+    \   },
+    \   'simplify': {
+    \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+    \   },
+    \   'buffer': {
+    \     'sources': [{'name': 'buffer', 'expand': v:true}]
+    \   },
+    \ }
+
+" Use preset argument to open it
+nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
+nmap <space>ef <Cmd>CocCommand explorer --preset floating<CR>
+nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftsidg<CR>
+nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
+nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
+
+" List all presets
+nmap <space>el <Cmd>CocList explPresets<CR>
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                aaaaaaaaaaaa                                "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

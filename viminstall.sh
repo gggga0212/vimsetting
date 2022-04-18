@@ -11,7 +11,7 @@ sudo apt-get install pip
 #To install nodejs 12.x
 sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-
+sudo apt-get install -y nodejs
 #nvim
 #:checkhealth
 #nvim ubuntu
@@ -36,6 +36,8 @@ cp tmux.conf ~/.tmux.conf
 #coc.vim
 #cd ~/.config/nvim/bundle/coc.nvim
 #npm install
+#npm build
+
 #:CocInstall coc-json coc-tsserver
 #:CocInstall coc-marketplace
 #:CocList marketplace

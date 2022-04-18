@@ -36,8 +36,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'BurntSushi/ripgrep'
 "Plugin 'ervandew/supertab'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
 Plugin 'sickill/vim-monokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
@@ -61,7 +61,7 @@ if has('nvim')
     Plugin 'neovim/neovim'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
-    "lua require('plugins')
+    lua require('plugins')
 
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
 else

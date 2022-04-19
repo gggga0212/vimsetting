@@ -24,7 +24,7 @@ sudo apt-get install python-dev python-pip python3-dev python3-pip
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
 git clone https://github.com/gggga0212/vimsetting.git
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+#git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 #pip3 install --user neovim
 
 cd vimsetting
@@ -62,7 +62,7 @@ tmux source-file ~/.tmux.conf
 #force_color_prompt=yes
 
 #>>>Show dir colors
-wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O ~/.dircolors
+#wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O ~/.dircolors
 #vim ~/.dircolors
 
 #To swap Caps Lock and Control.

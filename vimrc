@@ -45,7 +45,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
 "Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 Plugin 'luochen1990/rainbow'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 Plugin 'jreybert/vimagit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
@@ -559,8 +559,8 @@ let g:coc_explorer_global_presets = {
 
 " Use preset argument to open it
 nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
-nmap <space>ef <Cmd>CocCommand explorer --preset floating<CR>
-nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftsidg<CR>
+nmap <space>ef <Cmd>CocCommand explorer --preset simplify<CR>
+nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftside<CR>
 nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
 nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 

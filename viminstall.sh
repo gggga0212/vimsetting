@@ -9,8 +9,6 @@ sudo apt-get install npm
 sudo apt-get install lua
 sudo apt-get install pip
 sudo apt-get install zsh
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # clone the package
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -29,7 +27,6 @@ sudo apt-get install python-dev python-pip python3-dev python3-pip
 #npm install -g diff-so-fancy
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
-git clone https://github.com/gggga0212/vimsetting.git
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 #pip3 install --user neovim
 cd vimsetting
@@ -39,12 +36,14 @@ cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
 
 # zsh scheme 
-git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
-echo 'source  ~/powerlevel9k/powerlevel9k.zsh-theme' >> ~/.zshrc
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 #coc.vim
 #cd ~/.config/nvim/bundle/coc.nvim
 #npm install
-#npm build
+#npm run-script build
 
 #:CocInstall coc-json coc-tsserver
 #:CocInstall coc-marketplace

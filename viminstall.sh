@@ -52,23 +52,22 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 #source ~/.zshrc
 sudo apt-get install cmatrix
 
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#packer
+mkdir ~/.config/nvim/lua
+cp plugins.lua ~/.config/nvim/lua/plugins.lua
 
 #coc.vim
 cd ~/.config/nvim/bundle/coc.nvim
 npm install
 npm run-script build
 
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 #:CocInstall coc-json coc-tsserver
 #:CocInstall coc-marketplace
 #:CocList marketplace
 #:checkhealth
 #npm install -g neovim
-
-#packer
-#cp plugins.lua ~/.config/nvim/lua/plugins.lua
-
 
 #fzf
 #cd ~/.vim/bundle/fzf

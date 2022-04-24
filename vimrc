@@ -36,8 +36,8 @@ Plugin 'jlanzarotta/bufexplorer'
 "Plugin 'scrooloose/nerdcommenter'
 Plugin 'BurntSushi/ripgrep'
 "Plugin 'ervandew/supertab'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'sickill/vim-monokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
@@ -50,15 +50,12 @@ Plugin 'jreybert/vimagit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'bootleq/vim-gitdiffall'
-Plugin 'vim/vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 if has('nvim')
-    "call 'lua require('plugins')'
     "Plugin 'https://github.com/f-person/git-blame.nvim'
     "Plugin 'jwiegley/use-package'
-    "Plugin 'neovim/neovim'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
     lua require('plugins')

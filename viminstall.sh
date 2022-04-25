@@ -1,15 +1,29 @@
-#sudo apt udpate
-#sudo apt -y upgrade
-#sudo apt-get install git
-sudo apt-get install fonts-powerline
-sudo apt-get install curl
-sudo apt-get install exuberant-ctags
-sudo apt-get install cscope
-sudo apt-get install npm
-sudo apt-get install lua
-sudo apt-get install pip
-sudo apt-get install zsh
-sudo apt-get install gcc g++ make
+sudo apt udpate
+sudo apt -y upgrade
+sudo apt-get install -y git
+
+#nvim ubuntu
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install -y neovim
+#sudo apt-get install python-dev python-pip python3-dev python3-pip
+#pip3 install --user neovim
+cp vimrc ~/.vimrc
+cp vimrc ~/.config/nvim/init.vim
+cp gitconfig ~/.gitconfig
+cp tmux.conf ~/.tmux.conf
+tmux source-file ~/.tmux.conf
+
+sudo apt-get install -y fonts-powerline
+sudo apt-get install -y curl
+sudo apt-get install -y exuberant-ctags
+sudo apt-get install -y cscope
+sudo apt-get install -y npm
+sudo apt-get install -y lua
+sudo apt-get install -y pip
+sudo apt-get install -y zsh
+sudo apt-get install -y gcc g++ make
+
 
 # clone the package
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -22,23 +36,10 @@ sudo apt-get update && sudo apt-get install yarn
 #sudo apt-get install -y nodejs
 #nvim
 #:checkhealth
-#nvim ubuntu
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install neovim
-#sudo apt-get install python-dev python-pip python3-dev python3-pip
-
-npm install -g diff-so-fancy
 
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-#pip3 install --user neovim
-cp vimrc ~/.vimrc
-cp vimrc ~/.config/nvim/init.vim
-cp gitconfig ~/.gitconfig
-cp tmux.conf ~/.tmux.conf
-tmux source-file ~/.tmux.conf
 #zsh
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -50,7 +51,7 @@ git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 #echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 #source ~/.zshrc
-sudo apt-get install cmatrix
+sudo apt-get install -y cmatrix
 
 #packer
 mkdir ~/.config/nvim/lua
@@ -61,6 +62,7 @@ cd ~/.config/nvim/bundle/coc.nvim
 npm install
 npm run-script build
 
+npm install -g diff-so-fancy
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 #:CocInstall coc-json coc-tsserver

@@ -1,11 +1,11 @@
-sudo apt udpate
-sudo apt -y upgrade
-sudo apt-get install -y git
+#sudo apt udpate
+#sudo apt -y upgrade
+#sudo apt-get install -y git
 
 #nvim ubuntu
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install -y neovim
+#sudo add-apt-repository ppa:neovim-ppa/stable
+#sudo apt-get update
+#sudo apt-get install -y neovim
 #sudo apt-get install python-dev python-pip python3-dev python3-pip
 #pip3 install --user neovim
 cp vimrc ~/.vimrc
@@ -14,15 +14,15 @@ cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
 tmux source-file ~/.tmux.conf
 
-sudo apt-get install -y fonts-powerline
-sudo apt-get install -y curl
-sudo apt-get install -y exuberant-ctags
-sudo apt-get install -y cscope
-sudo apt-get install -y npm
-sudo apt-get install -y lua
-sudo apt-get install -y pip
-sudo apt-get install -y zsh
-sudo apt-get install -y gcc g++ make
+sudo apt-get install fonts-powerline
+sudo apt-get install curl
+sudo apt-get install exuberant-ctags
+sudo apt-get install cscope
+sudo apt-get install npm
+sudo apt-get install lua
+sudo apt-get install pip
+sudo apt-get install zsh
+sudo apt-get install gcc g++ make
 
 
 # clone the package
@@ -33,7 +33,7 @@ curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /us
 echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get update && sudo apt-get install yarn
-#sudo apt-get install -y nodejs
+sudo apt-get install -y nodejs
 #nvim
 #:checkhealth
 

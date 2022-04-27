@@ -45,7 +45,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
 "Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 Plugin 'luochen1990/rainbow'
-"Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'jreybert/vimagit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
@@ -58,6 +58,7 @@ if has('nvim')
     "Plugin 'jwiegley/use-package'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
+    Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     lua require('plugins')
     nmap <space>e <Cmd>CocCommand explorer<CR>
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
@@ -239,10 +240,21 @@ nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.h
   \:cs reset<CR>
 nmap <F7> :LeaderfSelf<CR>
 nmap <F8> :TrinityToggleTagList<CR>
+nmap <F9> :TagbarToggle<CR>
 "nmap <F9> :TrinityToggleNERDTree<CR>
 nmap <F12> :tabe ~/.config/nvim/lua/plugins.lua<CR>
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+
 "nmap <F10> :SrcExplToggle<CR>
-"nmap <F11> :TagbarToggle<CR>
 
 "let g:SrcExpl_pluginList = [
 "    \ "__Tag_List__",

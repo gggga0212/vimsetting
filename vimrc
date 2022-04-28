@@ -60,8 +60,10 @@ if has('nvim')
     "packer
     Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     lua require('plugins')
+    lua require('lsp/setup')
     nmap <space>e <Cmd>CocCommand explorer<CR>
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
+    nmap <F3> :tabe ~/.config/nvim/lua/plugins.lua<CR>
 else
     nmap <F2> :tabe ~/.vimrc<CR>
 endif
@@ -230,7 +232,7 @@ nmap <C-L> <C-W>l
 "nmap <C-U> <C-W>u:call g:SrcExpl_Jump()<CR>
 "nmap <C-O> <C-W>o:call g:SrcExpl_GoBack()<CR>
 
-nmap <F3> :tabe ~/.gitconfig<CR>
+"nmap <F3> :tabe ~/.gitconfig<CR>
 "nmap <F3> :source ~/.vimrc ~/.config/nvim/init.vim<CR>
 
 nmap <F4> :RainbowToggle<CR>

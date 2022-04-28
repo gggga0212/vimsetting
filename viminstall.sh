@@ -3,17 +3,24 @@
 #sudo apt-get install -y git
 
 #nvim ubuntu
-#sudo add-apt-repository ppa:neovim-ppa/stable
-#sudo apt-get update
-#sudo apt-get install -y neovim
-#sudo apt-get install python-dev python-pip python3-dev python3-pip
-#pip3 install --user neovim
+wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
+sudo apt install ./nvim-linux64.deb
+
+# Using Ubuntu nodejs 18.x
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
+#cp
 cp vimrc ~/.vimrc
 cp vimrc ~/.config/nvim/init.vim
 cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
 tmux source-file ~/.tmux.conf
 
+#packer
+mkdir ~/.config/nvim/lua
+cp plugins.lua ~/.config/nvim/lua/plugins.lua
+
+#sudo install
 sudo apt-get install fonts-powerline
 sudo apt-get install curl
 sudo apt-get install exuberant-ctags
@@ -27,14 +34,7 @@ sudo apt-get install gcc g++ make
 
 # clone the package
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-#To install nodejs 12.x
-sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
-echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get update && sudo apt-get install yarn
-sudo apt-get install -y nodejs
-#nvim
+
 #:checkhealth
 
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -53,9 +53,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 #source ~/.zshrc
 sudo apt-get install -y cmatrix
 
-#packer
-mkdir ~/.config/nvim/lua
-cp plugins.lua ~/.config/nvim/lua/plugins.lua
 
 #coc.vim
 cd ~/.config/nvim/bundle/coc.nvim
@@ -96,3 +93,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 #ubuntu github authentication
 #curl -u username:token https://api.github.com/user
+
+#LSP
+#npm install -g typescript-language-server
+#:LspInstallInfo
+

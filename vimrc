@@ -52,15 +52,14 @@ Plugin 'tpope/vim-rhubarb'
 Plugin 'bootleq/vim-gitdiffall'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'voldikss/vim-floaterm'
 
 if has('nvim')
     "Plugin 'https://github.com/f-person/git-blame.nvim'
     "Plugin 'jwiegley/use-package'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
-    Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     lua require('plugins')
-    lua require('lsp/setup')
     nmap <space>e <Cmd>CocCommand explorer<CR>
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
     nmap <F3> :tabe ~/.config/nvim/lua/plugins.lua<CR>
@@ -236,6 +235,7 @@ nmap <C-L> <C-W>l
 "nmap <F3> :source ~/.vimrc ~/.config/nvim/init.vim<CR>
 
 nmap <F4> :RainbowToggle<CR>
+nmap <F5> :FloatermNew<CR>
 "nmap <F5> :cs reset<CR>
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
   \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
@@ -245,17 +245,10 @@ nmap <F8> :TrinityToggleTagList<CR>
 nmap <F9> :TagbarToggle<CR>
 "nmap <F9> :TrinityToggleNERDTree<CR>
 nmap <F12> :tabe ~/.config/nvim/lua/plugins.lua<CR>
+
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-
+nnoremap cm :<C-U><C-R>=printf("Telescope")<CR> 
+"nmap cm :<C-U><C-R>=printf("Telescope ")<CR>
 "nmap <F10> :SrcExplToggle<CR>
 
 "let g:SrcExpl_pluginList = [
@@ -579,5 +572,14 @@ nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 nmap <space>el <Cmd>CocList explPresets<CR>
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                aaaaaaaaaaaa                                "
+"                                checkhealth
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                hi Pmenu
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"hi Pmenu ctermbg=black ctermfg=white
+hi Pmenu ctermbg=240 ctermfg=white

@@ -32,8 +32,6 @@ Plugin 'https://github.com/tomasr/molokai'
 Plugin 'hzchirs/vim-material'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jlanzarotta/bufexplorer'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/nerdcommenter'
 Plugin 'BurntSushi/ripgrep'
 "Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
@@ -43,7 +41,6 @@ Plugin 'morhetz/gruvbox'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
-"Plugin 'haolongzhangm/auto_update_cscope_ctags_database'
 Plugin 'luochen1990/rainbow'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jreybert/vimagit'
@@ -53,6 +50,7 @@ Plugin 'bootleq/vim-gitdiffall'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'voldikss/vim-floaterm'
+Plugin 'kdheepak/lazygit.nvim'
 
 if has('nvim')
     "Plugin 'https://github.com/f-person/git-blame.nvim'
@@ -120,10 +118,6 @@ let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_removed_above_and_below = '{'
 let g:gitgutter_sign_modified_removed = '<'
 let g:gitgutter_override_sign_column_highlight = 1
-"set signcolumn=number
-highlight clear SignColumn
-"highlight SignColumn guibg=darkgrey
-"highlight SignColumn ctermbg=black
 
 "let g:indentLine_setColors = 2 
 "let g:indentLine_defaultGroup = 'SpecialKey'
@@ -145,7 +139,6 @@ nmap <Leader>ga :GitGutterStageHunk<CR>
 nmap <Leader>gu :GitGutterUndoHunk<CR>
 "set updatetime=250
 
-
 "vimagit
 nnoremap <Leader>gs :Magit<CR>" git status
 " Enable deletion of untracked files in Magit
@@ -160,9 +153,6 @@ nnoremap <Leader>gb :Git blame<CR>  " git blame
 "vnoremap <Leader>gb :Gbrowse<CR>
 " Add the entire file to the staging area
 nnoremap <Leader>gaf :Gw<CR>  " git add file
-
-"nerdTree
-let g:NERDTreeNodeDelimiter = "\u00a0"
 
 "gtags setting
 let $GTAGSLABEL = 'native-pygments'
@@ -235,14 +225,17 @@ nmap <C-L> <C-W>l
 "nmap <F3> :source ~/.vimrc ~/.config/nvim/init.vim<CR>
 
 nmap <F4> :RainbowToggle<CR>
-nmap <F5> :FloatermNew<CR>
+"nmap <F5> :FloatermNew<CR>
 "nmap <F5> :cs reset<CR>
+nnoremap   <silent>   <F5>   :FloatermToggle<CR>
+tnoremap   <silent>   <F5>   <C-\><C-n>:FloatermToggle<CR>
+
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
   \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
   \:cs reset<CR>
 nmap <F7> :LeaderfSelf<CR>
-nmap <F8> :TrinityToggleTagList<CR>
-nmap <F9> :TagbarToggle<CR>
+"nmap <F8> :TrinityToggleTagList<CR>
+nmap <F8> :TagbarToggle<CR>
 "nmap <F9> :TrinityToggleNERDTree<CR>
 nmap <F12> :tabe ~/.config/nvim/lua/plugins.lua<CR>
 
@@ -358,21 +351,15 @@ set nowritebackup
 " Give more space for displaying messages.
 set cmdheight=2
 
+"yes or number
+set signcolumn=yes
+
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -562,9 +549,10 @@ let g:coc_explorer_global_presets = {
     \ }
 
 " Use preset argument to open it
+"nmap <space>ef <Cmd>CocCommand explorer --preset simplify<CR>
+"nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftside<CR>
+nmap <space>ef <Cmd>Neotree<CR>
 nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
-nmap <space>ef <Cmd>CocCommand explorer --preset simplify<CR>
-nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftside<CR>
 nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
 nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 
@@ -583,3 +571,25 @@ let g:loaded_perl_provider = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "hi Pmenu ctermbg=black ctermfg=white
 hi Pmenu ctermbg=240 ctermfg=white
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                  hightlight that moves with the cursor
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set cursorline
+set cursorcolumn
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                  floaterm
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <space>ft <Cmd>FloatermNew<CR>
+nmap <space>fn <Cmd>FloatermNext<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"               setup mapping to call :LazyGit
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>gg :LazyGit<CR>

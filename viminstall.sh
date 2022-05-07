@@ -2,6 +2,12 @@
 #sudo apt -y upgrade
 #sudo apt-get install -y git
 
+#sudo apt-get install tmux
+#sudo apt-get install zsh
+
+# oh-my-zsh
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 #nvim ubuntu
 wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
 sudo apt install ./nvim-linux64.deb
@@ -28,10 +34,15 @@ sudo apt-get install cscope
 sudo apt-get install npm
 sudo apt-get install lua
 sudo apt-get install pip
-sudo apt-get install zsh
 sudo apt-get install gcc g++ make
+sudo apt-get install tree
+sudo apt-get install fzf
+sudo apt-get install ripgrep
+sudo apt-get install python
+sudo apt-get install python3
+sudo apt install fd-find
 
-
+pip install pynvim --upgrade
 # clone the package
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -60,13 +71,19 @@ npm install
 npm run-script build
 
 npm install -g diff-so-fancy
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#lazygit
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get install lazygit
+
+# nvim comment
+mkdir -p ~/.local/share/nvim/site/pack/plugins/start 
+cd ~/.local/share/nvim/site/pack/plugins/start
+git clone https://github.com/terrortylor/nvim-comment
 #:CocInstall coc-json coc-tsserver
 #:CocInstall coc-marketplace
 #:CocList marketplace
 #:checkhealth
-#npm install -g neovim
+#:PackerSync
 
 #fzf
 #cd ~/.vim/bundle/fzf

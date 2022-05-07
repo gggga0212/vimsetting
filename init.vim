@@ -53,22 +53,17 @@ Plugin 'voldikss/vim-floaterm'
 Plugin 'kdheepak/lazygit.nvim'
 
 if has('nvim')
+    "Plugin 'https://github.com/f-person/git-blame.nvim'
+    "Plugin 'jwiegley/use-package'
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
-    lua require('plugins') 
-
+    lua require('plugins')
+    nmap <space>e <Cmd>CocCommand explorer<CR>
     nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
     nmap <F3> :tabe ~/.config/nvim/lua/plugins.lua<CR>
 else
     nmap <F2> :tabe ~/.vimrc<CR>
 endif
-    nmap <F4> :RainbowToggle<CR>
-    "<F5>
-    nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
-      \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
-      \:cs reset<CR>
-    nmap <F7> :LeaderfSelf<CR>
-    nmap <F8> :TagbarToggle<CR>
 
 filetype plugin indent on
 colorscheme slate 
@@ -144,6 +139,20 @@ nmap <Leader>ga :GitGutterStageHunk<CR>
 nmap <Leader>gu :GitGutterUndoHunk<CR>
 "set updatetime=250
 
+"vimagit
+nnoremap <Leader>gs :Magit<CR>" git status
+" Enable deletion of untracked files in Magit
+"let g:magit_discard_untracked_do_delete=1
+
+"vim-fugitive
+" Show commits for every source line
+nnoremap <Leader>gb :Git blame<CR>  " git blame
+"Open current line in the browser
+"nnoremap <Leader>gb :.Gbrowse<CR>
+" Open visual selection in the browser
+"vnoremap <Leader>gb :Gbrowse<CR>
+" Add the entire file to the staging area
+nnoremap <Leader>gaf :Gw<CR>  " git add file
 
 "gtags setting
 let $GTAGSLABEL = 'native-pygments'
@@ -209,27 +218,66 @@ nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j	
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
+"nmap <C-U> <C-W>u:call g:SrcExpl_Jump()<CR>
+"nmap <C-O> <C-W>o:call g:SrcExpl_GoBack()<CR>
 
-nmap <C-Up> :resize -2<CR> 
-nmap <C-Down> :resize +2<CR>
-nmap <C-Left> :vertical resize -2<CR>
-nmap <C-Right> :vertical resize +2<CR>
+"nmap <F3> :tabe ~/.gitconfig<CR>
+"nmap <F3> :source ~/.vimrc ~/.config/nvim/init.vim<CR>
 
-" Stay in indent mode
-vmap > >gv
-vmap < <gv
+nmap <F4> :RainbowToggle<CR>
+"nmap <F5> :FloatermNew<CR>
 
-" Move text up and down
-vmap <A-j> :m.+1<CR>==
-vmap <A-k> :m.-2<CR>==
+nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+  \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
+  \:cs reset<CR>
+nmap <F7> :LeaderfSelf<CR>
+"nmap <F8> :TrinityToggleTagList<CR>
+nmap <F8> :TagbarToggle<CR>
+"nmap <F9> :TrinityToggleNERDTree<CR>
+nmap <F12> :tabe ~/.config/nvim/lua/plugins.lua<CR>
 
-" Visual Block
-" Move text up and down
-xmap J :move '>+1<CR>gv-gv
-xmap K :move '<-1<CR>gv-gv
-xmap <A-j> :move '>+1<CR>gv-gv
-xmap <A-k> :move '<-2<CR>gv-gv
+"nmap <F10> :SrcExplToggle<CR>
 
+"let g:SrcExpl_pluginList = [
+"    \ "__Tag_List__",
+"    \ "_NERD_tree_",
+"    \ "Source_Explorer"
+"    \]
+"let g:SrcExpl_colorSchemeList = [
+"    \ "Red",
+"    \ "Cyan",
+"    \ "Green",
+"    \ "Yellow",
+"    \ "Magenta"
+"    \]
+"" Enable/Disable the local definition searching, and note that this is not  
+"" guaranteed to work, the Source Explorer doesn't check the syntax for now. 
+"" It only searches for a match with the keyword according to command 'gd'   
+"let g:SrcExpl_searchLocalDef = 1
+"" Do not let the Source Explorer update the tags file when opening          
+"let g:SrcExpl_isUpdateTags = 0
+"" Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to 
+"" create/update a tags file                                                
+"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R" 
+""let g:SrcExpl_updateTagsCmd = "ctags -L cscope.files"
+"" Set "<F3>" key for displaying the previous definition in the jump list    
+" let g:SrcExpl_prevDefKey = "<F3>"
+"" Set "<F4>" key for displaying the next definition in the jump list        
+" let g:SrcExpl_nextDefKey = "<F4>"
+" " Set "<F12>" key for updating the tags file artificially                   
+"let g:SrcExpl_updateTagsKey = "<F12>"
+"
+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                ctrlp-funky                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nnoremap <Leader>fu :CtrlPFunky<Cr>
+"" narrow the list down with a word under cursor
+"nnoremap <Leader>uu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+"let g:ctrlp_funky_syntax_highlight = 1
+"let g:ctrlp_extensions = ['funky']
+"let g:ctrlp_funky_matchtype = 'path'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -481,7 +529,6 @@ let g:coc_explorer_global_presets = {
 " Use preset argument to open it
 "nmap <space>ef <Cmd>CocCommand explorer --preset simplify<CR>
 "nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftside<CR>
-nmap <space>e <Cmd>CocCommand explorer<CR>
 nmap <space>ef <Cmd>Neotree<CR>
 nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
 nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
@@ -490,6 +537,21 @@ nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 " List all presets
 nmap <space>el <Cmd>CocList explPresets<CR>
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                keymaps
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Stay in indent magit_discard_untracked_do_delete
+vmap < <gv
+vmap > >gv
+"Move text up and down
+vmap <A-j> :m .+1<CR>==
+vmap <A-k> :m .-2<CR>==
+"Move text up and down
+xmap J :move '>+1<CR>gv-gv
+xmap K :move '<-2<CR>gv-gv
+
+xmap <A-j> :move '>+1<CR>gv-gv
+xmap <A-k> :move '<-2<CR>gv-gv
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                checkhealth
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -503,6 +565,14 @@ let g:loaded_perl_provider = 0
 "hi Pmenu ctermbg=black ctermfg=white
 hi Pmenu ctermbg=240 ctermfg=white
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                  hightlight that moves with the cursor
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set cursorline
+set cursorcolumn
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    ctrlp setting                           "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -519,51 +589,31 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
-"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                ctrlp-funky                                 "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"nnoremap <Leader>fu :CtrlPFunky<Cr>
-"" narrow the list down with a word under cursor
-"nnoremap <Leader>uu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-"let g:ctrlp_funky_syntax_highlight = 1
-"let g:ctrlp_extensions = ['funky']
-"let g:ctrlp_funky_matchtype = 'path'
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                  hightlight that moves with the cursor
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cursorline
-set cursorcolumn
-"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-"hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                 vimagit
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <space>gb :Git blame<CR>
-nmap <space>gs :Magit<CR>
-nmap <space>ga :Gw<CR>  " git add file
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  floaterm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap   <silent>   <space>ft    :FloatermNew<CR>
-tnoremap   <silent>   <space>ft    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <space>fp    :FloatermPrev<CR>
-tnoremap   <silent>   <space>fp    <C-\><C-n>:FloatermPrev<CR>
-nnoremap   <silent>   <space>fn    :FloatermNext<CR>
-tnoremap   <silent>   <space>fn    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <space>ff    :FloatermToggle<CR>
-tnoremap   <silent>   <space>ff    <C-\><C-n>:FloatermToggle<CR>
+nnoremap <space>ff :FloatermToggle<CR>
+tnoremap <space>ff <C-\><C-n>:FloatermToggle<CR>
 
+nnoremap <space>ft :FloatermNew<CR>
+tnoremap <space>ft <C-\><C-n>:FloatermNew<CR>
+
+nnoremap <space>fn :FloatermNext<CR>
+tnoremap <space>fn <C-\><C-n>:FloatermNext<CR>
+
+nnoremap <space>fp :FloatermPrev<CR>
+tnoremap <space>fp <C-\><C-n>:FloatermPrev<CR>
+
+nmap <space>fs <Cmd>so %<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               setup mapping to call :LazyGit
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <space>tg <Cmd>LazyGit<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               Telescope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <space>tf <Cmd>Telescope find_files<CR>
 nmap <space>tt <Cmd>Telescope treesitter<CR>
-nmap <space>ts :<C-U><C-R>=printf("Telescope ")<CR>
+nnoremap tm :<C-U><C-R>=printf("Telescope")<CR> 

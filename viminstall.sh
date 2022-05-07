@@ -17,7 +17,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 #cp
 cp vimrc ~/.vimrc
-cp vimrc ~/.config/nvim/init.vim
+cp init.vim ~/.config/nvim/init.vim
 cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
 tmux source-file ~/.tmux.conf

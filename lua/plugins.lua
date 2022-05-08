@@ -18,15 +18,18 @@ return require('packer').startup(function(use)
         config = function()
         require("telescope").load_extension("lazygit")
         end,})
-     use { "nvim-neo-tree/neo-tree.nvim",
-         branch = "v2.x",
-         requires = { 
-         "nvim-lua/plenary.nvim",
-         "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-         "MunifTanjim/nui.nvim"}}
-     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-     use {'terrortylor/nvim-comment', require('nvim_comment').setup()}
-
+    use {'lewis6991/gitsigns.nvim',
+        config = function()
+        require('gitsigns').setup()
+        end}
+    use { "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = { 
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim"}}
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'terrortylor/nvim-comment', require('nvim_comment').setup()}
  -- todo
      use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
   if packer_bootstrap then

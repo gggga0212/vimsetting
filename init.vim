@@ -21,7 +21,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Yggdroot/LeaderF',{'d':'./install.sh'}
 Plugin 'Yggdroot/indentLine'
-"Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'wesleyche/Trinity'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/taglist.vim'
@@ -42,7 +42,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Lokaltog/powerline-fonts.git'
 Plugin 'luochen1990/rainbow'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 Plugin 'jreybert/vimagit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
@@ -56,8 +56,7 @@ if has('nvim')
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
     lua require('plugins') 
-
-    nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
+nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
     nmap <F3> :tabe ~/.config/nvim/lua/plugins.lua<CR>
 else
     nmap <F2> :tabe ~/.vimrc<CR>
@@ -68,7 +67,6 @@ endif
       \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
       \:cs reset<CR>
     nmap <F7> :LeaderfSelf<CR>
-    nmap <F8> :TagbarToggle<CR>
 
 filetype plugin indent on
 colorscheme slate 
@@ -97,9 +95,6 @@ set nocsverb
 " set status line
 set laststatus=2
 set t_Co=256
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
 
 let g:airline_powerline_fonts = 1  
 " supportted powerline front
@@ -116,13 +111,13 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
 
 "Vim-gitgutter
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '>'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '^'
-let g:gitgutter_sign_removed_above_and_below = '{'
-let g:gitgutter_sign_modified_removed = '<'
-let g:gitgutter_override_sign_column_highlight = 1
+"let g:gitgutter_sign_added = '+'
+"let g:gitgutter_sign_modified = '>'
+"let g:gitgutter_sign_removed = '-'
+"let g:gitgutter_sign_removed_first_line = '^'
+"let g:gitgutter_sign_removed_above_and_below = '{'
+"let g:gitgutter_sign_modified_removed = '<'
+"let g:gitgutter_override_sign_column_highlight = 1
 
 "let g:indentLine_setColors = 2 
 "let g:indentLine_defaultGroup = 'SpecialKey'
@@ -130,18 +125,15 @@ let g:gitgutter_override_sign_column_highlight = 1
 "let g:indentLine_char = 'c'
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-highlight GitGutterAdd    ctermfg=lightgreen
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
-" git next
-nmap gn :GitGutterNextHunk<CR>
-" git previous
-nmap gp :GitGutterPrevHunk<CR>
+" highlight GitGutterAdd    ctermfg=lightgreen
+" highlight GitGutterChange ctermfg=yellow
+" highlight GitGutterDelete ctermfg=red
+
 " Hunk-add and hunk-revert for chunk staging
 "git add (chunk)
-nmap <Leader>ga :GitGutterStageHunk<CR>
+"nmap <Leader>ga :GitGutterStageHunk<CR>
 " git undo (chunk)
-nmap <Leader>gu :GitGutterUndoHunk<CR>
+"nmap <Leader>gu :GitGutterUndoHunk<CR>
 "set updatetime=250
 
 
@@ -177,8 +169,7 @@ nmap ct :cs find t <C-R>=expand("<cword>")<CR><CR>
 " e: Find this grep pattern.
 nmap ce :cs find e <C-R>=expand("<cword>")<CR><CR>
 " f: Find this file.
-nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
-" i: Find files #including this file.
+nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR> i: Find files #including this file.
 nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " d: Find functions called by this function.
 nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
@@ -188,6 +179,11 @@ nmap cv :<C-U><C-R>=printf("Leaderf! rg -w %s -g *.h -g *.c", expand("<cword>"))
 
 nmap <c-a> :<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>
 map <C-i> :e %:p:s,.H$,.X123X,:s,.C$,.H,:s,.X123X$,.C,<CR>
+
+" nnoremap * 
+"     \ :exec("cs find s ".expand("<cword>"))<CR> 
+"     \ :copen<CR> 
+
 nnoremap / ms/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                     tagbar setting                         "
@@ -271,8 +267,7 @@ if has('nvim')
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 
-" TextEdit might fail if hidden is not set.
-set hidden
+" TextEdit might fail if hidden is not set. set hidden
 
 " Some servers have issues with backup files, see #649.
 set nobackup
@@ -482,13 +477,11 @@ let g:coc_explorer_global_presets = {
 "nmap <space>ef <Cmd>CocCommand explorer --preset simplify<CR>
 "nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftside<CR>
 nmap <space>e <Cmd>CocCommand explorer<CR>
-nmap <space>ef <Cmd>Neotree<CR>
-nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
+nmap <space>ev <Cmd>CocCommand explorer --preset .vim<CR>
 nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
 nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
-
-" List all presets
 nmap <space>el <Cmd>CocList explPresets<CR>
+
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                checkhealth
@@ -524,12 +517,12 @@ let g:ctrlp_follow_symlinks=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                ctrlp-funky                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <Leader>fu :CtrlPFunky<Cr>
 "" narrow the list down with a word under cursor
-"nnoremap <Leader>uu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-"let g:ctrlp_funky_syntax_highlight = 1
-"let g:ctrlp_extensions = ['funky']
-"let g:ctrlp_funky_matchtype = 'path'
+nnoremap <Leader>uu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+let g:ctrlp_funky_syntax_highlight = 1
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_matchtype = 'path'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  hightlight that moves with the cursor
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -539,12 +532,6 @@ set cursorcolumn
 "hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                 vimagit
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <space>gb :Git blame<CR>
-nmap <space>gs :Magit<CR>
-nmap <space>ga :Gw<CR>  " git add file
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  floaterm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -557,13 +544,30 @@ tnoremap   <silent>   <space>fn    <C-\><C-n>:FloatermNext<CR>
 nnoremap   <silent>   <space>ff    :FloatermToggle<CR>
 tnoremap   <silent>   <space>ff    <C-\><C-n>:FloatermToggle<CR>
 
+nmap <space>ts <Cmd>so %<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               setup mapping to call :LazyGit
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <space>tg <Cmd>LazyGit<CR>
+"vimagit
+nmap <space>gb :Git blame<CR>
+nmap <space>gs :Magit<CR>
+nmap <space>ga :Gw<CR>  " git add file
+
+nmap <space>gg <Cmd>LazyGit<CR>
+"Diffview
+nmap <space>go <Cmd>DiffviewOpen -uno<CR>
+nmap <space>gr <Cmd>DiffviewRefresh<CR>
+nmap <space>gm :<C-U><C-R>=printf("Gitsigns ")<CR>
+
+nmap gn :Gitsigns next_hunk<CR>
+nmap gp :Gitsigns prev_hunk<CR>
+nmap gu :Gitsigns reset_hunk<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               Telescope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <space>tf <Cmd>Telescope find_files<CR>
 nmap <space>tt <Cmd>Telescope treesitter<CR>
-nmap <space>ts :<C-U><C-R>=printf("Telescope ")<CR>
+nmap <space>tm :<C-U><C-R>=printf("Telescope ")<CR>
+
+nmap <space>th <Cmd>Neotree<CR>
+nmap <space>tl <Cmd>TagbarToggle<CR>

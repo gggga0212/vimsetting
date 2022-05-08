@@ -116,7 +116,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tnew='tmux -f ~/.tmux.conf new-session \; split-window -h \; split-window -v \; attach'
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-
+setopt no_nomatch
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

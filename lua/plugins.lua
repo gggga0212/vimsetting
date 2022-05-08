@@ -18,10 +18,13 @@ return require('packer').startup(function(use)
         config = function()
         require("telescope").load_extension("lazygit")
         end,})
-    use {'lewis6991/gitsigns.nvim',
-        config = function()
-        require('gitsigns').setup()
-        end}
+    use {'lewis6991/gitsigns.nvim'}
+
+    -- use {'lewis6991/gitsigns.nvim',
+    --     config = function()
+    --     require('lsp/gitsigns').setup()
+    --     end}
+
     use { "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         requires = { 

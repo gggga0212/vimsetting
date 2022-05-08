@@ -562,6 +562,7 @@ nmap <space>gm :<C-U><C-R>=printf("Gitsigns ")<CR>
 nmap gn :Gitsigns next_hunk<CR>
 nmap gp :Gitsigns prev_hunk<CR>
 nmap gu :Gitsigns reset_hunk<CR>
+nmap gv :Gitsigns preview_hunk<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               Telescope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

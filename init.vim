@@ -409,7 +409,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
@@ -476,7 +476,7 @@ let g:coc_explorer_global_presets = {
 " Use preset argument to open it
 "nmap <space>ef <Cmd>CocCommand explorer --preset simplify<CR>
 "nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftside<CR>
-nmap <space>e <Cmd>CocCommand explorer<CR>
+"nmap <space>e <Cmd>CocCommand explorer<CR>
 nmap <space>ev <Cmd>CocCommand explorer --preset .vim<CR>
 nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
 nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
@@ -553,16 +553,16 @@ nmap <space>gb :Git blame<CR>
 nmap <space>gs :Magit<CR>
 nmap <space>ga :Gw<CR>  " git add file
 
-nmap <space>gg <Cmd>LazyGit<CR>
+nmap <space>gl <Cmd>LazyGit<CR>
 "Diffview
 nmap <space>go <Cmd>DiffviewOpen -uno<CR>
 nmap <space>gr <Cmd>DiffviewRefresh<CR>
 nmap <space>gm :<C-U><C-R>=printf("Gitsigns ")<CR>
 
+nmap gj :Gitsigns preview_hunk<CR>
 nmap gn :Gitsigns next_hunk<CR>
 nmap gp :Gitsigns prev_hunk<CR>
 nmap gu :Gitsigns reset_hunk<CR>
-nmap gv :Gitsigns preview_hunk<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               Telescope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

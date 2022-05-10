@@ -51,6 +51,8 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'kdheepak/lazygit.nvim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/vim-easy-align'
 
 if has('nvim')
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
@@ -172,7 +174,8 @@ nmap ct :cs find t <C-R>=expand("<cword>")<CR><CR>
 " e: Find this grep pattern.
 nmap ce :cs find e <C-R>=expand("<cword>")<CR><CR>
 " f: Find this file.
-nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR> i: Find files #including this file.
+nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR> 
+" i: Find files #including this file.
 nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
 " d: Find functions called by this function.
 nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
@@ -477,14 +480,15 @@ let g:coc_explorer_global_presets = {
     \ }
 
 " Use preset argument to open it
-"nmap <space>ef <Cmd>CocCommand explorer --preset simplify<CR>
-"nmap <space>eh <Cmd>CocCommand explorer --preset floatingLeftside<CR>
+"nmap <space>eh <Cmd>CocCommand explorer --preset floating<CR>
 "nmap <space>e <Cmd>CocCommand explorer<CR>
+nmap <space>eh <Cmd>CocCommand explorer --preset simplify<CR>
 nmap <space>ev <Cmd>CocCommand explorer --preset .vim<CR>
 nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
 nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
-nmap <space>el <Cmd>CocList explPresets<CR>
+nmap <space>ei <Cmd>CocList explPresets<CR>
 
+nmap <space>el <Cmd>TagbarToggle<CR>
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                checkhealth
@@ -574,4 +578,3 @@ nmap <space>tt <Cmd>Telescope treesitter<CR>
 nmap <space>tm :<C-U><C-R>=printf("Telescope ")<CR>
 
 nmap <space>th <Cmd>Neotree<CR>
-nmap <space>tl <Cmd>TagbarToggle<CR>

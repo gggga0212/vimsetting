@@ -110,6 +110,9 @@ let g:airline_right_alt_sep = '<'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
 
+"Remove auto comment
+set formatoptions-=cro
+au BufEnter * set fo-=c fo-=r fo-=o
 "Vim-gitgutter
 "let g:gitgutter_sign_added = '+'
 "let g:gitgutter_sign_modified = '>'

@@ -1,12 +1,13 @@
-#sudo apt udpate
-#sudo apt -y upgrade
-#sudo apt-get install -y git
 
-#sudo apt-get install tmux
-#sudo apt-get install zsh
+sudo apt-get install git
+sudo apt-get install tmux
+sudo apt-get install zsh
 
 # oh-my-zsh
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+#install vimrc
+git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
 
 #nvim ubuntu
 wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
@@ -15,16 +16,10 @@ sudo apt install ./nvim-linux64.deb
 # Using Ubuntu nodejs 18.x
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
-#cp
-cp vimrc ~/.vimrc
-cp init.vim ~/.config/nvim/init.vim
+
 cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
 tmux source-file ~/.tmux.conf
-
-#packer
-mkdir ~/.config/nvim/lua
-cp plugins.lua ~/.config/nvim/lua/plugins.lua
 
 #sudo install
 sudo apt-get install fonts-powerline
@@ -57,18 +52,12 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
-
-# zsh scheme 
+#p10k 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 #echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 #source ~/.zshrc
-sudo apt-get install -y cmatrix
-
-
-#coc.vim
-cd ~/.config/nvim/bundle/coc.nvim
-npm install
-npm run-script build
+sudo apt-get install cmatrix
+sudo apt-get install screenfetch 
 
 npm install -g diff-so-fancy
 #lazygit
@@ -79,6 +68,12 @@ sudo apt-get install lazygit
 mkdir -p ~/.local/share/nvim/site/pack/plugins/start 
 cd ~/.local/share/nvim/site/pack/plugins/start
 git clone https://github.com/terrortylor/nvim-comment
+#coc.vim
+cd ~/.config/nvim/bundle/coc.nvim
+npm install
+npm run-script build
+#treesitter
+npm install tree-sitter-cli
 #:CocInstall coc-json coc-tsserver
 #:CocInstall coc-marketplace
 #:CocList marketplace

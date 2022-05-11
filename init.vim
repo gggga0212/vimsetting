@@ -58,6 +58,7 @@ if has('nvim')
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
     lua require('plugins') 
+    lua require('init') 
 nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
     nmap <F3> :tabe ~/.config/nvim/lua/plugins.lua<CR>
 else
@@ -191,6 +192,11 @@ map <C-i> :e %:p:s,.H$,.X123X,:s,.C$,.H,:s,.X123X$,.C,<CR>
 "     \ :copen<CR> 
 
 nnoremap / ms/
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                     tagbar setting                         "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

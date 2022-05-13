@@ -53,7 +53,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'kdheepak/lazygit.nvim'
-Plugin 'jiangmiao/auto-pairs'
+"Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/vim-easy-align'
 Plugin 't9md/vim-quickhl'
 if has('nvim')

@@ -29,6 +29,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'https://github.com/nanotech/jellybeans.vim'
 Plugin 'https://github.com/tomasr/molokai'
+Plugin 'shaunsingh/solarized.nvim'
+Plugin 'ghifarit53/tokyonight-vim'
 Plugin 'hzchirs/vim-material'
 Plugin 'kshenoy/vim-signature'
 Plugin 'jlanzarotta/bufexplorer'
@@ -53,7 +55,7 @@ Plugin 'voldikss/vim-floaterm'
 Plugin 'kdheepak/lazygit.nvim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/vim-easy-align'
-
+Plugin 't9md/vim-quickhl'
 if has('nvim')
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
@@ -73,7 +75,14 @@ nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.h
 nmap <F7> :LeaderfSelf<CR>
 
 filetype plugin indent on
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"              colo 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1"
+
 colorscheme monokai
+
 syntax on
 set encoding=utf-8
 setglobal fileencoding=utf-8
@@ -585,3 +594,11 @@ nmap <space>tm :<C-U><C-R>=printf("Telescope ")<CR>
 
 nmap <space>ts <Cmd>so %<CR>
 nmap <space>th <Cmd>Neotree<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"               quickhl
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <space>m <Plug>(quickhl-manual-this)
+xmap <space>m <Plug>(quickhl-manual-this)
+nmap <space>M <Plug>(quickhl-manual-reset)
+xmap <space>M <Plug>(quickhl-manual-reset)

@@ -74,6 +74,17 @@ nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.h
             \:cs reset<CR>
 nmap <F7> :LeaderfSelf<CR>
 
+            " \-or -path ble_mw_test_lib/firmware/src/config/default/ble/profile_ble -prune 
+            " \-or -path ble_stack_lib -prune \> cscope.files<CR>
+" cscope for ble_mw_test_lib
+nmap <F8> :!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' 
+            \-or -path "./firmware/src/config/default/ble/lib/include" -prune 
+            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune 
+            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune 
+            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
+            \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
+            \:cs reset<CR>
+
 filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "              colo 
@@ -81,8 +92,16 @@ filetype plugin indent on
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1"
 
-colorscheme monokai
+"              solarized
+let g:solarized_italic_comments = v:true
+let g:solarized_italic_keywords = v:true
+let g:solarized_italic_functions = v:true
+let g:solarized_italic_variables = v:false
+let g:solarized_contrast = v:false
+let g:solarized_borders = v:true
+let g:solarized_disable_background = v:true
 
+colorscheme tokyonight
 syntax on
 set encoding=utf-8
 setglobal fileencoding=utf-8

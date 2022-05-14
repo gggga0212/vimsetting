@@ -14,6 +14,7 @@ call vundle#rc(s:editor_root . '/bundle')
 Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/a.vim'
+Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 "Plugin 'Shougo/unite.vim'
@@ -100,6 +101,9 @@ let g:solarized_italic_variables = v:false
 let g:solarized_contrast = v:false
 let g:solarized_borders = v:true
 let g:solarized_disable_background = v:true
+"  floaterm
+let g:floaterm_width = 0.95
+let g:floaterm_height = 0.95
 
 colorscheme tokyonight
 syntax on
@@ -590,8 +594,7 @@ tnoremap   <silent>   <space>ff    <C-\><C-n>:FloatermToggle<CR>
 "               setup mapping to call :LazyGit
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vimagit
-nmap <space>gb :Git blame<CR>
-nmap <space>gs :Magit<CR>
+nmap <space>gb :Git blame<CR> nmap <space>gs :Magit<CR>
 nmap <space>ga :Gw<CR>  " git add file
 
 nmap <space>gl <Cmd>LazyGit<CR>
@@ -608,6 +611,7 @@ nmap gu :Gitsigns reset_hunk<CR>
 "               Telescope
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <space>tf <Cmd>Telescope find_files<CR>
+nmap <space>tg <Cmd>Telescope live_grep<cr>
 nmap <space>tt <Cmd>Telescope treesitter<CR>
 nmap <space>tm :<C-U><C-R>=printf("Telescope ")<CR>
 
@@ -621,3 +625,8 @@ nmap <space>m <Plug>(quickhl-manual-this)
 xmap <space>m <Plug>(quickhl-manual-this)
 nmap <space>M <Plug>(quickhl-manual-reset)
 xmap <space>M <Plug>(quickhl-manual-reset)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"             LanguageClient
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:LanguageClient_serverCommands = {'cpp': ['clangd'],}

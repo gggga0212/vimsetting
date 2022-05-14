@@ -35,7 +35,9 @@ sudo apt-get install fzf
 sudo apt-get install ripgrep
 sudo apt-get install python
 sudo apt-get install python3
-sudo apt install fd-find
+sudo apt-get install fd-find
+sudo apt-get install clang-tools
+sudo apt-get install clangd
 
 pip install pynvim --upgrade
 # clone the package
@@ -109,4 +111,9 @@ npm install tree-sitter-cli
 #LSP
 #npm install -g typescript-language-server
 #:LspInstallInfo
+
+#LanguageClient-neovim
+#cd ~/.config/nvim/bundle/LanguageClient-neovim
+#bash install.sh
+
 

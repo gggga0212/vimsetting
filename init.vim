@@ -72,20 +72,27 @@ nmap <F5> :TSToggle highlight<CR>
 
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
-            \:cs reset<CR>
+            \:cs reset<CR> " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
 nmap <F7> :LeaderfSelf<CR>
 
             " \-or -path ble_mw_test_lib/firmware/src/config/default/ble/profile_ble -prune 
             " \-or -path ble_stack_lib -prune \> cscope.files<CR>
 " cscope for ble_mw_test_lib
-nmap <F8> :!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' 
-            \-or -path "./firmware/src/config/default/ble/lib/include" -prune 
-            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune 
-            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune 
-            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
+nmap <F8> :!find "./ble_mw_test_lib" "./ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' 
+            \-or -path "./ble_mw_test_lib/firmware/src/config/default/ble/lib/include" -prune 
+            \-or -path "./ble_mw_test_lib/firmware/src/config/default/ble/middleware_ble" -prune 
+            \-or -path "./ble_mw_test_lib/firmware/src/config/default/ble/profile_ble" -prune 
+            \-or -path "./ble_mw_test_lib/firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
 
+nmap <F9> :!find "./ble_stack_test_lib" "./ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' 
+            \-or -path "./ble_stack_test_lib/firmware/src/config/default/ble/lib/include" -prune 
+            \-or -path "./ble_stack_test_lib/firmware/src/config/default/ble/middleware_ble" -prune 
+            \-or -path "./ble_stack_test_lib/firmware/src/config/default/ble/profile_ble" -prune 
+            \-or -path "./ble_stack_test_lib/firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
+            \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
+            \:cs reset<CR>
 filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "              colo 
@@ -629,4 +636,4 @@ xmap <space>M <Plug>(quickhl-manual-reset)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "             LanguageClient
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:LanguageClient_serverCommands = {'cpp': ['clangd'],}
+" let g:LanguageClient_serverCommands = {'cpp': ['clangd', '-index-file=/path/to/index.yaml',],}

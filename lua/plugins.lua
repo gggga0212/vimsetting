@@ -5,6 +5,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 
+
 return require('packer').startup(function(use)
   -- My plugins here
   -- Automatically set up your configuration after cloning packer.nvim
@@ -18,22 +19,49 @@ return require('packer').startup(function(use)
         require("telescope").load_extension("lazygit")
         end,})
     use {'lewis6991/gitsigns.nvim'}
-
-    -- use {'lewis6991/gitsigns.nvim',
-    --     config = function()
-    --     require('lsp/gitsigns').setup()
-    --     end}
-
-    use { "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = { 
-        "nvim-lua/plenary.nvim",
-        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim"}}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'terrortylor/nvim-comment', require('nvim_comment').setup()}
+    use {'preservim/nerdtree'}
+    use {'Xuyuanp/nerdtree-git-plugin'}
+    use {'luochen1990/rainbow'}
+    use {'jreybert/vimagit'}
+    use {'tpope/vim-fugitive'}
+    use {'tpope/vim-rhubarb'}
+    use {'bootleq/vim-gitdiffall'}
+    use {'christoomey/vim-tmux-navigator'}
+    use {'voldikss/vim-floaterm'}
+    use {'junegunn/vim-easy-align'}
+    use {'t9md/vim-quickhl'}
+    use {'vim-scripts/a.vim'}
+    use {'junegunn/fzf'}
+    use {'junegunn/fzf.vim'}
+    use {'wesleyche/Trinity'}
+    use {'vim-syntastic/syntastic'}
+    use {'preservim/tagbar'}
+    use {'terryma/vim-multiple-cursors'}
+    use {'https://github.com/nanotech/jellybeans.vim'}
+    use {'https://github.com/tomasr/molokai'}
+    use {'shaunsingh/solarized.nvim'}
+    use {'ghifarit53/tokyonight-vim'}
+    use {'hzchirs/vim-material'}
+    use {'kshenoy/vim-signature'}
+    use {'jlanzarotta/bufexplorer'}
+    use {'BurntSushi/ripgrep'}
+    use {'SirVer/ultisnips'}
+    use {'honza/vim-snippets'}
+    use {'sickill/vim-monokai'}
+    use {'morhetz/gruvbox'}
+    use {'vim-airline/vim-airline'}
+    use {'vim-airline/vim-airline-themes'}
  -- todo
-     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+    use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+    use {'glepnir/lspsaga.nvim'}
+    -- use { 'hrsh7th/nvim-cmp'}
+    -- use { 'hrsh7th/cmp-nvim-lsp'}
+    -- use { 'hrsh7th/cmp-buffer'}
+    -- use { 'hrsh7th/cmp-path'}
+    -- use { 'hrsh7th/cmp-cmdline'}
+
   if packer_bootstrap then
     require('packer').sync()
   end

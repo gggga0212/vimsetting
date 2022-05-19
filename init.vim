@@ -62,13 +62,13 @@ if has('nvim')
     "packer
     lua require('plugins') 
     lua require('init') 
-nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
-    nmap <F3> :tabe ~/.config/nvim/lua/plugins.lua<CR>
+" nmap <F2> :tabe ~/.config/nvim/init.vim<CR>
+    " nmap <F3> :tabe ~/.config/nvim/lua/plugins.lua<CR>
 else
-    nmap <F2> :tabe ~/.vimrc<CR>
+    " nmap <F2> :tabe ~/.vimrc<CR>
 endif
-nmap <F4> :RainbowToggle<CR>
-nmap <F5> :TSToggle highlight<CR>
+" nmap <F4> :RainbowToggle<CR>
+" nmap <F5> :TSToggle highlight<CR>
 
 nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
@@ -90,8 +90,8 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "              colo 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1"
+" let g:tokyonight_style = 'night' " available: night, storm
+" let g:tokyonight_enable_italic = 1"
 
 "              solarized
 let g:solarized_italic_comments = v:true
@@ -101,41 +101,42 @@ let g:solarized_italic_variables = v:false
 let g:solarized_contrast = v:false
 let g:solarized_borders = v:true
 let g:solarized_disable_background = v:true
-"  floaterm
-let g:floaterm_width = 0.95
-let g:floaterm_height = 0.95
+
+" "  floaterm
+" let g:floaterm_width = 0.95
+" let g:floaterm_height = 0.95
 
 colorscheme tokyonight
 syntax on
 set encoding=utf-8
 setglobal fileencoding=utf-8
 
-set nu
-set hls
-set noic
-set nocp
+" set nu
+" set hls
+lua require('options')
 " tab setting
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set cursorline
+
+" set smartindent
+" set tabstop=4
+" set shiftwidth=4
+" set expandtab
+" set cursorline
+" set cscopetag
+" set csto=0
+
 set makeprg=mmake
 set errorformat+=%E%f:%l:%c:\ error:%m,%Z%m
 set errorformat+=%-G%.%#
 set tags=./tags,./TAGS,tags;~,TAGS;~
-set backspace=2
-set cscopetag
-set csto=0
+set noic
+set nocp
 set nocsverb
-" set status line
-set laststatus=2
+" " set status line
+" set laststatus=2
 set t_Co=256
+set backspace=2
 
 let g:airline_powerline_fonts = 1  
-" supportted powerline front
-"let g:airline_theme='moloai'  
-" murmur color
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -149,32 +150,6 @@ let g:airline_symbols.branch = '⎇'
 "Remove auto comment
 set formatoptions-=cro
 au BufEnter * set fo-=c fo-=r fo-=o
-"Vim-gitgutter
-"let g:gitgutter_sign_added = '+'
-"let g:gitgutter_sign_modified = '>'
-"let g:gitgutter_sign_removed = '-'
-"let g:gitgutter_sign_removed_first_line = '^'
-"let g:gitgutter_sign_removed_above_and_below = '{'
-"let g:gitgutter_sign_modified_removed = '<'
-"let g:gitgutter_override_sign_column_highlight = 1
-
-"let g:indentLine_setColors = 2 
-"let g:indentLine_defaultGroup = 'SpecialKey'
-"let g:indentLine_color_term = 225
-"let g:indentLine_char = 'c'
-"let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
-" highlight GitGutterAdd    ctermfg=lightgreen
-" highlight GitGutterChange ctermfg=yellow
-" highlight GitGutterDelete ctermfg=red
-
-" Hunk-add and hunk-revert for chunk staging
-"git add (chunk)
-"nmap <Leader>ga :GitGutterStageHunk<CR>
-" git undo (chunk)
-"nmap <Leader>gu :GitGutterUndoHunk<CR>
-"set updatetime=250
-
 
 "gtags setting
 let $GTAGSLABEL = 'native-pygments'
@@ -197,22 +172,6 @@ let g:airline_powerline_fonts = 1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 "let g:SuperTabContextDefaultCompletionType = "<c-n>"
 highlight ModeMsg ctermfg=green
-" s: Find this C symbol.
-nmap cs :cs find s <C-R>=expand("<cword>")<CR><CR>
-" g: Find this definition.
-nmap cg :cs find g <C-R>=expand("<cword>")<CR><CR>
-" c: Find functions calling this function.
-nmap cc :cs find c <C-R>=expand("<cword>")<CR><CR>
-" t: Find this file.
-nmap ct :cs find t <C-R>=expand("<cword>")<CR><CR>
-" e: Find this grep pattern.
-nmap ce :cs find e <C-R>=expand("<cword>")<CR><CR>
-" f: Find this file.
-nmap cf :cs find f <C-R>=expand("<cfile>")<CR><CR> 
-" i: Find files #including this file.
-nmap ci :cs find i <C-R>=expand("<cfile>")<CR><CR>
-" d: Find functions called by this function.
-nmap cd :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 nmap cj :<C-U><C-R>=printf("cs find ")<CR>
 nmap cv :<C-U><C-R>=printf("Leaderf! rg -w %s -g *.h -g *.c", expand("<cword>"))<CR><CR>
@@ -239,37 +198,31 @@ nmap ga <Plug>(EasyAlign)_
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 set ut=100
-" NERDTree setting defaults to work around
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = 'v'
-let g:NERDTreeGlyphReadOnly = "RO"
-let NERDTreeWinPos=1
 
-nmap <C-H> <C-W>h 
-nmap <C-J> <C-W>j	
-nmap <C-K> <C-W>k
-nmap <C-L> <C-W>l
-
-nmap <C-Up> :resize -2<CR> 
-nmap <C-Down> :resize +2<CR>
-nmap <C-Left> :vertical resize -2<CR>
-nmap <C-Right> :vertical resize +2<CR>
-
-" Stay in indent mode
-vmap > >gv
-vmap < <gv
-
-" Move text up and down
-vmap <A-j> :m.+1<CR>==
-vmap <A-k> :m.-2<CR>==
-
-" Visual Block
-" Move text up and down
-xmap J :move '>+1<CR>gv-gv
-xmap K :move '<-1<CR>gv-gv
-xmap <A-j> :move '>+1<CR>gv-gv
-xmap <A-k> :move '<-2<CR>gv-gv
+" nmap <C-H> <C-W>h 
+" nmap <C-J> <C-W>j	
+" nmap <C-K> <C-W>k
+" nmap <C-L> <C-W>l
+"
+" nmap <C-Up> :resize -2<CR> 
+" nmap <C-Down> :resize +2<CR>
+" nmap <C-Left> :vertical resize -2<CR>
+" nmap <C-Right> :vertical resize +2<CR>
+"
+" " Stay in indent mode
+" vmap > >gv
+" vmap < <gv
+"
+" " Move text up and down
+" vmap <A-j> :m.+1<CR>==
+" vmap <A-k> :m.-2<CR>==
+"
+" " Visual Block
+" " Move text up and down
+" xmap J :move '>+1<CR>gv-gv
+" xmap K :move '<-1<CR>gv-gv
+" xmap <A-j> :move '>+1<CR>gv-gv
+" xmap <A-k> :move '<-2<CR>gv-gv
 
 
 set statusline+=%#warningmsg#
@@ -298,6 +251,7 @@ let g:rainbow_conf = {
             \   'guifgs' : ['#6A5ACD', '#B22222', '#C0FF3E', '#EEC900', '#9A32CD', '#EE7600', '#98fb98', '#686868'],
             \   'ctermfgs': 'xterm-256color' == $TERM ? ['141', '196', '112', '208', '129', '166', '85', '33'] : ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
             \}
+
 "git diff New Line
 hi DiffAdd    ctermbg=235  ctermfg=108  guibg=#262626 guifg=#87af87 cterm=reverse gui=reverse
 "git diff Modify Line
@@ -529,12 +483,13 @@ if has('nvim')
 
     nmap <space>el <Cmd>TagbarToggle<CR>
 endif
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                checkhealth
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:loaded_ruby_provider = 0
-let g:loaded_node_provider = 0
-let g:loaded_perl_provider = 0
+
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" "                                checkhealth
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:loaded_ruby_provider = 0
+" let g:loaded_node_provider = 0
+" let g:loaded_perl_provider = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                hi Pmenu
@@ -572,59 +527,57 @@ let g:ctrlp_funky_matchtype = 'path'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                  hightlight that moves with the cursor
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set cursorline
-set cursorcolumn
+" set cursorcolumn
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 "hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                  floaterm
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap   <silent>   <space>ft    :FloatermNew<CR>
-tnoremap   <silent>   <space>ft    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <space>fp    :FloatermPrev<CR>
-tnoremap   <silent>   <space>fp    <C-\><C-n>:FloatermPrev<CR>
-nnoremap   <silent>   <space>fn    :FloatermNext<CR>
-tnoremap   <silent>   <space>fn    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <space>ff    :FloatermToggle<CR>
-tnoremap   <silent>   <space>ff    <C-\><C-n>:FloatermToggle<CR>
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" "                  floaterm
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nnoremap   <silent>   <space>ft    :FloatermNew<CR>
+" tnoremap   <silent>   <space>ft    <C-\><C-n>:FloatermNew<CR>
+" nnoremap   <silent>   <space>fp    :FloatermPrev<CR>
+" tnoremap   <silent>   <space>fp    <C-\><C-n>:FloatermPrev<CR>
+" nnoremap   <silent>   <space>fn    :FloatermNext<CR>
+" tnoremap   <silent>   <space>fn    <C-\><C-n>:FloatermNext<CR>
+" nnoremap   <silent>   <space>ff    :FloatermToggle<CR>
+" tnoremap   <silent>   <space>ff    <C-\><C-n>:FloatermToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "               setup mapping to call :LazyGit
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vimagit
-nmap <space>gb :Git blame<CR> nmap <space>gs :Magit<CR>
-nmap <space>ga :Gw<CR>  " git add file
-
-nmap <space>gl <Cmd>LazyGit<CR>
-"Diffview
-nmap <space>go <Cmd>DiffviewOpen -uno<CR>
-nmap <space>gr <Cmd>DiffviewRefresh<CR>
+" nmap <space>gb :Git blame<CR> nmap <space>gs :Magit<CR>
+" nmap <space>ga :Gw<CR>  " git add file
+"
+" nmap <space>gl <Cmd>LazyGit<CR>
+" "Diffview
+" nmap <space>go <Cmd>DiffviewOpen -uno<CR>
+" nmap <space>gr <Cmd>DiffviewRefresh<CR>
 nmap <space>gm :<C-U><C-R>=printf("Gitsigns ")<CR>
 
-nmap gj :Gitsigns preview_hunk<CR>
-nmap gn :Gitsigns next_hunk<CR>
-nmap gp :Gitsigns prev_hunk<CR>
-nmap gu :Gitsigns reset_hunk<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               Telescope
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <space>tf <Cmd>Telescope find_files<CR>
-nmap <space>tg <Cmd>Telescope live_grep<cr>
-nmap <space>tt <Cmd>Telescope treesitter<CR>
-nmap <space>tm :<C-U><C-R>=printf("Telescope ")<CR>
+" nmap gj :Gitsigns preview_hunk<CR>
+" nmap gn :Gitsigns next_hunk<CR>
+" nmap gp :Gitsigns prev_hunk<CR>
+" nmap gu :Gitsigns reset_hunk<CR>
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" "               Telescope
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " nmap <space>tf <Cmd>Telescope find_files<CR>
+" " nmap <space>tg <Cmd>Telescope live_grep<cr>
+" " nmap <space>tt <Cmd>Telescope treesitter<CR>
+" nmap <space>tm :<C-U><C-R>=printf("Telescope ")<CR>
+" nmap <space>ts <Cmd>so %<CR>
+" " nmap <space>th <Cmd>Neotree<CR>
 
-nmap <space>ts <Cmd>so %<CR>
-nmap <space>th <Cmd>Neotree<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"               quickhl
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <space>m <Plug>(quickhl-manual-this)
-xmap <space>m <Plug>(quickhl-manual-this)
-nmap <space>M <Plug>(quickhl-manual-reset)
-xmap <space>M <Plug>(quickhl-manual-reset)
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" "               quickhl
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nmap <space>m <Plug>(quickhl-manual-this)
+" xmap <space>m <Plug>(quickhl-manual-this)
+" nmap <space>M <Plug>(quickhl-manual-reset)
+" xmap <space>M <Plug>(quickhl-manual-reset)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "             LanguageClient

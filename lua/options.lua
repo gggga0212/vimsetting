@@ -40,6 +40,9 @@ vim.g.loaded_perl_provider = 0
 -- ctags
 vim.g.tags = './tags,./TAGS,tags;~,TAGS;~'
 
+-- ctrlp
+vim.g.ctrlp_map = '<c-p>'
+vim.g.ctrlp_cmd = 'CtrlP'
 -- airline
 
 -- rainbow
@@ -181,7 +184,6 @@ keymaps('n','gn',':Gitsigns next_hunk<CR>',    {noremap=true, silent=true})
 keymaps('n','gp',':Gitsigns prev_hunk<CR>',    {noremap=true, silent=true})
 keymaps('n','gu',':Gitsigns reset_hunk<CR>',   {noremap=true, silent=true})
 keymaps('n','<space>gb',':Git blame<CR>',             {noremap=true, silent=true})
-keymaps('n','<space>ga',':Gw<CR>',                    {noremap=true, silent=true})
 keymaps('n','<space>gl',':LazyGit<CR>',               {noremap=true, silent=true})
 keymaps('n','<space>go',':DiffviewOpen -uno<CR>',     {noremap=true, silent=true})
 keymaps('n','<space>gr',':DiffviewRefresh<CR>',       {noremap=true, silent=true})

@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
     use {'preservim/nerdtree'}
     use {'Xuyuanp/nerdtree-git-plugin'}
     use {'luochen1990/rainbow'}
-    use {'jreybert/vimagit'}
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}
     use {'bootleq/vim-gitdiffall'}
@@ -53,6 +52,7 @@ return require('packer').startup(function(use)
     use {'morhetz/gruvbox'}
     use {'vim-airline/vim-airline'}
     use {'vim-airline/vim-airline-themes'}
+    use {'kien/ctrlp.vim'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     use {'glepnir/lspsaga.nvim'}

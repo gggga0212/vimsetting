@@ -19,10 +19,13 @@ Plugin 'gmarik/Vundle.vim'
     lua require('plugins') 
     lua require('options')
 
-nmap <F6> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+nmap <F6> :!rm -rf cscope.*<CR>
+            \:!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
-            \:cs reset<CR> " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
-nmap <F8> :!find "." "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' 
+            \:cs reset<CR>
+" \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
+nmap <F8> :!rm -rf cscope.*<CR>
+            \:!find "." "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h'
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune 
             \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune 
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune 

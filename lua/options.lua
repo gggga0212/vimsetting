@@ -15,12 +15,13 @@ vim.opt.cscopetag     = true
 vim.opt.nu            = true
 vim.opt.hls           = true -- search and highlight word
 vim.opt.smartindent   = true
+-- vim.opt.autoindent    = true
 vim.opt.expandtab     = true
 vim.opt.ic            = true -- ignorecase
 vim.opt.sm            = true -- showmatch
 vim.opt.cin           = true
 vim.opt.ru            = true
-vim.opt.cp            = false 
+vim.opt.cp            = false
 vim.opt.swapfile      = false
 vim.opt.compatible    = false
 
@@ -104,8 +105,8 @@ augroup end
 -- command
 
 -- keymaps
-keymaps('n','<space>eh', ':NERDTree<CR>',{noremap=true, silent=true})
-keymaps('n','<space>et', ':NERDTreeToggle<CR>',{noremap=true, silent=true})
+-- keymaps('n','<space>eh', ':NERDTree<CR>',{noremap=true, silent=true})
+keymaps('n','<space>eh', ':NERDTreeToggle<CR>',{noremap=true, silent=true})
 keymaps('n','<space>el', ':TagbarToggle<CR>',{noremap=true, silent=true})
 
 -- cursor

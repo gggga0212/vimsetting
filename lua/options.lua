@@ -56,8 +56,7 @@ vim.g.rainbow_active = 1
 -- tags before find
 keymaps('n','/', 'ms/',{noremap=true, silent=true})
 
--- vim replace
-keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',{noremap=true, silent=false})
+-- vim replace keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',{noremap=true, silent=false})
 
 -- EasyAlign
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -114,7 +113,7 @@ keymaps('n','<Leader>c',':set cursorline! cursorcolumn!<CR>',  {noremap=true, si
 
 -- Function Key
 keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>',       {noremap=true, silent=true})
-keymaps('n', '<F3>',':tabe ~/.config/nvim/lua/plugins.lua<CR>',{noremap=true, silent=true}) 
+keymaps('n', '<F3>',':tabe ~/.config/nvim/lua/plugins.lua<CR>',{noremap=true, silent=true})
 keymaps('n', '<F4>',':RainbowToggle<CR>',                      {noremap=true, silent=true})
 keymaps('n', '<F5>',':TSToggle highlight<CR>',                 {noremap=true, silent=true})
 
@@ -196,11 +195,22 @@ keymaps('n','<space>tg',':Telescope live_grep<CR>',   {noremap=true, silent=true
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  {noremap=true, silent=true})
 keymaps('n','<space>th',':Neotree',                   {noremap=true, silent=true})
 
+-- Easy motion
+vim.g.EasyMotion_do_mapping = 0
+keymaps('n','<space>ts','<Plug>(easymotion-overwin-f2)',   { noremap=true, silent=true})
+-- Move to line
+keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         { noremap=true, silent=true})
+keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', { noremap=true, silent=true})
+-- nmap <Leader>L <Plug>(easymotion-overwin-line)
+-- s                                                       { char}{char} to move to {char}{char}
+keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          { noremap=true, silent=true})
+keymaps('n','<space>tw','<Plug>(easymotion-overwin-line)', { noremap=true, silent=true})
+
 -- quickhl
-keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  {noremap=true, silent=true})
-keymaps('x','<space>m','<Plug>(quickhl-manual-this)',  {noremap=true, silent=true})
-keymaps('n','<space>M','<Plug>(quickhl-manual-reset)', {noremap=true, silent=true})
-keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', {noremap=true, silent=true})
+keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  { noremap=true, silent=true})
+keymaps('x','<space>m','<Plug>(quickhl-manual-this)',  { noremap=true, silent=true})
+keymaps('n','<space>M','<Plug>(quickhl-manual-reset)', { noremap=true, silent=true})
+keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', { noremap=true, silent=true})
 
 -- Lspsaga
 keymaps('n','gh',':Lspsaga lsp_finder<CR>', {noremap=true, silent=true})

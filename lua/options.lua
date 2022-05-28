@@ -204,7 +204,7 @@ keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', { noremap=true, silen
 -- nmap <Leader>L <Plug>(easymotion-overwin-line)
 -- s                                                       { char}{char} to move to {char}{char}
 keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          { noremap=true, silent=true})
-keymaps('n','<space>tw','<Plug>(easymotion-overwin-line)', { noremap=true, silent=true})
+keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)', { noremap=true, silent=true})
 
 -- quickhl
 keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  { noremap=true, silent=true})

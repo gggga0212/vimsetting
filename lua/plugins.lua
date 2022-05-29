@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
     use {'vim-airline/vim-airline-themes'}
     use {'kien/ctrlp.vim'}
     use {'easymotion/vim-easymotion'}
+    use {'tpope/vim-surround'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     use {'glepnir/lspsaga.nvim'}

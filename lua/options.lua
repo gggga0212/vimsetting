@@ -38,9 +38,15 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
+-- folder indent
+-- vim.opt.foldmethod = 'indent'
+vim.opt.foldmethod = 'syntax'
+vim.opt.foldenable = false
+-- winbar
+vim.opt.winbar = '%m%f'
+
 -- ctags
 vim.g.tags = './tags,./TAGS,tags;~,TAGS;~'
-
 -- ctrlp
 vim.g.ctrlp_map = '<c-p>'
 vim.g.ctrlp_cmd = 'CtrlP'
@@ -154,7 +160,7 @@ keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", {noremap=true, silent=true})
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
-keymaps('n','cs',':cs find s <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
+-- keymaps('n','cs',':cs find s <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
 keymaps('n','cg',':cs find g <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
 keymaps('n','cc',':cs find c <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
 keymaps('n','ct',':cs find t <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})

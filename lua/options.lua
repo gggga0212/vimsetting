@@ -197,14 +197,16 @@ keymaps('n','<space>th',':Neotree',                   {noremap=true, silent=true
 
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0
-keymaps('n','<space>ts','<Plug>(easymotion-overwin-f2)',   { noremap=true, silent=true})
+keymaps('n','s','<Plug>(easymotion-overwin-f2)',           { noremap=true, silent=true})
 -- Move to line
 keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         { noremap=true, silent=true})
 keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', { noremap=true, silent=true})
--- nmap <Leader>L <Plug>(easymotion-overwin-line)
--- s                                                       { char}{char} to move to {char}{char}
+-- Move to word
 keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          { noremap=true, silent=true})
-keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)', { noremap=true, silent=true})
+keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    { noremap=true, silent=true})
+
+keymaps('','/','<Plug>(easymotion-sn)', { noremap=true, silent=true})
+keymaps('o','/','<Plug>(easymotion-tn)', { noremap=true, silent=true})
 
 -- quickhl
 keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  { noremap=true, silent=true})

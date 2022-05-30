@@ -118,7 +118,7 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
-keymaps('n','cj','* :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
+keymaps('n','cs','* :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','cg',':cs find g <C-R>=expand("<cword>")<CR><CR><CR>',ntst)
 keymaps('n','cc','* :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','ct','* :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
@@ -126,12 +126,25 @@ keymaps('n','ce','* :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','cf','* :cs find f <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','ci','* :cs find i <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','cd','* :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
-keymaps('n','cz',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
+keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 
+-- surround
+vim.g.surround_no_mappings = 1
+-- keymaps('n','cs', '<Plug>Csurround',ntsf)
+-- keymaps('n','cS', '<Plug>CSurround',ntsf)
+keymaps('n','cz', '<Plug>Csurround',ntsf)
+keymaps('n','cZ', '<Plug>CSurround',ntsf)
+keymaps('n','ds', '<Plug>Dsurround',ntsf)
+keymaps('n','ys', '<Plug>Ysurround',ntsf)
+keymaps('n','yS', '<Plug>YSurround',ntsf)
+keymaps('n','yss','<Plug>Yssurround',ntsf)
+keymaps('n','ySs','<Plug>YSsurround',ntsf)
+keymaps('n','ySS','<Plug>YSsurround',ntsf)
+-- cscope
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
 keymaps('n','cx', ':copen<CR>',  ntst)
 keymaps('n','cq', ':cclose<CR>', ntst)
--- nmap <C-t> :colder<CR>:cc<CR>
+keymaps( 'n','<C-t>', ':colder<CR>:cc<CR>', ntst)
 
 -- keymaps('n','<space>eh', ':NERDTree<CR>',ntst)
 keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)
@@ -144,6 +157,7 @@ keymaps('n','<Leader>c',':set cursorline! cursorcolumn!<CR>',  ntst)
 keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>', ntst)
 keymaps('n', '<F3>',':cnext<CR>', ntst)
 keymaps('n', '<F4>',':cprev<CR>', ntst)
+keymaps('n', '<F5>',':RainbowToggle<CR>', ntst)
 
 -- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
 -- :!cscope -R -b -q -i cscope.files -f cscope.out<CR>
@@ -203,7 +217,6 @@ keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 keymaps('n','<space>th',':Neotree',                   ntst)
 
 -- highlight
-keymaps('n','<space>tr',':RainbowToggle<CR>',ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 -- Easy motion

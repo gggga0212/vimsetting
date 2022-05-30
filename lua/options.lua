@@ -1,4 +1,5 @@
 local keymaps = vim.api.nvim_set_keymap
+local ntst = {noremap=true, silent=false}
 
 require "lsp.treesitter"
 require "lsp.gitsigns"
@@ -60,7 +61,7 @@ vim.g.rainbow_active = 1
 -- ctrlp setting
 
 -- tags before find
-keymaps('n','/', 'ms/',{noremap=true, silent=true})
+keymaps('n','/', 'ms/',ntst)
 
 -- vim replace
 keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',{noremap=true, silent=false})
@@ -116,27 +117,27 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
-keymaps('n','cj','* :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','cg',':cs find g <C-R>=expand("<cword>")<CR><CR><CR>',{noremap=true, silent=true})
-keymaps('n','cc','* :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','ct','* :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','ce','* :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','cf','* :cs find f <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','ci','* :cs find i <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','cd','* :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','cj','* :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
+keymaps('n','cg',':cs find g <C-R>=expand("<cword>")<CR><CR><CR>',ntst)
+keymaps('n','cc','* :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
+keymaps('n','ct','* :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
+keymaps('n','ce','* :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
+keymaps('n','cf','* :cs find f <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
+keymaps('n','ci','* :cs find i <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
+keymaps('n','cd','* :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','cz',':<C-U><C-R>=printf("cs find ")<CR>',{noremap=true, silent=false})
 
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
-keymaps('n','cx', ':copen<CR>',  {noremap=true, silent=true})
-keymaps('n','cq', ':cclose<CR>', {noremap=true, silent=true})
+keymaps('n','cx', ':copen<CR>',  ntst)
+keymaps('n','cq', ':cclose<CR>', ntst)
 -- nmap <C-t> :colder<CR>:cc<CR>
 
--- keymaps('n','<space>eh', ':NERDTree<CR>',{noremap=true, silent=true})
-keymaps('n','<space>eh', ':NERDTreeToggle<CR>', {noremap=true, silent=true})
-keymaps('n','<space>el', ':TagbarToggle<CR>',   {noremap=true, silent=true})
+-- keymaps('n','<space>eh', ':NERDTree<CR>',ntst)
+keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)
+keymaps('n','<space>el', ':TagbarToggle<CR>',   ntst)
 
 -- cursor
-keymaps('n','<Leader>c',':set cursorline! cursorcolumn!<CR>',  {noremap=true, silent=true})
+keymaps('n','<Leader>c',':set cursorline! cursorcolumn!<CR>',  ntst)
 
 -- Function Key
 keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>', { noremap=true, silent=true})
@@ -148,83 +149,83 @@ keymaps('n', '<F4>',':cprev<CR>', { noremap=true, silent=true})
 -- :cs reset<CR>',{ noremap=true, silent=true})
 
 -- Move in vim
-keymaps('n', '<C-H>','<C-W>h',{noremap=true, silent=true})
-keymaps('n', '<C-J>','<C-W>j',{noremap=true, silent=true})
-keymaps('n', '<C-K>','<C-W>k',{noremap=true, silent=true})
-keymaps('n', '<C-L>','<C-W>l',{noremap=true, silent=true})
+keymaps('n', '<C-H>','<C-W>h',ntst)
+keymaps('n', '<C-J>','<C-W>j',ntst)
+keymaps('n', '<C-K>','<C-W>k',ntst)
+keymaps('n', '<C-L>','<C-W>l',ntst)
 
-keymaps('n', '<C-Up>',':resize -2<CR>',             {noremap=true, silent=true})
-keymaps('n', '<C-Down>',':resize +2<CR>',           {noremap=true, silent=true})
-keymaps('n', '<C-Left>',':vertical resize -2<CR>',  {noremap=true, silent=true})
-keymaps('n', '<C-Right>',':vertical resize +2<CR>', {noremap=true, silent=true})
+keymaps('n', '<C-Up>',':resize -2<CR>',             ntst)
+keymaps('n', '<C-Down>',':resize +2<CR>',           ntst)
+keymaps('n', '<C-Left>',':vertical resize -2<CR>',  ntst)
+keymaps('n', '<C-Right>',':vertical resize +2<CR>', ntst)
 
 -- Stay in indent mode
-keymaps('v', ">",">gv",{noremap=true, silent=true})
-keymaps('v', "<","<gv",{noremap=true, silent=true})
+keymaps('v', ">",">gv",ntst)
+keymaps('v', "<","<gv",ntst)
 
--- Move text up and down keymaps('v', '<A-j>',':m.+1<CR>==',{noremap=true, silent=true})
-keymaps('v', '<A-k>',':m.-2<CR>==',{noremap=true, silent=true})
+-- Move text up and down keymaps('v', '<A-j>',':m.+1<CR>==',ntst)
+keymaps('v', '<A-k>',':m.-2<CR>==',ntst)
 -- Visual Block
 -- Move text up and down
-keymaps('x', 'J',":move '>+1<CR>gv-gv",     {noremap=true, silent=true})
-keymaps('x', 'K',":move '<-1<CR>gv-gv",     {noremap=true, silent=true})
-keymaps('x', '<A-j>',":move '>+1<CR>gv-gv", {noremap=true, silent=true})
-keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", {noremap=true, silent=true})
+keymaps('x', 'J',":move '>+1<CR>gv-gv",     ntst)
+keymaps('x', 'K',":move '<-1<CR>gv-gv",     ntst)
+keymaps('x', '<A-j>',":move '>+1<CR>gv-gv", ntst)
+keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", ntst)
 
 -- floaterm
 vim.g["floaterm_width"]  = 0.95
 vim.g["floaterm_height"] = 0.95
-keymaps('n','<space>ft',':FloatermNew<CR>',               {noremap=true, silent=true})
-keymaps('t','<space>ft','<C-\\><C-n>:FloatermNew<CR>',    {noremap=true, silent=true})
-keymaps('n','<space>fp',':FloatermPrev<CR>',              {noremap=true, silent=true})
-keymaps('t','<space>fp','<C-\\><C-n>:FloatermPrev<CR>',   {noremap=true, silent=true})
-keymaps('n','<space>fn',':FloatermNext<CR>',              {noremap=true, silent=true})
-keymaps('t','<space>fn','<C-\\><C-n>:FloatermNext<CR>',   {noremap=true, silent=true})
-keymaps('n','<space>ff',':FloatermToggle<CR>',            {noremap=true, silent=true})
-keymaps('t','<space>ff','<C-\\><C-n>:FloatermToggle<CR>', {noremap=true, silent=true})
+keymaps('n','<space>ft',':FloatermNew<CR>',               ntst)
+keymaps('t','<space>ft','<C-\\><C-n>:FloatermNew<CR>',    ntst)
+keymaps('n','<space>fp',':FloatermPrev<CR>',              ntst)
+keymaps('t','<space>fp','<C-\\><C-n>:FloatermPrev<CR>',   ntst)
+keymaps('n','<space>fn',':FloatermNext<CR>',              ntst)
+keymaps('t','<space>fn','<C-\\><C-n>:FloatermNext<CR>',   ntst)
+keymaps('n','<space>ff',':FloatermToggle<CR>',            ntst)
+keymaps('t','<space>ff','<C-\\><C-n>:FloatermToggle<CR>', ntst)
 
 -- vimagit
-keymaps('n','gj',':Gitsigns preview_hunk<CR>', {noremap=true, silent=true})
-keymaps('n','gn',':Gitsigns next_hunk<CR>',    {noremap=true, silent=true})
-keymaps('n','gp',':Gitsigns prev_hunk<CR>',    {noremap=true, silent=true})
-keymaps('n','gu',':Gitsigns reset_hunk<CR>',   {noremap=true, silent=true})
-keymaps('n','<space>gb',':Git blame<CR>',             {noremap=true, silent=true})
-keymaps('n','<space>gl',':LazyGit<CR>',               {noremap=true, silent=true})
-keymaps('n','<space>go',':DiffviewOpen -uno<CR>',     {noremap=true, silent=true})
-keymaps('n','<space>gr',':DiffviewRefresh<CR>',       {noremap=true, silent=true})
+keymaps('n','gj',':Gitsigns preview_hunk<CR>', ntst)
+keymaps('n','gn',':Gitsigns next_hunk<CR>',    ntst)
+keymaps('n','gp',':Gitsigns prev_hunk<CR>',    ntst)
+keymaps('n','gu',':Gitsigns reset_hunk<CR>',   ntst)
+keymaps('n','<space>gb',':Git blame<CR>',             ntst)
+keymaps('n','<space>gl',':LazyGit<CR>',               ntst)
+keymaps('n','<space>go',':DiffviewOpen -uno<CR>',     ntst)
+keymaps('n','<space>gr',':DiffviewRefresh<CR>',       ntst)
 
 keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', { noremap=true, silent=false})
 -- Telescope
-keymaps('n','<space>tf',':Telescope find_files<CR>',  {noremap=true, silent=true})
-keymaps('n','<space>tg',':Telescope live_grep<CR>',   {noremap=true, silent=true})
-keymaps('n','<space>tt',':Telescope treesitter<CR>',  {noremap=true, silent=true})
-keymaps('n','<space>th',':Neotree',                   {noremap=true, silent=true})
+keymaps('n','<space>tf',':Telescope find_files<CR>',  ntst)
+keymaps('n','<space>tg',':Telescope live_grep<CR>',   ntst)
+keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
+keymaps('n','<space>th',':Neotree',                   ntst)
 
 -- highlight
-keymaps('n','<space>tr',':RainbowToggle<CR>',{noremap=true, silent=true})
-keymaps('n','<space>tz',':TSToggle highlight<CR>',{noremap=true, silent=true})
+keymaps('n','<space>tr',':RainbowToggle<CR>',ntst)
+keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0
-keymaps('n','s','<Plug>(easymotion-overwin-f2)',           { noremap=true, silent=true})
+keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)
 -- Move to line
-keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         { noremap=true, silent=true})
-keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', { noremap=true, silent=true})
+keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         ntst)
+keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- Move to word
-keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          { noremap=true, silent=true})
-keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    { noremap=true, silent=true})
+keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
+keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
 
-keymaps('','/','<Plug>(easymotion-sn)', { noremap=true, silent=true})
-keymaps('o','/','<Plug>(easymotion-tn)', { noremap=true, silent=true})
+keymaps('','/','<Plug>(easymotion-sn)', ntst)
+keymaps('o','/','<Plug>(easymotion-tn)', ntst)
 
 -- quickhl
-keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  { noremap=true, silent=true})
-keymaps('x','<space>m','<Plug>(quickhl-manual-this)',  { noremap=true, silent=true})
-keymaps('n','<space>M','<Plug>(quickhl-manual-reset)', { noremap=true, silent=true})
-keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', { noremap=true, silent=true})
+keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  ntst)
+keymaps('x','<space>m','<Plug>(quickhl-manual-this)',  ntst)
+keymaps('n','<space>M','<Plug>(quickhl-manual-reset)', ntst)
+keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', ntst)
 
 -- Lspsaga
-keymaps('n','gh',':Lspsaga lsp_finder<CR>', {noremap=true, silent=true})
+keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
 
 -- Command of mine
 

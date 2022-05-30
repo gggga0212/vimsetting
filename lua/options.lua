@@ -115,7 +115,7 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
-keymaps('n','cs','* :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','cj','* :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','cg','* :cs find g <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','cc','* :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','ct','* :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
@@ -123,7 +123,7 @@ keymaps('n','ce','* :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{norem
 keymaps('n','cf','* :cs find f <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','ci','* :cs find i <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','cd','* :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',{noremap=true, silent=false})
+keymaps('n','ca',':<C-U><C-R>=printf("cs find ")<CR>',{noremap=true, silent=false})
 
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
 keymaps('n','cx', ':copen<CR>',  {noremap=true, silent=true})

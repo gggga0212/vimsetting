@@ -106,22 +106,41 @@ au ColorScheme * hi ModeMsg ctermfg=green
 au ColorScheme * hi Pmenu ctermbg=240 ctermfg=white
 augroup end
 ]])
+-- cscope
+-- s: Find this C symbol.
+-- g: Find this definition.
+-- c: Find functions calling this function.
+-- t: Find this file.
+-- e: Find this grep pattern.
+-- f: Find this file.
+-- i: Find files #including this file.
+-- d: Find functions called by this function.
+keymaps('n','cs','* :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','cg','* :cs find g <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','cc','* :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','ct','* :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','ce','* :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','cf','* :cs find f <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','ci','* :cs find i <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','cd','* :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',{noremap=true, silent=false})
 
--- command
+vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
+keymaps('n','cx', ':copen<CR>',  {noremap=true, silent=true})
+keymaps('n','cq', ':cclose<CR>', {noremap=true, silent=true})
+-- nmap <C-t> :colder<CR>:cc<CR>
 
--- keymaps
 -- keymaps('n','<space>eh', ':NERDTree<CR>',{noremap=true, silent=true})
-keymaps('n','<space>eh', ':NERDTreeToggle<CR>',{noremap=true, silent=true})
-keymaps('n','<space>el', ':TagbarToggle<CR>',{noremap=true, silent=true})
+keymaps('n','<space>eh', ':NERDTreeToggle<CR>', {noremap=true, silent=true})
+keymaps('n','<space>el', ':TagbarToggle<CR>',   {noremap=true, silent=true})
 
 -- cursor
 keymaps('n','<Leader>c',':set cursorline! cursorcolumn!<CR>',  {noremap=true, silent=true})
 
 -- Function Key
-keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>',       {noremap=true, silent=true})
-keymaps('n', '<F3>',':tabe ~/.config/nvim/lua/plugins.lua<CR>',{noremap=true, silent=true})
-keymaps('n', '<F4>',':RainbowToggle<CR>',                      {noremap=true, silent=true})
-keymaps('n', '<F5>',':TSToggle highlight<CR>',                 {noremap=true, silent=true})
+keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>', { noremap=true, silent=true})
+keymaps('n', '<F3>',':cnext<CR>', { noremap=true, silent=true})
+keymaps('n', '<F4>',':cprev<CR>', { noremap=true, silent=true})
 
 -- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
 -- :!cscope -R -b -q -i cscope.files -f cscope.out<CR>
@@ -151,27 +170,6 @@ keymaps('x', 'K',":move '<-1<CR>gv-gv",     {noremap=true, silent=true})
 keymaps('x', '<A-j>',":move '>+1<CR>gv-gv", {noremap=true, silent=true})
 keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", {noremap=true, silent=true})
 
--- cscope
--- s: Find this C symbol.
--- g: Find this definition.
--- c: Find functions calling this function.
--- t: Find this file.
--- e: Find this grep pattern.
--- f: Find this file.
--- i: Find files #including this file.
--- d: Find functions called by this function.
--- keymaps('n','cs',':cs find s <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
-keymaps('n','cg',':cs find g <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
-keymaps('n','cc',':cs find c <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
-keymaps('n','ct',':cs find t <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
-keymaps('n','ce',':cs find e <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
-keymaps('n','cf',':cs find f <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
-keymaps('n','ci',':cs find i <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
-keymaps('n','cd',':cs find d <C-R>=expand("<cword>")<CR><CR>',{noremap=true, silent=true})
-keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',{noremap=true, silent=false})
-
--- cscope color
-
 -- floaterm
 vim.g["floaterm_width"]  = 0.95
 vim.g["floaterm_height"] = 0.95
@@ -200,6 +198,10 @@ keymaps('n','<space>tf',':Telescope find_files<CR>',  {noremap=true, silent=true
 keymaps('n','<space>tg',':Telescope live_grep<CR>',   {noremap=true, silent=true})
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  {noremap=true, silent=true})
 keymaps('n','<space>th',':Neotree',                   {noremap=true, silent=true})
+
+-- highlight
+keymaps('n','<space>tr',':RainbowToggle<CR>',  {noremap=true, silent=true})
+keymaps('n','<space>tz',':TSToggle highlight<CR>',  {noremap=true, silent=true})
 
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0

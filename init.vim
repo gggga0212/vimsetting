@@ -36,7 +36,7 @@ nmap <F8> :!rm -rf cscope.*<CR>
 filetype plugin indent on
 " colorscheme tokyonight
 syntax on
-
+" set cscopequickfix=s-,c-,d-,i-,t-,e-,a-
 "tagbar
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1

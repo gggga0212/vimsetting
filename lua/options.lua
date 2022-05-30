@@ -1,5 +1,6 @@
 local keymaps = vim.api.nvim_set_keymap
-local ntst = {noremap=true, silent=false}
+local ntst = {noremap=true, silent=true}
+local ntsf = {noremap=true, silent=false}
 
 require "lsp.treesitter"
 require "lsp.gitsigns"
@@ -64,13 +65,13 @@ vim.g.rainbow_active = 1
 keymaps('n','/', 'ms/',ntst)
 
 -- vim replace
-keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',{noremap=true, silent=false})
+keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
 
 -- EasyAlign
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
 -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-keymaps('x','ga', '<Plug>(EasyAlign)',  {noremap=true, silent=false})
-keymaps('n','ga', '<Plug>(EasyAlign)_', {noremap=true, silent=false})
+keymaps('x','ga', '<Plug>(EasyAlign)',  ntsf)
+keymaps('n','ga', '<Plug>(EasyAlign)_', ntsf)
 
 -- colo tokyonight
 vim.g.tokyonight_style         = "night" -- available: night, storm
@@ -125,7 +126,7 @@ keymaps('n','ce','* :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','cf','* :cs find f <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','ci','* :cs find i <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
 keymaps('n','cd','* :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>',ntst)
-keymaps('n','cz',':<C-U><C-R>=printf("cs find ")<CR>',{noremap=true, silent=false})
+keymaps('n','cz',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
 keymaps('n','cx', ':copen<CR>',  ntst)
@@ -140,13 +141,13 @@ keymaps('n','<space>el', ':TagbarToggle<CR>',   ntst)
 keymaps('n','<Leader>c',':set cursorline! cursorcolumn!<CR>',  ntst)
 
 -- Function Key
-keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>', { noremap=true, silent=true})
-keymaps('n', '<F3>',':cnext<CR>', { noremap=true, silent=true})
-keymaps('n', '<F4>',':cprev<CR>', { noremap=true, silent=true})
+keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>', ntst)
+keymaps('n', '<F3>',':cnext<CR>', ntst)
+keymaps('n', '<F4>',':cprev<CR>', ntst)
 
 -- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
 -- :!cscope -R -b -q -i cscope.files -f cscope.out<CR>
--- :cs reset<CR>',{ noremap=true, silent=true})
+-- :cs reset<CR>',ntst)
 
 -- Move in vim
 keymaps('n', '<C-H>','<C-W>h',ntst)
@@ -194,7 +195,7 @@ keymaps('n','<space>gl',':LazyGit<CR>',               ntst)
 keymaps('n','<space>go',':DiffviewOpen -uno<CR>',     ntst)
 keymaps('n','<space>gr',':DiffviewRefresh<CR>',       ntst)
 
-keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', { noremap=true, silent=false})
+keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', ntsf)
 -- Telescope
 keymaps('n','<space>tf',':Telescope find_files<CR>',  ntst)
 keymaps('n','<space>tg',':Telescope live_grep<CR>',   ntst)

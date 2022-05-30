@@ -62,13 +62,14 @@ vim.g.rainbow_active = 1
 -- tags before find
 keymaps('n','/', 'ms/',{noremap=true, silent=true})
 
--- vim replace keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',{noremap=true, silent=false})
+-- vim replace
+keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',{noremap=true, silent=false})
 
 -- EasyAlign
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
 -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
-keymaps('x','ga', '<Plug>(EasyAlign)',  { noremap=true, silent=false})
-keymaps('n','ga', '<Plug>(EasyAlign)_', { noremap=true, silent=false})
+keymaps('x','ga', '<Plug>(EasyAlign)',  {noremap=true, silent=false})
+keymaps('n','ga', '<Plug>(EasyAlign)_', {noremap=true, silent=false})
 
 -- colo tokyonight
 vim.g.tokyonight_style         = "night" -- available: night, storm
@@ -116,14 +117,14 @@ augroup end
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
 keymaps('n','cj','* :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','cg','* :cs find g <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
+keymaps('n','cg',':cs find g <C-R>=expand("<cword>")<CR><CR><CR>',{noremap=true, silent=true})
 keymaps('n','cc','* :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','ct','* :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','ce','* :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','cf','* :cs find f <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','ci','* :cs find i <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
 keymaps('n','cd','* :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>',{noremap=true, silent=true})
-keymaps('n','ca',':<C-U><C-R>=printf("cs find ")<CR>',{noremap=true, silent=false})
+keymaps('n','cz',':<C-U><C-R>=printf("cs find ")<CR>',{noremap=true, silent=false})
 
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
 keymaps('n','cx', ':copen<CR>',  {noremap=true, silent=true})
@@ -200,8 +201,8 @@ keymaps('n','<space>tt',':Telescope treesitter<CR>',  {noremap=true, silent=true
 keymaps('n','<space>th',':Neotree',                   {noremap=true, silent=true})
 
 -- highlight
-keymaps('n','<space>tr',':RainbowToggle<CR>',  {noremap=true, silent=true})
-keymaps('n','<space>tz',':TSToggle highlight<CR>',  {noremap=true, silent=true})
+keymaps('n','<space>tr',':RainbowToggle<CR>',{noremap=true, silent=true})
+keymaps('n','<space>tz',':TSToggle highlight<CR>',{noremap=true, silent=true})
 
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0

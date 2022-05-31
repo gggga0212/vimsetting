@@ -45,8 +45,8 @@ vim.g.loaded_perl_provider = 0
 vim.opt.foldmethod = 'syntax'
 vim.opt.foldenable = false
 -- winbar
-vim.opt.winbar = '%m%f'
-
+-- vim.opt.winbar = '%m%f'
+vim.opt.winbar = "%{%v:lua.require'lsp.winbar'.eval()%}"
 -- ctags
 vim.g.tags = './tags,./TAGS,tags;~,TAGS;~'
 -- ctrlp
@@ -144,10 +144,10 @@ keymaps('n','ySS','<Plug>YSsurround',ntsf)
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
 keymaps('n','cx', ':copen<CR>',  ntst)
 keymaps('n','cq', ':cclose<CR>', ntst)
-keymaps( 'n','<C-t>', ':colder<CR>:cc<CR>', ntst)
+-- keymaps( 'n','<C-t>', ':colder<CR>:cc<CR>', ntst)
 
 -- keymaps('n','<space>eh', ':NERDTree<CR>',ntst)
-keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)
+-- keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)
 keymaps('n','<space>el', ':TagbarToggle<CR>',   ntst)
 
 -- cursor

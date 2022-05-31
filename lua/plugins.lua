@@ -56,6 +56,7 @@ return require('packer').startup(function(use)
     use {'easymotion/vim-easymotion'}
     use {'tpope/vim-surround'}
     use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+    use {'fgheng/winbar.nvim'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     use {'glepnir/lspsaga.nvim'}

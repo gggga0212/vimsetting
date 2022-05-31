@@ -3,4 +3,5 @@ require "lsp.gitsigns"
 require "lsp.lsp-installer"
 require "lsp.lsp-config"
 require "lsp.nvim-bqf"
+-- require "lsp.winbar"
 

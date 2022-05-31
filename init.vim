@@ -103,9 +103,9 @@ if has('nvim')
                                                         \     'sources': [{'name': 'buffer', 'expand': v:true}]
                                                         \   },
                                                         \ }
-    "nmap <space>eh <Cmd>CocCommand explorer --preset floating<CR>
-    "nmap <space>e <Cmd>CocCommand explorer<CR>
-    " nmap <space>eh <Cmd>CocCommand explorer --preset simplify<CR>
+    " nmap <space>eh <Cmd>CocCommand explorer --preset floating<CR>
+    " nmap <space>e <Cmd>CocCommand explorer<CR>
+    nmap <space>eh <Cmd>CocCommand explorer --preset simplify<CR>
     nmap <space>ev <Cmd>CocCommand explorer --preset .vim<CR>
     nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
     nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>

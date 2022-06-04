@@ -7,5 +7,13 @@ require('telescope').setup({
         },
         -- other defaults configuration here
     },
+    live_grep = {
+        only_sort_text = true
+    },
+    extensions = {
+        live_grep_raw = {
+            auto_quoting = true, -- enable/disable auto-quoting
+        }
+    }
     -- other configuration values here
 })

@@ -211,8 +211,9 @@ keymaps('n','<space>gr',':DiffviewRefresh<CR>',       ntst)
 
 keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', ntsf)
 -- Telescope
-keymaps('n','<space>tf',':Telescope find_files<CR>',  ntst)
-keymaps('n','<space>tg',':Telescope live_grep<CR>',   ntst)
+keymaps('n','<space>tf',':Telescope find_files<CR>', ntst)
+-- keymaps('n','<space>tg',':Telescope live_grep<CR>',   ntst)
+keymaps('n','<space>tg',':lua require("telescope").extensions.live_grep_raw.live_grep_raw()<CR>',   ntst)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 keymaps('n','<space>th',':Neotree',                   ntst)
 

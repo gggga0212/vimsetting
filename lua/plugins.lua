@@ -15,10 +15,16 @@ return require('packer').startup(function(use)
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     use({"nvim-telescope/telescope.nvim",
-        requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" }, { "nvim-telescope/telescope-live-grep-raw.nvim" } },
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "kdheepak/lazygit.nvim" },
+            { "nvim-telescope/telescope-live-grep-raw.nvim" },
+            { "nvim-telescope/telescope-project.nvim" }
+        },
         config = function()
         require("telescope").load_extension("lazygit")
         require("telescope").load_extension("live_grep_raw")
+        require("telescope").load_extension("project")
         end,})
     use {'lewis6991/gitsigns.nvim'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -58,6 +64,7 @@ return require('packer').startup(function(use)
     use {'easymotion/vim-easymotion'}
     use {'tpope/vim-surround'}
     use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+    -- use {'kevinhwang91/nvim-bqf'}
     use {'fgheng/winbar.nvim'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}

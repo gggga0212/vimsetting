@@ -8,6 +8,7 @@ require "lsp.lsp-installer"
 require "lsp.lsp-config"
 require "lsp.telescope"
 -- require "lsp.nvim-bqf"
+-- require "lsp.winbar"
 
 
 -- :help option
@@ -42,8 +43,7 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
--- folder indent
--- vim.opt.foldmethod = 'indent'
+-- folder indent vim.opt.foldmethod = 'indent'
 vim.opt.foldmethod = 'syntax'
 vim.opt.foldenable = false
 -- winbar
@@ -218,7 +218,7 @@ keymaps('n','<space>tf',':Telescope find_files<CR>', ntst)
 keymaps('n','<space>tg',':lua require("telescope").extensions.live_grep_raw.live_grep_raw()<CR>',   ntst)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 keymaps('n','<space>th',':Neotree',                   ntst)
-
+keymaps('n','<space>tp',':lua require("telescope").extensions.project.project{}<CR>', ntst)
 -- highlight
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 

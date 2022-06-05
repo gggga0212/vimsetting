@@ -13,6 +13,15 @@ require('telescope').setup({
     extensions = {
         live_grep_raw = {
             auto_quoting = true, -- enable/disable auto-quoting
+        },
+        project = {
+            base_dirs = {
+                {'.'},
+                {'../ble_stack_lib/src/ble_stack'},
+                {'~/.config/nvim'},
+            },
+            hidden_files = true, -- default: false
+            theme = "dropdown"
         }
     }
     -- other configuration values here

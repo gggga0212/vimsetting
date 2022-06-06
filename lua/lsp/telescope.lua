@@ -18,7 +18,6 @@ require('telescope').setup({
             base_dirs = {
                 {'.'},
                 {'../ble_stack_lib/src/ble_stack'},
-                {'~/.config/nvim'},
             },
             hidden_files = true, -- default: false
             theme = "dropdown"

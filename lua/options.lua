@@ -43,8 +43,7 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
--- folder indent vim.opt.foldmethod = 'indent'
-vim.opt.foldmethod = 'syntax'
+-- folder indent vim.opt.foldmethod = 'indent' vim.opt.foldmethod = 'syntax'
 vim.opt.foldenable = false
 -- winbar
 -- vim.opt.winbar = '%m%f'
@@ -221,7 +220,8 @@ keymaps('n','<space>th',':Neotree',                   ntst)
 keymaps('n','<space>tp',':lua require("telescope").extensions.project.project{}<CR>', ntst)
 -- highlight
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
-
+keymaps('n','<space>tq',':LspStop<CR>', ntst)
+keymaps('n','<space>ti','gg=G', ntst)
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)

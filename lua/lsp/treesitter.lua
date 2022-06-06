@@ -25,7 +25,18 @@ require'nvim-treesitter.configs'.setup {
         additional_vim_regex_highlighting = false,
 
     },
-    indent = {
-          enable = false, -- default is disabled anyways
-      }
+    -- indent = {
+    --     enable = true, -- default is disabled anyways
+    -- },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection    = '<CR>',
+            node_incremental  = '<CR>',
+            node_decremental  = '<BR>',
+            scope_incremental = '<TAB>',
+        }
+    }
 }
+-- vim.wo.foldmethod = 'expr'
+-- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'

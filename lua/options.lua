@@ -217,7 +217,7 @@ keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', ntsf)
 -- Telescope
 keymaps('n','<space>tf',':Telescope find_files<CR>', ntst)
 -- keymaps('n','<space>tg',':Telescope live_grep<CR>',   ntst)
-keymaps('n','<space>tg',':lua require("telescope").extensions.live_grep_raw.live_grep_raw()<CR>',   ntst)
+keymaps('n','<space>tg',':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',   ntst)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 keymaps('n','<space>th',':Neotree',                   ntst)
 keymaps('n','<space>tp',':lua require("telescope").extensions.project.project{}<CR>', ntst)

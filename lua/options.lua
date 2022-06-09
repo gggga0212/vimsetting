@@ -43,7 +43,8 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
--- folder indent vim.opt.foldmethod = 'indent' vim.opt.foldmethod = 'syntax'
+-- folder indent vim.opt.foldmethod = 'indent'
+vim.opt.foldmethod = 'syntax'
 vim.opt.foldenable = false
 -- winbar
 -- vim.opt.winbar = '%m%f'

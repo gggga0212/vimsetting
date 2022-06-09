@@ -225,6 +225,7 @@ keymaps('n','<space>tp',':lua require("telescope").extensions.project.project{}<
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 keymaps('n','<space>tq',':LspStop<CR>', ntst)
 keymaps('n','<space>ti','gg=G', ntst)
+keymaps('n','<space>td',':normal! J<CR>', ntst)
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)
@@ -249,5 +250,6 @@ keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
 
 -- Command of mine
 
+keymaps('n','J','j', ntst)
 -- colo
 vim.cmd [[colorscheme tokyonight]]

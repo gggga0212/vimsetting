@@ -10,8 +10,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
 
 #nvim ubuntu
-wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
-sudo apt install ./nvim-linux64.deb
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-get update 
+sudo apt-get neovim
 
 # Using Ubuntu nodejs 18.x
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -

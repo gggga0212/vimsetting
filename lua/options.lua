@@ -213,7 +213,7 @@ keymaps('n','<space>gb',':Git blame<CR>',             ntst)
 keymaps('n','<space>gl',':LazyGit<CR>',               ntst)
 keymaps('n','<space>go',':DiffviewOpen -uno<CR>',     ntst)
 keymaps('n','<space>gr',':DiffviewRefresh<CR>',       ntst)
-
+keymaps('n','<space>gt',':Telescope git_status<CR>',     ntst)
 keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', ntsf)
 -- Telescope
 keymaps('n','<space>tf',':Telescope find_files<CR>', ntst)
@@ -222,11 +222,14 @@ keymaps('n','<space>tg',':lua require("telescope").extensions.live_grep_args.liv
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 keymaps('n','<space>th',':Neotree',                   ntst)
 keymaps('n','<space>tp',':lua require("telescope").extensions.project.project{}<CR>', ntst)
+keymaps('n','<space>tk',':Telescope keymaps<CR>',  ntst)
 -- highlight
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 keymaps('n','<space>tq',':LspStop<CR>', ntst)
 keymaps('n','<space>ti','gg=G', ntst)
 keymaps('n','<space>td',':normal! J<CR>', ntst)
+
+keymaps('n','<space>uu',':PackerSync<CR>', ntst)
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)

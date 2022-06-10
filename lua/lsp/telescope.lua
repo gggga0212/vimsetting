@@ -2,8 +2,11 @@ require('telescope').setup({
     defaults = {
         layout_config = {
             -- vertical = { width = 0.9 }
-            width = 0.95
+            width = 0.95,
             -- other layout configuration here
+            horizontal = {
+                prompt_position = "bottom",
+            }
         },
         -- other defaults configuration here
     },

@@ -255,5 +255,6 @@ keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
 -- Command of mine
 
 keymaps('n','J','j', ntst)
+keymaps('n','[[','[[k', ntst)
 -- colo
 vim.cmd [[colorscheme tokyonight]]

@@ -25,6 +25,11 @@ require('telescope').setup({
             hidden_files = true, -- default: false
             theme = "dropdown"
         }
+    },
+    pickers = {
+        colorscheme = {
+            enable_preview = true
+        }
     }
     -- other configuration values here
 })

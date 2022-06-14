@@ -220,7 +220,7 @@ keymaps('n','<space>tf',':Telescope find_files<CR>', ntst)
 -- keymaps('n','<space>tg',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<space>tg',':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',   ntst)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
-keymaps('n','<space>th',':Neotree',                   ntst)
+keymaps('n','<space>th',':NERDTree<CR>',                   ntst)
 keymaps('n','<space>tp',':lua require("telescope").extensions.project.project{}<CR>', ntst)
 keymaps('n','<space>tk',':Telescope keymaps<CR>',  ntst)
 -- highlight

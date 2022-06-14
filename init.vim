@@ -111,6 +111,6 @@ if has('nvim')
     nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 endif
 
-hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
-hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
+" hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
+hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=gray guifg=white
 hi Normal ctermfg=white ctermbg=16

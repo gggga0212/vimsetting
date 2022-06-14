@@ -113,4 +113,4 @@ endif
 
 hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
 hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
-hi Normal ctermfg=grey ctermbg=16
+hi Normal ctermfg=white ctermbg=16

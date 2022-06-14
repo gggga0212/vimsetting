@@ -66,6 +66,7 @@ return require('packer').startup(function(use)
     use {'kevinhwang91/nvim-bqf', ft = 'qf'}
     -- use {'kevinhwang91/nvim-bqf'}
     use {'fgheng/winbar.nvim'}
+    use {'norcalli/nvim-colorizer.lua'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     -- use {'glepnir/lspsaga.nvim'}

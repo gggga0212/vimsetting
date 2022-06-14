@@ -2,11 +2,14 @@ local keymaps = vim.api.nvim_set_keymap
 local ntst = {noremap=true, silent=true}
 local ntsf = {noremap=true, silent=false}
 
+vim.opt.termguicolors = true
+
 require "lsp.treesitter"
 require "lsp.gitsigns"
 require "lsp.lsp-installer"
 require "lsp.lsp-config"
 require "lsp.telescope"
+require "lsp.colorizer"
 -- require "lsp.nvim-bqf"
 -- require "lsp.winbar"
 

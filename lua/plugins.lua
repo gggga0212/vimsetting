@@ -19,12 +19,10 @@ return require('packer').startup(function(use)
             { "nvim-lua/plenary.nvim" },
             { "kdheepak/lazygit.nvim" },
             { "nvim-telescope/telescope-live-grep-args.nvim" },
-            { "nvim-telescope/telescope-project.nvim" }
         },
         config = function()
         require("telescope").load_extension("lazygit")
         require("telescope").load_extension("live_grep_args")
-        require("telescope").load_extension("project")
         end,})
     use {'lewis6991/gitsigns.nvim'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

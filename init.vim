@@ -112,5 +112,5 @@ if has('nvim')
 endif
 
 " hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
-hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=gray guifg=white
+" hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=gray guifg=white
 hi Normal ctermfg=white ctermbg=16

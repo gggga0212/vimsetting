@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
     use {'https://github.com/tomasr/molokai'}
     use {'shaunsingh/solarized.nvim'}
     use {'ghifarit53/tokyonight-vim'}
+    -- use {'folke/tokyonight.nvim'}
     use {'hzchirs/vim-material'}
     use {'kshenoy/vim-signature'}
     use {'jlanzarotta/bufexplorer'}

@@ -147,7 +147,7 @@ keymaps('n','ySs','<Plug>YSsurround',ntsf)
 keymaps('n','ySS','<Plug>YSsurround',ntsf)
 -- cscope
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
-keymaps('n','cx', ':copen<CR>',  ntst)
+keymaps('n','cx', ':copen 30<CR>',  ntst)
 keymaps('n','cq', ':cclose<CR>', ntst)
 -- keymaps( 'n','<C-t>',':colder<CR>:cc<CR>', ntst)
 
@@ -261,3 +261,4 @@ keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)
 -- colo
 vim.cmd [[colorscheme tokyonight]]
+-- vim.cmd [[colorscheme slate]]

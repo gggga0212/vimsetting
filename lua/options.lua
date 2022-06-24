@@ -232,6 +232,8 @@ keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 keymaps('n','<space>tq',':LspStop<CR>', ntst)
 keymaps('n','<space>ti','gg=G', ntst)
 keymaps('n','<space>td',':normal! J<CR>', ntst)
+keymaps('n','<space>tp',':!python sha.py<CR>', ntst)
+keymaps('n','<space>tm',':!make all<CR>', ntst)
 keymaps('n','<space>uu',':PackerSync<CR>', ntst)
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0

@@ -48,12 +48,12 @@ return require('packer').startup(function(use)
     use {'https://github.com/tomasr/molokai'}
     use {'shaunsingh/solarized.nvim'}
     use {'ghifarit53/tokyonight-vim'}
-    -- use {'folke/tokyonight.nvim'}
+    use {'folke/tokyonight.nvim'}
     use {'hzchirs/vim-material'}
     use {'kshenoy/vim-signature'}
     use {'jlanzarotta/bufexplorer'}
     use {'BurntSushi/ripgrep'}
-    use {'SirVer/ultisnips'}
+    -- use {'SirVer/ultisnips'}
     use {'honza/vim-snippets'}
     use {'sickill/vim-monokai'}
     use {'morhetz/gruvbox'}

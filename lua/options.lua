@@ -10,6 +10,7 @@ require "lsp.lsp-installer"
 require "lsp.lsp-config"
 require "lsp.telescope"
 require "lsp.colorizer"
+require "lsp.color-picker"
 -- require "lsp.nvim-bqf"
 -- require "lsp.winbar"
 
@@ -219,37 +220,40 @@ keymaps('n','<space>gr',':DiffviewRefresh<CR>',       ntst)
 keymaps('n','<space>gt',':Telescope git_status<CR>',     ntst)
 keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', ntsf)
 -- Telescope
-keymaps('n','<space>tc',':Telescope colorscheme<CR>', ntst)
+keymaps('n','<space>ta',':Colortils css list<CR>', ntst)
 keymaps('n','<space>tb',':<C-U><C-R>=printf("hi Normal ctermfg=white ctermbg=16")<CR>',ntsf)
+keymaps('n','<space>tc',':Telescope colorscheme<CR>', ntst)
+keymaps("n",'<space>tC',':PickColor<CR>', ntst)
+keymaps("i",'<space>tC',':PickColorInsert<CR>', ntst)
+keymaps('n','<space>td',':normal! J<CR>', ntst)
 keymaps('n','<space>tf',':Telescope find_files<CR>', ntst)
+keymaps('n','<space>tg',':!go run main.go<CR>', ntst)
+keymaps('n','<space>th',':NERDTree<CR>',                   ntst)
+keymaps('n','<space>ti','gg=G', ntst)
+keymaps('n','<space>tj',':!make all<CR>', ntst)
 -- keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<space>tr',':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',   ntst)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
-keymaps('n','<space>th',':NERDTree<CR>',                   ntst)
 keymaps('n','<space>tk',':Telescope keymaps<CR>',  ntst)
+-- Move to line
+keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         ntst)
+keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- highlight
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 keymaps('n','<space>tq',':LspStop<CR>', ntst)
-keymaps('n','<space>ti','gg=G', ntst)
-keymaps('n','<space>td',':normal! J<CR>', ntst)
 keymaps('n','<space>tp',':!python sha.py<CR>', ntst)
-keymaps('n','<space>tg',':!go run main.go<CR>', ntst)
-keymaps('n','<space>tj',':!make all<CR>', ntst)
 
 keymaps('n','<space>ts',':!pkill -f tmux<CR>', ntst)
 -- quickhl
-keymaps('n','<space>tm','<Plug>(quickhl-manual-this)',  ntst)
-keymaps('x','<space>tm','<Plug>(quickhl-manual-this)',  ntst)
-keymaps('n','<space>tM','<Plug>(quickhl-manual-reset)', ntst)
-keymaps('x','<space>tM','<Plug>(quickhl-manual-reset)', ntst)
+keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  ntst)
+keymaps('x','<space>m','<Plug>(quickhl-manual-this)',  ntst)
+keymaps('n','<space>M','<Plug>(quickhl-manual-reset)', ntst)
+keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', ntst)
 
 keymaps('n','<space>uu',':PackerSync<CR>', ntst)
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)
--- Move to line
-keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         ntst)
-keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- Move to word
 keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
 keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)

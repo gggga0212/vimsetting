@@ -66,6 +66,16 @@ return require('packer').startup(function(use)
     -- use {'kevinhwang91/nvim-bqf'}
     use {'fgheng/winbar.nvim'}
     use {'norcalli/nvim-colorizer.lua'}
+    use {'ziontee113/color-picker.nvim',
+        config = function()
+            require("color-picker")
+        end,}
+    use {'max397574/colortils.nvim',
+        cmd = "Colortils",
+        config = function()
+            require("colortils").setup()
+        end,
+    }
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     -- use {'glepnir/lspsaga.nvim'}

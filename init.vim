@@ -33,7 +33,7 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
 
-nmap <C-t> 'C 
+nmap <C-t> 'Z 
 filetype plugin indent on
 " colorscheme tokyonight
 syntax enable 

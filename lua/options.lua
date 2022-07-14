@@ -125,14 +125,14 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
-keymaps('n','cs','mC* :cs find s <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','cg','mC* :cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','cc','mC* :cs find c <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','ct','mC* :cs find t <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','ce','mC* :cs find e <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','cf','mC* :cs find f <C-R>=expand("<cfile>")<CR><CR>',ntst)
-keymaps('n','ci','mC* :cs find i <C-R>=expand("<cfile>")<CR><CR>',ntst)
-keymaps('n','cd','mC* :cs find d <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cs','mZ* :cs find s <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cg','mZ* :cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cc','mZ* :cs find c <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','ct','mZ* :cs find t <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','ce','mZ* :cs find e <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cf','mZ* :cs find f <C-R>=expand("<cfile>")<CR><CR>',ntst)
+keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>',ntst)
+keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>',ntst)
 keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 
 -- surround

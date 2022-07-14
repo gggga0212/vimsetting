@@ -77,6 +77,7 @@ return require('packer').startup(function(use)
             require("colortils").setup()
         end,
     }
+    use {'kyazdani42/nvim-web-devicons'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     -- use {'glepnir/lspsaga.nvim'}

@@ -111,7 +111,7 @@ if has('nvim')
     nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
     nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 endif
-
+set completeopt=menu,menuone,noselect
 " hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
 " hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=gray guifg=white
 hi Normal ctermfg=white ctermbg=16

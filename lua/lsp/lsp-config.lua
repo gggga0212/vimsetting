@@ -49,9 +49,9 @@ require'lspconfig'.sumneko_lua.setup {
     },
 }
 
--- require'lspconfig'.clangd.setup{
---     -- capabilities = default capabilities, with offsetEncoding utf-8
---     cmd = {"clangd", "--background-index" },
---     filetypes = {"c"}, --"cpp", "objc", "objcpp" },
---     root_dir =require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt", "../.git")
--- }
+require'lspconfig'.clangd.setup{
+    -- capabilities = default capabilities, with offsetEncoding utf-8
+    cmd = {"clangd", "--background-index" },
+    filetypes = {"c"}, --"cpp", "objc", "objcpp" },
+    root_dir =require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt", "../.git")
+}

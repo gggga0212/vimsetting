@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
     use {'https://github.com/tomasr/molokai'}
     use {'shaunsingh/solarized.nvim'}
     use {'ghifarit53/tokyonight-vim'}
+    use {'rebelot/kanagawa.nvim'}
     -- use {'folke/tokyonight.nvim'}
     use {'catppuccin/nvim',as = "catppuccin"}
     use {'hzchirs/vim-material'}
@@ -78,6 +79,7 @@ return require('packer').startup(function(use)
         end,
     }
     -- use {'kyazdani42/nvim-web-devicons'}
+    use {'Yggdroot/indentLine'}
     use {'ryanoasis/vim-devicons'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}

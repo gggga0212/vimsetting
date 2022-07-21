@@ -150,7 +150,7 @@ keymaps('n','ySs','<Plug>YSsurround',ntsf)
 keymaps('n','ySS','<Plug>YSsurround',ntsf)
 -- cscope
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
-keymaps('n','cx', ':copen 30<CR>',  ntst)
+keymaps('n','cx', ':copen 20<CR>',  ntst)
 keymaps('n','cq', ':cclose<CR>', ntst)
 -- keymaps( 'n','<C-t>',':colder<CR>:cc<CR>', ntst)
 

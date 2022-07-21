@@ -84,7 +84,6 @@ return require('packer').startup(function(use)
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     -- use {'glepnir/lspsaga.nvim'}
-    use { 'neovim/nvim-lspconfig'}
     use { 'hrsh7th/nvim-cmp'}
     use { 'hrsh7th/cmp-nvim-lsp'}
     use { 'hrsh7th/cmp-buffer'}

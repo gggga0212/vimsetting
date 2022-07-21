@@ -63,7 +63,7 @@ vim.g.ctrlp_cmd = 'CtrlP'
 -- airline
 
 -- rainbow
-vim.g.rainbow_active = 1
+-- vim.g.rainbow_active = 1
 
 -- vim.g.rainbow_conf = "'guifgs' : ['#6A5ACD', '#B22222', '#C0FF3E', '#EEC900', '#9A32CD', '#EE7600', '#98fb98', '#686868'],'ctermfgs': 'xterm-256color' == $TERM ? ['141', '196', '112', '208', '129', '166', '85', '33'] : ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']"
 

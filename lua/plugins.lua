@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
     use {'terrortylor/nvim-comment', require('nvim_comment').setup()}
     use {'preservim/nerdtree'}
     use {'Xuyuanp/nerdtree-git-plugin'}
-    -- use {'luochen1990/rainbow'}
+    use {'luochen1990/rainbow'}
     use {'p00f/nvim-ts-rainbow'}
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}

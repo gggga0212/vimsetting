@@ -62,6 +62,14 @@ vim.g.ctrlp_map = '<c-p>'
 vim.g.ctrlp_cmd = 'CtrlP'
 -- airline
 
+-- lsp_lines.nvim v2
+vim.diagnostic.config({ virtual_lines = false })
+vim.keymap.set(
+  "",
+  "<Leader>l",
+  require("lsp_lines").toggle,
+  { desc = "Toggle lsp_lines" }
+)
 -- rainbow
 -- vim.g.rainbow_active = 1
 
@@ -150,7 +158,7 @@ keymaps('n','ySs','<Plug>YSsurround',ntsf)
 keymaps('n','ySS','<Plug>YSsurround',ntsf)
 -- cscope
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
-keymaps('n','cx', ':copen 20<CR>',  ntst)
+keymaps('n','cx', ':copen 10<CR>',  ntst)
 keymaps('n','cq', ':cclose<CR>', ntst)
 -- keymaps( 'n','<C-t>',':colder<CR>:cc<CR>', ntst)
 

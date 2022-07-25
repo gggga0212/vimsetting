@@ -237,24 +237,27 @@ keymaps('n','<space>tc',':Telescope colorscheme<CR>', ntst)
 keymaps("n",'<space>tC',':PickColor<CR>', ntst)
 keymaps("i",'<space>tC',':PickColorInsert<CR>', ntst)
 keymaps('n','<space>td',':normal! J<CR>', ntst)
+keymaps('n','<space>te',':CCTreeTraceForward<CR>', ntst)
 keymaps('n','<space>tf',':Telescope find_files<CR>', ntst)
 keymaps('n','<space>tg',':!go run main.go<CR>', ntst)
 keymaps('n','<space>th',':NERDTree<CR>',                   ntst)
 keymaps('n','<space>ti','gg=G', ntst)
 keymaps('n','<space>tj',':!make all<CR>', ntst)
--- keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
-keymaps('n','<space>tr',':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',   ntst)
-keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 keymaps('n','<space>tk',':Telescope keymaps<CR>',  ntst)
 -- Move to line
 keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         ntst)
 keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- highlight
-keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
-keymaps('n','<space>tq',':LspStop<CR>', ntst)
 keymaps('n','<space>tp',':!python sha.py<CR>', ntst)
-
+keymaps('n','<space>tq',':LspStop<CR>', ntst)
+-- keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
+keymaps('n','<space>tr',':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',   ntst)
 keymaps('n','<space>ts',':!pkill -f tmux<CR>', ntst)
+keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
+-- Move to word
+keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
+keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
+keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 -- quickhl
 keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  ntst)
 keymaps('x','<space>m','<Plug>(quickhl-manual-this)',  ntst)
@@ -265,9 +268,6 @@ keymaps('n','<space>uu',':PackerSync<CR>', ntst)
 -- Easy motion
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)
--- Move to word
-keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
-keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
 
 keymaps('','/','<Plug>(easymotion-sn)', ntst)
 keymaps('o','/','<Plug>(easymotion-tn)', ntst)

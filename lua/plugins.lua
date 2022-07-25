@@ -66,6 +66,7 @@ return require('packer').startup(function(use)
     use {'easymotion/vim-easymotion'}
     use {'tpope/vim-surround'}
     use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+    use {'hari-rangarajan/CCTree'}
     -- use {'kevinhwang91/nvim-bqf'}
     use {'fgheng/winbar.nvim'}
     use {'norcalli/nvim-colorizer.lua'}

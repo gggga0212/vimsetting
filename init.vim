@@ -23,7 +23,6 @@ nmap <F6> :!rm -rf cscope.*<CR>
             \:!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
-            \:CCTreeLoadDB<CR>
 " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
 nmap <F8> :!rm -rf cscope.*<CR>
             \:!find "." "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' 
@@ -33,7 +32,6 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
-            \:CCTreeLoadDB<CR>
 nmap <C-t> 'Z 
 filetype plugin indent on
 " colorscheme tokyonight

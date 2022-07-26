@@ -13,6 +13,7 @@ endif
 call vundle#rc(s:editor_root . '/bundle')
 Plugin 'gmarik/vundle.git'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'hari-rangarajan/ccglue'
 " Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer

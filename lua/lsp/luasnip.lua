@@ -23,7 +23,7 @@ local function copy(args)
 	return args[1]
 end
 
-ls.add_snippets{
+ls.add_snippets(nil,{
     all = {
         s({
             trig = "todo",
@@ -62,4 +62,4 @@ ls.add_snippets{
             t({"","}" }),
         }),
     },
-}
+})

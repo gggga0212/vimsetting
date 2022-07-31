@@ -11,7 +11,7 @@ require "lsp.lsp-config"
 require "lsp.telescope"
 require "lsp.colorizer"
 require "lsp.color-picker"
-require "lsp.nvim-cmp"
+-- require "lsp.nvim-cmp"
 -- require "lsp.nvim-web-devicons"
 -- require "lsp.nvim-bqf"
 -- require "lsp.winbar"
@@ -283,6 +283,11 @@ keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
 
 keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)
+-- keymaps({"i", "s"}, "<C-k>", function()
+--     if ls.expand_or_jumpable() then
+--         ls.expand_or_jump()
+--     end 
+-- end, {silent = true})
 -- colo
 vim.g.catppuccin_flavour = "mocha" --latte, frappe, machiato, mocha
 -- vim.cmd [[colorscheme catppuccin]]

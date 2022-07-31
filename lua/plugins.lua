@@ -57,7 +57,7 @@ return require('packer').startup(function(use)
     use {'jlanzarotta/bufexplorer'}
     use {'BurntSushi/ripgrep'}
     -- use {'SirVer/ultisnips'}
-    use {'honza/vim-snippets'}
+    -- use {'honza/vim-snippets'}
     use {'sickill/vim-monokai'}
     use {'morhetz/gruvbox'}
     use {'vim-airline/vim-airline'}
@@ -86,16 +86,24 @@ return require('packer').startup(function(use)
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     -- use {'glepnir/lspsaga.nvim'}
-    use { 'hrsh7th/nvim-cmp'}
     use { 'hrsh7th/cmp-nvim-lsp'}
     use { 'hrsh7th/cmp-buffer'}
     use { 'hrsh7th/cmp-path'}
     use { 'hrsh7th/cmp-cmdline'}
     use {'MattesGroeger/vim-bookmarks'}
-    use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim', 
+    use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
         config = function()
         require("lsp_lines").setup()
         end,}
+    -- use { 'hrsh7th/nvim-cmp'}
+    use {'hrsh7th/nvim-cmp',
+        config = function()
+            require('lsp.nvim-cmp') end,}
+    use {'saadparwaiz1/cmp_luasnip'}
+    use {'L3MON4D3/LuaSnip',
+        after = 'nvim-cmp',
+        config = function()
+            require('lsp.luasnip') end,}
   if packer_bootstrap then
     require('packer').sync()
   end

@@ -1,4 +1,4 @@
-"git config --global core.autocrlf false 
+"git config --global core.autocrlf false
 " set nocompatible    "be iMproved, required"
 filetype off        "required
 
@@ -17,7 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
-    lua require('plugins') 
+    lua require('plugins')
     lua require('options')
 
 nmap <F6> :!rm -rf cscope.*<CR>
@@ -26,27 +26,24 @@ nmap <F6> :!rm -rf cscope.*<CR>
             \:cs reset<CR>
 " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
 nmap <F8> :!rm -rf cscope.*<CR>
-            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' 
-            \-or -path "./firmware/src/config/default/ble/lib/include" -prune 
-            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune 
-            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune 
+            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h'
+            \-or -path "./firmware/src/config/default/ble/lib/include" -prune
+            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune
+            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
-nmap <C-t> 'Z 
+nmap <C-t> 'Z
 filetype plugin indent on
 " colorscheme tokyonight
-syntax enable 
+syntax enable
 "tagbar
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 set ut=100
 
-" set nocsverb
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 if filereadable("cscope.out")
-    cs add cscope.out   
+    cs add cscope.out
 elseif $CSCOPE_DB != ""
     cs add $CSCOPE_DB
 endif
@@ -115,3 +112,9 @@ set completeopt=menu,menuone,noselect
 " hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
 " hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=gray guifg=white
 hi Normal ctermfg=white ctermbg=16
+" set nocsverb
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * :CocDisable
+" autocmd WinEnter * setlocal cursorline
+" autocmd WinLeave * setlocal nocursorline
+autocmd BufWritePre * :%s/\s\+$//e

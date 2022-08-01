@@ -51,7 +51,6 @@ return require('packer').startup(function(use)
     use {'ghifarit53/tokyonight-vim'}
     use {'rebelot/kanagawa.nvim'}
     -- use {'folke/tokyonight.nvim'}
-    use {'catppuccin/nvim',as = "catppuccin"}
     use {'hzchirs/vim-material'}
     use {'kshenoy/vim-signature'}
     use {'jlanzarotta/bufexplorer'}

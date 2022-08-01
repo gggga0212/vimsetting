@@ -251,6 +251,7 @@ keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- highlight
 keymaps('n','<space>tp',':!python sha.py<CR>', ntst)
 keymaps('n','<space>tq',':LspStop<CR>', ntst)
+keymaps('n','<space>tQ',':CocDisable<CR>', ntst)
 keymaps('n','<space>tr',':CCTreeTraceReverse<CR>', ntst)
 keymaps('n','<space>tR',':CCTreeLoadDB<CR>', ntst)
 -- keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)

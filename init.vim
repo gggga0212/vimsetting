@@ -108,6 +108,9 @@ if has('nvim')
     nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
     nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 endif
+" press <Tab> to expand or jump in a snippet. These can also be mapped separately
+" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+" imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 set completeopt=menu,menuone,noselect
 " hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
 " hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=gray guifg=white

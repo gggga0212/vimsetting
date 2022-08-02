@@ -26,10 +26,10 @@ nmap <F6> :!rm -rf cscope.*<CR>
             \:cs reset<CR>
 " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
 nmap <F8> :!rm -rf cscope.*<CR>
-            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h'
-            \-or -path "./firmware/src/config/default/ble/lib/include" -prune
-            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune
-            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune
+            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' 
+            \-or -path "./firmware/src/config/default/ble/lib/include" -prune 
+            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune 
+            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune 
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
@@ -120,4 +120,4 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * :CocDisable
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e

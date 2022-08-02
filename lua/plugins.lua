@@ -82,6 +82,7 @@ return require('packer').startup(function(use)
     -- use {'kyazdani42/nvim-web-devicons'}
     use {'Yggdroot/indentLine'}
     use {'ryanoasis/vim-devicons'}
+    use {'pacha/vem-tabline'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
     -- use {'glepnir/lspsaga.nvim'}

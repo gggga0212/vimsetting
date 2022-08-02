@@ -271,10 +271,10 @@ keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', ntst)
 keymaps('n','<space>uu',':PackerSync<CR>', ntst)
 -- Easy motion
 
-keymaps('n','<Tab>p','<Plug>vem_move_buffer_left-',ntst)
-keymaps('n','<Tab>n','<Plug>vem_move_buffer_right-',ntst)
-keymaps('n','<Tab>h','<Plug>vem_prev_buffer-',ntst)
-keymaps('n','<Tab>l','<Plug>vem_next_buffer-',ntst)
+keymaps('n','<leader>p','<Plug>vem_move_buffer_left-',ntst)
+keymaps('n','<leader>n','<Plug>vem_move_buffer_right-',ntst)
+keymaps('n','<leader>h','<Plug>vem_prev_buffer-',ntst)
+keymaps('n','<leader>l','<Plug>vem_next_buffer-',ntst)
 
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)

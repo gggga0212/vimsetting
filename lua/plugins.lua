@@ -79,6 +79,7 @@ return require('packer').startup(function(use)
             require("colortils").setup()
         end,
     }
+    use {'mg979/vim-visual-multi'}
     -- use {'kyazdani42/nvim-web-devicons'}
     use {'Yggdroot/indentLine'}
     use {'ryanoasis/vim-devicons'}

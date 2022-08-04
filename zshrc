@@ -115,9 +115,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tnew='tmux -f ~/.tmux.conf new-session \; split-window -h \; split-window -v \; attach'
-alias gototeam='cd ../ble_stack_lib/src/ble_stack;git coteam'
-alias checkoutteam='cd ../ble_stack_lib/src/ble_stack;git coteam'
+alias gototeam='cd ../ble_stack_lib/src/ble_stack'
+alias checkoutteam='cd ../ble_stack_lib/src/ble_stack;git checkout host_stack_team'
+alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc; 
+                  cp ~/.gitconfig ~/.config/nvim/gitconfig;
+                  cp ~/.tmux.conf ~/.config/nvim/tmux.conf;
+                  echo "save zsh, gitconfig, tmux to linux"'
+alias loadconfig='cp ~/.config/nvim/~/zshrc ~/.zshrc; 
+                  cp ~/.config/nvim/~/gitconfig ~/.gitconfig;
+                  cp ~/.config/nvim/~/tmux.conf ~/.tmux.conf;
+                  echo "load zsh, gitconfig, tmux to linux"'
 
 setopt no_nomatch
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

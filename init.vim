@@ -117,7 +117,7 @@ set completeopt=menu,menuone,noselect
 hi Normal ctermfg=white ctermbg=16
 " set nocsverb
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd FileType * :CocDisable
+" autocmd FileType * :CocDisable
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
 " autocmd BufWritePre * :%s/\s\+$//e

@@ -1,6 +1,6 @@
 [core]
-    editor = vim
-	autocrlf = false
+    editor = nvim
+	autocrlf = true 
     pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     co = checkout
@@ -49,3 +49,6 @@
     tool = vimdiff
 [mergetool]
 	trustExitCode = true
+[user]
+	name = Sam.Kuo
+	email = Sam.Kuo@microchip.com

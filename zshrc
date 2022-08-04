@@ -115,6 +115,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tnew='tmux -f ~/.tmux.conf new-session \; split-window -h \; split-window -v \; attach'
+alias gototeam='cd ../ble_stack_lib/src/ble_stack;git coteam'
+alias checkoutteam='cd ../ble_stack_lib/src/ble_stack;git coteam'
 
 setopt no_nomatch
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

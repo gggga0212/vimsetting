@@ -120,5 +120,5 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * :CocDisable
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 map , <leader>

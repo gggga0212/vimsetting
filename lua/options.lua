@@ -48,7 +48,7 @@ vim.g.backspace    = 2
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
-
+vim.g.vem_tabline_show_number = 'index'
 -- folder indent vim.opt.foldmethod = 'indent'
 vim.opt.foldmethod = 'syntax'
 vim.opt.foldenable = false
@@ -271,10 +271,12 @@ keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', ntst)
 keymaps('n','<space>uu',':PackerSync<CR>', ntst)
 -- Easy motion
 
+-- vem-tabline
 keymaps('n','<leader>p','<Plug>vem_move_buffer_left-',ntst)
 keymaps('n','<leader>n','<Plug>vem_move_buffer_right-',ntst)
 keymaps('n','<leader>h','<Plug>vem_prev_buffer-',ntst)
 keymaps('n','<leader>l','<Plug>vem_next_buffer-',ntst)
+keymaps('n','<leader>x','<Plug>vem_delete_buffer-',ntst)
 
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)

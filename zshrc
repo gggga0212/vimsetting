@@ -121,9 +121,9 @@ alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc;
                   cp ~/.gitconfig ~/.config/nvim/gitconfig;
                   cp ~/.tmux.conf ~/.config/nvim/tmux.conf;
                   echo "save zsh, gitconfig, tmux to linux"'
-alias loadconfig='cp ~/.config/nvim/~/zshrc ~/.zshrc; 
-                  cp ~/.config/nvim/~/gitconfig ~/.gitconfig;
-                  cp ~/.config/nvim/~/tmux.conf ~/.tmux.conf;
+alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc; 
+                  cp ~/.config/nvim/gitconfig ~/.gitconfig;
+                  cp ~/.config/nvim/tmux.conf ~/.tmux.conf;
                   echo "load zsh, gitconfig, tmux to linux"'
 
 setopt no_nomatch

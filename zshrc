@@ -126,6 +126,7 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
                   cp ~/.config/nvim/gitconfig ~/.gitconfig;
                   cp ~/.config/nvim/tmux.conf ~/.tmux.conf;
                   cp ~/.config/nvim/config.yml ~/.config/lazygit/config.yml;
+                  source ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
 
 setopt no_nomatch

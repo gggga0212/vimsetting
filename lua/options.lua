@@ -11,6 +11,7 @@ require "lsp.lsp-config"
 require "lsp.telescope"
 require "lsp.colorizer"
 require "lsp.color-picker"
+require "lsp.indent_blankline"
 -- require "lsp.nvim-cmp"
 -- require "lsp.nvim-web-devicons"
 -- require "lsp.nvim-bqf"
@@ -174,8 +175,6 @@ keymaps('n','<Leader>cl',':set cursorline! cursorcolumn!<CR>',  ntst)
 keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>', ntst)
 keymaps('n', '<F3>',':cnext<CR>', ntst)
 keymaps('n', '<F4>',':cprev<CR>', ntst)
-keymaps('n', '<F5>',':RainbowToggle<CR>', ntst)
-
 -- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
 -- :!cscope -R -b -q -i cscope.files -f cscope.out<CR>
 -- :cs reset<CR>',ntst)
@@ -290,7 +289,7 @@ keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
 
 -- Command of mine
 
-keymaps('n','#','mP #', ntst)
+keymaps('n','#','mN #', ntst)
 keymaps('n','*','mN *', ntst)
 keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)

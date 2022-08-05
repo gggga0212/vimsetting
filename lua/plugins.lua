@@ -81,7 +81,7 @@ return require('packer').startup(function(use)
     }
     use {'mg979/vim-visual-multi'}
     -- use {'kyazdani42/nvim-web-devicons'}
-    use {'Yggdroot/indentLine'}
+    use {'lukas-reineke/indent-blankline.nvim'}
     use {'ryanoasis/vim-devicons'}
     use {'pacha/vem-tabline'}
  -- todo

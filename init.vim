@@ -26,6 +26,14 @@ nmap <F6> :!rm -rf cscope.*<CR>
             \:cs reset<CR>
 " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
 nmap <F8> :!rm -rf cscope.*<CR>
+            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
+            \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
+            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
+            \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
+            \:cs reset<CR>
+nmap <F9> :!rm -rf cscope.*<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" "../ble_controller_app" -iname '*.c' -o -iname '*.h' \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
             \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
@@ -33,7 +41,6 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
-nmap <C-t> 'Z
 filetype plugin indent on
 " colorscheme tokyonight
 syntax enable
@@ -108,6 +115,13 @@ if has('nvim')
     nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
     nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 endif
+
+" vim-bookmarks
+" highlight BookmarkSign ctermbg=NONE ctermfg=160
+" highlight BookmarkLine ctermbg=194 ctermfg=NONE
+" let g:bookmark_sign = '♥'
+" let g:bookmark_highlight_lines = 1
+
 " press <Tab> to expand or jump in a snippet. These can also be mapped separately
 " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
 " imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'

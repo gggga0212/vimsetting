@@ -143,7 +143,7 @@ keymaps('n','cf','mZ* :cs find f <C-R>=expand("<cfile>")<CR><CR>',ntst)
 keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>',ntst)
 keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>',ntst)
 keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
-
+keymaps('n','<C-t>','\'Z',ntsf)
 -- surround
 vim.g.surround_no_mappings = 1
 -- keymaps('n','cs', '<Plug>Csurround',ntsf)

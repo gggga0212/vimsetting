@@ -277,6 +277,16 @@ keymaps('n','<leader>n','<Plug>vem_move_buffer_right-',ntst)
 keymaps('n','<leader>h','<Plug>vem_prev_buffer-',ntst)
 keymaps('n','<leader>l','<Plug>vem_next_buffer-',ntst)
 keymaps('n','<leader>x','<Plug>vem_delete_buffer-',ntst)
+keymaps('n','<leader>1',':1tabnext<CR>',ntst)
+keymaps('n','<leader>2',':2tabnext<CR>',ntst)
+keymaps('n','<leader>3',':3tabnext<CR>',ntst)
+keymaps('n','<leader>4',':4tabnext<CR>',ntst)
+keymaps('n','<leader>5',':5tabnext<CR>',ntst)
+keymaps('n','<leader>6',':6tabnext<CR>',ntst)
+keymaps('n','<leader>7',':7tabnext<CR>',ntst)
+keymaps('n','<leader>8',':8tabnext<CR>',ntst)
+keymaps('n','<leader>9',':9tabnext<CR>',ntst)
+
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)
 

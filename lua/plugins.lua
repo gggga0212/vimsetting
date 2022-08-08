@@ -66,7 +66,6 @@ return require('packer').startup(function(use)
     use {'tpope/vim-surround'}
     use {'kevinhwang91/nvim-bqf', ft = 'qf'}
     use {'hari-rangarajan/CCTree'}
-    -- use {'kevinhwang91/nvim-bqf'}
     use {'fgheng/winbar.nvim'}
     use {'norcalli/nvim-colorizer.lua'}
     use {'ziontee113/color-picker.nvim',
@@ -81,7 +80,10 @@ return require('packer').startup(function(use)
     }
     use {'mg979/vim-visual-multi'}
     -- use {'kyazdani42/nvim-web-devicons'}
-    use {'lukas-reineke/indent-blankline.nvim'}
+    -- use {'lukas-reineke/indent-blankline.nvim',
+    --     config = function()
+    --     require (lsp.indent_blankline) end,}
+    use {'Yggdroot/indentLine'}
     use {'ryanoasis/vim-devicons'}
     use {'pacha/vem-tabline'}
  -- todo

@@ -25,6 +25,15 @@ nmap <F6> :!rm -rf cscope.*<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
 " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
+nmap <F7> :!rm -rf cscope.*<CR>
+            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
+            \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
+            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
+            \:!cscope -b -c -R<CR>
+            \:!../../tceetree/tceetree -V -i cscope.out<CR>
+            \:!dot -Tpng -O tceetree.out<CR>
 nmap <F8> :!rm -rf cscope.*<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \

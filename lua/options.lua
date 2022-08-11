@@ -246,13 +246,16 @@ keymaps('n','<space>tk',':Telescope keymaps<CR>',  ntst)
 keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         ntst)
 keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- highlight
+keymaps('n','<space>tm',':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',   ntst)
+
+keymaps('n','<space>to',':<C-U><C-R>=printf("!~/.config/tceetree/tceetree -V -p ")<CR>',ntsf)
+keymaps('n','<space>tO',':<C-U><C-R>=printf("!dot -Tpdf -O tceetree.out")<CR><CR>:!cmd.exe /C start tceetree.out.pdf<CR>',ntsf)
 keymaps('n','<space>tp',':!python sha.py<CR>', ntst)
 keymaps('n','<space>tq',':LspStop<CR>', ntst)
 keymaps('n','<space>tQ',':CocDisable<CR>', ntst)
 keymaps('n','<space>tr',':CCTreeTraceReverse<CR><CR>', ntst)
 keymaps('n','<space>tR',':CCTreeLoadDB<CR><CR>', ntst)
 -- keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
-keymaps('n','<space>tm',':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',   ntst)
 keymaps('n','<space>ts',':!pkill -f tmux<CR>', ntst)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 -- Move to word

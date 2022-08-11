@@ -32,8 +32,9 @@ nmap <F7> :!rm -rf cscope.*<CR>
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -b -c -R<CR>
-            \:!../../tceetree/tceetree -V -i cscope.out<CR>
+            \:!~/.config/tceetree/tceetree -V -i cscope.out<CR>
             \:!dot -Tpdf -O tceetree.out<CR>
+            \:!cmd.exe /C start tceetree.out.pdf<CR>
             " \:!mimeopen -d tceetree.pdf<CR>
 nmap <F8> :!rm -rf cscope.*<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \

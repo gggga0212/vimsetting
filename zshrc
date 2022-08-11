@@ -128,6 +128,7 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
                   cp ~/.config/nvim/config.yml ~/.config/lazygit/config.yml;
                   source ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
+alias display='cmd.exe /C start'
 
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.

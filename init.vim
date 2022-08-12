@@ -24,6 +24,8 @@ nmap <F6> :!rm -rf cscope.*<CR>
             \:!find ./ -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
+            \:!rm -rf tags<CR>
+            \:!ctags -R<CR>
 " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
 nmap <F7> :!rm -rf cscope.*<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' \
@@ -36,6 +38,7 @@ nmap <F7> :!rm -rf cscope.*<CR>
             \:!dot -Tpdf -O tceetree.out<CR>
             \:!cmd.exe /C start tceetree.out.pdf<CR>
             " \:!mimeopen -d tceetree.pdf<CR>
+            " dot, neato,wwopi,circo,fdp,sfdp
 nmap <F8> :!rm -rf cscope.*<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
@@ -44,6 +47,12 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
+            \:!rm -rf tags<CR>
+            \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
+            \--exclude="./firmware/src/config/default/ble/lib/include"\
+            \--exclude="./firmware/src/config/default/ble/middleware_ble" \
+            \--exclude="./firmware/src/config/default/ble/profile_ble" \
+            \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
 nmap <F9> :!rm -rf cscope.*<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" "../ble_controller_app" -iname '*.c' -o -iname '*.h' \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \

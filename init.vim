@@ -61,6 +61,12 @@ nmap <F9> :!rm -rf cscope.*<CR>
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
+            \:!rm -rf tags<CR>
+            \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
+            \--exclude="./firmware/src/config/default/ble/lib/include"\
+            \--exclude="./firmware/src/config/default/ble/middleware_ble" \
+            \--exclude="./firmware/src/config/default/ble/profile_ble" \
+            \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
 filetype plugin indent on
 " colorscheme tokyonight
 syntax enable

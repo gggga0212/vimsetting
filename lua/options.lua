@@ -54,7 +54,7 @@ vim.opt.foldenable = false
 -- vim.opt.winbar = '%m%f'
 vim.opt.winbar = "%{%v:lua.require'lsp.winbar'.eval()%}"
 -- ctags
-vim.g.tags = './tags,./TAGS,tags;~,TAGS;~'
+vim.g.tags = './tags'
 -- ctrlp
 vim.g.ctrlp_map = '<c-p>'
 vim.g.ctrlp_cmd = 'CtrlP'
@@ -141,7 +141,7 @@ keymaps('n','cf','mZ* :cs find f <C-R>=expand("<cfile>")<CR><CR>',ntst)
 keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>',ntst)
 keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>',ntst)
 keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
-keymaps('n','<C-t>','\'Z',ntsf)
+-- keymaps('n','<C-t>','<C-o>',ntsf)
 -- surround
 vim.g.surround_no_mappings = 1
 -- keymaps('n','cs', '<Plug>Csurround',ntsf)

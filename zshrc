@@ -128,7 +128,8 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
                   cp ~/.config/nvim/config.yml ~/.config/lazygit/config.yml;
                   source ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
-alias display='cmd.exe /C start'
+alias chrome="open -a 'Google Chrome'"
+alias brave="open -a 'Brave Browser'"
 alias nv='~/.config/nvim/nvim-macos/bin/nvim'
 
 setopt no_nomatch

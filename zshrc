@@ -129,6 +129,7 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
                   source ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
 alias display='cmd.exe /C start'
+alias nv='~/.config/nvim/nvim-macos/bin/nvim'
 
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.

@@ -98,6 +98,7 @@ return require('packer').startup(function(use)
         config = function()
         require("lsp_lines").setup()
         end,}
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
     -- use { 'hrsh7th/nvim-cmp'}
     use {'hrsh7th/nvim-cmp',
         config = function()

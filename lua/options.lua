@@ -11,6 +11,7 @@ require "lsp.lsp-config"
 require "lsp.telescope"
 require "lsp.colorizer"
 require "lsp.color-picker"
+require "lsp.nvim-ufo"
 -- require "lsp.nvim-bqf"
 -- require "lsp.winbar"
 

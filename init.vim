@@ -20,6 +20,12 @@ Plugin 'gmarik/Vundle.vim'
     lua require('plugins')
     lua require('options')
 
+nmap <F5> :!rm -rf cscope.*<CR>
+            \:!find "." -iname '*.c' -o -iname '*.h'<CR>
+            \:!cscope -b -c -R<CR>
+            \:!~/.config/tceetree/tceetree -V -i cscope.out<CR>
+            \:!dot -Tpdf -O tceetree.out<CR>
+            \:!cmd.exe /C start tceetree.out.pdf<CR>
 nmap <F6> :!rm -rf cscope.*<CR>
             \:!find ./ -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
             \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
@@ -155,6 +161,10 @@ set completeopt=menu,menuone,noselect
 " hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
 " hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=gray guifg=white
 hi Normal ctermfg=white ctermbg=16
+" nvim-ufo
+hi default link UfoPreviewSbar PmenuSbar
+hi default link UfoPreviewThumb PmenuThumb
+hi default link UfoFoldedEllipsis Comment
 " set nocsverb
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * let b:coc_suggest_disable = 1

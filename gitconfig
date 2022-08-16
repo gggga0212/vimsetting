@@ -12,6 +12,7 @@
     coteam = checkout host_stack_team
     crlf = config --global core.autocrlf
 	d = difftool
+	rt = reset --hard
 [credential]
 	helper = store
 [color "diff"]

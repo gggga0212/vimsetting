@@ -5,6 +5,7 @@ local ntsf = {noremap=true, silent=false}
 vim.opt.termguicolors = true
 
 require "lsp.treesitter"
+require "lsp.treesitter-context"
 require "lsp.gitsigns"
 require "lsp.lsp-installer"
 require "lsp.lsp-config"

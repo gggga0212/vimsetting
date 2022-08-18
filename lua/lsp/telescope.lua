@@ -9,9 +9,9 @@ require('telescope').setup({
                 prompt_position = "bottom",
             },
         },
-        -- buffers = {
-        --     initial_mode = "normal"
-        -- },
+        buffers = {
+            initial_mode = "normal"
+        },
         mappings = {
            i = {
                ["<esc>"] = actions.close,

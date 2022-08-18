@@ -46,7 +46,7 @@ nmap <F7> :!rm -rf cscope.*<CR>
             " \:!mimeopen -d tceetree.pdf<CR>
             " dot, neato,wwopi,circo,fdp,sfdp
 nmap <F8> :!rm -rf cscope.*<CR>
-            \:!cp ~/.config/nvim/rgignore ../.rgignore<CR>
+            \:!cp ~/.config/nvim/rgignore .rgignore<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
             \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \

@@ -4,6 +4,7 @@
 *.xml
 *.ptp
 *.mc3
+**/firmware/src/packs
 /ble_mw_test_lib/firmware/src/config/default/ble/profile_ble
 /ble_mw_test_lib/firmware/src/config/default/ble/middleware_ble
 /ble_mw_test_lib/firmware/src/config/default/ble/profile_ble

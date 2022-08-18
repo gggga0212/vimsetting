@@ -1,3 +1,4 @@
+local actions = require("telescope.actions")
 require('telescope').setup({
     defaults = {
         layout_config = {
@@ -6,8 +7,16 @@ require('telescope').setup({
             -- other layout configuration here
             horizontal = {
                 prompt_position = "bottom",
-            }
+            },
         },
+        -- buffers = {
+        --     initial_mode = "normal"
+        -- },
+        -- mappings = {
+        --    i = {
+        --        ["<esc>"] = actions.close,
+        --    }, 
+        -- },
         -- other defaults configuration here
     },
     live_grep = {
@@ -21,7 +30,7 @@ require('telescope').setup({
     pickers = {
         colorscheme = {
             enable_preview = true
-        }
+        },
     }
     -- other configuration values here
 })

@@ -134,14 +134,14 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
-keymaps('n','cs','mZ* :cs find s <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','cg','mZ* :cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','cc','mZ* :cs find c <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','ct','mZ* :cs find t <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','ce','mZ* :cs find e <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','cf','mZ* :cs find f <C-R>=expand("<cfile>")<CR><CR>',ntst)
-keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>',ntst)
-keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cs','mZ* :cs find s <C-R>=expand("<cword>")<CR><CR>:lua require("telescope.builtin").quickfix()<CR>',ntst)
+keymaps('n','cg','mZ* :cs find g <C-R>=expand("<cword>")<CR><CR>:lua require("telescope.builtin").quickfix()<CR>',ntst)
+keymaps('n','cc','mZ* :cs find c <C-R>=expand("<cword>")<CR><CR>:lua require("telescope.builtin").quickfix()<CR>',ntst)
+keymaps('n','ct','mZ* :cs find t <C-R>=expand("<cword>")<CR><CR>:lua require("telescope.builtin").quickfix()<CR>',ntst)
+keymaps('n','ce','mZ* :cs find e <C-R>=expand("<cword>")<CR><CR>:lua require("telescope.builtin").quickfix()<CR>',ntst)
+keymaps('n','cf','mZ* :cs find f <C-R>=expand("<cfile>")<CR><CR>:lua require("telescope.builtin").quickfix()<CR>',ntst)
+keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>:lua require("telescope.builtin").quickfix()<CR>',ntst)
+keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>:lua require("telescope.builtin").quickfix()<CR>',ntst)
 keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 -- keymaps('n','<C-t>','<C-o>',ntsf)
 -- surround
@@ -158,10 +158,12 @@ keymaps('n','ySs','<Plug>YSsurround',ntsf)
 keymaps('n','ySS','<Plug>YSsurround',ntsf)
 -- cscope
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
-keymaps('n','cx', ':copen 10<CR>',  ntst)
-keymaps('n','cX', ':BqfToggle<CR>',  ntst)
-keymaps('n','cq', ':cclose<CR>', ntst)
--- keymaps( 'n','<C-t>',':colder<CR>:cc<CR>', ntst)
+-- keymaps('n','cx', ':copen 10<CR>',  ntst)
+-- keymaps('n','cX', ':BqfToggle<CR>',  ntst)
+-- keymaps('n','cq', ':cclose<CR>', ntst)
+
+keymaps('n','cx',':lua require("telescope.builtin").quickfix()<CR>', ntst)
+keymaps('n','cX',':lua require("telescope.builtin").quickfixhistory()<CR>', ntst)
 
 -- keymaps('n','<space>eh', ':NERDTree<CR>',ntst)
 -- keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)
@@ -263,7 +265,11 @@ keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 -- Move to word
 keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
 keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
+-- keymaps('n','<space>tx',':lua require("telescope.builtin").quickfix()<CR>', ntst)
+-- keymaps('n','<space>tX',':lua require("telescope.builtin").quickfixhistory()<CR>', ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
+
+keymaps('n','<space>ma',':lua require("telescope.builtin").marks()<CR>', ntst)
 -- quickhl
 keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  ntst)
 keymaps('x','<space>m','<Plug>(quickhl-manual-this)',  ntst)

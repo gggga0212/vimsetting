@@ -249,7 +249,8 @@ keymaps('n','<space>tk',':Telescope keymaps<CR>',  ntst)
 keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         ntst)
 keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- highlight
-keymaps('n','<space>tm',':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>',   ntst)
+keymaps('n','<space>tm',':Telescope live_grep_args<CR>',   ntst)
+keymaps('n','<space>tn',':Telescope git_files<CR>', ntst)
 
 keymaps('n','<space>to',':<C-U><C-R>=printf("!~/.config/tceetree/tceetree -V -p ")<CR>',ntsf)
 keymaps('n','<space>tO',':<C-U><C-R>=printf("!dot -Tpdf -O tceetree.out")<CR><CR>:!cmd.exe /C start tceetree.out.pdf<CR>',ntsf)

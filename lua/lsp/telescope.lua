@@ -12,11 +12,11 @@ require('telescope').setup({
         -- buffers = {
         --     initial_mode = "normal"
         -- },
-        -- mappings = {
-        --    i = {
-        --        ["<esc>"] = actions.close,
-        --    }, 
-        -- },
+        mappings = {
+           i = {
+               ["<esc>"] = actions.close,
+           }, 
+        },
         -- other defaults configuration here
     },
     live_grep = {

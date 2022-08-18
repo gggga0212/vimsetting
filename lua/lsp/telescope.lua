@@ -1,4 +1,5 @@
 local actions = require("telescope.actions")
+local lga_actions = require("telescope-live-grep-args.actions")
 require('telescope').setup({
     defaults = {
         layout_config = {
@@ -15,7 +16,7 @@ require('telescope').setup({
         mappings = {
            i = {
                ["<esc>"] = actions.close,
-           }, 
+           },
         },
         -- other defaults configuration here
     },
@@ -23,8 +24,15 @@ require('telescope').setup({
         only_sort_text = true
     },
     extensions = {
-        live_grep_raw = {
-            auto_quoting = true, -- enable/disable auto-quoting
+        live_grep_args = {
+          auto_quoting = true, -- enable/disable auto-quoting
+          mappings = {
+            i = {
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-l>g"] = lga_actions.quote_prompt({ postfix = ' --iglob ' }),
+              ["<C-l>t"] = lga_actions.quote_prompt({ postfix = ' -t' }),
+            }
+          }
         }
     },
     pickers = {

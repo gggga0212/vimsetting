@@ -159,7 +159,7 @@ keymaps('n','ySS','<Plug>YSsurround',ntsf)
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
 -- keymaps('n','cx', ':copen 10<CR>',  ntst)
 -- keymaps('n','cX', ':BqfToggle<CR>',  ntst)
--- keymaps('n','cq', ':cclose<CR>', ntst)
+keymaps('n','cq', ':cclose<CR>', ntst)
 
 keymaps('n','cx',':Telescope quickfix<CR>', ntst)
 keymaps('n','cX',':Telescope quickfixhistory<CR>', ntst)

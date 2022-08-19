@@ -80,7 +80,7 @@ return require('packer').startup(function(use)
         end,
     }
     use {'mg979/vim-visual-multi'}
-    -- use {'kyazdani42/nvim-web-devicons'}
+    use {'kyazdani42/nvim-web-devicons'}
     -- use {'lukas-reineke/indent-blankline.nvim',
     --     config = function()
     --     require (lsp.indent_blankline) end,}

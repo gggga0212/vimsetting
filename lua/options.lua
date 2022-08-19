@@ -296,6 +296,7 @@ keymaps('n','<leader>6',':VemTablineGo 6<CR>',ntst)
 keymaps('n','<leader>7',':VemTablineGo 7<CR>',ntst)
 keymaps('n','<leader>8',':VemTablineGo 8<CR>',ntst)
 keymaps('n','<leader>9',':VemTablineGo 9<CR>',ntst)
+keymaps('n','<leader>g','<C-]>',ntst)
 
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)
@@ -313,6 +314,7 @@ keymaps('n','#','mN #', ntst)
 keymaps('n','*','mN *', ntst)
 keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)
+keymaps('i','kk','<ESC>', ntst)
 keymaps('i','jj','<ESC>', ntst)
 -- keymaps({"i", "s"}, "<C-k>", function()
 --     if ls.expand_or_jumpable() then

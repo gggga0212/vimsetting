@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     use({"nvim-telescope/telescope.nvim",
         requires = {
-            { "nvim-lua/plenary.nvim" },
+            -- { "nvim-lua/plenary.nvim" },
             { "kdheepak/lazygit.nvim" },
             { "nvim-telescope/telescope-live-grep-args.nvim" },
         },

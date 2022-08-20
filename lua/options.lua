@@ -204,8 +204,9 @@ keymaps('x', '<A-j>',":move '>+1<CR>gv-gv", ntst)
 keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", ntst)
 
 -- paste
-keymaps('v','y','"+y :let @+=@*<CR>',ntsf)
-keymaps('x','p','"+pgvy',ntsf)
+keymaps('x','p','pgvy',ntsf)
+keymaps('v','<C-c>','"+y :let @+=@*<CR>',ntsf)
+keymaps('x','<C-v>','"+p',ntsf)
 
 -- floaterm
 vim.g["floaterm_width"]  = 0.95

@@ -81,9 +81,6 @@ keymaps('n','/', 'ms/',ntst)
 
 -- vim replace
 keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
--- paste
-keymaps('v','<C-c>','"+y',ntsf)
-keymaps('n','<C-v>','"+p',ntsf)
 
 -- EasyAlign
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -207,7 +204,8 @@ keymaps('x', '<A-j>',":move '>+1<CR>gv-gv", ntst)
 keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", ntst)
 
 -- paste
-keymaps('x', 'p', 'pgvy', ntst)
+keymaps('v','y','"+y :let @+=@*<CR>',ntsf)
+keymaps('x','p','"+pgvy',ntsf)
 
 -- floaterm
 vim.g["floaterm_width"]  = 0.95

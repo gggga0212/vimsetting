@@ -205,7 +205,7 @@ keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", ntst)
 
 -- paste
 keymaps('x','p','pgvy',ntsf)
-keymaps('v','<C-c>','"+y',ntsf)
+keymaps('v','<C-c>','"*y :let @+=@*<CR>',ntsf)
 keymaps('n','<C-v>','"+p',ntsf)
 keymaps('v','<C-v>','"+p',ntsf)
 

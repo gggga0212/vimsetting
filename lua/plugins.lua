@@ -64,7 +64,12 @@ return require('packer').startup(function(use)
     use {'vim-airline/vim-airline-themes'}
     use {'kien/ctrlp.vim'}
     use {'easymotion/vim-easymotion'}
-    use {'tpope/vim-surround'}
+    use({'kylechui/nvim-surround',
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            }) end })
     -- use {'kevinhwang91/nvim-bqf', ft = 'qf'}
     use {'hari-rangarajan/CCTree'}
     use {'fgheng/winbar.nvim'}

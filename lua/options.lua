@@ -133,7 +133,7 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
-keymaps('n','cs','mZ* :cs find s <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cm','mZ* :cs find s <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','cg','mZ* :cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
 keymaps('n','cc','mZ* :cs find c <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','ct','mZ* :cs find t <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
@@ -143,18 +143,6 @@ keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>:Telescope quick
 keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 -- keymaps('n','<C-t>','<C-o>',ntsf)
--- surround
-vim.g.surround_no_mappings = 1
--- keymaps('n','cs', '<Plug>Csurround',ntsf)
--- keymaps('n','cS', '<Plug>CSurround',ntsf)
-keymaps('n','cz', '<Plug>Csurround',ntsf)
-keymaps('n','cZ', '<Plug>CSurround',ntsf)
-keymaps('n','ds', '<Plug>Dsurround',ntsf)
-keymaps('n','ys', '<Plug>Ysurround',ntsf)
-keymaps('n','yS', '<Plug>YSurround',ntsf)
-keymaps('n','yss','<Plug>Yssurround',ntsf)
-keymaps('n','ySs','<Plug>YSsurround',ntsf)
-keymaps('n','ySS','<Plug>YSsurround',ntsf)
 -- cscope
 vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
 -- keymaps('n','cx', ':copen 10<CR>',  ntst)

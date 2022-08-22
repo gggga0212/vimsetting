@@ -40,3 +40,4 @@ require('telescope').setup({
     }
     -- other configuration values here
 })
+vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"

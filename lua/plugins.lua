@@ -95,6 +95,7 @@ return require('packer').startup(function(use)
     use { 'hrsh7th/cmp-path'}
     use { 'hrsh7th/cmp-cmdline'}
     use {'MattesGroeger/vim-bookmarks'}
+    use {'ThePrimeagen/harpoon'}
     use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
         config = function()
         require("lsp_lines").setup()

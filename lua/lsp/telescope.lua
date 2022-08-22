@@ -10,9 +10,6 @@ require('telescope').setup({
                 prompt_position = "bottom",
             },
         },
-        buffers = {
-            initial_mode = "normal"
-        },
         mappings = {
            i = {
                ["<esc>"] = actions.close,
@@ -37,6 +34,14 @@ require('telescope').setup({
         colorscheme = {
             enable_preview = true
         },
+        find_files = {
+          search_dirs = {"../ble_stack_lib/src/ble_stack","."
+          },
+        },
+        live_grep = {
+          search_dirs = {"../ble_stack_lib/src/ble_stack","."
+          },
+        }
     }
     -- other configuration values here
 })

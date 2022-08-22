@@ -134,7 +134,7 @@ augroup end
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
 keymaps('n','cs','mZ* :cs find s <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cg','mZ* :cs find g <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cg','mZ* :cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
 keymaps('n','cc','mZ* :cs find c <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','ct','mZ* :cs find t <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','ce','mZ* :cs find e <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)

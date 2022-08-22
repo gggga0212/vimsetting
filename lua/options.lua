@@ -273,13 +273,13 @@ keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
 -- keymaps('n','<space>tx',':lua require("telescope.builtin").quickfix()<CR>', ntst)
 -- keymaps('n','<space>tX',':lua require("telescope.builtin").quickfixhistory()<CR>', ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
-keymaps('n','<space>tZ',':Telescope harpoon marks<CR>',ntst)
 
 
-keymaps('n','<leader>hf',':lua require("harpoon.mark").add_file()<CR>',  ntst)
-keymaps('n','<leader>hn',':lua require("harpoon.ui").nav_next()<CR>',  ntst)
-keymaps('n','<leader>hp',':lua require("harpoon.ui").add_prev()<CR>',  ntst)
-keymaps('n','<leader>hv',':lua require("harpoon.ui").toggle_quick_menu()<CR>',  ntst)
+keymaps('n','<space>ha',':Telescope harpoon marks<CR>',ntst)
+keymaps('n','<space>hf',':lua require("harpoon.mark").add_file()<CR>',  ntst)
+keymaps('n','<space>hn',':lua require("harpoon.ui").nav_next()<CR>',  ntst)
+keymaps('n','<space>hp',':lua require("harpoon.ui").add_prev()<CR>',  ntst)
+keymaps('n','<space>hv',':lua require("harpoon.ui").toggle_quick_menu()<CR>',  ntst)
 
 keymaps('n','<space>ma',':lua require("telescope.builtin").marks()<CR>', ntst)
 -- quickhl

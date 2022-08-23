@@ -13,6 +13,7 @@ require "lsp.telescope"
 require "lsp.colorizer"
 require "lsp.color-picker"
 require "lsp.nvim-ufo"
+require "lsp.formatter-nvim"
 -- require "lsp.winbar"
 
 
@@ -261,6 +262,7 @@ keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
 keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
 -- keymaps('n','<space>tx',':lua require("telescope.builtin").quickfix()<CR>', ntst)
 -- keymaps('n','<space>tX',':lua require("telescope.builtin").quickfixhistory()<CR>', ntst)
+keymaps('n','<space>ty',':q<CR>:vs<CR>', ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 

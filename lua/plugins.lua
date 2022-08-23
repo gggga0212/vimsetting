@@ -94,6 +94,8 @@ return require('packer').startup(function(use)
     use {'pacha/vem-tabline'}
  -- todo
     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+    use {'mhartington/formatter.nvim'}
+    use {'ranjithshegde/ccls.nvim'}
     -- use {'glepnir/lspsaga.nvim'}
     use { 'hrsh7th/cmp-nvim-lsp'}
     use { 'hrsh7th/cmp-buffer'}

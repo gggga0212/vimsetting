@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
     use {'lewis6991/gitsigns.nvim'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-context'}
+    use {'Djancyp/better-comments.nvim'}
     use {'terrortylor/nvim-comment', require('nvim_comment').setup()}
     use {'preservim/nerdtree'}
     use {'Xuyuanp/nerdtree-git-plugin'}

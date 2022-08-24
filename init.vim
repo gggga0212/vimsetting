@@ -166,6 +166,14 @@ hi Normal ctermfg=white ctermbg=16
 hi default link UfoPreviewSbar PmenuSbar
 hi default link UfoPreviewThumb PmenuThumb
 hi default link UfoFoldedEllipsis Comment
+
+" nvim-comment
+augroup set-commentstring-ag
+autocmd!
+autocmd BufEnter *.c,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+autocmd BufFilePost *.c,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+augroup END
+
 " set nocsverb
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * let b:coc_suggest_disable = 1

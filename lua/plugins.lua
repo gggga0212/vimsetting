@@ -12,6 +12,12 @@ return require('packer').startup(function(use)
   -- Automatically set up your configuration after cloning packer.nvim
     use {'wbthomason/packer.nvim'}
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    -- mason
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        -- "neovim/nvim-lspconfig",
+        }
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     use({"nvim-telescope/telescope.nvim",

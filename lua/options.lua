@@ -298,6 +298,7 @@ keymaps('n','<leader>6',':VemTablineGo 6<CR>',ntst)
 keymaps('n','<leader>7',':VemTablineGo 7<CR>',ntst)
 keymaps('n','<leader>8',':VemTablineGo 8<CR>',ntst)
 keymaps('n','<leader>9',':VemTablineGo 9<CR>',ntst)
+keymaps('n','<leader>a',':A<CR>',ntst)
 keymaps('n','<leader>g','<C-]>',ntst)
 
 vim.g.EasyMotion_do_mapping = 0
@@ -308,7 +309,7 @@ keymaps('o','/','<Plug>(easymotion-tn)', ntst)
 
 
 -- Lspsaga
-keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
+-- keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
 
 -- Command of mine
 

@@ -116,9 +116,7 @@ return require('packer').startup(function(use)
         end,}
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
     -- use { 'hrsh7th/nvim-cmp'}
-    use {'hrsh7th/nvim-cmp',
-        config = function()
-            require('lsp.nvim-cmp') end,}
+    use {'hrsh7th/nvim-cmp'}
     use {'saadparwaiz1/cmp_luasnip'}
     use {'L3MON4D3/LuaSnip',
         after = 'nvim-cmp',

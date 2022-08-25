@@ -15,6 +15,8 @@ require "lsp.color-picker"
 require "lsp.nvim-ufo"
 require "lsp.formatter-nvim"
 require "lsp.mason"
+require "lsp.better-comments"
+require "lsp.nvim-cmp"
 -- require "lsp.winbar"
 
 

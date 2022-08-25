@@ -152,8 +152,8 @@ endif
 " vim-bookmarks
 " highlight BookmarkSign ctermbg=NONE ctermfg=160
 " highlight BookmarkLine ctermbg=194 ctermfg=NONE
-" let g:bookmark_sign = '♥'
-" let g:bookmark_highlight_lines = 1
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
 
 " press <Tab> to expand or jump in a snippet. These can also be mapped separately
 " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.

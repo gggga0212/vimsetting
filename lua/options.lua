@@ -301,6 +301,8 @@ keymaps('n','<leader>7',':VemTablineGo 7<CR>',ntst)
 keymaps('n','<leader>8',':VemTablineGo 8<CR>',ntst)
 keymaps('n','<leader>9',':VemTablineGo 9<CR>',ntst)
 keymaps('n','<leader>a',':A<CR>',ntst)
+keymaps('n','<leader>w',':w!<CR>',ntst)
+keymaps('n','<leader>e',':e!<CR>',ntst)
 keymaps('n','<leader>g','<C-]>',ntst)
 
 vim.g.EasyMotion_do_mapping = 0

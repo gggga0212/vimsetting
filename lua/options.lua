@@ -165,8 +165,8 @@ keymaps('n','<Leader>cl',':set cursorline! cursorcolumn!<CR>',  ntst)
 
 -- Function Key
 keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>', ntst)
-keymaps('n', '<F3>',':cnext<CR>', ntst)
-keymaps('n', '<F4>',':cprev<CR>', ntst)
+-- keymaps('n', '<F3>',':cnext<CR>', ntst)
+-- keymaps('n', '<F4>',':cprev<CR>', ntst)
 -- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
 -- :!cscope -R -b -q -i cscope.files -f cscope.out<CR>
 -- :cs reset<CR>',ntst)
@@ -177,8 +177,8 @@ keymaps('n', '<C-J>','<C-W>j',ntst)
 keymaps('n', '<C-K>','<C-W>k',ntst)
 keymaps('n', '<C-L>','<C-W>l',ntst)
 
-keymaps('n', '<C-Up>',':resize -2<CR>',             ntst)
-keymaps('n', '<C-Down>',':resize +2<CR>',           ntst)
+keymaps('n', '<C-PageUp>',':resize -2<CR>',             ntst)
+keymaps('n', '<C-PageDown>',':resize +2<CR>',           ntst)
 keymaps('n', '<C-Left>',':vertical resize -2<CR>',  ntst)
 keymaps('n', '<C-Right>',':vertical resize +2<CR>', ntst)
 

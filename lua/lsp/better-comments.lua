@@ -1,5 +1,5 @@
 require('better-comment').Setup({
-tags = {
+    tags = {
         {
             name = "TODO",
             fg = "white",

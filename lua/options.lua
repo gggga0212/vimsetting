@@ -68,10 +68,10 @@ vim.g.ctrlp_cmd = 'CtrlP'
 -- lsp_lines.nvim v2
 vim.diagnostic.config({ virtual_lines = false })
 vim.keymap.set(
-  "",
-  "<Leader>l",
-  require("lsp_lines").toggle,
-  { desc = "Toggle lsp_lines" }
+"",
+"<Leader>l",
+require("lsp_lines").toggle,
+{ desc = "Toggle lsp_lines" }
 )
 -- rainbow
 -- vim.g.rainbow_active = 1
@@ -325,12 +325,12 @@ keymaps('n','[[','[[k', ntst)
 keymaps('i','kk','<ESC>', ntst)
 keymaps('i','jj','<ESC>', ntst)
 -- keymaps({"i", "s"}, "<C-k>", function()
---     if ls.expand_or_jumpable() then
---         ls.expand_or_jump()
---     end
--- end, {silent = true})
--- colo
-vim.g.catppuccin_flavour = "mocha" --latte, frappe, machiato, mocha
--- vim.cmd [[colorscheme catppuccin]]
-vim.cmd [[colorscheme tokyonight]]
--- vim.cmd [[colorscheme slate]]
+    --     if ls.expand_or_jumpable() then
+    --         ls.expand_or_jump()
+    --     end
+    -- end, {silent = true})
+    -- colo
+    vim.g.catppuccin_flavour = "mocha" --latte, frappe, machiato, mocha
+    -- vim.cmd [[colorscheme catppuccin]]
+    vim.cmd [[colorscheme tokyonight]]
+    -- vim.cmd [[colorscheme slate]]

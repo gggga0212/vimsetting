@@ -8,8 +8,8 @@ end
 
 
 return require('packer').startup(function(use)
-  -- My plugins here
-  -- Automatically set up your configuration after cloning packer.nvim
+    -- My plugins here
+    -- Automatically set up your configuration after cloning packer.nvim
     use {'wbthomason/packer.nvim'}
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
     -- mason
@@ -17,19 +17,21 @@ return require('packer').startup(function(use)
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         -- "neovim/nvim-lspconfig",
-        }
+    }
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
+    use {'p00f/clangd_extensions.nvim'}
+    use {'jose-elias-alvarez/null-ls.nvim'}
     use({"nvim-telescope/telescope.nvim",
-        requires = {
-            -- { "nvim-lua/plenary.nvim" },
-            { "kdheepak/lazygit.nvim" },
-            { "nvim-telescope/telescope-live-grep-args.nvim" },
-        },
-        config = function()
+    requires = {
+        -- { "nvim-lua/plenary.nvim" },
+        { "kdheepak/lazygit.nvim" },
+        { "nvim-telescope/telescope-live-grep-args.nvim" },
+    },
+    config = function()
         require("telescope").load_extension("lazygit")
         require("telescope").load_extension("live_grep_args")
-        end,})
+    end,})
     use {'lewis6991/gitsigns.nvim'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-context'}
@@ -72,20 +74,20 @@ return require('packer').startup(function(use)
     use {'kien/ctrlp.vim'}
     use {'easymotion/vim-easymotion'}
     use({'kylechui/nvim-surround',
-        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            }) end })
-    -- use {'kevinhwang91/nvim-bqf', ft = 'qf'}
-    use {'hari-rangarajan/CCTree'}
-    use {'fgheng/winbar.nvim'}
-    use {'norcalli/nvim-colorizer.lua'}
-    use {'ziontee113/color-picker.nvim',
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        }) end })
+        -- use {'kevinhwang91/nvim-bqf', ft = 'qf'}
+        use {'hari-rangarajan/CCTree'}
+        use {'fgheng/winbar.nvim'}
+        use {'norcalli/nvim-colorizer.lua'}
+        use {'ziontee113/color-picker.nvim',
         config = function()
             require("color-picker")
         end,}
-    use {'max397574/colortils.nvim',
+        use {'max397574/colortils.nvim',
         cmd = "Colortils",
         config = function()
             require("colortils").setup()
@@ -95,34 +97,34 @@ return require('packer').startup(function(use)
     use {'kyazdani42/nvim-web-devicons'}
     -- use {'lukas-reineke/indent-blankline.nvim',
     --     config = function()
-    --     require (lsp.indent_blankline) end,}
-    use {'Yggdroot/indentLine'}
-    use {'ryanoasis/vim-devicons'}
-    use {'pacha/vem-tabline'}
- -- todo
-    use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
-    use {'mhartington/formatter.nvim'}
-    use {'ranjithshegde/ccls.nvim'}
-    -- use {'glepnir/lspsaga.nvim'}
-    use { 'hrsh7th/cmp-nvim-lsp'}
-    use { 'hrsh7th/cmp-buffer'}
-    use { 'hrsh7th/cmp-path'}
-    use { 'hrsh7th/cmp-cmdline'}
-    use {'MattesGroeger/vim-bookmarks'}
-    use {'ThePrimeagen/harpoon'}
-    use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+        --     require (lsp.indent_blankline) end,}
+        use {'Yggdroot/indentLine'}
+        use {'ryanoasis/vim-devicons'}
+        use {'pacha/vem-tabline'}
+        -- todo
+        use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+        use {'mhartington/formatter.nvim'}
+        use {'ranjithshegde/ccls.nvim'}
+        -- use {'glepnir/lspsaga.nvim'}
+        use { 'hrsh7th/cmp-nvim-lsp'}
+        use { 'hrsh7th/cmp-buffer'}
+        use { 'hrsh7th/cmp-path'}
+        use { 'hrsh7th/cmp-cmdline'}
+        use {'MattesGroeger/vim-bookmarks'}
+        use {'ThePrimeagen/harpoon'}
+        use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
         config = function()
-        require("lsp_lines").setup()
+            require("lsp_lines").setup()
         end,}
-    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
-    -- use { 'hrsh7th/nvim-cmp'}
-    use {'hrsh7th/nvim-cmp'}
-    use {'saadparwaiz1/cmp_luasnip'}
-    use {'L3MON4D3/LuaSnip',
+        use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+        -- use { 'hrsh7th/nvim-cmp'}
+        use {'hrsh7th/nvim-cmp'}
+        use {'saadparwaiz1/cmp_luasnip'}
+        use {'L3MON4D3/LuaSnip',
         after = 'nvim-cmp',
         config = function()
             require('lsp.luasnip') end,}
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+            if packer_bootstrap then
+                require('packer').sync()
+            end
+        end)

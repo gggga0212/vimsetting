@@ -11,9 +11,9 @@ require('telescope').setup({
             },
         },
         mappings = {
-           i = {
-               ["<esc>"] = actions.close,
-           },
+            i = {
+                ["<esc>"] = actions.close,
+            },
         },
         -- other defaults configuration here
     },
@@ -22,12 +22,12 @@ require('telescope').setup({
     },
     extensions = {
         live_grep_args = {
-          auto_quoting = true, -- enable/disable auto-quoting
-          mappings = {
-            i = {
-              ["<C-k>"] = lga_actions.quote_prompt({ postfix = ' ../ble_stack_lib/src/ble_stack .' }),
+            auto_quoting = true, -- enable/disable auto-quoting
+            mappings = {
+                i = {
+                    ["<C-k>"] = lga_actions.quote_prompt({ postfix = ' ../ble_stack_lib/src/ble_stack .' }),
+                }
             }
-          }
         }
     },
     pickers = {
@@ -35,13 +35,13 @@ require('telescope').setup({
             enable_preview = true
         },
         find_files = {
-          search_dirs = {"../ble_stack_lib/src/ble_stack","."
-          },
+            search_dirs = {"../ble_stack_lib/src/ble_stack","."
         },
-        live_grep = {
-          search_dirs = {"../ble_stack_lib/src/ble_stack","."
-          },
-        }
+    },
+    live_grep = {
+        search_dirs = {"../ble_stack_lib/src/ble_stack","."
+    },
+}
     }
     -- other configuration values here
 })

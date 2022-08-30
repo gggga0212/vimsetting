@@ -76,55 +76,54 @@ return require('packer').startup(function(use)
     use({'kylechui/nvim-surround',
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        }) end })
-        -- use {'kevinhwang91/nvim-bqf', ft = 'qf'}
-        use {'hari-rangarajan/CCTree'}
-        use {'fgheng/winbar.nvim'}
-        use {'norcalli/nvim-colorizer.lua'}
-        use {'ziontee113/color-picker.nvim',
-        config = function()
-            require("color-picker")
-        end,}
-        use {'max397574/colortils.nvim',
-        cmd = "Colortils",
-        config = function()
-            require("colortils").setup()
-        end,
-    }
+            require("nvim-surround").setup({
+                    -- Configuration here, or leave empty to use defaults
+                }) end })
+
+    use {'hari-rangarajan/CCTree'}
+    use {'fgheng/winbar.nvim'}
+    use {'norcalli/nvim-colorizer.lua'}
+    use {'ziontee113/color-picker.nvim',
+    config = function()
+        require("color-picker")
+    end,}
+    use {'max397574/colortils.nvim',
+    cmd = "Colortils",
+    config = function()
+        require("colortils").setup()
+    end,}
+
+    -- use {'echasnovski/mini.nvim'}
     use {'mg979/vim-visual-multi'}
     use {'kyazdani42/nvim-web-devicons'}
-    -- use {'lukas-reineke/indent-blankline.nvim',
-    --     config = function()
-        --     require (lsp.indent_blankline) end,}
-        use {'Yggdroot/indentLine'}
-        use {'ryanoasis/vim-devicons'}
-        use {'pacha/vem-tabline'}
-        -- todo
-        use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
-        use {'mhartington/formatter.nvim'}
-        use {'ranjithshegde/ccls.nvim'}
-        -- use {'glepnir/lspsaga.nvim'}
-        use { 'hrsh7th/cmp-nvim-lsp'}
-        use { 'hrsh7th/cmp-buffer'}
-        use { 'hrsh7th/cmp-path'}
-        use { 'hrsh7th/cmp-cmdline'}
-        use {'MattesGroeger/vim-bookmarks'}
-        use {'ThePrimeagen/harpoon'}
-        use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-        config = function()
-            require("lsp_lines").setup()
-        end,}
-        use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
-        -- use { 'hrsh7th/nvim-cmp'}
-        use {'hrsh7th/nvim-cmp'}
-        use {'saadparwaiz1/cmp_luasnip'}
-        use {'L3MON4D3/LuaSnip',
-        after = 'nvim-cmp',
-        config = function()
-            require('lsp.luasnip') end,}
-            if packer_bootstrap then
-                require('packer').sync()
-            end
-        end)
+
+    use {'Yggdroot/indentLine'}
+    use {'ryanoasis/vim-devicons'}
+    use {'pacha/vem-tabline'}
+    -- todo
+    use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+    use {'mhartington/formatter.nvim'}
+    use {'ranjithshegde/ccls.nvim'}
+    -- use {'glepnir/lspsaga.nvim'}
+    use { 'hrsh7th/cmp-nvim-lsp'}
+    use { 'hrsh7th/cmp-buffer'}
+    use { 'hrsh7th/cmp-path'}
+    use { 'hrsh7th/cmp-cmdline'}
+    use {'MattesGroeger/vim-bookmarks'}
+    use {'ThePrimeagen/harpoon'}
+    use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    config = function()
+        require("lsp_lines").setup()
+    end,}
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+    -- use { 'hrsh7th/nvim-cmp'}
+    use {'hrsh7th/nvim-cmp'}
+    use {'saadparwaiz1/cmp_luasnip'}
+    use {'L3MON4D3/LuaSnip',
+    after = 'nvim-cmp',
+    config = function()
+        require('lsp.luasnip') end,}
+        if packer_bootstrap then
+            require('packer').sync()
+        end
+    end)

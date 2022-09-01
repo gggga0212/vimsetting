@@ -20,8 +20,6 @@ return require('packer').startup(function(use)
     }
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
-    use {'SmiteshP/nvim-navic',
-        requires = "neovim/nvim-lspconfig"}
     use {'p00f/clangd_extensions.nvim'}
     use {'jose-elias-alvarez/null-ls.nvim'}
     use({"nvim-telescope/telescope.nvim",

@@ -18,9 +18,6 @@ require "lsp.mason"
 -- require "lsp.better-comments"
 require "lsp.nvim-cmp"
 require "lsp.null_ls"
-require "lsp.navic"
--- require "lsp.winbar"
-
 
 -- :help option
 vim.opt.encoding      = 'utf-8'

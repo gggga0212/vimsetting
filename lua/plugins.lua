@@ -92,8 +92,7 @@ return require('packer').startup(function(use)
     config = function()
         require("colortils").setup()
     end,}
-
-    -- use {'echasnovski/mini.nvim'}
+    use {'echasnovski/mini.nvim'}
     use {'mg979/vim-visual-multi'}
     use {'kyazdani42/nvim-web-devicons'}
 

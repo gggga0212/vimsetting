@@ -331,7 +331,8 @@ keymaps('i','jj','<ESC>', ntst)
     --     end
     -- end, {silent = true})
     -- colo
-    vim.g.catppuccin_flavour = "mocha" --latte, frappe, machiato, mocha
+    -- vim.g.catppuccin_flavour = "mocha" --latte, frappe, machiato, mocha
+    -- require("catppuccin").setup()
     -- vim.cmd [[colorscheme catppuccin]]
     vim.cmd [[colorscheme tokyonight]]
     -- vim.cmd [[colorscheme slate]]

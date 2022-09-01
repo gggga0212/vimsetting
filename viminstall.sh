@@ -41,7 +41,7 @@ sudo apt-get install ripgrep fd-find
 sudo apt-get install python
 sudo apt-get install python3
 sudo apt-get install cmatrix screenfetch
-sudo apt-get install graphviz cflow gawk
+sudo apt-get install graphviz cflow gawk zip
 
 #sudo apt-get install curl
 #sudo apt-get install fd-find

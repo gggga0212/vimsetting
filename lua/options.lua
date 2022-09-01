@@ -83,7 +83,7 @@ require("lsp_lines").toggle,
 keymaps('n','/', 'ms/',ntst)
 
 -- vim replace
-keymaps('n','<C-a>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
+keymaps('n','<C-s>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
 
 -- EasyAlign
 -- Start interactive EasyAlign in visual mode (e.g. vipga)

@@ -323,14 +323,4 @@ keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)
 keymaps('i','kk','<ESC>', ntst)
 keymaps('i','jj','<ESC>', ntst)
--- keymaps({"i", "s"}, "<C-k>", function()
-    --     if ls.expand_or_jumpable() then
-    --         ls.expand_or_jump()
-    --     end
-    -- end, {silent = true})
-    -- colo
-    -- vim.g.catppuccin_flavour = "mocha" --latte, frappe, machiato, mocha
-    -- require("catppuccin").setup()
-    -- vim.cmd [[colorscheme catppuccin]]
-    vim.cmd [[colorscheme tokyonight]]
-    -- vim.cmd [[colorscheme slate]]
+vim.cmd [[colorscheme tokyonight]]

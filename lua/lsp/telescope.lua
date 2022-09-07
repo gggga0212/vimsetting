@@ -1,5 +1,7 @@
 local actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
+local sorters = require('telescope.sorters')
+local previewers = require('telescope.previewers')
 require('telescope').setup({
     defaults = {
         layout_config = {
@@ -21,6 +23,9 @@ require('telescope').setup({
                 ["<esc>"] = actions.close,
             }
         },
+        file_sorter = sorters.get_fzy_sorter,
+        file_previewer = previewers.vim_buffer_cat.new,
+        path_display = {"shorten"}, -- absolute
         -- other defaults configuration here
     },
     live_grep = {
@@ -41,7 +46,6 @@ require('telescope').setup({
             enable_preview = true
         },
         find_files = {
-            path_display = {"absolute"},
             search_dirs = {"../ble_stack_lib/src/ble_stack","." },
         },
         live_grep = {

@@ -147,7 +147,7 @@ keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>:Telescope quick
 keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 -- keymaps('n','<C-t>','<C-o>',ntsf)
 -- cscope
-vim.opt.cscopequickfix = 's-,c-,d-,i-,t-,e-,a-'
+vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,a-'
 -- keymaps('n','cx', ':copen 10<CR>',  ntst)
 -- keymaps('n','cX', ':BqfToggle<CR>',  ntst)
 keymaps('n','cv',':copen 20<CR>', ntst)

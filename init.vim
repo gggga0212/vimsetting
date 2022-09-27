@@ -173,7 +173,7 @@ autocmd!
 autocmd BufEnter *.c,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
 autocmd BufFilePost *.c,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
 augroup END
-" set binary
+set binary
 " set nocsverb
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType * let b:coc_suggest_disable = 1

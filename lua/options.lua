@@ -28,6 +28,7 @@ vim.opt.cscopetag     = true
 vim.opt.nu            = true
 vim.opt.hls           = true -- search and highlight word
 vim.opt.smartindent   = true
+vim.opt.binary        = true
 -- vim.opt.autoindent    = true
 vim.opt.expandtab     = true
 vim.opt.ic            = true -- ignorecase

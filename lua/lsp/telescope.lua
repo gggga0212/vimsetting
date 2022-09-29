@@ -25,7 +25,12 @@ require('telescope').setup({
         },
         file_sorter = sorters.get_fzy_sorter,
         file_previewer = previewers.vim_buffer_cat.new,
-        path_display = {"shorten"}, -- absolute
+        -- path_display = {"shorten"}, -- absolute
+        -- layout_strategy = "vertical",
+        -- layout_config = {mirror = true},
+        sorting_strategy = "ascending",
+        -- path_display = {"shorten"}, -- absolute
+        path_display = {"tail"}, -- absolute
         -- other defaults configuration here
     },
     live_grep = {

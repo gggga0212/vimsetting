@@ -151,11 +151,11 @@ keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,a-'
 -- keymaps('n','cx', ':copen 10<CR>',  ntst)
 -- keymaps('n','cX', ':BqfToggle<CR>',  ntst)
-keymaps('n','cv',':copen 20<CR>', ntst)
-keymaps('n','cV', ':cclose<CR>', ntst)
+-- keymaps('n','cv',':copen 20<CR>', ntst)
+-- keymaps('n','cV', ':cclose<CR>', ntst)
 
-keymaps('n','cx',':Telescope quickfix<CR>', ntst)
-keymaps('n','cX',':Telescope quickfixhistory<CR>', ntst)
+keymaps('n','cv',':Telescope quickfix<CR>', ntst)
+keymaps('n','cV',':Telescope quickfixhistory<CR>', ntst)
 
 -- keymaps('n','<space>eh', ':NERDTree<CR>',ntst)
 -- keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)

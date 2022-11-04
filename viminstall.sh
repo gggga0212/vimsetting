@@ -24,7 +24,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 #nvim ubuntu
 
 git clone https://github.com/amboar/tceetree.git ~/.config/tceetree
-cd ~/.config/nvim/tceetree
+cd ~/.config/tceetree
 make
 
 # Using Ubuntu nodejs 18.x

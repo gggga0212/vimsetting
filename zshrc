@@ -120,7 +120,7 @@ alias checkoutteam='cd ../ble_stack_lib/src/ble_stack;git checkout host_stack_te
 alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc; 
                   cp ~/.gitconfig ~/.config/nvim/gitconfig;
                   cp ~/.tmux.conf ~/.config/nvim/tmux.conf;
-                  cp ~/.config/lazygit/config.yml ~/.config/nvim/jesseduffield/config.yml;
+                  cp ~/.config/lazygit/jesseduffield/config.yml ~/.config/nvim/config.yml;
                   echo "save zsh, gitconfig, tmux to linux"'
 alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc; 
                   cp ~/.config/nvim/gitconfig ~/.gitconfig;

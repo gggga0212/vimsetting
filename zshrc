@@ -125,7 +125,7 @@ alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc;
 alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc; 
                   cp ~/.config/nvim/gitconfig ~/.gitconfig;
                   cp ~/.config/nvim/tmux.conf ~/.tmux.conf;
-                  cp ~/.config/nvim/config.yml ~/.config/esseduffield/lazygit/config.yml;
+                  cp ~/.config/nvim/config.yml ~/.config/jesseduffield/lazygit/config.yml;
                   source ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
 alias chrome="open -a 'Google Chrome'"

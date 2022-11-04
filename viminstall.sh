@@ -1,4 +1,4 @@
-
+# Diffview needs the lastest git version
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
@@ -82,6 +82,9 @@ tmux source-file ~/.tmux.conf
 #:CocList marketplace
 #:checkhealth
 #:PackerSync
+
+#cmd mode
+#loadconfig
 
 #fzf
 #cd ~/.vim/bundle/fzf

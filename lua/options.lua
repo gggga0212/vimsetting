@@ -248,7 +248,7 @@ keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- highlight
 keymaps('n','<space>tm',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<space>tM',':Telescope live_grep_args<CR>',   ntst)
-keymaps('n','<space>tn',':Telescope find_files<CR>', ntst)
+keymaps('n','<space>tn',':Telescope dir find_files<CR>', ntst)
 
 keymaps('n','<space>to',':<C-U><C-R>=printf("!~/.config/tceetree/tceetree -V -p ")<CR>',ntsf)
 keymaps('n','<space>tO',':<C-U><C-R>=printf("!dot -Tpdf -O tceetree.out")<CR><CR>:!cmd.exe /C start tceetree.out.pdf<CR>',ntsf)

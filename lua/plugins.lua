@@ -32,6 +32,16 @@ return require('packer').startup(function(use)
         require("telescope").load_extension("lazygit")
         require("telescope").load_extension("live_grep_args")
     end,})
+    use({
+      "princejoogie/dir-telescope.nvim",
+      -- telescope.nvim is a required dependency
+      requires = {"nvim-telescope/telescope.nvim"},
+      config = function()
+        require("dir-telescope").setup({
+          hidden = true,
+          respect_gitignore = true,
+        })
+      end,})
     use {'lewis6991/gitsigns.nvim'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-context'}

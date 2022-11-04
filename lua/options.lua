@@ -24,7 +24,6 @@ vim.opt.encoding      = 'utf-8'
 vim.opt.signcolumn    = 'yes' --yes or number
 vim.opt.cursorline    = true
 vim.opt.cursorcolumn  = true
-vim.opt.cscopetag     = true
 vim.opt.nu            = true
 vim.opt.hls           = true -- search and highlight word
 vim.opt.smartindent   = true
@@ -42,7 +41,6 @@ vim.opt.compatible    = false
 vim.opt.shiftwidth = 4
 vim.opt.tabstop    = 4
 vim.opt.laststatus = 2
-vim.opt.csto       = 0
 
 vim.g.t_Co         = 256
 vim.g.backspace    = 2
@@ -147,8 +145,10 @@ keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>:Telescope quick
 keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 -- keymaps('n','<C-t>','<C-o>',ntsf)
--- cscope
-vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
+-- vim.opt.csto       = 0
+-- vim.opt.cscopetag     = true
+-- vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
+
 -- keymaps('n','cx', ':copen 10<CR>',  ntst)
 -- keymaps('n','cX', ':BqfToggle<CR>',  ntst)
 -- keymaps('n','cv',':copen 20<CR>', ntst)

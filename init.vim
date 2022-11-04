@@ -82,10 +82,16 @@ let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 set ut=100
 
-if filereadable("cscope.out")
-    cs add cscope.out
-elseif $CSCOPE_DB != ""
-    cs add $CSCOPE_DB
+if has("cscope")
+    set cscopetag
+    set csto=0
+    if filereadable("cscope.out")
+        cs add cscope.out
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+else
+   echo("cscope not found") 
 endif
 
 let g:rainbow_active = 1

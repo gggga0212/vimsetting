@@ -120,17 +120,18 @@ alias checkoutteam='cd ../ble_stack_lib/src/ble_stack;git checkout host_stack_te
 alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc; 
                   cp ~/.gitconfig ~/.config/nvim/gitconfig;
                   cp ~/.tmux.conf ~/.config/nvim/tmux.conf;
-                  cp ~/.config/lazygit/jesseduffield/config.yml ~/.config/nvim/config.yml;
+                  cp ~/.config/jesseduffield/lazygit/config.yml ~/.config/nvim/config.yml;
                   echo "save zsh, gitconfig, tmux to linux"'
 alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc; 
                   cp ~/.config/nvim/gitconfig ~/.gitconfig;
                   cp ~/.config/nvim/tmux.conf ~/.tmux.conf;
-                  cp ~/.config/nvim/config.yml ~/.config/lazygit/jesseduffield/config.yml;
+                  cp ~/.config/nvim/config.yml ~/.config/esseduffield/lazygit/config.yml;
                   source ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
 alias chrome="open -a 'Google Chrome'"
 alias brave="open -a 'Brave Browser'"
 alias nv='~/.config/nvim/nvim-macos/bin/nvim'
+alias nvim='~/.config/nvim-linux64/bin/nvim'
 
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.

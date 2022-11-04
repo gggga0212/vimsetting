@@ -145,9 +145,8 @@ keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>:Telescope quick
 keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
 -- keymaps('n','<C-t>','<C-o>',ntsf)
--- vim.opt.csto       = 0
--- vim.opt.cscopetag     = true
--- vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
+
+vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
 
 -- keymaps('n','cx', ':copen 10<CR>',  ntst)
 -- keymaps('n','cX', ':BqfToggle<CR>',  ntst)

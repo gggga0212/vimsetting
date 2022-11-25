@@ -260,6 +260,7 @@ keymaps('n','<space>tR',':CCTreeLoadDB<CR><CR>', ntst)
 -- keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<space>ts',':!pkill -f tmux<CR>', ntst)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
+keymaps('n','<space>tv',':%s/\\r//g<CR>',  ntst)
 -- Move to word
 keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
 keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)

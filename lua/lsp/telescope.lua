@@ -4,14 +4,14 @@ local sorters = require('telescope.sorters')
 local previewers = require('telescope.previewers')
 require('telescope').setup({
     defaults = {
-        layout_config = {
-            -- vertical = { width = 0.9 }
-            width = 0.95,
-            -- other layout configuration here
-            horizontal = {
-                prompt_position = "bottom",
-            },
-        },
+        -- layout_config = {
+        --     -- vertical = { width = 0.9 }
+        --     width = 0.95,
+        --     -- other layout configuration here
+        --     horizontal = {
+        --         prompt_position = "bottom",
+        --     },
+        -- },
         mappings = {
             i = {
                 ["<esc>"] = actions.close,
@@ -23,15 +23,53 @@ require('telescope').setup({
                 ["<esc>"] = actions.close,
             }
         },
-        file_sorter = sorters.get_fzy_sorter,
-        file_previewer = previewers.vim_buffer_cat.new,
-        -- path_display = {"shorten"}, -- absolute
+        vimgrep_arguments = {
+           "rg",
+           "--color=never",
+           "--no-heading",
+           "--with-filename",
+           "--line-number",
+           "--column",
+           "--smart-case",
+        },
+        prompt_prefix = "   ",
+        selection_caret = "  ",
+        entry_prefix = "  ",
+        initial_mode = "insert",
+        selection_strategy = "reset",
+        sorting_strategy = "ascending",
+        layout_strategy = "horizontal",
+        layout_config = {
+           horizontal = {
+              prompt_position = "bottom", --bottom,top
+              preview_width = 0.45,
+              results_width = 0.9,
+           },
+           vertical = {
+              mirror = true,
+           },
+           width = 0.95,
+           -- height = 0.80,
+           -- preview_cutoff = 120,
+        },
+        file_sorter = require("telescope.sorters").get_fuzzy_file,
+        file_ignore_patterns = { "node_modules" },
+        generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+        path_display = { "tail" }, -- tail,absolute
+        -- path_display = { truncate = 2 }, -- tail,absolute
         -- layout_strategy = "vertical",
         -- layout_config = {mirror = true},
-        sorting_strategy = "ascending",
-        -- path_display = {"shorten"}, -- absolute
-        path_display = {"tail"}, -- absolute
-        -- other defaults configuration here
+        winblend = 0,
+        border = {},
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        color_devicons = true,
+        use_less = true,
+        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+        file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+        grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+        qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+        -- Developer configurations: Not meant for general override
+        buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     },
     live_grep = {
         only_sort_text = true

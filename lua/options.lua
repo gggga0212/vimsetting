@@ -16,6 +16,7 @@ require "lsp.nvim-ufo"
 require "lsp.formatter-nvim"
 require "lsp.mason"
 -- require "lsp.better-comments"
+require "lsp.nvim-ide"
 require "lsp.nvim-cmp"
 require "lsp.null_ls"
 
@@ -204,6 +205,8 @@ keymaps('v','<leader>v','"+p',ntsf)
 -- floaterm
 vim.g["floaterm_width"]  = 0.95
 vim.g["floaterm_height"] = 0.95
+keymaps('n','<space>fl',':Workspace RightPanelToggle<CR>', ntst)
+keymaps('n','<space>fh',':Workspace LeftPanelToggle<CR>',  ntst)
 keymaps('n','<space>ft',':FloatermNew<CR>',               ntst)
 keymaps('t','<space>ft','<C-\\><C-n>:FloatermNew<CR>',    ntst)
 keymaps('n','<space>fp',':FloatermPrev<CR>',              ntst)

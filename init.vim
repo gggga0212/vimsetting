@@ -28,7 +28,7 @@ nmap <F5> :!rm -rf cscope.*<CR>
             \:!cmd.exe /C start tceetree.out.pdf<CR>
 nmap <F6> :!rm -rf cscope.*<CR>
             \:!find ./ -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
-            \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
+            \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
             \:!rm -rf tags<CR>
             \:!ctags -R<CR>
@@ -53,7 +53,7 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
-            \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
+            \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
             \:!rm -rf tags<CR>
             \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
@@ -69,7 +69,7 @@ nmap <F9> :!rm -rf cscope.*<CR>
             \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
-            \:!cscope -R -b -q -i cscope.files -f cscope.out<CR>
+            \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:cs reset<CR>
             \:!rm -rf tags<CR>
             \:!ctags "./" "../ble_stack_lib/src/ble_stack" \

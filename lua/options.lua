@@ -303,6 +303,7 @@ keymaps('n','<leader>9',':VemTablineGo 9<CR>',ntst)
 keymaps('n','<leader>a',':A<CR>',ntst)
 keymaps('n','<leader>e',':e!<CR>',ntst)
 keymaps('n','<leader>g','<C-]>',ntst)
+keymaps('n','<leader>q',':q!<CR>',ntst)
 keymaps('n','<leader>u',':PackerSync<CR>', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
 

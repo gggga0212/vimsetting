@@ -60,3 +60,4 @@ require('telescope').setup({
     -- other configuration values here
 })
 vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
+require("telescope").load_extension "file_browser"

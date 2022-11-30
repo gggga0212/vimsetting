@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
           respect_gitignore = true,
         })
       end,})
+    use { "nvim-telescope/telescope-file-browser.nvim" }
     use {'lewis6991/gitsigns.nvim'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-context'}

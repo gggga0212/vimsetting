@@ -66,12 +66,12 @@ vim.g.ctrlp_cmd = 'CtrlP'
 
 -- lsp_lines.nvim v2
 vim.diagnostic.config({ virtual_lines = false })
-vim.keymap.set(
-"",
-"<Leader>l",
-require("lsp_lines").toggle,
-{ desc = "Toggle lsp_lines" }
-)
+-- vim.keymap.set(
+-- "",
+-- "<Leader>l",
+-- require("lsp_lines").toggle,
+-- { desc = "Toggle lsp_lines" }
+-- )
 -- rainbow
 -- vim.g.rainbow_active = 1
 
@@ -196,11 +196,6 @@ keymaps('x', 'K',":move '<-1<CR>gv-gv",     ntst)
 keymaps('x', '<A-j>',":move '>+1<CR>gv-gv", ntst)
 keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", ntst)
 
--- paste
-keymaps('x','p','pgvy',ntsf)
-keymaps('v','<leader>c','"*y :let @+=@*<CR>',ntsf)
-keymaps('n','<leader>v','"+p',ntsf)
-keymaps('v','<leader>v','"+p',ntsf)
 
 -- floaterm
 vim.g["floaterm_width"]  = 0.95
@@ -305,11 +300,18 @@ keymaps('n','<leader>a',':A<CR>',ntst)
 keymaps('n','<leader>e',':e!<CR>',ntst)
 keymaps('n','<leader>f',':CCTreeTraceForward<CR><CR>', ntst)
 keymaps('n','<leader>g','<C-]>',ntst)
+keymaps('n','<leader>j','*',ntst)
 keymaps('n','<leader>q',':q!<CR>',ntst)
 keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
 keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)
 keymaps('n','<leader>u',':PackerSync<CR>', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
+
+-- paste
+keymaps('x','p','pgvy',ntsf)
+keymaps('v','<leader>c','"*y :let @+=@*<CR>',ntsf)
+keymaps('n','<leader>v','"+p',ntsf)
+keymaps('v','<leader>v','"+p',ntsf)
 
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)

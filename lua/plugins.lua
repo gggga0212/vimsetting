@@ -137,6 +137,13 @@ return require('packer').startup(function(use)
     end,}
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
     -- use { 'hrsh7th/nvim-cmp'}
+    --🦆 ඞ 🦀 🐈 🐎 🦖 🐤 
+    use { 'tamton-aquib/duck.nvim',
+    config = function()
+        vim.keymap.set('n', '<leader>dd', function() require("duck").hatch("🦆", 10) end, {})
+        vim.keymap.set('n', '<leader>dk', function() require("duck").cook("🦆") end, {})
+    end
+}
     use {'hrsh7th/nvim-cmp'}
     use {'saadparwaiz1/cmp_luasnip'}
     use {'L3MON4D3/LuaSnip',

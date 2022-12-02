@@ -1,2 +1,2 @@
-*.c -text
-*.h -text
+*.c text
+*.h text

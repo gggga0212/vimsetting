@@ -83,7 +83,7 @@ vim.diagnostic.config({ virtual_lines = false })
 keymaps('n','/', 'ms/',ntst)
 
 -- vim replace
-keymaps('n','<C-s>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
+-- keymaps('n','<C-s>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
 
 -- EasyAlign
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -262,7 +262,7 @@ keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
 keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
 -- keymaps('n','<space>tx',':lua require("telescope.builtin").quickfix()<CR>', ntst)
 -- keymaps('n','<space>tX',':lua require("telescope.builtin").quickfixhistory()<CR>', ntst)
-keymaps('n','<space>ty',':q<CR>:vs<CR>', ntst)
+-- keymaps('n','<space>ty',':q<CR>:vs<CR>', ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 
@@ -304,6 +304,8 @@ keymaps('n','<leader>j','*',ntst)
 keymaps('n','<leader>q',':q!<CR>',ntst)
 keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
 keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)
+keymaps('n','<leader>s',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
+keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
 keymaps('n','<leader>u',':PackerSync<CR>', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
 

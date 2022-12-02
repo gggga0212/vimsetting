@@ -105,8 +105,7 @@ return require('packer').startup(function(use)
         require("colortils").setup()
     end,}
     use "stevearc/dressing.nvim"
-    use({
-      "ziontee113/icon-picker.nvim",
+    use({"ziontee113/icon-picker.nvim",
       config = function()
         require("icon-picker").setup({
           disable_legacy_commands = true

@@ -309,6 +309,8 @@ keymaps('n','<leader>s',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand
 keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
 keymaps('n','<leader>u',':PackerSync<CR>', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
+keymaps('n','<leader>x',':cs find f gap<CR>',ntst)
+keymaps('n','<leader>z',':cs find f cmd_evt<CR>',ntst)
 
 -- paste
 keymaps('x','p','pgvy',ntsf)

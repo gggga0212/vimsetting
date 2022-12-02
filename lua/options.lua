@@ -227,6 +227,7 @@ keymaps('n','<space>gt',':Telescope git_status<CR>', ntst)
 keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', ntsf)
 -- Telescope
 keymaps('n','<space>ta',':Colortils css list<CR>', ntst)
+keymaps('n','<space>tA',':IconPickerNormal<CR>', ntst)
 keymaps('n','<space>tb',':Telescope file_browser<CR>',ntsf)
 keymaps('n','<space>tB',':<C-U><C-R>=printf("hi Normal ctermfg=white ctermbg=16")<CR>',ntsf)
 keymaps('n','<space>tc',':Telescope colorscheme<CR>', ntst)

@@ -104,6 +104,15 @@ return require('packer').startup(function(use)
     config = function()
         require("colortils").setup()
     end,}
+    use "stevearc/dressing.nvim"
+    use({
+      "ziontee113/icon-picker.nvim",
+      config = function()
+        require("icon-picker").setup({
+          disable_legacy_commands = true
+        })
+      end,
+    })
     use {'echasnovski/mini.nvim'}
     use {'mg979/vim-visual-multi'}
     use {'kyazdani42/nvim-web-devicons'}

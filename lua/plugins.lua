@@ -92,69 +92,69 @@ return require('packer').startup(function(use)
                     -- Configuration here, or leave empty to use defaults
                 }) end })
 
-    use {'hari-rangarajan/CCTree'}
-    use {'fgheng/winbar.nvim'}
-    use {'norcalli/nvim-colorizer.lua'}
-    use {'ziontee113/color-picker.nvim',
-    config = function()
-        require("color-picker")
-    end,}
-    use {'max397574/colortils.nvim',
-    cmd = "Colortils",
-    config = function()
-        require("colortils").setup()
-    end,}
-    use "stevearc/dressing.nvim"
-    use({"ziontee113/icon-picker.nvim",
-      config = function()
-        require("icon-picker").setup({
-          disable_legacy_commands = true
-        })
-      end,
-    })
-    use {'echasnovski/mini.nvim'}
-    use {'mg979/vim-visual-multi'}
-    use {'kyazdani42/nvim-web-devicons'}
+     use {'hari-rangarajan/CCTree'}
+     use {'fgheng/winbar.nvim'}
+     use {'norcalli/nvim-colorizer.lua'}
+     use {'ziontee113/color-picker.nvim',
+     config = function()
+         require("color-picker")
+     end,}
+     use {'max397574/colortils.nvim',
+     cmd = "Colortils",
+     config = function()
+         require("colortils").setup()
+     end,}
+     use "stevearc/dressing.nvim"
+     use({"ziontee113/icon-picker.nvim",
+       config = function()
+         require("icon-picker").setup({
+           disable_legacy_commands = true
+         })
+       end,
+     })
+     use {'echasnovski/mini.nvim'}
+     use {'mg979/vim-visual-multi'}
+     use {'kyazdani42/nvim-web-devicons'}
 
-    use {'Yggdroot/indentLine'}
-    use {'ryanoasis/vim-devicons'}
-    use {'pacha/vem-tabline'}
-    -- todo
-    use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
-    use {'mhartington/formatter.nvim'}
-    use {'ranjithshegde/ccls.nvim'}
-    -- use {'glepnir/lspsaga.nvim'}
-    use { 'hrsh7th/cmp-nvim-lsp'}
-    use { 'hrsh7th/cmp-buffer'}
-    use { 'hrsh7th/cmp-path'}
-    use { 'hrsh7th/cmp-cmdline'}
-    use {'MattesGroeger/vim-bookmarks'}
-    use {'ThePrimeagen/harpoon'}
-    use {
-      'gorbit99/codewindow.nvim',
-      config = function()
-        local codewindow = require('codewindow')
-        codewindow.setup()
-        codewindow.apply_default_keybinds()
-      end,
-    }
-    use {'ldelossa/nvim-ide'}
-    use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-    config = function()
-        require("lsp_lines").setup()
-    end,}
-    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
-    -- use { 'hrsh7th/nvim-cmp'}
-    --🦆 ඞ 🦀 🐈 🐎 🦖 🐤 
-    use { 'tamton-aquib/duck.nvim',
-    config = function()
-        vim.keymap.set('n', '<leader>dd', function() require("duck").hatch("🦆", 10) end, {})
-        vim.keymap.set('n', '<leader>dk', function() require("duck").cook("🦆") end, {})
-    end
-}
-    use {'hrsh7th/nvim-cmp'}
-    use {'saadparwaiz1/cmp_luasnip'}
-    use {'L3MON4D3/LuaSnip',
+     use {'Yggdroot/indentLine'}
+     use {'ryanoasis/vim-devicons'}
+     use {'pacha/vem-tabline'}
+     -- todo
+     use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
+     use {'mhartington/formatter.nvim'}
+     use {'ranjithshegde/ccls.nvim'}
+     -- use {'glepnir/lspsaga.nvim'}
+     use { 'hrsh7th/cmp-nvim-lsp'}
+     use { 'hrsh7th/cmp-buffer'}
+     use { 'hrsh7th/cmp-path'}
+     use { 'hrsh7th/cmp-cmdline'}
+     use {'MattesGroeger/vim-bookmarks'}
+     use {'ThePrimeagen/harpoon'}
+     use {
+       'gorbit99/codewindow.nvim',
+       config = function()
+         local codewindow = require('codewindow')
+         codewindow.setup()
+         codewindow.apply_default_keybinds()
+       end,
+     }
+     use {'ldelossa/nvim-ide'}
+     use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+     config = function()
+         require("lsp_lines").setup()
+     end,}
+     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+     -- use { 'hrsh7th/nvim-cmp'}
+     --🦆 ඞ 🦀 🐈 🐎 🦖 🐤 
+     use { 'tamton-aquib/duck.nvim',
+     config = function()
+         vim.keymap.set('n', '<leader>dd', function() require("duck").hatch("🦆", 10) end, {})
+         vim.keymap.set('n', '<leader>dk', function() require("duck").cook("🦆") end, {})
+     end
+ }
+     use {'hrsh7th/nvim-cmp'}
+     use {'saadparwaiz1/cmp_luasnip'}
+     use {'L3MON4D3/LuaSnip',
     after = 'nvim-cmp',
     config = function()
         require('lsp.luasnip') end,}

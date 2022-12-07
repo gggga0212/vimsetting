@@ -132,6 +132,7 @@ alias chrome="open -a 'Google Chrome'"
 alias brave="open -a 'Brave Browser'"
 alias nv='~/.config/nvim/nvim-macos/bin/nvim'
 alias nvim='~/.config/nvim-linux64/bin/nvim'
+alias rmlock='rm -rf ../.git/index.lock'
 
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.

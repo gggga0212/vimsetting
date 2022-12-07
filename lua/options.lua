@@ -16,7 +16,7 @@ require "lsp.nvim-ufo"
 require "lsp.formatter-nvim"
 require "lsp.mason"
 -- require "lsp.better-comments"
-require "lsp.nvim-ide"
+-- require "lsp.nvim-ide"
 require "lsp.nvim-cmp"
 require "lsp.null_ls"
 

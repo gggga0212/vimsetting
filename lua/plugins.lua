@@ -138,7 +138,7 @@ return require('packer').startup(function(use)
          codewindow.apply_default_keybinds()
        end,
      }
-     use {'ldelossa/nvim-ide'}
+     -- use {'ldelossa/nvim-ide'}
      use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
      config = function()
          require("lsp_lines").setup()

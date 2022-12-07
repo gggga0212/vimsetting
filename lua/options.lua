@@ -19,6 +19,7 @@ require "lsp.mason"
 -- require "lsp.nvim-ide"
 require "lsp.nvim-cmp"
 require "lsp.null_ls"
+require "lsp.diffview"
 
 -- :help option
 vim.opt.encoding      = 'utf-8'

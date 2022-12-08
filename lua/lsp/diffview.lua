@@ -92,6 +92,7 @@ require("diffview").setup({
       { "n", "<leader>e",  actions.focus_files,                { desc = "Bring focus to the file panel" } },
       { "n", "<leader>b",  actions.toggle_files,               { desc = "Toggle the file panel." } },
       { "n", "g<C-x>",     actions.cycle_layout,               { desc = "Cycle through available layouts." } },
+      { "n", "gl",         actions.cycle_layout,               { desc = "Cycle through available layouts." } },
       { "n", "[x",         actions.prev_conflict,              { desc = "In the merge-tool: jump to the previous conflict" } },
       { "n", "]x",         actions.next_conflict,              { desc = "In the merge-tool: jump to the next conflict" } },
       { "n", "<leader>co", actions.conflict_choose("ours"),    { desc = "Choose the OURS version of a conflict" } },
@@ -147,6 +148,7 @@ require("diffview").setup({
       { "n", "<leader>e",     actions.focus_files,          { desc = "Bring focus to the file panel" } },
       { "n", "<leader>b",     actions.toggle_files,         { desc = "Toggle the file panel" } },
       { "n", "g<C-x>",        actions.cycle_layout,         { desc = "Cycle available layouts" } },
+      { "n", "gl",            actions.cycle_layout,         { desc = "Cycle available layouts" } },
       { "n", "[x",            actions.prev_conflict,        { desc = "Go to the previous conflict" } },
       { "n", "]x",            actions.next_conflict,        { desc = "Go to the next conflict" } },
       { "n", "g?",            actions.help("file_panel"),   { desc = "Open the help panel" } },
@@ -175,6 +177,7 @@ require("diffview").setup({
       { "n", "<leader>e",     actions.focus_files,                 { desc = "Bring focus to the file panel" } },
       { "n", "<leader>b",     actions.toggle_files,                { desc = "Toggle the file panel" } },
       { "n", "g<C-x>",        actions.cycle_layout,                { desc = "Cycle available layouts" } },
+      { "n", "gl",            actions.cycle_layout,                { desc = "Cycle available layouts" } },
       { "n", "g?",            actions.help("file_history_panel"),  { desc = "Open the help panel" } },
     },
     option_panel = {

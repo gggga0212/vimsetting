@@ -123,6 +123,7 @@ return require('packer').startup(function(use)
      use {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'}
      use {'mhartington/formatter.nvim'}
      use {'ranjithshegde/ccls.nvim'}
+     use {'simonefranza/nvim-conv'}
      -- use {'glepnir/lspsaga.nvim'}
      use { 'hrsh7th/cmp-nvim-lsp'}
      use { 'hrsh7th/cmp-buffer'}

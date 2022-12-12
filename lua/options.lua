@@ -268,6 +268,8 @@ keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 
 keymaps('n','<space>ha',':Telescope harpoon marks<CR>',ntst)
+keymaps('n','<space>hd',':<C-U><C-R>=printf("ConvDec 0x")<CR>',ntsf)
+keymaps('n','<space>hh',':<C-U><C-R>=printf("ConvHex ")<CR>',ntsf)
 keymaps('n','<space>hf',':lua require("harpoon.mark").add_file()<CR>',  ntst)
 keymaps('n','<space>hn',':lua require("harpoon.ui").nav_next()<CR>',  ntst)
 keymaps('n','<space>hp',':lua require("harpoon.ui").add_prev()<CR>',  ntst)

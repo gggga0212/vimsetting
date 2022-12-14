@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
     -- Automatically set up your configuration after cloning packer.nvim
     use {'wbthomason/packer.nvim'}
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use {'tamton-aquib/stuff.nvim', require("calc").setup()}
     -- mason
     use {
         "williamboman/mason.nvim",

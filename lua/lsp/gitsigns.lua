@@ -7,7 +7,7 @@ gitsigns.setup {
     signs = {
         add          = {hl = 'GitSignsAdd'   , text = '➕', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
         change       = {hl = 'GitSignsChange', text = 'ﰌ', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-        delete       = {hl = 'GitSignsDelete', text = '↪️', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        delete       = {hl = 'GitSignsDelete', text = '', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
         topdelete    = {hl = 'GitSignsDelete', text = 'ﲓ', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
         changedelete = {hl = 'GitSignsChange', text = '謹', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     },

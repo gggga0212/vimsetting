@@ -19,6 +19,20 @@ return require('packer').startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         -- "neovim/nvim-lspconfig",
     }
+
+    -- use({
+    --   "jackMort/ChatGPT.nvim",
+    --     config = function()
+    --       require("chatgpt").setup({
+    --         -- optional configuration
+    --       })
+    --     end,
+    --     requires = {
+    --       "MunifTanjim/nui.nvim",
+    --       "nvim-lua/plenary.nvim",
+    --     }
+    -- })
+
     -- lspconfig
     use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     use {'p00f/clangd_extensions.nvim'}

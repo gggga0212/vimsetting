@@ -116,7 +116,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tnew='tmux -f ~/.tmux.conf new-session \; split-window -h \; split-window -v \; attach'
 alias gototeam='cd ../ble_stack_lib/src/ble_stack'
-alias gotocon='../ble_controller_app/firmware/src/config/default/lib_src/ble_stack'
+alias gotocon='cd ../ble_controller_app/firmware/src/config/default/lib_src/ble_stack'
 alias checkoutteam='cd ../ble_stack_lib/src/ble_stack;git checkout host_stack_team'
 alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc; 
                   cp ~/.gitconfig ~/.config/nvim/gitconfig;

@@ -264,6 +264,7 @@ keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
 -- keymaps('n','<space>tx',':lua require("telescope.builtin").quickfix()<CR>', ntst)
 -- keymaps('n','<space>tX',':lua require("telescope.builtin").quickfixhistory()<CR>', ntst)
 -- keymaps('n','<space>ty',':q<CR>:vs<CR>', ntst)
+keymaps('n','<space>tx',':!cmd.exe /c sdk_library_release.bat<CR>',ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 

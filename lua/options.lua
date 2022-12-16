@@ -261,10 +261,8 @@ keymaps('n','<space>tv',':%s/\\r//g<CR>',  ntst)
 -- Move to word
 keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
 keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
--- keymaps('n','<space>tx',':lua require("telescope.builtin").quickfix()<CR>', ntst)
--- keymaps('n','<space>tX',':lua require("telescope.builtin").quickfixhistory()<CR>', ntst)
--- keymaps('n','<space>ty',':q<CR>:vs<CR>', ntst)
-keymaps('n','<space>tx',':!cmd.exe /c sdk_library_release.bat<CR>',ntst)
+keymaps('n','<space>tx',':!mscgen -T png test.mscgen<CR>',ntst)
+-- keymaps('n','<space>tX',':!cmd.exe /C start test.png<CR>',ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 

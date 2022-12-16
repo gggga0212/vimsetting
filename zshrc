@@ -118,6 +118,7 @@ alias tnew='tmux -f ~/.tmux.conf new-session \; split-window -h \; split-window 
 alias gototeam='cd ../ble_stack_lib/src/ble_stack'
 alias gotocon='cd ../ble_controller_app/firmware/src/config/default/lib_src/ble_stack'
 alias gotoconbk='cd ../ble_controller_lib/src'
+alias gotodoxy='cd ../ble_stack_lib/ble_stack_lib.X/doxygen_script'
 alias checkoutteam='cd ../ble_stack_lib/src/ble_stack;git checkout host_stack_team'
 alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc; 
                   cp ~/.gitconfig ~/.config/nvim/gitconfig;

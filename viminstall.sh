@@ -25,7 +25,7 @@ sudo apt-get install nodejs
 sudo apt-get install fonts-powerline tmux pip
 sudo apt-get install exuberant-ctags cscope
 sudo apt-get install gcc g++ make
-sudo apt-get install tree fzf
+sudo apt-get install tree fzf mscgen
 sudo apt-get install ripgrep fd-find
 sudo apt-get install python python3
 sudo apt-get install cmatrix screenfetch

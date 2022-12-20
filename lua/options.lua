@@ -268,6 +268,7 @@ keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 keymaps('n','<space>ha',':Telescope harpoon marks<CR>',ntst)
 keymaps('n','<space>hb',':e ~/.config/nvim/lua/options.lua<CR>',ntsf)
+keymaps('n','<space>hB',':e ~/.config/nvim/lua/plugins.lua<CR>',ntsf)
 keymaps('n','<space>hc',':Calc<CR>',ntsf)
 keymaps('n','<space>hd',':<C-U><C-R>=printf("ConvDec 0x")<CR>',ntsf)
 keymaps('n','<space>hh',':<C-U><C-R>=printf("ConvHex ")<CR>',ntsf)

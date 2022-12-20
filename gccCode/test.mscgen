@@ -1,0 +1,49 @@
+msc{
+hscale="3";
+
+App, BLE_LIB, Scanner;
+
+App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingParams"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+
+App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingData"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+
+App => "BLE_LIB" [label="BLE_GAP_SetScanResponseData"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+
+App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingEnable(enable, ..)"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+
+BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+BLE_LIB :> Scanner [ label = "....." ];
+BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+
+---  [ label = "Variant #1 Modify data under ADV enable"];
+BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+BLE_LIB :> Scanner [ label = "....." ];
+App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingData"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+
+App => "BLE_LIB" [label="BLE_GAP_SetScanResponseData"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+
+BLE_LIB :> Scanner [ label = "New Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+BLE_LIB :> Scanner [ label = "New Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+BLE_LIB :> Scanner [ label = "....." ];
+
+---  [ label = "Variant #2 Modify parameter under ADV enable"];
+App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingEnable(disable, ..)"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+
+App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingParams"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+
+App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingEnable(enable, ..)"];
+BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+BLE_LIB :> Scanner [ label = "New Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+BLE_LIB :> Scanner [ label = "New Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+BLE_LIB :> Scanner [ label = "....." ];
+}

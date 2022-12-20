@@ -263,10 +263,13 @@ keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
 keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
 keymaps('n','<space>tx',':!mscgen -T png test.mscgen<CR>',ntst)
 -- keymaps('n','<space>tX',':!cmd.exe /C start test.png<CR>',ntst)
+keymaps('n','<space>ty',':!sh pj.sh<CR>',ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 
 keymaps('n','<space>ha',':Telescope harpoon marks<CR>',ntst)
+keymaps('n','<space>hb',':tabe ~/.config/nvim/lua/options.lua<CR>',ntsf)
+keymaps('n','<space>hc',':Calc<CR>',ntsf)
 keymaps('n','<space>hd',':<C-U><C-R>=printf("ConvDec 0x")<CR>',ntsf)
 keymaps('n','<space>hh',':<C-U><C-R>=printf("ConvHex ")<CR>',ntsf)
 keymaps('n','<space>hf',':lua require("harpoon.mark").add_file()<CR>',  ntst)

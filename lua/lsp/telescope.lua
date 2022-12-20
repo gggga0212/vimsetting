@@ -53,7 +53,10 @@ require('telescope').setup({
            -- preview_cutoff = 120,
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
-        file_ignore_patterns = { "node_modules" },
+        file_ignore_patterns = { "./firmware/src/config/default/ble/lib/include",
+            "./firmware/src/config/default/ble/middleware_ble",
+            "./firmware/src/config/default/ble/profile_ble",
+            "./firmware/src/config/default/ble/service_ble"},
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = { "tail" }, -- tail,absolute
         -- path_display = { truncate = 2 }, -- tail,absolute
@@ -92,6 +95,12 @@ require('telescope').setup({
             search_dirs = {"../ble_stack_lib/src/ble_stack","." },
         },
         live_grep = {
+            search_dirs = {"../ble_stack_lib/src/ble_stack","." },
+        },
+        live_grep_args ={
+            search_dirs = {"../ble_stack_lib/src/ble_stack","." },
+        },
+        grep_string = {
             search_dirs = {"../ble_stack_lib/src/ble_stack","." },
         }
     }

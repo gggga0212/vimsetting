@@ -165,7 +165,6 @@ keymaps('n','<space>el', ':TagbarToggle<CR>',   ntst)
 keymaps('n','<Leader>cl',':set cursorline! cursorcolumn!<CR>',  ntst)
 
 -- Function Key
-keymaps('n', '<F2>',':tabe ~/.config/nvim/init.vim<CR>', ntst)
 -- keymaps('n', '<F3>',':cnext<CR>', ntst)
 -- keymaps('n', '<F4>',':cprev<CR>', ntst)
 -- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
@@ -268,7 +267,7 @@ keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 
 keymaps('n','<space>ha',':Telescope harpoon marks<CR>',ntst)
-keymaps('n','<space>hb',':tabe ~/.config/nvim/lua/options.lua<CR>',ntsf)
+keymaps('n','<space>hb',':e ~/.config/nvim/lua/options.lua<CR>',ntsf)
 keymaps('n','<space>hc',':Calc<CR>',ntsf)
 keymaps('n','<space>hd',':<C-U><C-R>=printf("ConvDec 0x")<CR>',ntsf)
 keymaps('n','<space>hh',':<C-U><C-R>=printf("ConvHex ")<CR>',ntsf)

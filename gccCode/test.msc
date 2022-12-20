@@ -1,3 +1,4 @@
+/* Periodic Sync 8.2.3*/
 msc{
     hscale="3";
     App, BLE_LIB, Scanner;
@@ -31,3 +32,28 @@ msc{
     BLE_LIB => Scanner [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST"];
     BLE_LIB => Scanner [label="BLE_GAP_EVT_PERI_ADV_REPORT"];
 }
+
+
+
+/* Periodic Advertising 8.1.3*/
+/* msc{ */
+/*     hscale="3"; */
+/*     App, BLE_LIB, Advertiser; */
+/*  */
+/*     Advertiser => BLE_LIB [label="BLE_GAP_SetExtAdvParams"]; */
+/*     BLE_LIB >> Advertiser[label="MBA_RES_SUCCESS"]; */
+/*  */
+/*     Advertiser => BLE_LIB [label="BLE_GAP_SetExtAdvData"]; */
+/*     BLE_LIB >> Advertiser[label="MBA_RES_SUCCESS"]; */
+/*  */
+/*     Advertiser => BLE_LIB [label="BLE_GAP_SetExtScanRspData"]; */
+/*     BLE_LIB >> Advertiser[label="MBA_RES_SUCCESS"]; */
+/*  */
+/*     Advertiser => BLE_LIB [label="BLE_GAP_SetExtAdvEnable"]; */
+/*     BLE_LIB >> Advertiser[label="MBA_RES_SUCCESS"]; */
+/*  */
+/*     BLE_LIB => App [label="ADV_EXT_IND"]; */
+/*     BLE_LIB => App [label="ADV_EXT_IND"]; */
+/*     BLE_LIB => App [label="ADV_EXT_IND"]; */
+/*     BLE_LIB => App [label="ADV_EXT_IND"]; */
+/* } */

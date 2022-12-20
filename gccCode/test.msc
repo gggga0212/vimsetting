@@ -1,48 +1,33 @@
 msc{
-hscale="3";
+    hscale="3";
+    App, BLE_LIB, Scanner;
 
-App, BLE_LIB, Scanner;
-App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingParams"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+    Scanner => BLE_LIB [label="BLE_GAP_SetAdvertisingParams"];
+    BLE_LIB >> Scanner[label="MBA_RES_SUCCESS"];
 
-App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingData"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+    Scanner => BLE_LIB [label="BLE_GAP_SetExtScanningEnable"];
+    BLE_LIB >> Scanner[label="MBA_RES_SUCCESS"];
 
-App => "BLE_LIB" [label="BLE_GAP_SetScanResponseData"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="ADV_EXT_IND"];
+    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
-App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingEnable(enable, ..)"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="ADV_EXT_IND"];
+    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
-BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
-BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
-BLE_LIB :> Scanner [ label = "....." ];
-BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+    App => BLE_LIB [label="ADV_EXT_IND"];
+    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
----  [ label = "Variant #1 Modify data under ADV enable"];
-BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
-BLE_LIB :> Scanner [ label = "Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
-BLE_LIB :> Scanner [ label = "....." ];
-App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingData"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="ADV_EXT_IND"];
+    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
-App => "BLE_LIB" [label="BLE_GAP_SetScanResponseData"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="ADV_SYNC_IND"];
+    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
-BLE_LIB :> Scanner [ label = "New Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
-BLE_LIB :> Scanner [ label = "New Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
-BLE_LIB :> Scanner [ label = "....." ];
+    BLE_LIB => Scanner [label="BLE_GAP_EVT_ADV_REPORT"];
 
----  [ label = "Variant #2 Modify parameter under ADV enable"];
-App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingEnable(disable, ..)"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
+    Scanner => BLE_LIB [label="BLE_GAP_CreateSync"];
+    BLE_LIB >> Scanner[label="MBA_RES_SUCCESS"];
 
-App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingParams"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
-
-App => "BLE_LIB" [label="BLE_GAP_SetAdvertisingEnable(enable, ..)"];
-BLE_LIB >> App[label="MBA_RES_SUCCESS"];
-BLE_LIB :> Scanner [ label = "New Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
-BLE_LIB :> Scanner [ label = "New Advertisement(ADV_IND/ADV_DIRECT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
-BLE_LIB :> Scanner [ label = "....." ];
+    BLE_LIB => Scanner [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST"];
+    BLE_LIB => Scanner [label="BLE_GAP_EVT_PERI_ADV_REPORT"];
 }

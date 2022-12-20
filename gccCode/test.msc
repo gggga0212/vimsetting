@@ -1,59 +1,63 @@
-/* Periodic Sync 8.2.3*/
+
+/* 1 Example of starting advertising */
+/* 2 Example of changing adv data under advertising enabled */
+/* 3 Example of changing advertising parameter under advertising enabled */
+
+/* Periodic Sync */
+/* Example of starting scanning */
+
 msc{
     hscale="3";
-    App, BLE_LIB, Scanner;
+    App, BLE_LIB, Advertiser;
 
-    Scanner => BLE_LIB [label="BLE_GAP_SetAdvertisingParams"];
-    BLE_LIB >> Scanner[label="MBA_RES_SUCCESS"];
-
-    Scanner => BLE_LIB [label="BLE_GAP_SetExtScanningEnable"];
-    BLE_LIB >> Scanner[label="MBA_RES_SUCCESS"];
-
-    App => BLE_LIB [label="ADV_EXT_IND"];
+    App => BLE_LIB [label="BLE_GAP_SetAdvertisingParams"];
     BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
-    App => BLE_LIB [label="ADV_EXT_IND"];
+    App => BLE_LIB [label="BLE_GAP_SetExtScanningEnable(BLE_GAP_SCAN_MODE_GENERAL_DISCOVERY, ...)"];
     BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
-    App => BLE_LIB [label="ADV_EXT_IND"];
+    Advertiser => BLE_LIB [label="ADV_EXT_IND"];
+    Advertiser => BLE_LIB [label="ADV_EXT_IND"];
+    Advertiser => BLE_LIB [label="ADV_EXT_IND"];
+    Advertiser => BLE_LIB [label="ADV_EXT_IND"];
+    Advertiser => BLE_LIB [label="ADV_SYNC_IND"];
+
+    BLE_LIB => App [label="BLE_GAP_EVT_ADV_REPORT"];
+
+    App => BLE_LIB [label="BLE_GAP_CreateSync"];
     BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
-    App => BLE_LIB [label="ADV_EXT_IND"];
-    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
-
-    App => BLE_LIB [label="ADV_SYNC_IND"];
-    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
-
-    BLE_LIB => Scanner [label="BLE_GAP_EVT_ADV_REPORT"];
-
-    Scanner => BLE_LIB [label="BLE_GAP_CreateSync"];
-    BLE_LIB >> Scanner[label="MBA_RES_SUCCESS"];
-
-    BLE_LIB => Scanner [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST"];
-    BLE_LIB => Scanner [label="BLE_GAP_EVT_PERI_ADV_REPORT"];
+    BLE_LIB => App [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST"];
+    BLE_LIB => App [label="BLE_GAP_EVT_PERI_ADV_REPORT"];
 }
 
 
 
-/* Periodic Advertising 8.1.3*/
+/* Periodic Advertising */
+/* Example of starting advertising */
+
 /* msc{ */
 /*     hscale="3"; */
-/*     App, BLE_LIB, Advertiser; */
+/*     App, BLE_LIB, Scanner; */
 /*  */
-/*     Advertiser => BLE_LIB [label="BLE_GAP_SetExtAdvParams"]; */
-/*     BLE_LIB >> Advertiser[label="MBA_RES_SUCCESS"]; */
+/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvParams"]; */
+/*     BLE_LIB >> App[label="MBA_RES_SUCCESS"]; */
 /*  */
-/*     Advertiser => BLE_LIB [label="BLE_GAP_SetExtAdvData"]; */
-/*     BLE_LIB >> Advertiser[label="MBA_RES_SUCCESS"]; */
+/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvData"]; */
+/*     BLE_LIB >> App[label="MBA_RES_SUCCESS"]; */
 /*  */
-/*     Advertiser => BLE_LIB [label="BLE_GAP_SetExtScanRspData"]; */
-/*     BLE_LIB >> Advertiser[label="MBA_RES_SUCCESS"]; */
+/*     App => BLE_LIB [label="BLE_GAP_SetExtScanRspData"]; */
+/*     BLE_LIB >> App[label="MBA_RES_SUCCESS"]; */
 /*  */
-/*     Advertiser => BLE_LIB [label="BLE_GAP_SetExtAdvEnable"]; */
-/*     BLE_LIB >> Advertiser[label="MBA_RES_SUCCESS"]; */
+/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvEnable(enable, ..)"]; */
+/*     BLE_LIB >> App[label="MBA_RES_SUCCESS"]; */
 /*  */
-/*     BLE_LIB => App [label="ADV_EXT_IND"]; */
-/*     BLE_LIB => App [label="ADV_EXT_IND"]; */
-/*     BLE_LIB => App [label="ADV_EXT_IND"]; */
-/*     BLE_LIB => App [label="ADV_EXT_IND"]; */
+/*     BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"]; */
+/*     BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"]; */
+/*     BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"]; */
+/*     BLE_LIB :> Scanner [label="....."]; */
+/*     BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"]; */
 /* } */
+
+
+/* Example of advertising timeout */

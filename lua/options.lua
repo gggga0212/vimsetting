@@ -161,8 +161,6 @@ keymaps('n','cV',':Telescope quickfixhistory<CR>', ntst)
 -- keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)
 keymaps('n','<space>el', ':TagbarToggle<CR>',   ntst)
 
--- cursor
-keymaps('n','<Leader>cl',':set cursorline! cursorcolumn!<CR>',  ntst)
 
 -- Function Key
 -- keymaps('n', '<F3>',':cnext<CR>', ntst)
@@ -286,6 +284,8 @@ keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', ntst)
 
 -- Easy motion
 
+-- cursor
+-- keymaps('n','<Leader>cl',':set cursorline! cursorcolumn!<CR>',  ntst)
 -- vem-tabline
 keymaps('n','<leader>p','<Plug>vem_move_buffer_left-',ntst)
 keymaps('n','<leader>n','<Plug>vem_move_buffer_right-',ntst)
@@ -317,10 +317,15 @@ keymaps('n','<leader>x',':cs find f gap<CR>',ntst)
 keymaps('n','<leader>z',':cs find f cmd_evt<CR>',ntst)
 
 -- paste
-keymaps('x','p','pgvy',ntsf)
-keymaps('v','<leader>c','"*y :let @+=@*<CR>',ntsf)
-keymaps('n','<leader>v','"+p',ntsf)
-keymaps('v','<leader>v','"+p',ntsf)
+-- keymaps('x','p','pgvy',ntsf)
+keymaps('v','y','"*y :let @+=@*<CR>',ntsf)
+keymaps('x','p','"+p',ntsf)
+keymaps('v','p','"+p',ntsf)
+keymaps('n','p','"+p',ntsf)
+
+-- keymaps('v','<leader>c','"*y :let @+=@*<CR>',ntsf)
+-- keymaps('n','<leader>v','"+p',ntsf)
+-- keymaps('v','<leader>v','"+p',ntsf)
 
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)

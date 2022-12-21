@@ -1,7 +1,32 @@
+/* ADV */
+/* 1.starting advertising. */
+/* 2.changing advertising data under advertising enabled. */
+/* 3.changing advertising parameter under advertising enabled. */
+/* 4.stopping advertising under advertising enabled. */
+/* 5.advertising timeout. */
+/* 6.becoming peripheral role under advertising enabled. */
 
-/* 1 Example of starting advertising */
-/* 2 Example of changing adv data under advertising enabled */
-/* 3 Example of changing advertising parameter under advertising enabled */
+/* EXT ADV */
+/* 7.starting extended advertising. */
+/* 8.changing advertising data under extended advertising enabled. */
+/* 9.changing extended advertising parameter extended advertising enabled. */
+/* 10.receiving BLE_GAP_EVT_SCAN_REQ_RECEIVED event. */
+/* 11.stopping extended advertising. */
+/* 12.becoming peripheral role under extended advertising enabled. */
+
+
+/* SCAN */
+/* 1.starting active scan. */
+/* 2.starting passive scan. */
+/* 3.receiving ADV_DIRECT_IND. */
+/* 4.scan timeout. */
+
+/* EXT SCAN */
+/* 5.starting extended active scan. */
+/* 6.starting extended passive scan. */
+/* 7.receiving incomplete advertising report. */
+/* 8.extended scan timeout. */
+
 
 /* Periodic Sync */
 /* Example of starting scanning */

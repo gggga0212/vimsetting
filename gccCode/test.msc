@@ -27,15 +27,31 @@
 /* 7.receiving incomplete advertising report. */
 /* 8.extended scan timeout. */
 
+/////////////////////////////////////////////////////////////////////////////////////
+/* PERIODIC ADV */
+
+PERIODIC SYNC CREATED
+1. starting sync created.
+2. setting dev to periodic list.
+3. setting periodic advertising RX enable.
+4. starting sync terminate.
+5. starting sync cancel.
+6. starting sync lost.
+
+/* uint16_t BLE_GAP_CreateSync(BLE_GAP_CreateSync_T *p_periSync); */
+/* uint16_t BLE_GAP_CreateSyncCancel(); */
+/* uint16_t BLE_GAP_TerminateSync(uint16_t syncHandle); */
+/* uint16_t BLE_GAP_SetDevToPeriAdvList(uint8_t num, BLE_GAP_SyncSetDev_T *p_syncSetDev); */
+/* uint16_t BLE_GAP_SetPeriAdvRxEnable(uint16_t syncHandle, bool enable); */
 
 /* Periodic Sync */
 /* Example of starting scanning */
 
 msc{
     hscale="3";
-    App, BLE_LIB, Advertiser;
+   App, BLE_LIB, Advertiser;
 
-    App => BLE_LIB [label="BLE_GAP_SetAdvertisingParams"];
+    App => BLE_LIB [label="BLE_GAP_SetExtScanningParams"];
     BLE_LIB >> App[label="MBA_RES_SUCCESS"];
 
     App => BLE_LIB [label="BLE_GAP_SetExtScanningEnable(BLE_GAP_SCAN_MODE_GENERAL_DISCOVERY, ...)"];

@@ -4,6 +4,16 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
 
+#lazygit
+https://github.com/jesseduffield/lazygit/releases/download/v0.36.0/lazygit_0.36.0_Linux_arm64.tar.gz
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
+
+#nvim
+cd ~/.config
+wget https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.tar.gz 
+tar xzvf nvim-linux64.tar.gz
+
 #zsh
 sudo apt-get install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -49,10 +59,6 @@ git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
 
 npm install -g diff-so-fancy
 
-#lazygit
-sudo add-apt-repository ppa:lazygit-team/release
-sudo apt-get install lazygit
-mkdir -p ~/.config/jesseduffield/lazygit
 
 # nvim comment
 mkdir -p ~/.local/share/nvim/site/pack/plugins/start 
@@ -62,10 +68,6 @@ cp ~/.config/nvim/gitconfig ~/.gitconfig
 cp ~/.config/nvim/tmux.conf ~/.tmux.conf
 cp ~/.config/nvim/zshrc ~/.zshrc
 
-#nvim
-cd ~/.config
-wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.tar.gz 
-tarxzvf nvim-linux64.tar.gz
 
 #coc.vim
 cd ~/.config/nvim/bundle/coc.nvim

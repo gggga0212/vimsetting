@@ -58,7 +58,7 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
 
 
-npm install -g diff-so-fancy
+sudo npm install -g diff-so-fancy
 
 
 # nvim comment

@@ -250,7 +250,7 @@ keymaps('n','<space>tQ',':CocDisable<CR>', ntst)
 keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<space>ts',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
-keymaps('n','<space>tu',':PackerSync<CR>', ntst)
+keymaps('n','<space>tu',':PackerSync<CR>', ntsf)
 keymaps('n','<space>tv',':%s/\\r//g<CR>',  ntst)
 -- Move to word
 keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)

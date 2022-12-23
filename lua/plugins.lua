@@ -87,13 +87,13 @@ return require('packer').startup(function(use)
     use {'vim-airline/vim-airline-themes'}
     use {'kien/ctrlp.vim'}
     use {'easymotion/vim-easymotion'}
+    use { "catppuccin/nvim", as = "catppuccin" }
     use({'kylechui/nvim-surround',
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
             require("nvim-surround").setup({
                     -- Configuration here, or leave empty to use defaults
                 }) end })
-
      use {'hari-rangarajan/CCTree'}
      use {'fgheng/winbar.nvim'}
      use {'norcalli/nvim-colorizer.lua'}

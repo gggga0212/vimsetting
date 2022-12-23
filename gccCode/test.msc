@@ -30,75 +30,78 @@
 /////////////////////////////////////////////////////////////////////////////////////
 /* PERIODIC ADV */
 
-PERIODIC SYNC CREATED
-1. starting sync created.
-2. setting dev to periodic list.
-3. setting periodic advertising RX enable.
-4. starting sync terminate.
-5. starting sync cancel.
-6. starting sync lost.
+/* PERIODIC SYNC CREATED */
+/* 1. starting sync created. */
+/* 2. setting dev to periodic list. */
+/* 3. setting periodic advertising RX enable. */
+/* 4. starting sync terminate. */
+/* 5. starting sync cancel. */
+/* 6. starting sync lost. */
+/* uint16_t BLE_GAP_CreateSync(BLE_GAP_CreateSync_T *p_periSync); */
+/* uint16_t BLE_GAP_TerminateSync(uint16_t syncHandle); */
+/* uint16_t BLE_GAP_CreateSyncCancel(); */
 
-/* uint16_t BLE_GAP_CreateSync(BLE_GAP_CreateSync_T *p_periSync); */
-/* uint16_t BLE_GAP_CreateSyncCancel(); */
-/* uint16_t BLE_GAP_TerminateSync(uint16_t syncHandle); */
-/* uint16_t BLE_GAP_SetDevToPeriAdvList(uint8_t num, BLE_GAP_SyncSetDev_T *p_syncSetDev); */
-/* uint16_t BLE_GAP_SetPeriAdvRxEnable(uint16_t syncHandle, bool enable); */
+/* uint16_t BLE_GAP_SetPeriAdvParams(BLE_GAP_PeriAdvParams_T *p_periAdvParams); */
+/* uint16_t BLE_GAP_SetPeriAdvData(BLE_GAP_PeriAdvDataParams_T *p_advDataParam); */
+/* uint16_t BLE_GAP_SetPeriAdvEnable(bool enable, uint8_t advHandle); */
+/* uint16_t BLE_GAP_SetPeriAdvRxEnable(uint16_t syncHandle, bool enable); */
+/* uint16_t BLE_GAP_SetDevToPeriAdvList(uint8_t num, BLE_GAP_SyncSetDev_T *p_syncSetDev); */
 
 /* Periodic Sync */
 /* Example of starting scanning */
 
-msc{
-    hscale="3";
-   App, BLE_LIB, Advertiser;
-
-    App => BLE_LIB [label="BLE_GAP_SetExtScanningParams"];
-    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
-
-    App => BLE_LIB [label="BLE_GAP_SetExtScanningEnable(BLE_GAP_SCAN_MODE_GENERAL_DISCOVERY, ...)"];
-    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
-
-    Advertiser => BLE_LIB [label="ADV_EXT_IND"];
-    Advertiser => BLE_LIB [label="ADV_EXT_IND"];
-    Advertiser => BLE_LIB [label="ADV_EXT_IND"];
-    Advertiser => BLE_LIB [label="ADV_EXT_IND"];
-    Advertiser => BLE_LIB [label="ADV_SYNC_IND"];
-
-    BLE_LIB => App [label="BLE_GAP_EVT_ADV_REPORT"];
-
-    App => BLE_LIB [label="BLE_GAP_CreateSync"];
-    BLE_LIB >> App[label="MBA_RES_SUCCESS"];
-
-    BLE_LIB => App [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST"];
-    BLE_LIB => App [label="BLE_GAP_EVT_PERI_ADV_REPORT"];
-}
+/* msc{ */
+/*     hscale="3"; */
+/*     App, BLE_LIB, Advertiser; */
+/*  */
+/*     App => BLE_LIB [label="BLE_GAP_SetExtScanningParams"]; */
+/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
+/*  */
+/*     App => BLE_LIB [label="BLE_GAP_SetExtScanningEnable(BLE_GAP_SCAN_MODE_GENERAL_DISCOVERY, ...)"]; */
+/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
+/*  */
+/*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
+/*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
+/*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
+/*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
+/*     BLE_LIB <= Advertiser [label="ADV_SYNC_IND"]; */
+/*  */
+/*     App <= BLE_LIB [label="BLE_GAP_EVT_ADV_REPORT"]; */
+/*  */
+/*     App => BLE_LIB [label="BLE_GAP_CreateSync"]; */
+/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
+/*  */
+/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST"]; */
+/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_REPORT"]; */
+/* } */
 
 
 
 /* Periodic Advertising */
 /* Example of starting advertising */
 
-/* msc{ */
-/*     hscale="3"; */
-/*     App, BLE_LIB, Scanner; */
-/*  */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvParams"]; */
-/*     BLE_LIB >> App[label="MBA_RES_SUCCESS"]; */
-/*  */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvData"]; */
-/*     BLE_LIB >> App[label="MBA_RES_SUCCESS"]; */
-/*  */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtScanRspData"]; */
-/*     BLE_LIB >> App[label="MBA_RES_SUCCESS"]; */
-/*  */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvEnable(enable, ..)"]; */
-/*     BLE_LIB >> App[label="MBA_RES_SUCCESS"]; */
-/*  */
-/*     BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"]; */
-/*     BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"]; */
-/*     BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"]; */
-/*     BLE_LIB :> Scanner [label="....."]; */
-/*     BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"]; */
-/* } */
+msc{
+    hscale="3";
+    App, BLE_LIB, Scanner;
+
+    App => BLE_LIB [label="BLE_GAP_SetExtAdvParams"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+
+    App => BLE_LIB [label="BLE_GAP_SetExtAdvData"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+
+    App => BLE_LIB [label="BLE_GAP_SetExtScanRspData"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+
+    App => BLE_LIB [label="BLE_GAP_SetExtAdvEnable(enable, ..)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+
+    BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+    BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+    BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+    BLE_LIB :> Scanner [label="....."];
+    BLE_LIB :> Scanner [label="Advertising(ADV_EXT_IND/ADV_NONCONN_IND/ADV_SCAN_IND)"];
+}
 
 
-/* Example of advertising timeout */
+/* Example of advertising timeout */

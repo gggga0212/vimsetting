@@ -273,10 +273,6 @@ keymaps('n','<space>hp',':lua require("harpoon.ui").add_prev()<CR>',  ntst)
 keymaps('n','<space>hv',':lua require("harpoon.ui").toggle_quick_menu()<CR>',  ntst)
 
 -- keymaps('n','<space>ma',':lua require("telescope.builtin").marks()<CR>', ntst)
-keymaps('n','<space>m','<Plug>(quickhl-manual-this)',  ntst)
-keymaps('x','<space>m','<Plug>(quickhl-manual-this)',  ntst)
-keymaps('n','<space>M','<Plug>(quickhl-manual-reset)', ntst)
-keymaps('x','<space>M','<Plug>(quickhl-manual-reset)', ntst)
 
 -- Easy motion
 
@@ -303,6 +299,10 @@ keymaps('n','<leader>f',':CCTreeTraceForward<CR><CR>', ntst)
 keymaps('n','<leader>g','<C-]>',ntst)
 keymaps('n','<leader>j','*',ntst)
 keymaps('n','<leader>k','#',ntst)
+keymaps('n','<leader>m','<Plug>(quickhl-manual-this)',  ntst)
+keymaps('x','<leader>m','<Plug>(quickhl-manual-this)',  ntst)
+keymaps('n','<leader>M','<Plug>(quickhl-manual-reset)', ntst)
+keymaps('x','<leader>M','<Plug>(quickhl-manual-reset)', ntst)
 -- quickhl
 keymaps('n','<leader>q',':q!<CR>',ntst)
 keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)

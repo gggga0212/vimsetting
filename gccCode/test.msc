@@ -18,8 +18,8 @@
 /* uint16_t BLE_GAP_SetResolvingList(uint8_t num, BLE_GAP_ResolvingListParams_T *p_resolvingList); */
 
 /* msc{ */
-/* #13. starting periodic advertising.  */
-/*     hscale="3"; */
+/* #P13. starting periodic advertising.  */
+/*     hscale="2"; */
 /*     App, BLE_LIB, Scanner; */
 /*     App => BLE_LIB [label="BLE_GAP_SetExtAdvEnable(disable, ..)"]; */
 /*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
@@ -44,8 +44,8 @@
 /* } */
 
 /* msc { */
-/* #14. changing PA data under PA enabled. */
-/*     hscale="3"; */
+/* #P14. changing PA data under PA enabled. */
+/*     hscale="2"; */
 /*     App, BLE_LIB, Scanner; */
 /*     BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"]; */
 /*     BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"]; */
@@ -57,56 +57,59 @@
 /*     BLE_LIB :> Scanner [ label = "....." ]; */
 /* } */
 
-msc {
-#15. changing PA parameter under PA enabled.
-    hscale="3";
-    App, BLE_LIB, Scanner;
-    BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"];
-    BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"];
-    BLE_LIB :> Scanner [ label = "....." ];
-    App => "BLE_LIB" [label="BLE_GAP_SetPeriAdvEnable(disable, ..)"];
-    App << BLE_LIB [label="MBA_RES_SUCCESS"];
-    App => "BLE_LIB" [label="BLE_GAP_SetPeriAdvParams"];
-    App << BLE_LIB [label="MBA_RES_SUCCESS"];
-    App => "BLE_LIB" [label="BLE_GAP_SetPeriAdvEnable(enable, ..)"];
-    App << BLE_LIB [label="MBA_RES_SUCCESS"];
-    BLE_LIB :> Scanner [ label = "New Advertising(ADV_EXT_IND) on 1M/CODED PHY"];
-    BLE_LIB :> Scanner [ label = "New Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"];
-    BLE_LIB :> Scanner [ label = "....." ];
-}
+/* msc { */
+/* #P15. changing PA parameter under PA enabled. */
+/*     hscale="2"; */
+/*     App, BLE_LIB, Scanner; */
+/*     BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"]; */
+/*     BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"]; */
+/*     BLE_LIB :> Scanner [ label = "....." ]; */
+/*     App => "BLE_LIB" [label="BLE_GAP_SetPeriAdvEnable(disable, ..)"]; */
+/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
+/*     App => "BLE_LIB" [label="BLE_GAP_SetPeriAdvParams"]; */
+/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
+/*     App => "BLE_LIB" [label="BLE_GAP_SetPeriAdvEnable(enable, ..)"]; */
+/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
+/*     BLE_LIB :> Scanner [ label = "New Advertising(ADV_EXT_IND) on 1M/CODED PHY"]; */
+/*     BLE_LIB :> Scanner [ label = "New Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"]; */
+/*     BLE_LIB :> Scanner [ label = "....." ]; */
+/* } */
 
-msc {
-#16. stopping PA under PA enable.
-    hscale="3";
-    App, BLE_LIB, Scanner;
-    BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"];
-    BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"];
-    App => "BLE_LIB" [label="BLE_GAP_SetPeriAdvEnable(disable, ..)"];
-    App << BLE_LIB [label="MBA_RES_SUCCESS"];
-}
+/* msc { */
+/* #P16. stopping PA under PA enable. */
+/*     hscale="2"; */
+/*     App, BLE_LIB, Scanner; */
+/*     BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"]; */
+/*     BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"]; */
+/*     App => "BLE_LIB" [label="BLE_GAP_SetPeriAdvEnable(disable, ..)"]; */
+/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
+/* } */
 
-msc {
-#17. becoming peripheral role under PA enabled.
-    hscale="3"
-    App, BLE_LIB, Scannr
-    BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"];
-    BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"];
-    BLE_LIB :> Scanner [ label = "....."];
-    BLE_LIB <: Scanner [ label = "AUX_SCAN_REQ"];
-    BLE_LIB :> Scanner [ label = "AUX_SCAN_RSP"];
-    BLE_LIB <: Scanner [ label = "LE Connection Create  (AUX_CONNECT_REQ)"];
-    BLE_LIB :> Scanner [ label = "LE Connection Response(AUX_CONNECT_RSP)"];
-    App <<= BLE_LIB [ label = "BLE_GAP_EVT_CONNECTED"];
-    App <<= BLE_LIB [ label = "BLE_GAP_EVT_ADV_SET_TERMINATED"];
-    Scanner box Scanner [label="Central"];
-    App box App [label="Peripheral"];
-}
+/* msc { */
+/* #P17. becoming peripheral role under PA enabled. */
+/*     hscale="2"; */
+/*     App, BLE_LIB, Scanner; */
+/*     BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"]; */
+/*     BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"]; */
+/*     BLE_LIB :> Scanner [ label = "....."]; */
+/*     BLE_LIB <: Scanner [ label = "AUX_SCAN_REQ"]; */
+/*     BLE_LIB :> Scanner [ label = "AUX_SCAN_RSP"]; */
+/*     BLE_LIB <: Scanner [ label = "LE Connection Create  (AUX_CONNECT_REQ)"]; */
+/*     BLE_LIB :> Scanner [ label = "LE Connection Response(AUX_CONNECT_RSP)"]; */
+/*     App <<= BLE_LIB [ label = "BLE_GAP_EVT_CONNECTED"]; */
+/*     App <<= BLE_LIB [ label = "BLE_GAP_EVT_ADV_SET_TERMINATED"]; */
+/*     Scanner box Scanner [label="Central"]; */
+/*     App box App [label="Peripheral"]; */
+/* } */
 
 /* ppppppppppppppppppppppppppppppppppppppppppppppppp */
+
+/* #C11. setting dev to periodic adv list. */
+/* #C12. setting periodic advertising RX enable. */
+
 /* msc{ */
-/* #Periodic Sync */
-/* #Example of starting scanning */
-/*     hscale="3"; */
+/* #C10.starting create sync and cancelling sync*/ */
+/*     hscale="2"; */
 /*     App, BLE_LIB, Advertiser; */
 /*     App => BLE_LIB [label="BLE_GAP_SetExtScanningParams"]; */
 /*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
@@ -114,13 +117,41 @@ msc {
 /*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
 /*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
 /*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
-/*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
-/*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
 /*     BLE_LIB <= Advertiser [label="ADV_SYNC_IND"]; */
 /*     App <= BLE_LIB [label="BLE_GAP_EVT_ADV_REPORT"]; */
 /*     App => BLE_LIB [label="BLE_GAP_CreateSync"]; */
 /*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST"]; */
+/*     ---  [ label = "Variant #1 PA Create Sync Established"]; */
+/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST(status: Success (0x00), SyncHandle, ..."]; */
 /*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_REPORT"]; */
+/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_REPORT"]; */
+/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_REPORT"]; */
+/*     BLE_LIB box BLE_LIB [label="The Controller Has Not Received A PA Packet By SyncHandle Within The Timeout Period."]; */
+/*     App <= BLE_LIB [label="BLE_GAP_EVT_SIZE_PERI_ADV_SYNC_LOST_REPORT(syncHandle)"]; */
+/*     ---  [ label = "Variant #2 PA Create Sync Cancelled"]; */
+/*     BLE_LIB box BLE_LIB [label="HCI_LE_Periodic_Advertising_Create_Sync Command Is Pending."]; */
+/*     App => BLE_LIB [label="BLE_GAP_CreateSyncCancel"]; */
+/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
+/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST(status: Error Code Operation Cancelled By Host (0x44), syncHandle, ...)"]; */
 /* } */
 
+
+msc{
+#C13.terminating PA sync.
+    hscale="2";
+    App, BLE_LIB, Advertiser;
+    App => BLE_LIB [label="BLE_GAP_SetExtScanningParams"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="BLE_GAP_SetExtScanningEnable(BLE_GAP_SCAN_MODE_GENERAL_DISCOVERY, ...)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    BLE_LIB <= Advertiser [label="ADV_EXT_IND"];
+    BLE_LIB <= Advertiser [label="ADV_EXT_IND"];
+    BLE_LIB <= Advertiser [label="ADV_SYNC_IND"];
+    App <= BLE_LIB [label="BLE_GAP_EVT_ADV_REPORT"];
+    App => BLE_LIB [label="BLE_GAP_CreateSync"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST(status: success (0x00), syncHandle, ..."];
+    App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_REPORT"];
+    App => BLE_LIB [label="BLE_GAP_TerminateSync(syncHandle)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+}

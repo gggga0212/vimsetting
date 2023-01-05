@@ -137,8 +137,10 @@ alias nv='~/.config/nvim/nvim-macos/bin/nvim'
 alias nvim='~/.config/nvim-linux64/bin/nvim'
 alias rmlock='rm -rf ../.git/index.lock'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
-alias ag='cmd.exe /c "python Function/GenerateTestSet.py pics.pts"'
+alias ag='cmd.exe /c "python GenerateTestSet.py ../pics.pts"'
+alias ar="rm -rf ../Testset_old.json"
 alias ap='cmd.exe /c "python AutoPTS.py"'
+alias ac='cmd.exe /c "RunAutoPTS"'
 alias wttr='curl http://wttr.in'
 
 setopt no_nomatch

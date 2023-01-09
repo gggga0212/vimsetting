@@ -9,8 +9,8 @@ items=("7_peripheral_ae_pa_20220722.pts"
 		"ProfilesConfigs"
 		"TestSet.json"
 		"WorkDirectory"
-		"TestTeam_Buckland"
-        "TestTeam_Chimera")
+		"cd TestTeam_Buckland"
+        "cd TestTeam_Chimera")
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_220920.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_220920.json"
 		"TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_220920.json")
@@ -45,25 +45,20 @@ done
 SEL=$((REPLY-1))
 echo "sam sel = $SEL"
 if [ $REPLY -le 3 ]; then
-	cp "/mnt/c/mchpCode/AutoPTS/${items[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"
-	cp "/mnt/c/mchpCode/AutoPTS/${testSets[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/TestSet.json"
 	echo "My selection is ${items[$SEL]}"
+	cp "/mnt/c/mchpCode/AutoPTS/${items[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"
 	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/Function"
 	cmd.exe /c python GenerateTestSet.py ../pics.pts
+	cp "/mnt/c/mchpCode/AutoPTS/${testSets[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/TestSet.json"
+elif [ $REPLY -le 5 ]; then
 	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-    echo "<3"
-elif [ $REPLY -eq 4 ]; then
-	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-	cmd.exe /c python AutoPTS.py 
-    # echo "==4"
-elif [ $REPLY -eq 5 ]; then
-	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-    items[$SEL]
-	# cmd.exe /c python AutoPTS.py 
-    echo "==5"
+    ${items[$SEL]}
 elif [ $REPLY -eq 6 ]; then
+	nvim "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/${items[$SEL]} ."
+elif [ $REPLY -eq 9 ]; then
 	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-    echo "==6"
+elif [ $REPLY -eq 10 ]; then
+    echo "==10"
 else
     echo "unknown chhh"
 fi

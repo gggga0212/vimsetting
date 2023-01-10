@@ -10,31 +10,31 @@
 /* C12. setting PA RX enable. */
 /* C13. terminate PA sync. */
 
-/* msc{ */
-/* #P13. starting periodic advertising.  */
-/*     hscale="2"; */
-/*     App, BLE_LIB, Scanner; */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvEnable(disable, ..)"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvParams"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App => BLE_LIB [label="BLE_GAP_SetPeriAdvParams"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvData"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App => BLE_LIB [label="BLE_GAP_SetPeriAdvData"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App => BLE_LIB [label="BLE_GAP_SetPeriAdvEnable(enable, ..)"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtAdvEnable(enable, ..)"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"]; */
-/*     BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"]; */
-/*     BLE_LIB :> Scanner [ label = "....."]; */
-/*     BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"]; */
-/*     BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"]; */
-/*     BLE_LIB :> Scanner [label="....."]; */
-/* } */
+msc{
+#P13. starting periodic advertising. 
+    hscale="2";
+    App, BLE_LIB, Scanner;
+    App => BLE_LIB [label="BLE_GAP_SetExtAdvEnable(disable, ..)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="BLE_GAP_SetExtAdvParams"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="BLE_GAP_SetPeriAdvParams"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="BLE_GAP_SetExtAdvData"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="BLE_GAP_SetPeriAdvData"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="BLE_GAP_SetPeriAdvEnable(enable, ..)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="BLE_GAP_SetExtAdvEnable(enable, ..)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"];
+    BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"];
+    BLE_LIB :> Scanner [ label = "....."];
+    BLE_LIB :> Scanner [ label = "Advertising(ADV_EXT_IND) on 1M/CODED PHY"];
+    BLE_LIB :> Scanner [ label = "Advertising(AUX_ADV_IND) on 1M/2M/CODED PHY"];
+    BLE_LIB :> Scanner [label="....."];
+}
 
 /* msc { */
 /* #P14. changing PA data under PA enabled. */
@@ -175,21 +175,21 @@
 /*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_REPORT"]; */
 /* } */
 
-/* msc{ */
-/* #C13.terminating PA sync. */
-/*     hscale="2"; */
-/*     App, BLE_LIB, Advertiser; */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtScanningParams"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App => BLE_LIB [label="BLE_GAP_SetExtScanningEnable(enable, ..)"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     BLE_LIB <= Advertiser [label="ADV_EXT_IND"]; */
-/*     BLE_LIB <= Advertiser [label="ADV_SYNC_IND"]; */
-/*     App <= BLE_LIB [label="BLE_GAP_EVT_ADV_REPORT"]; */
-/*     App => BLE_LIB [label="BLE_GAP_CreateSync(Adv Addr, ...)"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST(status: success (0x00), syncHandle, ..."]; */
-/*     App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_REPORT"]; */
-/*     App => BLE_LIB [label="BLE_GAP_TerminateSync(syncHandle)"]; */
-/*     App << BLE_LIB [label="MBA_RES_SUCCESS"]; */
-/* } */
+msc{
+#C13.terminating PA sync.
+    hscale="2";
+    App, BLE_LIB, Advertiser;
+    App => BLE_LIB [label="BLE_GAP_SetExtScanningParams"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App => BLE_LIB [label="BLE_GAP_SetExtScanningEnable(enable, ..)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    BLE_LIB <= Advertiser [label="ADV_EXT_IND"];
+    BLE_LIB <= Advertiser [label="ADV_SYNC_IND"];
+    App <= BLE_LIB [label="BLE_GAP_EVT_ADV_REPORT"];
+    App => BLE_LIB [label="BLE_GAP_CreateSync(Adv Addr, ...)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+    App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_SYNC_EST(status: success (0x00), syncHandle, ..."];
+    App <= BLE_LIB [label="BLE_GAP_EVT_PERI_ADV_REPORT"];
+    App => BLE_LIB [label="BLE_GAP_TerminateSync(syncHandle)"];
+    App << BLE_LIB [label="MBA_RES_SUCCESS"];
+}

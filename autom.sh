@@ -1,16 +1,15 @@
 #!/bin/bash
 
 PS3="Select item please: "
+nv="~/.config/nvim-linux64/bin/nvim"
 items=("7_peripheral_ae_pa_20220722.pts"
 		"8_central_ae_sync_20211015_20220722.pts"
 		"9_central_peripheral_ae_pa_sync_20220722.pts"
 		"cmd.exe /c python AutoPTS.py"
 		"cmd.exe /c RunAutoPTS.bat"
 		"ProfilesConfigs"
-		"TestSet.json"
 		"WorkDirectory"
-		"cd TestTeam_Buckland"
-        "cd TestTeam_Chimera")
+        "TestSet.json")
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_220920.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_220920.json"
 		"TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_220920.json")
@@ -35,8 +34,6 @@ while true; do
             6) echo "Selected item #$REPLY which means $item"; break 2;;
             7) echo "Selected item #$REPLY which means $item"; break 2;;
             8) echo "Selected item #$REPLY which means $item"; break 2;;
-            9) echo "Selected item #$REPLY which means $item"; break 2;;
-            10) echo "Selected item #$REPLY which means $item"; break 2;;
             $((${#items[@]}+1))) echo "We're done!"; exit;;
             *) echo "Ooops - unknown choice $REPLY"; break;
         esac
@@ -53,12 +50,13 @@ if [ $REPLY -le 3 ]; then
 elif [ $REPLY -le 5 ]; then
 	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
     ${items[$SEL]}
-elif [ $REPLY -eq 6 ]; then
-	nvim "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/${items[$SEL]} ."
-elif [ $REPLY -eq 9 ]; then
-	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-elif [ $REPLY -eq 10 ]; then
-    echo "==10"
+elif [ $REPLY -le 7 ]; then
+    echo "6 and 7"
+    cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/${items[$SEL]}"
+	~/.config/nvim-linux64/bin/nvim .
+elif [ $REPLY -eq 8 ]; then
+    cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
+	~/.config/nvim-linux64/bin/nvim TestSet.json 
 else
     echo "unknown chhh"
 fi

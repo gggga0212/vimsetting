@@ -11,7 +11,8 @@ items=("7_peripheral_ae_pa_20220722.pts"
 		"WorkDirectory"
         "TestSet.json"
         "Core_v5.2.pdf"
-        "Core_v5.3.pdf")
+        "Core_v5.3.pdf"
+        "BLE_Test_Command_Set.docx")
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_220920.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_220920.json"
 		"TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_220920.json")
@@ -38,6 +39,7 @@ while true; do
             8) echo "Selected item #$REPLY which means $item"; break 2;;
             9) echo "Selected item #$REPLY which means $item"; break 2;;
             10) echo "Selected item #$REPLY which means $item"; break 2;;
+            11) echo "Selected item #$REPLY which means $item"; break 2;;
             $((${#items[@]}+1))) echo "We're done!"; exit;;
             *) echo "Ooops - unknown choice $REPLY"; break;
         esac
@@ -61,7 +63,7 @@ elif [ $REPLY -le 7 ]; then
 elif [ $REPLY == 8 ]; then
     cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 	~/.config/nvim-linux64/bin/nvim TestSet.json 
-elif [ $REPLY -le 10 ]; then
+elif [ $REPLY -le 11 ]; then
     cd "/mnt/c/mchpCode"
     cmd.exe /c start ${items[$SEL]}
 else

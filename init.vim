@@ -61,21 +61,6 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
             \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
-nmap <F9> :!rm -rf cscope.*<CR>
-            \:!cp ~/.config/nvim/rgignore .rgignore<CR>
-            \:!find "./" "../ble_stack_lib/src/ble_stack" "../ble_controller_app" -iname '*.c' -o -iname '*.h' \
-            \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
-            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
-            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
-            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
-            \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
-            \:cs reset<CR>
-            \:!rm -rf tags<CR>
-            \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
-            \--exclude="./firmware/src/config/default/ble/lib/include"\
-            \--exclude="./firmware/src/config/default/ble/middleware_ble" \
-            \--exclude="./firmware/src/config/default/ble/profile_ble" \
-            \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
 filetype plugin indent on
 " colorscheme tokyonight
 syntax enable
@@ -93,7 +78,7 @@ if has("cscope")
         cs add $CSCOPE_DB
     endif
 else
-   echo("cscope not found") 
+   echo("cscope not found")
 endif
 
 let g:rainbow_active = 1

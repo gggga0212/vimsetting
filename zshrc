@@ -139,8 +139,6 @@ alias rmlock='rm -rf ../.git/index.lock'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
 alias ag=' ~/.config/nvim/autom.sh'
 alias ar="rm -rf ../Testset_old.json"
-alias ap='cmd.exe /c "python AutoPTS.py"'
-alias ac='cmd.exe /c "RunAutoPTS"'
 alias wttr='curl http://wttr.in'
 
 setopt no_nomatch

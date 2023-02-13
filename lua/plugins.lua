@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
     }
     -- use {'aduros/ai.vim'}
     -- lspconfig
-    use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
+    -- use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     use {'p00f/clangd_extensions.nvim'}
     use {'jose-elias-alvarez/null-ls.nvim'}
     use({"nvim-telescope/telescope.nvim",

@@ -10,15 +10,21 @@ items=("7_peripheral_ae_pa_20220722.pts"
 		"ProfilesConfigs"
 		"WorkDirectory"
         "TestSet.json"
+        "CaseDefine.json"
         "Core_v5.2.pdf"
         "Core_v5.3.pdf"
         "BLE_Test_Command_Set.docx"
-        "Profile_Test_Command_Set.docx")
+        "GAP.TS.p43.pdf"
+        "GATT.TS.p23.pdf"
+        "L2CAP.TS.p35.pdf"
+        "ANP.TS.1.0.3ed2.pdf"
+        "ANS.TS.1.0.5ed2.pdf"
+        "PXP.TS.1.0.1.3.pdf")
 
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_220920.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_220920.json"
 		"TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_220920.json")
-AutoPath="AutoPTS_V2.7.4"
+AutoPath="AutoPTS_V2.8.0"
 cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 if [ -f TestSet_old.json ]; then
 	rm TestSet_old.json
@@ -43,6 +49,14 @@ while true; do
             10) echo "Selected item #$REPLY which means $item"; break 2;;
             11) echo "Selected item #$REPLY which means $item"; break 2;;
             12) echo "Selected item #$REPLY which means $item"; break 2;;
+            13) echo "Selected item #$REPLY which means $item"; break 2;;
+            14) echo "Selected item #$REPLY which means $item"; break 2;;
+            15) echo "Selected item #$REPLY which means $item"; break 2;;
+            16) echo "Selected item #$REPLY which means $item"; break 2;;
+            17) echo "Selected item #$REPLY which means $item"; break 2;;
+            18) echo "Selected item #$REPLY which means $item"; break 2;;
+            19) echo "Selected item #$REPLY which means $item"; break 2;;
+            20) echo "Selected item #$REPLY which means $item"; break 2;;
             $((${#items[@]}+1))) echo "We're done!"; exit;;
             *) echo "Ooops - unknown choice $REPLY"; break;
         esac
@@ -63,10 +77,10 @@ elif [ $REPLY -le 7 ]; then
     echo "6 and 7"
     cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/${items[$SEL]}"
 	~/.config/nvim-linux64/bin/nvim .
-elif [ $REPLY == 8 ]; then
+elif [ $REPLY -le 9 ]; then
     cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-	~/.config/nvim-linux64/bin/nvim TestSet.json 
-elif [ $REPLY -le 12 ]; then
+	~/.config/nvim-linux64/bin/nvim ${items[$SEL]} 
+elif [ $REPLY -le 20 ]; then
     cd "/mnt/c/mchpCode"
     cmd.exe /c start ${items[$SEL]}
 else

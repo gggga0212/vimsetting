@@ -17,6 +17,7 @@ items=("7_peripheral_ae_pa_20220722.pts"
         "GAP.TS.p43.pdf"
         "GATT.TS.p23.pdf"
         "L2CAP.TS.p35.pdf"
+        "SM.TS.p23.pdf"
         "ANP.TS.1.0.3ed2.pdf"
         "ANS.TS.1.0.5ed2.pdf"
         "PXP.TS.1.0.1.3.pdf")
@@ -55,6 +56,7 @@ while true; do
             16) echo "Selected item #$REPLY which means $item"; break 2;;
             17) echo "Selected item #$REPLY which means $item"; break 2;;
             18) echo "Selected item #$REPLY which means $item"; break 2;;
+            19) echo "Selected item #$REPLY which means $item"; break 2;;
             $((${#items[@]}+1))) echo "We're done!"; exit;;
             *) echo "Ooops - unknown choice $REPLY"; break;
         esac
@@ -78,7 +80,7 @@ elif [ $REPLY -le 7 ]; then
 elif [ $REPLY -le 9 ]; then
     cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 	~/.config/nvim-linux64/bin/nvim ${items[$SEL]} 
-elif [ $REPLY -le 20 ]; then
+elif [ $REPLY -le 21 ]; then
     cd "/mnt/c/mchpCode"
     cmd.exe /c start ${items[$SEL]}
 else

@@ -55,8 +55,6 @@ while true; do
             16) echo "Selected item #$REPLY which means $item"; break 2;;
             17) echo "Selected item #$REPLY which means $item"; break 2;;
             18) echo "Selected item #$REPLY which means $item"; break 2;;
-            19) echo "Selected item #$REPLY which means $item"; break 2;;
-            20) echo "Selected item #$REPLY which means $item"; break 2;;
             $((${#items[@]}+1))) echo "We're done!"; exit;;
             *) echo "Ooops - unknown choice $REPLY"; break;
         esac

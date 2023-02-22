@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
     -- use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     use {'p00f/clangd_extensions.nvim'}
     use {'jose-elias-alvarez/null-ls.nvim'}
-    use({"nvim-telescope/telescope.nvim",
+    use {"nvim-telescope/telescope.nvim",
     requires = {
         -- { "nvim-lua/plenary.nvim" },
         { "kdheepak/lazygit.nvim" },
@@ -33,8 +33,8 @@ return require('packer').startup(function(use)
     config = function()
         require("telescope").load_extension("lazygit")
         require("telescope").load_extension("live_grep_args")
-    end,})
-    use({
+    end,}
+    use {
       "princejoogie/dir-telescope.nvim",
       -- telescope.nvim is a required dependency
       requires = {"nvim-telescope/telescope.nvim"},
@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
           hidden = true,
           respect_gitignore = true,
         })
-      end,})
+      end,}
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use {'lewis6991/gitsigns.nvim'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

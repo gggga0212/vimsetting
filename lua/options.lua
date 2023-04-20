@@ -310,6 +310,7 @@ keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
 keymaps('n','<leader>x',':cs find f gap<CR>',ntst)
 keymaps('n','<leader>z',':cs find f cmd_evt<CR>',ntst)
+keymaps('n','<leader>Z',':cs find f cmd_evt_profile<CR>',ntst)
 
 keymaps('n','<leader>sa',':Telescope live_grep_args<CR>',   ntst)
 keymaps('n','<leader>sd',':Telescope diagnostics<CR>', ntst)

@@ -296,8 +296,8 @@ keymaps('n','<leader>a',':A<CR>',ntst)
 keymaps('n','<leader>e',':e!<CR>',ntst)
 keymaps('n','<leader>f',':CCTreeTraceForward<CR><CR>', ntst)
 keymaps('n','<leader>g','<C-]>',ntst)
-keymaps('n','<leader>j','*',ntst)
-keymaps('n','<leader>k','#',ntst)
+keymaps('n','<leader>j','mN *',ntst)
+keymaps('n','<leader>k','mN #',ntst)
 keymaps('n','<leader>m','<Plug>(quickhl-manual-this)',  ntst)
 keymaps('x','<leader>m','<Plug>(quickhl-manual-this)',  ntst)
 keymaps('n','<leader>M','<Plug>(quickhl-manual-reset)', ntst)
@@ -333,18 +333,10 @@ keymaps('v','<leader>v','"+p',ntsf)
 
 vim.g.EasyMotion_do_mapping = 0
 keymaps('n','s','<Plug>(easymotion-overwin-f2)',           ntst)
-
 keymaps('','/','<Plug>(easymotion-sn)', ntst)
 keymaps('o','/','<Plug>(easymotion-tn)', ntst)
-
-
 -- Lspsaga
 -- keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
-
--- Command of mine
-
-keymaps('n','#','mN #', ntst)
-keymaps('n','*','mN *', ntst)
 keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)
 keymaps('i','kk','<ESC>', ntst)

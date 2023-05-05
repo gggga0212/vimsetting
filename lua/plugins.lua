@@ -53,7 +53,8 @@ return require('packer').startup(function(use)
     use {'preservim/nerdtree'}
     use {'Xuyuanp/nerdtree-git-plugin'}
     use {'luochen1990/rainbow'}
-    use {'p00f/nvim-ts-rainbow'}
+    -- use {'p00f/nvim-ts-rainbow'}
+    use {'HiPhish/nvim-ts-rainbow2'}
     use {'tpope/vim-fugitive'}
     use {'tpope/vim-rhubarb'}
     use {'bootleq/vim-gitdiffall'}
@@ -74,7 +75,7 @@ return require('packer').startup(function(use)
     use {'ghifarit53/tokyonight-vim'}
     use {'tiagovla/tokyodark.nvim'}
     use {'rebelot/kanagawa.nvim'}
-    -- use {'folke/tokyonight.nvim'}
+    use {'folke/tokyonight.nvim'}
     use {'hzchirs/vim-material'}
     use {'kshenoy/vim-signature'}
     use {'jlanzarotta/bufexplorer'}

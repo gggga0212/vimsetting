@@ -30,10 +30,12 @@ items=("7_peripheral_ae_pa_20220722.pts"
         "LLS_v1.0.1.pdf"
         "IAS_SPEC_V10.pdf"
         "TPS_SPEC_V10.pdf"
+        "BAS_SPEC_V10.pdf"
         "-----------------------"
         "ANP.TS.1.0.3ed2.pdf"
         "ANS.TS.1.0.5ed2.pdf"
-        "PXP.TS.1.0.1.3.pdf")
+        "PXP.TS.1.0.1.3.pdf"
+        "BAS.TS.p5.pdf")
 
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_220920.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_220920.json"
@@ -83,6 +85,8 @@ while true; do
             30) echo "Selected item #$REPLY which means $item"; break 2;;
             31) echo "Selected item #$REPLY which means $item"; break 2;;
             32) echo "Selected item #$REPLY which means $item"; break 2;;
+            33) echo "Selected item #$REPLY which means $item"; break 2;;
+            34) echo "Selected item #$REPLY which means $item"; break 2;;
             $((${#items[@]}+1))) echo "We're done!"; exit;;
             *) echo "Ooops - unknown choice $REPLY"; break;
         esac
@@ -106,9 +110,7 @@ elif [ $REPLY -le 7 ]; then
 elif [ $REPLY -le 9 ]; then
     cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 	~/.config/nvim-linux64/bin/nvim ${items[$SEL]} 
-elif [ $REPLY -le 34 ]; then
+else
     cd "/mnt/c/mchpCode"
     cmd.exe /c start ${items[$SEL]}
-else
-    echo "unknown chhh"
 fi

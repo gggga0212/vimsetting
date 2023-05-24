@@ -31,11 +31,15 @@ items=("7_peripheral_ae_pa_20220722.pts"
         "IAS_SPEC_V10.pdf"
         "TPS_SPEC_V10.pdf"
         "BAS_SPEC_V10.pdf"
+        "HOGP_SPEC_V10.pdf"
+        "HIDS_SPEC_V10.pdf"
         "-----------------------"
         "ANP.TS.1.0.3ed2.pdf"
         "ANS.TS.1.0.5ed2.pdf"
         "PXP.TS.1.0.1.3.pdf"
-        "BAS.TS.p5.pdf")
+        "BAS.TS.p5.pdf"
+        "HOGP.TS.p9.pdf"
+        "HIDS.TS.p5.pdf")
 
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_220920.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_220920.json"
@@ -87,6 +91,10 @@ while true; do
             32) echo "Selected item #$REPLY which means $item"; break 2;;
             33) echo "Selected item #$REPLY which means $item"; break 2;;
             34) echo "Selected item #$REPLY which means $item"; break 2;;
+            35) echo "Selected item #$REPLY which means $item"; break 2;;
+            36) echo "Selected item #$REPLY which means $item"; break 2;;
+            37) echo "Selected item #$REPLY which means $item"; break 2;;
+            38) echo "Selected item #$REPLY which means $item"; break 2;;
             $((${#items[@]}+1))) echo "We're done!"; exit;;
             *) echo "Ooops - unknown choice $REPLY"; break;
         esac

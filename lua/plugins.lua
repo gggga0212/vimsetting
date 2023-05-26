@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
     -- use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
     use {'p00f/clangd_extensions.nvim'}
     use {'jose-elias-alvarez/null-ls.nvim'}
-    use {"nvim-telescope/telescope.nvim",
+    use {"nvim-telescope/telescope.nvim", branch = '0.1.x',
     requires = {
         -- { "nvim-lua/plenary.nvim" },
         { "kdheepak/lazygit.nvim" },
@@ -142,6 +142,7 @@ return require('packer').startup(function(use)
          codewindow.apply_default_keybinds()
        end,
      }
+     use {'folke/which-key.nvim'}
      -- use {'ldelossa/nvim-ide'}
      use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
      config = function()

@@ -151,11 +151,9 @@ vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
 -- keymaps('n','cx', ':copen 10<CR>',  ntst)
 -- keymaps('n','cX', ':BqfToggle<CR>',  ntst)
 -- keymaps('n','cv',':copen 20<CR>', ntst)
--- keymaps('n','cV', ':cclose<CR>', ntst)
-
 keymaps('n','cv',':Telescope quickfix<CR>', ntst)
 keymaps('n','cV',':Telescope quickfixhistory<CR>', ntst)
-
+keymaps('n','cq', ':cclose<CR>', ntst)
 -- keymaps('n','<space>eh', ':NERDTree<CR>',ntst)
 -- keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)
 keymaps('n','<space>el', ':TagbarToggle<CR>',   ntst)
@@ -222,6 +220,9 @@ keymaps('n','<space>gq',':DiffviewClose<CR>',        ntst)
 keymaps('n','<space>gr',':DiffviewRefresh<CR>',      ntst)
 keymaps('n','<space>gt',':Telescope git_status<CR>', ntst)
 keymaps('n','<space>gm',':<C-U><C-R>=printf("Gitsigns ")<CR>', ntsf)
+
+keymaps('n','<space>vs',':vs<CR>', ntst)
+keymaps('n','<space>sp',':sp<CR>', ntst)
 -- Telescope
 keymaps('n','<space>ta',':Colortils css list<CR>', ntst)
 keymaps('n','<space>tA',':IconPickerNormal<CR>', ntst)

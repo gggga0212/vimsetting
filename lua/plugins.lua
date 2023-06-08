@@ -155,6 +155,20 @@ return require('packer').startup(function(use)
         }
       end
     }
+    -- cscope
+    use {'dhananjaylatkar/cscope_maps.nvim'} -- cscope keymaps
+    use {'ibhagwan/fzf-lua'} -- required for picker = "fzf-lua"
+    -- load cscope maps
+    -- pass empty table to setup({}) for default options
+    require('cscope_maps').setup({
+      disable_maps = false, -- true disables my keymaps, only :Cscope will be loaded
+      cscope = {
+        db_file = "./cscope.out", -- location of cscope db file
+        exec = "cscope", -- "cscope" or "gtags-cscope"
+        picker = "telescope", -- "quickfix", "telescope", "fzf-lua" or "quickfix"
+        db_build_cmd_args = { "-bqkv" }, -- args used for db build (:Cscope build)
+      },
+    })
      -- use {'ldelossa/nvim-ide'}
      use {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
      config = function()

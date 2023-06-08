@@ -54,7 +54,6 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
-            \:cs reset<CR>
             \:!rm -rf tags<CR>
             \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
             \--exclude="./firmware/src/config/default/ble/lib/include"\

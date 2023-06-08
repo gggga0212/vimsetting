@@ -135,18 +135,18 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
-keymaps('n','cm','mZ* :cs find s <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cg','mZ* :cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
-keymaps('n','cc','mZ* :cs find c <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','ct','mZ* :cs find t <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','ce','mZ* :cs find e <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cf','mZ* :cs find f <C-R>=expand("<cfile>")<CR><CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','ci','mZ* :cs find i <C-R>=expand("<cfile>")<CR><CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cd','mZ* :cs find d <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cj',':<C-U><C-R>=printf("cs find ")<CR>',ntsf)
+keymaps('n','cm','mZ* :Cs find s <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cg','mZ* :Cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cc','mZ* :Cs find c <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','ct','mZ* :Cs find t <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','ce','mZ* :Cs find e <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cf','mZ* :Cs find f <C-R>=expand("<cfile>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','ci','mZ* :Cs find i <C-R>=expand("<cfile>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cd','mZ* :Cs find d <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cj',':<C-U><C-R>=printf("Cs find ")<CR>',ntsf)
 -- keymaps('n','<C-t>','<C-o>',ntsf)
 
-vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
+-- vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
 
 -- keymaps('n','cx', ':copen 10<CR>',  ntst)
 -- keymaps('n','cX', ':BqfToggle<CR>',  ntst)
@@ -312,9 +312,9 @@ keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
 keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)
 keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
-keymaps('n','<leader>x',':cs find f gap.h<CR>',ntst)
-keymaps('n','<leader>z',':cs find f cmd_evt.c<CR>',ntst)
-keymaps('n','<leader>Z',':cs find f cmd_evt_profile.c<CR>',ntst)
+keymaps('n','<leader>x',':Cs find f gap.h<CR>',ntst)
+keymaps('n','<leader>z',':Cs find f cmd_evt.c<CR>',ntst)
+keymaps('n','<leader>Z',':Cs find f cmd_evt_profile.c<CR>',ntst)
 
 keymaps('n','<leader>sa',':Telescope live_grep_args<CR>',   ntst)
 keymaps('n','<leader>sd',':Telescope diagnostics<CR>', ntst)

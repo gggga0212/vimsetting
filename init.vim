@@ -49,6 +49,7 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \:!cp ~/.config/nvim/rgignore .rgignore<CR>
             \:!cp ~/.config/nvim/gitattributes ../ble_stack_lib/src/ble_stack/.gitattributes<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
+            \-or -path "../ble_stack_lib/src/ble_stack/host_ble/inc/api/cxbz6" -prune \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
             \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
@@ -56,6 +57,24 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:!rm -rf tags<CR>
             \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
+            \--exclude="../ble_stack_lib/src/ble_stack/host_ble/inc/api/cxbz6"\
+            \--exclude="./firmware/src/config/default/ble/lib/include"\
+            \--exclude="./firmware/src/config/default/ble/middleware_ble" \
+            \--exclude="./firmware/src/config/default/ble/profile_ble" \
+            \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
+nmap <F9> :!rm -rf cscope.*<CR>
+            \:!cp ~/.config/nvim/rgignore .rgignore<CR>
+            \:!cp ~/.config/nvim/gitattributes ../ble_stack_lib/src/ble_stack/.gitattributes<CR>
+            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
+            \-or -path "../ble_stack_lib/src/ble_stack/host_ble/inc/api/cxbz2_3" -prune \
+            \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
+            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
+            \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
+            \:!rm -rf tags<CR>
+            \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
+            \--exclude="../ble_stack_lib/src/ble_stack/host_ble/inc/api/cxbz2_3"\
             \--exclude="./firmware/src/config/default/ble/lib/include"\
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
@@ -68,17 +87,17 @@ let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 set ut=100
 
-if has("cscope")
-    set cscopetag
-    set csto=0
-    if filereadable("cscope.out")
-        cs add cscope.out
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-else
-   echo("cscope not found")
-endif
+" if has("cscope")
+"     set cscopetag
+"     set csto=0
+"     if filereadable("cscope.out")
+"         cs add cscope.out
+"     elseif $CSCOPE_DB != ""
+"         cs add $CSCOPE_DB
+"     endif
+" else
+"    echo("cscope not found")
+" endif
 
 " let g:rainbow_active = 1
 " let g:rainbow_conf = {

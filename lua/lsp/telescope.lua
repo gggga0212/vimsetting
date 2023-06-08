@@ -81,9 +81,10 @@ require('telescope').setup({
         live_grep_args = {
             auto_quoting = true, -- enable/disable auto-quoting
             mappings = {
-                i = {
-                    ["<C-k>"] = lga_actions.quote_prompt({ postfix = ' ../ble_stack_lib/src/ble_stack .' }),
-                }
+                -- i = {
+                --     ["<C-u>"] = lga_actions.quote_prompt(),
+                --     ["<C-i>"] = lga_actions.quote_prompt({postfix = "--iglob"}),
+                -- }
             }
         }
     },

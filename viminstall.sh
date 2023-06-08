@@ -12,7 +12,7 @@ sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 
 #nvim
 cd ~/.config
-wget https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.tar.gz 
+wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz 
 tar xzvf nvim-linux64.tar.gz
 
 #zsh

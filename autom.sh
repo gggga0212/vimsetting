@@ -44,7 +44,7 @@ items=("7_peripheral_ae_pa_20220722.pts"
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_220920.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_220920.json"
 		"TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_220920.json")
-AutoPath="AutoPTS_V2.8.2"
+AutoPath="AutoPTS_V2.8.3"
 cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 if [ -f TestSet_old.json ]; then
 	rm TestSet_old.json

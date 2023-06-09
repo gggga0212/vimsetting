@@ -135,19 +135,8 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
--- keymaps('n','cm','mZ* :Cs find s <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
--- keymaps('n','cg','mZ* :Cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
--- keymaps('n','cc','mZ* :Cs find c <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
--- keymaps('n','ct','mZ* :Cs find t <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
--- keymaps('n','ce','mZ* :Cs find e <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
--- keymaps('n','cf','mZ* :Cs find f <C-R>=expand("<cfile>")<CR><CR>:Telescope quickfix<CR>',ntst)
--- keymaps('n','ci','mZ* :Cs find i <C-R>=expand("<cfile>")<CR><CR>:Telescope quickfix<CR>',ntst)
--- keymaps('n','cd','mZ* :Cs find d <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
--- keymaps('n','cj',':<C-U><C-R>=printf("Cs find ")<CR>',ntsf)
--- keymaps('n','<C-t>','<C-o>',ntsf)
-
 keymaps('n','cm','mZ* :Cs find s <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cg','mZ* :Cs find g <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cg','mZ* :Cs find g <C-R>=expand("<cword>")<CR><CR>',ntst)
 keymaps('n','cc','mZ* :Cs find c <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','ct','mZ* :Cs find t <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','ce','mZ* :Cs find e <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
@@ -325,13 +314,13 @@ keymaps('n','<leader>x',':Cs find f ble_gap.h<CR>',ntst)
 keymaps('n','<leader>z',':Cs find f cmd_evt.c<CR>',ntst)
 keymaps('n','<leader>Z',':Cs find f cmd_evt_profile.c<CR>',ntst)
 
-keymaps('n','<leader>sa',':Telescope live_grep_args<CR>',   ntst)
+keymaps('n','<leader>st',':Telescope live_grep_args<CR>',   ntst)
+keymaps('n','<leader>sT',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<leader>sd',':Telescope diagnostics<CR>', ntst)
 keymaps('n','<leader>sf',':Telescope find_files<CR>', ntst)
 keymaps('n','<leader>sF',':Telescope dir find_files<CR>', ntst)
-keymaps('n','<leader>sg',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<leader>sh',':Telescope help_tags<CR>',    ntst)
-keymaps('n','<leader>sw',':Telescope grep_string<CR>',    ntst)
+keymaps('n','<leader>ss',':Telescope grep_string<CR>',    ntst)
 
 -- paste
 keymaps('x','p','pgvy',ntsf)

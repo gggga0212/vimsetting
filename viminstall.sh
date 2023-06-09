@@ -4,22 +4,23 @@ sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
 
+git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
+#nvim
+cd ~/.config
+wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz 
+tar xzvf nvim-linux64.tar.gz
+
 #lazygit
 # https://github.com/jesseduffield/lazygit/releases/download/v0.36.0/lazygit_0.36.0_Linux_arm64.tar.gz
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep '"tag_name":' |  sed -E 's/.*"v*([^"]+)".*/\1/')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 
-#nvim
-cd ~/.config
-wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz 
-tar xzvf nvim-linux64.tar.gz
 
 #zsh
 sudo apt-get install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
 
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -80,7 +81,7 @@ npm install tree-sitter-cli
 # oh-my-zsh
 
 
-tmux source-file ~/.tmux.conf
+# tmux source-file ~/.tmux.conf
 
 #:CocInstall coc-marketplace
 #:CocList marketplace

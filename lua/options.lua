@@ -187,8 +187,8 @@ keymaps('n', '<C-Left>',':vertical resize -2<CR>',  ntst)
 keymaps('n', '<C-Right>',':vertical resize +2<CR>', ntst)
 
 -- Stay in indent mode
--- keymaps('v', ">",">gv",ntst)
--- keymaps('v', "<","<gv",ntst)
+keymaps('v', ">",">gv",ntst)
+keymaps('v', "<","<gv",ntst)
 
 -- Move text up and down keymaps('v', '<A-j>',':m.+1<CR>==',ntst)
 keymaps('v', '<A-k>',':m.-2<CR>==',ntst)

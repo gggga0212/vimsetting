@@ -29,7 +29,6 @@ nmap <F5> :!rm -rf cscope.*<CR>
 nmap <F6> :!rm -rf cscope.*<CR>
             \:!find ./ -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
-            \:cs reset<CR>
             \:!rm -rf tags<CR>
             \:!ctags -R<CR>
 " \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>

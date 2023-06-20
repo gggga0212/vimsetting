@@ -17,9 +17,9 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
-    " lua require('lazynvim')
-    lua require('plugins')
+    " lua require('plugins')
     lua require('options')
+    lua require('lazynvim')
 
 nmap <F5> :!rm -rf cscope.*<CR>
             \:!find "." -iname '*.c' -o -iname '*.h'<CR>

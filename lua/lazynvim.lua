@@ -99,12 +99,14 @@ require("lazy").setup({
     {'kien/ctrlp.vim'},
     {'easymotion/vim-easymotion'},
     { "catppuccin/nvim", as = "catppuccin"},
-    {'kylechui/nvim-surround',
-    tag = "*", -- for stability; omit to `main` branch for the latest features
-    config = function()
+    { "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
             require("nvim-surround").setup({
-                    -- Configuration here, or leave empty to defaults
-                }) end },
+                -- Configuration here, or leave empty to use defaults
+            })
+        end },
      {'hari-rangarajan/CCTree'},
      {'fgheng/winbar.nvim'},
      {'norcalli/nvim-colorizer.lua'},

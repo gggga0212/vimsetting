@@ -17,6 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
+    " lua require('lazynvim')
     lua require('plugins')
     lua require('options')
 

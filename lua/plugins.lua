@@ -165,10 +165,12 @@ return require('packer').startup(function(use)
     -- cscope
     use {'dhananjaylatkar/cscope_maps.nvim'} -- cscope keymaps
     use {'ibhagwan/fzf-lua'} -- required for picker = "fzf-lua"
+    -- use {'nvim-tree/nvim-web-devicons'} -- optional [for devicons in telesc ope or fzf]
     -- load cscope maps
     -- pass empty table to setup({}) for default options
     require('cscope_maps').setup({
       disable_maps = false, -- true disables my keymaps, only :Cscope will be loaded
+      skip_input_prompt = true, -- true doesn't ask for input
       cscope = {
         db_file = "./cscope.out", -- location of cscope db file
         exec = "cscope", -- "cscope" or "gtags-cscope"

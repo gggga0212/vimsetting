@@ -29,6 +29,7 @@ require("lazy").setup({
     {'p00f/clangd_extensions.nvim'},
     {'jose-elias-alvarez/null-ls.nvim'},
     {"nvim-telescope/telescope.nvim",
+    dependencies = {'nvim-lua/plenary.nvim'},
     requires = {
         -- { "nvim-lua/plenary.nvim" },
         { "kdheepak/lazygit.nvim" },

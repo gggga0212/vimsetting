@@ -32,13 +32,19 @@ require("lazy").setup({
     dependencies = {'nvim-lua/plenary.nvim'},
     requires = {
         -- { "nvim-lua/plenary.nvim" },
-        { "kdheepak/lazygit.nvim" },
+        -- { "kdheepak/lazygit.nvim" },
         { "nvim-telescope/telescope-live-grep-args.nvim" },
     },
     config = function()
         require("telescope").load_extension("lazygit")
-        require("telescope").load_extension("live_grep_args")
+        -- require("telescope").load_extension("live_grep_args")
     end,},
+    { "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
     {
       "princejoogie/dir-telescope.nvim",
       -- telescope.nvim is a required dependency
@@ -169,22 +175,29 @@ require("lazy").setup({
       end
     },
     -- cscope
-    {'dhananjaylatkar/cscope_maps.nvim'}, -- cscope keymaps
+    { "dhananjaylatkar/cscope_maps.nvim",
+      dependencies = {
+        "folke/which-key.nvim", -- optional [for whichkey hints]
+      },
+      opts = {
+        -- USE EMPTY FOR DEFAULT OPTIONS
+        -- DEFAULTS ARE LISTED BELOW
+        } },
     {'ibhagwan/fzf-lua'}, -- required for picker = "fzf-lua"
     -- {'nvim-tree/nvim-web-devicons'}, -- optional [for devicons in telesc ope or fzf]
     -- load cscope maps
     -- pass empty table to setup({}) for default options
-    require('cscope_maps').setup({
-      disable_maps = false, -- true disables my keymaps, only :Cscope will be loaded
-      skip_input_prompt = true, -- true doesn't ask for input
-      cscope = {
-        db_file = "./cscope.out", -- location of cscope db file
-        exec = "cscope", -- "cscope" or "gtags-cscope"
-        picker = "quickfix", -- "telescope", "fzf-lua" or "quickfix"
-        skip_picker_for_single_result = true, -- jump directly to position for single result
-        db_build_cmd_args = { "-bqkv" }, -- args used for db build (:Cscope build)
-      },
-    }),
+    -- require('cscope_maps').setup({
+    --   disable_maps = false, -- true disables my keymaps, only :Cscope will be loaded
+    --   skip_input_prompt = true, -- true doesn't ask for input
+    --   cscope = {
+    --     db_file = "./cscope.out", -- location of cscope db file
+    --     exec = "cscope", -- "cscope" or "gtags-cscope"
+    --     picker = "quickfix", -- "telescope", "fzf-lua" or "quickfix"
+    --     skip_picker_for_single_result = true, -- jump directly to position for single result
+    --     db_build_cmd_args = { "-bqkv" }, -- args used for db build (:Cscope build)
+    --   },
+    -- }),
      -- {'ldelossa/nvim-ide'},
     {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
      config = function()

@@ -15,7 +15,8 @@ require("lazy").setup({
     -- My plugins here
     -- Automatically set up your configuration after cloning packer.nvim
     {'wbthomason/packer.nvim'},
-    { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' },
+    {'nvim-lua/plenary.nvim'},
+    { 'sindrets/diffview.nvim'},
     {'tamton-aquib/stuff.nvim'},
     -- mason
     {
@@ -28,13 +29,9 @@ require("lazy").setup({
     -- {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'},
     {'p00f/clangd_extensions.nvim'},
     {'jose-elias-alvarez/null-ls.nvim'},
+    { "nvim-telescope/telescope-live-grep-args.nvim" },
     {"nvim-telescope/telescope.nvim",
     dependencies = {'nvim-lua/plenary.nvim'},
-    requires = {
-        -- { "nvim-lua/plenary.nvim" },
-        -- { "kdheepak/lazygit.nvim" },
-        { "nvim-telescope/telescope-live-grep-args.nvim" },
-    },
     config = function()
         require("telescope").load_extension("lazygit")
         -- require("telescope").load_extension("live_grep_args")
@@ -45,10 +42,8 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
         },
     },
-    {
-      "princejoogie/dir-telescope.nvim",
+    { "princejoogie/dir-telescope.nvim",
       -- telescope.nvim is a required dependency
-      requires = {"nvim-telescope/telescope.nvim"},
       config = function()
         require("dir-telescope").setup({
           hidden = true,
@@ -57,17 +52,12 @@ require("lazy").setup({
       end,},
     { "nvim-telescope/telescope-file-browser.nvim" },
     {'lewis6991/gitsigns.nvim'},
-    {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
+    {'nvim-treesitter/nvim-treesitter'},
     {'nvim-treesitter/nvim-treesitter-context'},
     {'terrortylor/nvim-comment', require('nvim_comment').setup()},
     {"nvim-tree/nvim-tree.lua"},
 	{"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
-		requires = { 
-		  "nvim-lua/plenary.nvim",
-		  "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-		  "MunifTanjim/nui.nvim",
-		}
   	},
     {'luochen1990/rainbow'},
     {'HiPhish/nvim-ts-rainbow2'},
@@ -208,7 +198,7 @@ require("lazy").setup({
          require("lsp_lines").setup()
      end,},
     {'kevinhwang91/promise-async'},
-    {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'},
+    {'kevinhwang91/nvim-ufo'},
      -- { 'hrsh7th/nvim-cmp'},
      --🦆 ඞ 🦀 🐈 🐎 🦖 🐤 
      { 'tamton-aquib/duck.nvim',

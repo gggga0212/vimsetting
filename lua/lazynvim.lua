@@ -59,9 +59,16 @@ require("lazy").setup({
     {'lewis6991/gitsigns.nvim'},
     {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'},
     {'nvim-treesitter/nvim-treesitter-context'},
-    {'Djancyp/better-comments.nvim'},
     {'terrortylor/nvim-comment', require('nvim_comment').setup()},
     {"nvim-tree/nvim-tree.lua"},
+	{"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = { 
+		  "nvim-lua/plenary.nvim",
+		  "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+		  "MunifTanjim/nui.nvim",
+		}
+  	},
     {'luochen1990/rainbow'},
     {'HiPhish/nvim-ts-rainbow2'},
     {'tpope/vim-fugitive'},
@@ -196,7 +203,6 @@ require("lazy").setup({
         } },
     {'ibhagwan/fzf-lua'}, -- required for picker = "fzf-lua"
     -- {'nvim-tree/nvim-web-devicons'}, -- optional [for devicons in telesc ope or fzf]
-     -- {'ldelossa/nvim-ide'},
     {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
      config = function()
          require("lsp_lines").setup()

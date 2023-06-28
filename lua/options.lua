@@ -20,6 +20,7 @@ require "lsp.null_ls"
 require "lsp.stuff"
 require "lsp.cscope"
 require "lsp.noice"
+require "lsp.nvim-tree"
 
 -- :help option
 vim.opt.encoding      = 'utf-8'
@@ -234,7 +235,7 @@ keymaps('n','<space>tc',':Telescope colorscheme<CR>', ntst)
 keymaps('n','<space>td',':normal! J<CR>', ntst)
 keymaps('n','<space>te',':LspStart<CR>', ntst)
 keymaps('n','<space>tg',':!go run main.go<CR>', ntst)
-keymaps('n','<space>th',':NERDTree<CR>',               ntst)
+keymaps('n','<space>th',':NvimTreeToggle<CR>',  ntst)
 keymaps('n','<space>ti','gg=G', ntst)
 keymaps('n','<space>tj',':!make all<CR>', ntst)
 keymaps('n','<space>tk',':Telescope keymaps<CR>',  ntst)

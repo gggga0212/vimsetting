@@ -2,23 +2,23 @@
 " set nocompatible    "be iMproved, required"
 filetype off        "required
 
-if has('nvim')
-    let s:editor_root=expand("~/.config/nvim")
-    set rtp+=~/.config/nvim/bundle/vundle/
-else
-    let s:editor_root=expand("~/.vim")
-    set rtp+=~/.vim/bundle/vundle/
-endif
-
-call vundle#rc(s:editor_root . '/bundle')
-Plugin 'gmarik/vundle.git'
-Plugin 'gmarik/Vundle.vim'
-" Plugin 'hari-rangarajan/ccglue'
-" Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
-    Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+" if has('nvim')
+"     let s:editor_root=expand("~/.config/nvim")
+"     set rtp+=~/.config/nvim/bundle/vundle/
+" else
+"     let s:editor_root=expand("~/.vim")
+"     set rtp+=~/.vim/bundle/vundle/
+" endif
+"
+" call vundle#rc(s:editor_root . '/bundle')
+" Plugin 'gmarik/vundle.git'
+" Plugin 'gmarik/Vundle.vim'
+" " Plugin 'hari-rangarajan/ccglue'
+" " Plugin 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh',}
+"     Plugin 'neoclide/coc.nvim', {'branch': 'release'}
     "packer
-    lua require('plugins')
-    " lua require('lazynvim')
+    " lua require('plugins')
+    lua require('lazynvim')
     lua require('options')
 
 nmap <F5> :!rm -rf cscope.*<CR>

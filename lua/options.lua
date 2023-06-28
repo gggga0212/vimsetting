@@ -344,4 +344,4 @@ keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)
 keymaps('i','kk','<ESC>', ntst)
 keymaps('i','jj','<ESC>', ntst)
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme tokyonight-moon]]

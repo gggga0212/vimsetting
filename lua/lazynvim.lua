@@ -78,7 +78,7 @@ require("lazy").setup({
     {'https://github.com/nanotech/jellybeans.vim'},
     {'https://github.com/tomasr/molokai'},
     {'shaunsingh/solarized.nvim'},
-    {'ghifarit53/tokyonight-vim'},
+    -- {'ghifarit53/tokyonight-vim'},
     {'tiagovla/tokyodark.nvim'},
     {'rebelot/kanagawa.nvim'},
     {'folke/tokyonight.nvim'},

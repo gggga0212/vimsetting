@@ -53,8 +53,6 @@ sudo apt install golang-go
 pip install pynvim --upgrade
 # clone the package
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
 
 
 sudo npm install -g diff-so-fancy
@@ -68,13 +66,15 @@ cp ~/.config/nvim/gitconfig ~/.gitconfig
 cp ~/.config/nvim/tmux.conf ~/.tmux.conf
 cp ~/.config/nvim/zshrc ~/.zshrc
 
-
-#coc.vim
-cd ~/.config/nvim/bundle/coc.nvim
-sudo npm install
-sudo npm run-script build
 #treesitter
 npm install tree-sitter-cli
+
+# git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+# git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle
+#coc.vim
+# cd ~/.config/nvim/bundle/coc.nvim
+# sudo npm install
+# sudo npm run-script build
 
 # oh-my-zsh
 

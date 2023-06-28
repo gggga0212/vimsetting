@@ -78,9 +78,10 @@ let g:bookmark_highlight_lines = 1
 " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
 " imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 set completeopt=menu,menuone,noselect
-" hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=darkred guifg=white
-" hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=gray guifg=white
-hi Normal ctermfg=white ctermbg=16
+
+hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=#A9A9A9 guifg=white
+hi CursorColumn cterm=NONE ctermbg=241 ctermfg=white guibg=#A9A9A9 guifg=black
+" hi Normal ctermfg=white ctermbg=16
 " nvim-ufo
 hi default link UfoPreviewSbar PmenuSbar
 hi default link UfoPreviewThumb PmenuThumb

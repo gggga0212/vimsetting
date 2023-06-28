@@ -203,7 +203,7 @@ require("lazy").setup({
      config = function()
          require("lsp_lines").setup()
      end,},
-
+    {'kevinhwang91/promise-async'},
     {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'},
      -- { 'hrsh7th/nvim-cmp'},
      --🦆 ඞ 🦀 🐈 🐎 🦖 🐤 

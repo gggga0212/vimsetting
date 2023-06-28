@@ -1,5 +1,5 @@
 local actions = require("telescope.actions")
-local lga_actions = require("telescope-live-grep-args.actions")
+-- local lga_actions = require("telescope-live-grep-args.actions")
 local sorters = require('telescope.sorters')
 local previewers = require('telescope.previewers')
 require('telescope').setup({

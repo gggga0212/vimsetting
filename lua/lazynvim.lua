@@ -78,7 +78,7 @@ require("lazy").setup({
     {'https://github.com/nanotech/jellybeans.vim'},
     {'https://github.com/tomasr/molokai'},
     {'shaunsingh/solarized.nvim'},
-    -- {'ghifarit53/tokyonight-vim'},
+    {'ghifarit53/tokyonight-vim'},
     {'tiagovla/tokyodark.nvim'},
     {'rebelot/kanagawa.nvim'},
     {'folke/tokyonight.nvim'},
@@ -191,6 +191,7 @@ require("lazy").setup({
         -- USE EMPTY FOR DEFAULT OPTIONS
         -- DEFAULTS ARE LISTED BELOW
         } },
+    {'mfussenegger/nvim-dap'},
     {'ibhagwan/fzf-lua'}, -- required for picker = "fzf-lua"
     -- {'nvim-tree/nvim-web-devicons'}, -- optional [for devicons in telesc ope or fzf]
     {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',

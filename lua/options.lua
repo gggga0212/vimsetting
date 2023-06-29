@@ -66,28 +66,7 @@ vim.g.ctrlp_cmd = 'CtrlP'
 
 -- lsp_lines.nvim v2
 vim.diagnostic.config({ virtual_lines = false })
--- vim.keymap.set(
--- "",
--- "<Leader>l",
--- require("lsp_lines").toggle,
--- { desc = "Toggle lsp_lines" }
--- )
--- rainbow
--- vim.g.rainbow_active = 1
-
--- vim.g.rainbow_conf = "'guifgs' : ['#6A5ACD', '#B22222', '#C0FF3E', '#EEC900', '#9A32CD', '#EE7600', '#98fb98', '#686868'],'ctermfgs': 'xterm-256color' == $TERM ? ['141', '196', '112', '208', '129', '166', '85', '33'] : ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']"
-
--- ctrlp setting
-
--- tags before find
 keymaps('n','/', 'ms/',ntst)
-
--- vim replace
--- keymaps('n','<C-s>',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
-
--- EasyAlign
--- Start interactive EasyAlign in visual mode (e.g. vipga)
--- Start interactive EasyAlign for a motion/text object (e.g. gaip)
 keymaps('x','ga', '<Plug>(EasyAlign)',  ntsf)
 keymaps('n','ga', '<Plug>(EasyAlign)_', ntsf)
 
@@ -179,7 +158,6 @@ keymaps('n', '<C-Right>',':vertical resize +2<CR>', ntst)
 -- Stay in indent mode
 keymaps('v', ">",">gv",ntst)
 keymaps('v', "<","<gv",ntst)
-
 -- Move text up and down keymaps('v', '<A-j>',':m.+1<CR>==',ntst)
 keymaps('v', '<A-k>',':m.-2<CR>==',ntst)
 -- Visual Block
@@ -188,8 +166,6 @@ keymaps('x', 'J',":move '>+1<CR>gv-gv",     ntst)
 keymaps('x', 'K',":move '<-1<CR>gv-gv",     ntst)
 keymaps('x', '<A-j>',":move '>+1<CR>gv-gv", ntst)
 keymaps('x', '<A-k>',":move '<-2<CR>gv-gv", ntst)
-
-
 -- floaterm
 vim.g["floaterm_width"]  = 0.95
 vim.g["floaterm_height"] = 0.95
@@ -252,8 +228,8 @@ keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<space>ts',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 keymaps('n','<space>tu',':Lazy sync<CR>', ntsf)
--- keymaps('n','<space>tv',':%s/\\r//g<CR>',  ntst)
-keymaps('n','<space>tv',':set ff=unix<CR>',  ntst)
+keymaps('n','<space>tv',':%s/\\r//g<CR>',  ntst)
+keymaps('n','<space>tV',':set ff=unix<CR>',  ntst)
 -- Move to word
 keymaps('','<space>tw','<Plug>(easymotion-bd-w)',          ntst)
 keymaps('n','<space>tw','<Plug>(easymotion-overwin-w)',    ntst)
@@ -263,7 +239,7 @@ keymaps('n','<space>ty',':!sh pj.sh<CR>',ntst)
 keymaps('n','<space>tz',':TSToggle highlight<CR>',ntst)
 
 
-keymaps('n','<space>ha',':Telescope harpoon marks<CR>',ntst)
+keymaps('n','<space>ha',':Telescope marks<CR>',ntst)
 keymaps('n','<space>hb',':e ~/.config/nvim/lua/options.lua<CR>',ntsf)
 keymaps('n','<space>hB',':e ~/.config/nvim/lua/plugins.lua<CR>',ntsf)
 keymaps('n','<space>hc',':Calc<CR>',ntsf)
@@ -345,4 +321,4 @@ keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)
 keymaps('i','kk','<ESC>', ntst)
 keymaps('i','jj','<ESC>', ntst)
-vim.cmd [[colorscheme tokyonight-moon]]
+vim.cmd [[colorscheme tokyonight]]

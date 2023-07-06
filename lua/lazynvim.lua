@@ -107,53 +107,53 @@ require("lazy").setup({
                 -- Configuration here, or leave empty to use defaults
             })
         end },
-     {'hari-rangarajan/CCTree'},
-     {'fgheng/winbar.nvim'},
-     {'norcalli/nvim-colorizer.lua'},
-     {'ziontee113/color-picker.nvim',
-     config = function()
-         require("color-picker")
-     end,},
-     {'max397574/colortils.nvim',
-     cmd = "Colortils",
-     config = function()
-         require("colortils").setup()
-     end,},
-     {"stevearc/dressing.nvim"},
-     {"ziontee113/icon-picker.nvim",
-       config = function()
-         require("icon-picker").setup({
-           disable_legacy_commands = true
-         })
-       end,
-     },
-     {'echasnovski/mini.nvim'},
-     {'mg979/vim-visual-multi'},
-     {'kyazdani42/nvim-web-devicons'},
+    {'hari-rangarajan/CCTree'},
+    {'fgheng/winbar.nvim'},
+    {'norcalli/nvim-colorizer.lua'},
+    {'ziontee113/color-picker.nvim',
+    config = function()
+        require("color-picker")
+    end,},
+    {'max397574/colortils.nvim',
+    cmd = "Colortils",
+    config = function()
+        require("colortils").setup()
+    end,},
+    {"stevearc/dressing.nvim"},
+    {"ziontee113/icon-picker.nvim",
+      config = function()
+        require("icon-picker").setup({
+          disable_legacy_commands = true
+        })
+      end,
+    },
+    {'echasnovski/mini.nvim'},
+    {'mg979/vim-visual-multi'},
+    {'kyazdani42/nvim-web-devicons'},
 
-     {'Yggdroot/indentLine'},
-     {'ryanoasis/vim-devicons'},
-     {'pacha/vem-tabline'},
-     -- todo
-     {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
-     {'mhartington/formatter.nvim'},
-     {'ranjithshegde/ccls.nvim'},
-     {'simonefranza/nvim-conv'},
-     -- {'glepnir/lspsaga.nvim'},
-     { 'hrsh7th/cmp-nvim-lsp'},
-     { 'hrsh7th/cmp-buffer'},
-     { 'hrsh7th/cmp-path'},
-     { 'hrsh7th/cmp-cmdline'},
-     {'MattesGroeger/vim-bookmarks'},
-     {'ThePrimeagen/harpoon'},
-     {
-       'gorbit99/codewindow.nvim',
-       config = function()
-         local codewindow = require('codewindow')
-         codewindow.setup()
-         codewindow.apply_default_keybinds()
-       end,
-     },
+    {'Yggdroot/indentLine'},
+    {'ryanoasis/vim-devicons'},
+    {'pacha/vem-tabline'},
+    -- todo
+    {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
+    {'mhartington/formatter.nvim'},
+    {'ranjithshegde/ccls.nvim'},
+    {'simonefranza/nvim-conv'},
+    -- {'glepnir/lspsaga.nvim'},
+    { 'hrsh7th/cmp-nvim-lsp'},
+    { 'hrsh7th/cmp-buffer'},
+    { 'hrsh7th/cmp-path'},
+    { 'hrsh7th/cmp-cmdline'},
+    {'MattesGroeger/vim-bookmarks'},
+    {'ThePrimeagen/harpoon'},
+    {
+      'gorbit99/codewindow.nvim',
+      config = function()
+        local codewindow = require('codewindow')
+        codewindow.setup()
+        codewindow.apply_default_keybinds()
+      end,
+    },
      -- Lua
     {
       "folke/which-key.nvim",
@@ -168,20 +168,20 @@ require("lazy").setup({
       end
     },
 -- lazy.nvim
-    { "folke/noice.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- add any options here
-      },
-      dependencies = {
-        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        "MunifTanjim/nui.nvim",
-        -- OPTIONAL:
-        --   `nvim-notify` is only needed, if you want to use the notification view.
-        --   If not available, we use `mini` as the fallback
-        "rcarriga/nvim-notify",
-        }
-    },
+    -- { "folke/noice.nvim",
+    --   event = "VeryLazy",
+    --   opts = {
+    --     -- add any options here
+    --   },
+    --   dependencies = {
+    --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --     "MunifTanjim/nui.nvim",
+    --     -- OPTIONAL:
+    --     --   `nvim-notify` is only needed, if you want to use the notification view.
+    --     --   If not available, we use `mini` as the fallback
+    --     "rcarriga/nvim-notify",
+    --     }
+    -- },
     -- cscope
     { "dhananjaylatkar/cscope_maps.nvim",
       dependencies = {
@@ -191,7 +191,7 @@ require("lazy").setup({
         -- USE EMPTY FOR DEFAULT OPTIONS
         -- DEFAULTS ARE LISTED BELOW
         } },
-    {'mfussenegger/nvim-dap'},
+    -- {'mfussenegger/nvim-dap'},
     {'ibhagwan/fzf-lua'}, -- required for picker = "fzf-lua"
     -- {'nvim-tree/nvim-web-devicons'}, -- optional [for devicons in telesc ope or fzf]
     {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
@@ -208,9 +208,9 @@ require("lazy").setup({
          vim.keymap.set('n', '<leader>dk', function() require("duck").cook("🦆") end, {})
      end
  },
-     {'hrsh7th/nvim-cmp'},
-     {'saadparwaiz1/cmp_luasnip'},
-     {'L3MON4D3/LuaSnip',
+    {'hrsh7th/nvim-cmp'},
+    {'saadparwaiz1/cmp_luasnip'},
+    {'L3MON4D3/LuaSnip',
     after = 'nvim-cmp',
     config = function()
         require('lsp.luasnip') end,}

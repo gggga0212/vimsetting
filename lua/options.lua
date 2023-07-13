@@ -220,7 +220,7 @@ keymaps('n','<space>to',':<C-U><C-R>=printf("!~/.config/tceetree/tceetree -V -p 
 keymaps('n','<space>tO',':<C-U><C-R>=printf("!dot -Tpdf -O tceetree.out")<CR><CR>:!cmd.exe /C start tceetree.out.pdf<CR>',ntsf)
 keymaps('n','<space>tp',':!python sha.py<CR>', ntst)
 keymaps('n','<space>tq',':LspStop<CR>', ntst)
-keymaps('n','<space>te',':LspStart<CR>', ntst)
+keymaps('n','<space>te',':LspRestart<CR>', ntst)
 keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<space>ts',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)

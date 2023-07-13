@@ -34,7 +34,8 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
             \-or -path "../ble_stack_lib/src/ble_stack/host_ble/inc/api/cxbz6" -prune \
             \-or -path "../ble_stack_lib/src/ble_stack/host_common/inc/api/cxbz6" -prune \
-            \-or -path "../ble_stack_lib/src/ble_stack/sys/inc/api/cxbz3" \
+            \-or -path "../ble_stack_lib/src/ble_stack/sys/inc/api/cxbz3" -prune \
+            \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz3" -prune \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
             \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
@@ -45,6 +46,7 @@ nmap <F8> :!rm -rf cscope.*<CR>
             \--exclude="../ble_stack_lib/src/ble_stack/host_ble/inc/api/cxbz6" \
             \--exclude="../ble_stack_lib/src/ble_stack/host_common/inc/api/cxbz6" \
             \--exclude="../ble_stack_lib/src/ble_stack/sys/inc/api/cxbz3" \
+            \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz3" \
             \--exclude="./firmware/src/config/default/ble/lib/include" \
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
@@ -56,7 +58,8 @@ nmap <F9> :!rm -rf cscope.*<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
             \-or -path "../ble_stack_lib/src/ble_stack/host_ble/inc/api/cxbz6" -prune \
             \-or -path "../ble_stack_lib/src/ble_stack/host_common/inc/api/cxbz6" -prune \
-            \-or -path "../ble_stack_lib/src/ble_stack/sys/inc/api/cxbz2" \
+            \-or -path "../ble_stack_lib/src/ble_stack/sys/inc/api/cxbz2" -prune \
+            \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz2" -prune \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
             \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
@@ -67,6 +70,7 @@ nmap <F9> :!rm -rf cscope.*<CR>
             \--exclude="../ble_stack_lib/src/ble_stack/host_ble/inc/api/cxbz6" \
             \--exclude="../ble_stack_lib/src/ble_stack/host_common/inc/api/cxbz6" \
             \--exclude="../ble_stack_lib/src/ble_stack/sys/inc/api/cxbz2" \
+            \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz2" \
             \--exclude="./firmware/src/config/default/ble/lib/include" \
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \

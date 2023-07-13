@@ -41,9 +41,9 @@ items=("7_peripheral_ae_pa_20220722.pts"
         "HOGP.TS.p9.pdf (2023.02.07)"
         "HIDS.TS.p5.pdf (2023.02.07)")
 
-testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_220920.json"
-		"TestSet_Central_role_only_with_AE_with_PA_feature_220920.json"
-		"TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_220920.json")
+testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_230713.json"
+		"TestSet_Central_role_only_with_AE_with_PA_feature_230713.json"
+		"TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_230713.json")
 AutoPath="AutoPTS_V2.9.1"
 cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 if [ -f TestSet_old.json ]; then

@@ -2,9 +2,9 @@
 
 PS3="Select item please: "
 nv="~/.config/nvim-linux64/bin/nvim"
-items=("7_peripheral_ae_pa_20220722.pts"
-		"8_central_ae_sync_20211015_20220722.pts"
-		"9_central_peripheral_ae_pa_sync_20220722.pts"
+items=("7_peripheral_ae_pa_20230720.pts"
+		"8_central_ae_sync_20230720.pts"
+		"9_central_peripheral_ae_pa_sync_20230720.pts"
 		"cmd.exe /c python AutoPTS.py"
 		"cmd.exe /c RunAutoPTS.bat"
 		"ProfilesConfigs"
@@ -18,11 +18,16 @@ items=("7_peripheral_ae_pa_20220722.pts"
         "-----------------------"
         "BLE_Test_Command_Set.docx"
         "Profile_Test_Command_Set.docx"
-        "---------- TCRL2022-2, 2023.02.07 -------------"
+        "--- TCRL2022-2, 2023.02.07 ---"
         "GAP.TS.p44.pdf   (2023.06.29)"
         "GATT.TS.p24.pdf  (2023.06.29)"
         "L2CAP.TS.p36.pdf (2023.06.29)"
         "SM.TS.p24.pdf    (2023.06.29)"
+        "-----------------------"
+        "GAP.ICS.p40.pdf  (2023.06.29)"
+        "GATT.ICS.p17.pdf (2023.06.29)"
+        "L2CAP.ICS.p25ed3.pdf  (2023.04.14)"
+        "SMP.ICS.p11.pdf  (2023.02.07)"
         "-----------------------"
         "ANP_SPEC_V10.pdf  (2011.09.05)"
         "ANS_SPEC_V10.pdf  (2011.09.15)"
@@ -95,6 +100,11 @@ while true; do
             36) echo "Selected item #$REPLY which means $item"; break 2;;
             37) echo "Selected item #$REPLY which means $item"; break 2;;
             38) echo "Selected item #$REPLY which means $item"; break 2;;
+            39) echo "Selected item #$REPLY which means $item"; break 2;;
+            40) echo "Selected item #$REPLY which means $item"; break 2;;
+            41) echo "Selected item #$REPLY which means $item"; break 2;;
+            42) echo "Selected item #$REPLY which means $item"; break 2;;
+            43) echo "Selected item #$REPLY which means $item"; break 2;;
             $((${#items[@]}+1))) echo "We're done!"; exit;;
             *) echo "Ooops - unknown choice $REPLY"; break;
         esac

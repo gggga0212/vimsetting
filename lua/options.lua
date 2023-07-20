@@ -177,6 +177,8 @@ keymaps('n','<space>fn',':FloatermNext<CR>',              ntst)
 keymaps('t','<space>fn','<C-\\><C-n>:FloatermNext<CR>',   ntst)
 keymaps('n','<space>ff',':FloatermToggle<CR>',            ntst)
 keymaps('t','<space>ff','<C-\\><C-n>:FloatermToggle<CR>', ntst)
+keymaps('n','<space>fk',':FloatermKill<CR>',            ntst)
+keymaps('t','<space>fk','<C-\\><C-n>:FloatermKill<CR>', ntst)
 
 -- vimagit
 keymaps('n','gj',':Gitsigns preview_hunk<CR>', ntst)

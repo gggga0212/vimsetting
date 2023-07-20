@@ -108,7 +108,6 @@ autocmd BufEnter *.c,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "/
 autocmd BufFilePost *.c,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
 augroup END
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd FileType * let b:coc_suggest_disable = 1
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
 " autocmd BufWritePre * :%s/\s\+$//e

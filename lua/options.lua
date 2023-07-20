@@ -5,7 +5,6 @@ local ntsf = {noremap=true, silent=false}
 vim.opt.termguicolors = true
 
 require "lsp.treesitter"
-require "lsp.treesitter-context"
 require "lsp.gitsigns"
 require "lsp.telescope"
 require "lsp.colorizer"
@@ -116,13 +115,13 @@ augroup end
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
 keymaps('n','cg','mZ* :Cscope find g <C-R>=expand("<cword>")<CR><CR><CR>:cclose<CR>',ntst)
-keymaps('n','cm','mZ* :Cscope find s <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cc','mZ* :Cscope find c <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','ct','mZ* :Cscope find t <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','ce','mZ* :Cscope find e <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cf','mZ* :Cscope find f <C-R>=expand("<cfile>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','ci','mZ* :Cscope find i <C-R>=expand("<cfile>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
-keymaps('n','cd','mZ* :Cscope find d <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cm','mZ* :Cscope find s <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cc','mZ* :Cscope find c <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','ct','mZ* :Cscope find t <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','ce','mZ* :Cscope find e <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cf','mZ* :Cscope find f <C-R>=expand("<cfile>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','ci','mZ* :Cscope find i <C-R>=expand("<cfile>")<CR><CR>:Telescope quickfix<CR>',ntst)
+keymaps('n','cd','mZ* :Cscope find d <C-R>=expand("<cword>")<CR><CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','cj',':<C-U><C-R>=printf("Cscope find ")<CR>',ntsf)
 -- vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
 
@@ -140,7 +139,7 @@ keymaps('n','<space>el', ':TagbarToggle<CR>',   ntst)
 -- Function Key
 -- keymaps('n', '<F3>',':cnext<CR>', ntst)
 -- keymaps('n', '<F4>',':cprev<CR>', ntst)
--- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+-- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -'*.hpp' > cscope.files<CR>
 -- :!cscope -R -b -q -i cscope.files -f cscope.out<CR>
 -- :cs reset<CR>',ntst)
 

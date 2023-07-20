@@ -2,9 +2,9 @@
 
 PS3="Select item please: "
 nv="~/.config/nvim-linux64/bin/nvim"
-items=( "7_peripheral_ae_pa_20230720.pts"
-		"8_central_ae_sync_20230720.pts"
-		"9_central_peripheral_ae_pa_sync_20230720.pts"
+items=( "7_peripheral_ae_pa_20230726.pts"
+		"8_central_ae_sync_20230726.pts"
+		"9_central_peripheral_ae_pa_sync_20230726.pts"
 		"cmd.exe /c python AutoPTS.py"
 		"cmd.exe /c RunAutoPTS.bat"
 		"ProfilesConfigs"
@@ -45,7 +45,10 @@ items=( "7_peripheral_ae_pa_20230720.pts"
         "PXP.TS.1.0.1.3.pdf  (2019.07.29)"
         "BAS.TS.p5.pdf  (2022.12.27)"
         "HOGP.TS.p9.pdf (2023.02.07)"
-        "HIDS.TS.p5.pdf (2023.02.07)")
+        "HIDS.TS.p5.pdf (2023.02.07)"
+        "-----------------------"
+        "Assigned_Numbers.pdf (2023.07.25)"
+        "CSS_v11.pdf (2023.01.31)")
 
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_230713.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_230713.json"

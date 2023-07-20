@@ -56,9 +56,7 @@ require("lazy").setup({
     {'nvim-treesitter/nvim-treesitter-context'},
     {'terrortylor/nvim-comment', require('nvim_comment').setup()},
     {"nvim-tree/nvim-tree.lua"},
-	{"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-  	},
+	{"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", },
     {'luochen1990/rainbow'},
     {'HiPhish/nvim-ts-rainbow2'},
     {'tpope/vim-fugitive'},
@@ -168,7 +166,6 @@ require("lazy").setup({
         }
       end
     },
-    {"iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, },
     -- cscope
     { "dhananjaylatkar/cscope_maps.nvim",
       dependencies = {

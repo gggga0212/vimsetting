@@ -62,7 +62,7 @@ require("lazy").setup({
     {'tpope/vim-fugitive'},
     {'tpope/vim-rhubarb'},
     {'bootleq/vim-gitdiffall'},
-    -- {'christoomey/vim-tmux-navigator'},
+    {'christoomey/vim-tmux-navigator'},
     {'aserowy/tmux.nvim'},
     {'voldikss/vim-floaterm'},
     {'junegunn/vim-easy-align'},

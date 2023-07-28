@@ -62,7 +62,7 @@ vim.g.tags = './tags'
 vim.g.ctrlp_map = '<c-p>'
 vim.g.ctrlp_cmd = 'CtrlP'
 -- airline
-
+vim.g.tmux_navigator_no_mappings = 1
 -- lsp_lines.nvim v2
 vim.diagnostic.config({ virtual_lines = false })
 keymaps('n','/', 'ms/',ntst)
@@ -285,6 +285,7 @@ keymaps('n','<leader>q',':q!<CR>',ntst)
 keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
 keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)
 keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
+keymaps('n','<leader>T','<C-W>=', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
 keymaps('n','<leader>x',':Cscope find f ble_gap.h<CR>',ntst)
 keymaps('n','<leader>z',':Cscope find f cmd_evt.c<CR>',ntst)
@@ -319,4 +320,8 @@ keymaps('n','J','j', ntst)
 keymaps('n','[[','[[k', ntst)
 keymaps('i','kk','<ESC>', ntst)
 keymaps('i','jj','<ESC>', ntst)
+keymaps('n','<C-H>',':TmuxNavigateLeft<CR>', ntst)
+keymaps('n','<C-K>',':TmuxNavigateUp<CR>', ntst)
+keymaps('n','<C-L>',':TmuxNavigateRight<CR>', ntst)
+keymaps('n','<C-J>',':TmuxNavigateDown<CR>', ntst)
 vim.cmd [[colorscheme tokyonight]]

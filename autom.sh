@@ -78,7 +78,7 @@ if [ $REPLY -le ${#items[@]} ]; then
     	echo "My selection is ${items[$SEL]}"
     	cp "/mnt/c/mchpCode/AutoPTS/${items[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"
     	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/Function"
-    	cmd.exe /c python GenerateTestSet.py ../pics.pts
+    	cmd.exe /c python GeneratePtsConfig.py ../pics.pts
     	cp "/mnt/c/mchpCode/AutoPTS/${testSets[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/TestSet.json"
     elif [ $REPLY -le 5 ]; then
     	cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"

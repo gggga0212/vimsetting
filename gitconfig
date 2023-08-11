@@ -14,6 +14,10 @@
 	d = difftool
 	rt = reset --hard
 	ct = checkout ./firmware/src/config/default/ble/lib/include ./firmware/src/config/default/ble/middleware_ble ./firmware/src/config/default/ble/profile_ble ./firmware/src/config/default/ble/service_ble ./firmware/src/version.h
+    dlwble = clone --recursive https://bitbucket.microchip.com/scm/mh3/wireless_ble.git
+    dlwbz = clone --recursive https://bitbucket.microchip.com/scm/mh3/wireless_pic32cxbz_wbz.git
+    dlzigbee = clone --recursive https://bitbucket.microchip.com/scm/mh3/wireless_zigbee.git
+    dlmhc = clone --recursive https://bitbucket.microchip.com/scm/mh3/mhc_archive.git
 [credential]
 	helper = store
 [color "diff"]

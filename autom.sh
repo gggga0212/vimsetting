@@ -2,9 +2,9 @@
 
 PS3="Select item please: "
 nv="~/.config/nvim-linux64/bin/nvim"
-items=( "7_peripheral_ae_pa_20230726.pts"
-		"8_central_ae_sync_20230726.pts"
-		"9_central_peripheral_ae_pa_sync_20230726.pts"
+items=( "7_peripheral_ae_pa_20230807.pts"
+		"8_central_ae_sync_20230807.pts"
+		"9_central_peripheral_ae_pa_sync_20230807.pts"
 		"cmd.exe /c python AutoPTS.py"
 		"cmd.exe /c RunAutoPTS.bat"
 		"ProfilesConfigs"
@@ -12,6 +12,8 @@ items=( "7_peripheral_ae_pa_20230726.pts"
  		"TestSet.json"
  		"CaseDefine.json"
  		"AutoPTS.py"
+ 		"MiddleTest"
+ 		"MiddleTestLog"
  		"-----------------------"
  		"Core_v5.2.pdf"
  		"Core_v5.3.pdf"
@@ -53,7 +55,7 @@ items=( "7_peripheral_ae_pa_20230726.pts"
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_230713.json"
 		"TestSet_Central_role_only_with_AE_with_PA_feature_230713.json"
 		"TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_230713.json")
-AutoPath="AutoPTS_V2.10.0"
+AutoPath="AutoPTS_V2.10.1"
 cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 if [ -f TestSet_old.json ]; then
 	rm TestSet_old.json
@@ -90,6 +92,12 @@ if [ $REPLY -le ${#items[@]} ]; then
     elif [ $REPLY -le 10 ]; then
         cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
     	~/.config/nvim-linux64/bin/nvim ${items[$SEL]} 
+    elif [ $REPLY -le 11 ]; then
+        cd "/mnt/c/mchpCode/AutoPTS/MiddleWare230807/MiddleWare"
+    	cmd.exe /c python main.py
+    elif [ $REPLY -le 12 ]; then
+        cd "/mnt/c/mchpCode/AutoPTS/MiddleWare230807/MiddleWare/log"
+    	~/.config/nvim-linux64/bin/nvim .
     else
         cd "/mnt/c/mchpCode"
         cmd.exe /c start ${items[$SEL]}

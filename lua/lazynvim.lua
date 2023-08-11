@@ -54,11 +54,12 @@ require("lazy").setup({
     {'lewis6991/gitsigns.nvim'},
     {'nvim-treesitter/nvim-treesitter'},
     {'nvim-treesitter/nvim-treesitter-context'},
+    {'nvim-treesitter/tree-sitter-query'},
+    {'HiPhish/nvim-ts-rainbow2'},
     {'terrortylor/nvim-comment', require('nvim_comment').setup()},
     {"nvim-tree/nvim-tree.lua"},
 	{"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", },
-    {'luochen1990/rainbow'},
-    {'HiPhish/nvim-ts-rainbow2'},
+    -- {'luochen1990/rainbow'},
     {'tpope/vim-fugitive'},
     {'tpope/vim-rhubarb'},
     {'bootleq/vim-gitdiffall'},
@@ -80,7 +81,7 @@ require("lazy").setup({
     {'ghifarit53/tokyonight-vim'},
     {'tiagovla/tokyodark.nvim'},
     {'rebelot/kanagawa.nvim'},
-    {'folke/tokyonight.nvim'},
+    -- {'folke/tokyonight.nvim'},
     { 'nyngwang/nvimgelion',
           config = function ()
             -- do whatever you want for further customization~

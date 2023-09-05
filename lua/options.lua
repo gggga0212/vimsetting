@@ -16,6 +16,7 @@ require "lsp.nvim-cmp"
 require "lsp.null_ls"
 require "lsp.stuff"
 require "lsp.cscope"
+require "lsp.rainbow2"
 -- require "lsp.noice"
 require "lsp.nvim-tree"
 

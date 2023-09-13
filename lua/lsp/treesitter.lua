@@ -14,7 +14,15 @@ require'nvim-treesitter.configs'.setup {
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
+  rainbow = {
+    enable = true,
+    -- list of languages you want to disable the plugin for
+    -- disable = { 'jsx', 'cpp' },
+    -- Which query to use for finding delimiters
+    query = 'rainbow-parens',
+    -- Highlight the entire buffer all at once
+    strategy = require('ts-rainbow').strategy.global,
+  },
   highlight = {
     enable = true,
 

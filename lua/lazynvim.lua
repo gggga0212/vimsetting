@@ -33,7 +33,6 @@ require("lazy").setup({
         require("telescope").load_extension("lazygit")
         -- require("telescope").load_extension("live_grep_args")
     end,},
-    {"nvim-telescope/telescope-fzf-native.nvim", build = 'make'},
     { "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
         dependencies = {
@@ -53,7 +52,7 @@ require("lazy").setup({
     {'nvim-treesitter/nvim-treesitter'},
     {'nvim-treesitter/nvim-treesitter-context'},
     {'nvim-treesitter/tree-sitter-query'},
-    -- {'HiPhish/nvim-ts-rainbow2', tags = "v2.2.0"},
+    {'HiPhish/nvim-ts-rainbow2'},
     {'terrortylor/nvim-comment', require('nvim_comment').setup()},
     {"nvim-tree/nvim-tree.lua"},
 	{"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", },

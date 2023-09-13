@@ -24,9 +24,6 @@ require("lazy").setup({
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     },
-    -- {'aduros/ai.vim'},
-    -- lspconfig
-    -- {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'},
     {'p00f/clangd_extensions.nvim'},
     {'jose-elias-alvarez/null-ls.nvim'},
     { "nvim-telescope/telescope-live-grep-args.nvim" },
@@ -55,11 +52,10 @@ require("lazy").setup({
     {'nvim-treesitter/nvim-treesitter'},
     {'nvim-treesitter/nvim-treesitter-context'},
     {'nvim-treesitter/tree-sitter-query'},
-    {'HiPhish/nvim-ts-rainbow2'},
+    -- {'HiPhish/nvim-ts-rainbow2', tags = "v2.2.0"},
     {'terrortylor/nvim-comment', require('nvim_comment').setup()},
     {"nvim-tree/nvim-tree.lua"},
 	{"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", },
-    -- {'luochen1990/rainbow'},
     {'tpope/vim-fugitive'},
     {'tpope/vim-rhubarb'},
     {'bootleq/vim-gitdiffall'},
@@ -127,7 +123,7 @@ require("lazy").setup({
         })
       end,
     },
-    {'echasnovski/mini.nvim'},
+    {'echasnovski/mini.nvim', version = '*'},
     {'mg979/vim-visual-multi'},
     {'kyazdani42/nvim-web-devicons'},
 

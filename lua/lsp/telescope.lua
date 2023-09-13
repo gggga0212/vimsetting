@@ -53,7 +53,8 @@ require('telescope').setup({
            -- preview_cutoff = 120,
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
-        file_ignore_patterns = { "./firmware/src/config/default/ble/lib/include",
+        file_ignore_patterns = {
+            "./firmware/src/config/default/ble/lib/include",
             "./firmware/src/config/default/ble/middleware_ble",
             "./firmware/src/config/default/ble/profile_ble",
             "./firmware/src/config/default/ble/service_ble"},
@@ -86,6 +87,12 @@ require('telescope').setup({
                 --     ["<C-i>"] = lga_actions.quote_prompt({postfix = "--iglob"}),
                 -- }
             }
+        },
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
         }
     },
     pickers = {

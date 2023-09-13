@@ -14,15 +14,15 @@ require'nvim-treesitter.configs'.setup {
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-  rainbow = {
-    enable = true,
-    -- list of languages you want to disable the plugin for
-    -- disable = { 'jsx', 'cpp' },
-    -- Which query to use for finding delimiters
-    query = 'rainbow-parens',
-    -- Highlight the entire buffer all at once
-    strategy = require('ts-rainbow').strategy.global,
-  },
+  -- rainbow = {
+  --   enable = true,
+  --   -- list of languages you want to disable the plugin for
+  --   -- disable = { 'jsx', 'cpp' },
+  --   -- Which query to use for finding delimiters
+  --   query = 'rainbow-parens',
+  --   -- Highlight the entire buffer all at once
+  --   strategy = require('ts-rainbow').strategy.global,
+  -- },
   highlight = {
     enable = true,
 
@@ -47,3 +47,25 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+local rainbow_delimiters = require 'rainbow-delimiters'
+
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    highlight = {
+        'RainbowDelimiterRed',
+        'RainbowDelimiterYellow',
+        'RainbowDelimiterBlue',
+        'RainbowDelimiterOrange',
+        'RainbowDelimiterGreen',
+        'RainbowDelimiterViolet',
+        'RainbowDelimiterCyan',
+    },
+}
+

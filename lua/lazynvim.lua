@@ -33,6 +33,7 @@ require("lazy").setup({
         require("telescope").load_extension("lazygit")
         -- require("telescope").load_extension("live_grep_args")
     end,},
+    {"nvim-telescope/telescope-fzf-native.nvim", build = 'make'},
     { "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
         dependencies = {

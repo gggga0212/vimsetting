@@ -132,6 +132,7 @@ alias brave="open -a 'Brave Browser'"
 alias nv='~/.config/nvim/nvim-macos/bin/nvim'
 alias nvim='~/.config/nvim-linux64/bin/nvim'
 alias rmlock='rm -rf ../.git/index.lock'
+alias rmmlock='rm -rf ../../.git/index.lock'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
 alias ag=' ~/.config/nvim/autom.sh'
 alias ar="rm -rf ../Testset_old.json"

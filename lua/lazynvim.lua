@@ -76,6 +76,8 @@ require("lazy").setup({
     {'shaunsingh/solarized.nvim'},
     {'ghifarit53/tokyonight-vim'},
     {'tiagovla/tokyodark.nvim'},
+    {'judaew/ronny.nvim'},
+    {'cryptomilk/nightcity.nvim'},
     {'rebelot/kanagawa.nvim'},
     -- {'folke/tokyonight.nvim'},
     { 'nyngwang/nvimgelion',

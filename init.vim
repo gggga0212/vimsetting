@@ -10,7 +10,7 @@ nmap <F5> :!rm -rf cscope.*<CR>
             \:!dot -Tpdf -O tceetree.out<CR>
             \:!cmd.exe /C start tceetree.out.pdf<CR>
 nmap <F6> :!rm -rf cscope.*<CR>
-            \:!find ./ -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files<CR>
+            \:!find "./" -iname '*.c' -o -iname '*.h' > cscope.files<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:!rm -rf tags<CR>
             \:!ctags -R<CR>

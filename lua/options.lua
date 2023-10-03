@@ -121,6 +121,16 @@ keymaps('n','ce','mZ* :Cscope find e <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:
 keymaps('n','cf','mZ* :Cscope find f <C-R>=expand("<cfile>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','ci','mZ* :Cscope find i <C-R>=expand("<cfile>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','cd','mZ* :Cscope find d <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
+
+keymaps('n','cG','mZ* :Cscope find g <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cM','mZ* :Cscope find s <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cC','mZ* :Cscope find c <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cT','mZ* :Cscope find t <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cE','mZ* :Cscope find e <C-R>=expand("<cword>")<CR><CR>',ntst)
+keymaps('n','cF','mZ* :Cscope find f <C-R>=expand("<cfile>")<CR><CR>',ntst)
+keymaps('n','cI','mZ* :Cscope find i <C-R>=expand("<cfile>")<CR><CR>',ntst)
+keymaps('n','cD','mZ* :Cscope find d <C-R>=expand("<cword>")<CR><CR>',ntst)
+
 keymaps('n','cj',':<C-U><C-R>=printf("Cscope find ")<CR>',ntsf)
 -- vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
 

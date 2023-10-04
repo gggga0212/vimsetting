@@ -138,6 +138,10 @@ alias ag=' ~/.config/nvim/autom.sh'
 alias ar="rm -rf ../Testset_old.json"
 alias wttr='curl http://wttr.in'
 alias lz='lazygit'
+alias csc='cp ~/.config/nvim/lua/cscope_cscope.lua ~/.config/nvim/lua/cscope.lua; 
+                  echo "packer is changed to cscope."'
+alias cst='cp ~/.config/nvim/lua/cscope_telescope.lua ~/.config/nvim/lua/cscope.lua; 
+                  echo "packer is changed to cscope."'
 
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.

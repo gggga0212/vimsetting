@@ -138,9 +138,9 @@ alias ag=' ~/.config/nvim/autom.sh'
 alias ar="rm -rf ../Testset_old.json"
 alias wttr='curl http://wttr.in'
 alias lz='lazygit'
-alias csc='cp ~/.config/nvim/lua/cscope_cscope.lua ~/.config/nvim/lua/cscope.lua; 
+alias csc='cp ~/.config/nvim/lua/lsp/cscope_cscope.lua ~/.config/nvim/lua/lsp/cscope.lua;
                   echo "packer is changed to cscope."'
-alias cst='cp ~/.config/nvim/lua/cscope_telescope.lua ~/.config/nvim/lua/cscope.lua; 
+alias cst='cp ~/.config/nvim/lua/lsp/cscope_telescope.lua ~/.config/nvim/lua/lsp/cscope.lua;
                   echo "packer is changed to cscope."'
 
 setopt no_nomatch

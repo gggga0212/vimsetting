@@ -129,8 +129,8 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
 alias chrome="open -a 'Google Chrome'"
 alias brave="open -a 'Brave Browser'"
-alias nv='~/.config/nvim/nvim-macos/bin/nvim'
-alias nvim='~/.config/nvim-linux64/bin/nvim'
+# alias nv='~/.config/nvim/nvim-macos/bin/nvim'
+alias nv='~/.config/nvim-linux64/bin/nvim'
 alias rmlock='rm -rf ../.git/index.lock'
 alias rmmlock='rm -rf ../../.git/index.lock'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'

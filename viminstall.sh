@@ -7,7 +7,7 @@ sudo apt install git
 git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
 #nvim
 cd ~/.config
-wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz 
+wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
 tar xzvf nvim-linux64.tar.gz
 
 #lazygit

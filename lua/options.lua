@@ -113,6 +113,7 @@ augroup end
 -- f: Find this file.
 -- i: Find files #including this file.
 -- d: Find functions called by this function.
+
 keymaps('n','cg','mZ* :Cscope find g <C-R>=expand("<cword>")<CR><CR><CR>:cclose<CR>',ntst)
 keymaps('n','cm','mZ* :Cscope find s <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','cc','mZ* :Cscope find c <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
@@ -122,14 +123,14 @@ keymaps('n','cf','mZ* :Cscope find f <C-R>=expand("<cfile>")<CR><CR>:cclose<CR>:
 keymaps('n','ci','mZ* :Cscope find i <C-R>=expand("<cfile>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
 keymaps('n','cd','mZ* :Cscope find d <C-R>=expand("<cword>")<CR><CR>:cclose<CR>:Telescope quickfix<CR>',ntst)
 
-keymaps('n','cG','mZ* :Cscope find g <C-R>=expand("<cword>")<CR><CR>:copen 20<CR>',ntst)
-keymaps('n','cM','mZ* :Cscope find s <C-R>=expand("<cword>")<CR><CR>:copen 20<CR>',ntst)
-keymaps('n','cC','mZ* :Cscope find c <C-R>=expand("<cword>")<CR><CR>:copen 20<CR>',ntst)
-keymaps('n','cT','mZ* :Cscope find t <C-R>=expand("<cword>")<CR><CR>:copen 20<CR>',ntst)
-keymaps('n','cE','mZ* :Cscope find e <C-R>=expand("<cword>")<CR><CR>:copen 20<CR>',ntst)
-keymaps('n','cF','mZ* :Cscope find f <C-R>=expand("<cfile>")<CR><CR>:copen 20<CR>',ntst)
-keymaps('n','cI','mZ* :Cscope find i <C-R>=expand("<cfile>")<CR><CR>:copen 20<CR>',ntst)
-keymaps('n','cD','mZ* :Cscope find d <C-R>=expand("<cword>")<CR><CR>:copen 20<CR>',ntst)
+keymaps('n','cG',[[<cmd>lua require('cscope_maps').cscope_prompt('g',vim.fn.expand("<cword>"))<CR>]],ntst)
+keymaps('n','cM',[[<cmd>lua require('cscope_maps').cscope_prompt('s',vim.fn.expand("<cword>"))<CR>]],ntst)
+keymaps('n','cC',[[<cmd>lua require('cscope_maps').cscope_prompt('c',vim.fn.expand("<cword>"))<CR>]],ntst)
+keymaps('n','cT',[[<cmd>lua require('cscope_maps').cscope_prompt('t',vim.fn.expand("<cword>"))<CR>]],ntst)
+keymaps('n','cE',[[<cmd>lua require('cscope_maps').cscope_prompt('e',vim.fn.expand("<cword>"))<CR>]],ntst)
+keymaps('n','cF',[[<cmd>lua require('cscope_maps').cscope_prompt('f',vim.fn.expand("<cword>"))<CR>]],ntst)
+keymaps('n','cI',[[<cmd>lua require('cscope_maps').cscope_prompt('i',vim.fn.expand("<cword>"))<CR>]],ntst)
+keymaps('n','cD',[[<cmd>lua require('cscope_maps').cscope_prompt('d',vim.fn.expand("<cword>"))<CR>]],ntst)
 
 keymaps('n','cj',':<C-U><C-R>=printf("Cscope find ")<CR>',ntsf)
 -- vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'

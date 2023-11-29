@@ -3,6 +3,7 @@ require("cscope_maps").setup(
   -- maps related defaults
   disable_maps = false, -- "true" disables default keymaps
   skip_input_prompt = false, -- "true" doesn't ask for input
+  prefix = "<leader>c", -- prefix to trigger maps
 
   -- cscope related defaults
   cscope = {
@@ -11,12 +12,16 @@ require("cscope_maps").setup(
     -- cscope executable
     exec = "cscope", -- "cscope" or "gtags-cscope"
     -- choose your fav picker
-    picker = "quickfix", -- "quickfix","telescope", "fzf-lua" or "quickfix"
+    picker = "quickfix", -- "telescope", "fzf-lua" or "quickfix"
+    -- size of quickfix window
+    qf_window_size = 5, -- any positive integer
+    -- position of quickfix window
+    qf_window_pos = "bottom", -- "bottom", "right", "left" or "top"
     -- "true" does not open picker for single result, just JUMP
     skip_picker_for_single_result = true, -- "false" or "true"
     -- these args are directly passed to "cscope -f <db_file> <args>"
     db_build_cmd_args = { "-bqkv" },
     -- statusline indicator, default is cscope executable
     statusline_indicator = nil,
-    }
+  }
 })

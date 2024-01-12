@@ -132,7 +132,7 @@ keymaps('n','cF',[[<cmd>lua require('cscope_maps').cscope_prompt('f',vim.fn.expa
 keymaps('n','cI',[[<cmd>lua require('cscope_maps').cscope_prompt('i',vim.fn.expand("<cword>"))<CR>]],ntst)
 keymaps('n','cD',[[<cmd>lua require('cscope_maps').cscope_prompt('d',vim.fn.expand("<cword>"))<CR>]],ntst)
 
-keymaps('n','cj',':<C-U><C-R>=printf("Cscope find ")<CR>',ntsf)
+-- keymaps('n','cj',':<C-U><C-R>=printf("Cscope find ")<CR>',ntsf)
 -- vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
 
 keymaps('n','cx', ':copen 10<CR>',  ntst)
@@ -235,7 +235,7 @@ keymaps('n','<space>tq',':LspStop<CR>', ntst)
 keymaps('n','<space>tQ',':LspRestart<CR>', ntst)
 -- keymaps('n','<space>te',':LspRestart<CR>', ntst)
 keymaps('n','<space>tr',':Telescope live_grep<CR>',   ntst)
-keymaps('n','<space>ts',':<C-U><C-R>=printf("%%s/%s/%s",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
+keymaps('n','<space>ts',':<C-U><C-R>=printf("%%s/%s/%s/g",expand("<cword>"),expand("<cword>"))<CR>',ntsf)
 keymaps('n','<space>tt',':Telescope treesitter<CR>',  ntst)
 keymaps('n','<space>tu',':Lazy sync<CR>', ntsf)
 keymaps('n','<space>tv',':%s/\\r//g<CR>',  ntst)

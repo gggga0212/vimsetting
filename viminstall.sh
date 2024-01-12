@@ -36,7 +36,7 @@ sudo apt-get install nodejs
 sudo apt-get install fonts-powerline tmux pip
 sudo apt-get install exuberant-ctags cscope
 sudo apt-get install gcc g++ make
-sudo apt-get install tree fzf mscgen
+sudo apt-get install tree mscgen
 sudo apt-get install ripgrep fd-find
 sudo apt-get install python python3
 sudo apt-get install cmatrix screenfetch
@@ -68,6 +68,10 @@ cp ~/.config/nvim/zshrc ~/.zshrc
 
 #treesitter
 npm install tree-sitter-cli
+
+#fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 # git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 # git clone https://github.com/gmarik/vundle.git ~/.config/nvim/bundle/vundle

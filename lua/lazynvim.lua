@@ -184,8 +184,8 @@ require("lazy").setup({
     --     -- vim.g.gutentags_trace = 1
     -- end, },
     -- {'mfussenegger/nvim-dap'},
-    -- {'ibhagwan/fzf-lua'}, -- required for picker = "fzf-lua"
-    -- {'nvim-tree/nvim-web-devicons'}, -- optional [for devicons in telesc ope or fzf]
+    {'ibhagwan/fzf-lua'}, -- required for picker = "fzf-lua"
+    {'nvim-tree/nvim-web-devicons'}, -- optional [for devicons in telesc ope or fzf]
     {'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
      config = function()
          require("lsp_lines").setup()

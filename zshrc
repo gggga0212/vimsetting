@@ -130,9 +130,14 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
 alias chrome="open -a 'Google Chrome'"
 alias brave="open -a 'Brave Browser'"
 # alias nv='~/.config/nvim/nvim-macos/bin/nvim'
+alias nrm='rm -rf ~/.config/nvim-linux64 ~/.config/nvim-linux64.tar.gz'
+alias ndl='wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz'
+alias nup='tar xzvf nvim-linux64.tar.gz'
 alias nv='~/.config/nvim-linux64/bin/nvim'
-alias rmlock='rm -rf ../.git/index.lock'
-alias rmmlock='rm -rf ../../.git/index.lock'
+alias nvig='nv .gitignore'
+alias loadigsp='cp ~/.config/nvim/gitignoreSample .gitignore'
+alias rmlock='rm -rf ../.git/*.lock'
+alias rmmlock='rm -rf ../../.git/*.lock'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
 alias ag=' ~/.config/nvim/autom.sh'
 alias ar="rm -rf ../Testset_old.json"
@@ -142,7 +147,8 @@ alias csc='cp ~/.config/nvim/lua/lsp/cscope_cscope.lua ~/.config/nvim/lua/lsp/cs
                   echo "packer is changed to cscope."'
 alias cst='cp ~/.config/nvim/lua/lsp/cscope_telescope.lua ~/.config/nvim/lua/lsp/cscope.lua;
                   echo "packer is changed to cscope."'
-
+alias csf='cp ~/.config/nvim/lua/lsp/cscope_fzf.lua ~/.config/nvim/lua/lsp/cscope.lua;
+                  echo "packer is changed to cscope."'
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

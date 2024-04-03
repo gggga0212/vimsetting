@@ -145,14 +145,6 @@ keymaps('n','vv', ':cclose<CR>', ntst)
 -- keymaps('n','<space>eh', ':NERDTreeToggle<CR>', ntst)
 keymaps('n','<space>el', ':TagbarToggle<CR>',   ntst)
 
-
--- Function Key
--- keymaps('n', '<F3>',':cnext<CR>', ntst)
--- keymaps('n', '<F4>',':cprev<CR>', ntst)
--- keymaps('n', '<F6>',':!find . -iname '*.c' -o -iname '*.cpp' -o -'*.hpp' > cscope.files<CR>
--- :!cscope -R -b -q -i cscope.files -f cscope.out<CR>
--- :cs reset<CR>',ntst)
-
 -- Move in vim
 keymaps('n', '<C-H>','<C-W>h',ntst)
 keymaps('n', '<C-J>','<C-W>j',ntst)
@@ -291,11 +283,6 @@ keymaps('n','<leader>k','mN #',ntst)
 
 keymaps('n','<leader>m',[[<cmd>lua require('mywords').hl_toggle()<CR>]],ntst)
 keymaps('n','<leader>M',[[<cmd>lua require('mywords').uhl_all()<CR>]],ntst)
--- keymaps('n','<leader>m','<Plug>(quickhl-manual-this)',  ntst)
--- keymaps('x','<leader>m','<Plug>(quickhl-manual-this)',  ntst)
--- keymaps('n','<leader>M','<Plug>(quickhl-manual-reset)', ntst)
--- keymaps('x','<leader>M','<Plug>(quickhl-manual-reset)', ntst)
--- quickhl
 keymaps('n','<leader>q',':q!<CR>',ntst)
 keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
 keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)

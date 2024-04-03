@@ -54,6 +54,7 @@ require("lazy").setup({
     {'nvim-treesitter/nvim-treesitter-context'},
     {'nvim-treesitter/tree-sitter-query'},
     {'HiPhish/rainbow-delimiters.nvim'},
+    {'RRethy/nvim-treesitter-textsubjects'},
     {'terrortylor/nvim-comment', require('nvim_comment').setup()},
     {"nvim-tree/nvim-tree.lua"},
 	{"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", },

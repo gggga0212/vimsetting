@@ -194,6 +194,7 @@ require("lazy").setup({
      config = function()
          require("lsp_lines").setup()
      end,},
+    {'dwrdx/mywords.nvim'},
     {'kevinhwang91/promise-async'},
     {'kevinhwang91/nvim-ufo'},
      -- { 'hrsh7th/nvim-cmp'},

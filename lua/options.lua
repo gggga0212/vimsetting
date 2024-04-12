@@ -1,7 +1,14 @@
 local keymaps = vim.api.nvim_set_keymap
 local ntst = {noremap=true, silent=true}
 local ntsf = {noremap=true, silent=false}
-
+local group = vim.api.nvim_create_augroup("CscopeBuild", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*.c", "*.h" },
+  callback = function ()
+    vim.cmd("Cscope db build")
+  end,
+  group = group,
+})
 vim.opt.termguicolors = true
 
 require "lsp.treesitter"

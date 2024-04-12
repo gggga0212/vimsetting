@@ -17,6 +17,7 @@ require "lsp.null_ls"
 require "lsp.stuff"
 require "lsp.cscope"
 require "lsp.nvim-tree"
+require "lsp.hi-my-words"
 
 -- :help option
 vim.opt.encoding      = 'utf-8'
@@ -192,6 +193,7 @@ keymaps('n','<space>gh',':DiffviewFileHistory<CR>',  ntst)
 keymaps('n','<space>gl',':LazyGit<CR>',              ntst)
 keymaps('n','<space>go',':DiffviewOpen -uno<CR>',    ntst)
 keymaps('n','<space>gp',':DiffviewOpen @^ -uno<CR>', ntst)
+keymaps('n','<space>gs',':DiffviewOpen $Sam -uno<CR>', ntst)
 keymaps('n','<space>gq',':DiffviewClose<CR>',        ntst)
 keymaps('n','<space>gr',':DiffviewRefresh<CR>',      ntst)
 keymaps('n','<space>gt',':Telescope git_status<CR>', ntst)
@@ -281,8 +283,9 @@ keymaps('n','<leader>g','<C-]>',ntst)
 keymaps('n','<leader>j','mN *',ntst)
 keymaps('n','<leader>k','mN #',ntst)
 
-keymaps('n','<leader>m',[[<cmd>lua require('mywords').hl_toggle()<CR>]],ntst)
-keymaps('n','<leader>M',[[<cmd>lua require('mywords').uhl_all()<CR>]],ntst)
+keymaps('n','<leader>m',[[<cmd>HiMyWordsToggle<CR>]],ntst)
+keymaps('n','<leader>M',[[<cmd>HiMyWordsClear<CR>]],ntst)
+
 keymaps('n','<leader>q',':q!<CR>',ntst)
 keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
 keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)

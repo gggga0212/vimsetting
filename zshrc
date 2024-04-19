@@ -144,8 +144,10 @@ alias ar="rm -rf ../Testset_old.json"
 alias wttr='curl http://wttr.in'
 alias lz='lazygit'
 alias csc='cp ~/.config/nvim/lua/lsp/cscope_cscope.lua ~/.config/nvim/lua/lsp/cscope.lua;
+cp ~/.config/nvim/lua/lsp/telescope_csc.lua ~/.config/nvim/lua/lsp/telescope.lua;
                   echo "packer is changed to cscope."'
 alias cst='cp ~/.config/nvim/lua/lsp/cscope_telescope.lua ~/.config/nvim/lua/lsp/cscope.lua;
+cp ~/.config/nvim/lua/lsp/telescope_cst.lua ~/.config/nvim/lua/lsp/telescope.lua;
                   echo "packer is changed to cscope."'
 alias csf='cp ~/.config/nvim/lua/lsp/cscope_fzf.lua ~/.config/nvim/lua/lsp/cscope.lua;
                   echo "packer is changed to cscope."'

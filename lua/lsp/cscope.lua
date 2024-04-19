@@ -1,4 +1,3 @@
-
 require("cscope_maps").setup(
 {
   -- maps related defaults
@@ -13,7 +12,7 @@ require("cscope_maps").setup(
     -- cscope executable
     exec = "cscope", -- "cscope" or "gtags-cscope"
     -- choose your fav picker
-    picker = "fzf-lua", -- "telescope", "fzf-lua" or "quickfix"
+    picker = "quickfix", -- "telescope", "fzf-lua" or "quickfix"
     -- size of quickfix window
     qf_window_size = 5, -- any positive integer
     -- position of quickfix window

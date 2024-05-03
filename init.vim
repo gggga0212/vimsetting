@@ -92,7 +92,8 @@ let g:bookmark_highlight_lines = 1
 " via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
 " imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 set completeopt=menu,menuone,noselect
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+" set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set listchars=tab:>·,trail:~,extends:>,precedes:<,space:␣
 set list
 
 " hi CursorLine   cterm=NONE ctermbg=241 ctermfg=white guibg=#A9A9A9 guifg=white

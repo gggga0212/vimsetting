@@ -85,8 +85,12 @@ plugins=(
     zsh-completions
     zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-history-substring-search
     )
 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey ',' autosuggest-accept
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

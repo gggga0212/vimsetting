@@ -15,7 +15,7 @@ require("hi-my-words").setup({
 		},
 		{
 			"HiMyWordsHLG3",
-			{ ctermfg = 0, ctermbg = 11, fg = "#e2d1f9", bg = "#FF00FF", bold = true, italic = true },
+			{ ctermfg = 0, ctermbg = 11, fg = "#000000", bg = "#FF00FF", bold = true, italic = true },
 		},
 		{
 			"HiMyWordsHLG4",

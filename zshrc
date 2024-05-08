@@ -140,8 +140,8 @@ alias nup='tar xzvf nvim-linux64.tar.gz'
 alias nv='~/.config/nvim-linux64/bin/nvim'
 alias nvig='nv .gitignore'
 alias loadigsp='cp ~/.config/nvim/gitignoreSample .gitignore'
-alias rmlock='rm -rf ../.git/*.lock'
-alias rmmlock='rm -rf ../../.git/*.lock'
+alias rl='rm -rf ../.git/*.lock;
+rm -rf ../../.git/*.lock;'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
 alias ag=' ~/.config/nvim/autom.sh'
 alias ar="rm -rf ../Testset_old.json"

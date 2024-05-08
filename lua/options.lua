@@ -47,6 +47,7 @@ vim.opt.compatible    = false
 
 vim.opt.shiftwidth = 4
 vim.opt.tabstop    = 4
+vim.opt.softtabstop= 0 
 vim.opt.laststatus = 2
 
 vim.g.t_Co         = 256
@@ -299,6 +300,7 @@ keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)
 keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
 keymaps('n','<leader>T','<C-W>=', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
+keymaps('n','<leader>W',':%s/\t/    /g<CR>',ntst)
 keymaps('n','<leader>zx',':Cscope find f ble_gap.h<CR>',ntst)
 keymaps('n','<leader>z',':Cscope find f cmd_evt.c<CR>',ntst)
 keymaps('n','<leader>Z',':Cscope find f cmd_evt_profile.c<CR>',ntst)

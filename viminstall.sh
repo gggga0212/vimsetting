@@ -7,7 +7,7 @@ sudo apt install git
 git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
 #nvim
 cd ~/.config
-wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim-linux64.tar.gz
 tar xzvf nvim-linux64.tar.gz
 
 #lazygit
@@ -31,9 +31,10 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 #source ~/.zshrc
 
 
-# Using Ubuntu nodejs 18.x
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install nodejs
+sudo apt-get install -y curl
+curl -fsSL https://deb.nodesource.com/setup_lts.x -o nodesource_setup.sh
+sudo -E bash nodesource_setup.sh
+sudo apt-get install -y nodejs
 sudo apt-get install fonts-powerline tmux pip
 sudo apt-get install exuberant-ctags cscope
 sudo apt-get install gcc g++ make

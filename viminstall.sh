@@ -74,3 +74,6 @@ npm install tree-sitter-cli
 #fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+#ubuntu github authentication
+#curl -u username:token https://api.github.com/user

@@ -22,15 +22,15 @@ items=( "7_peripheral_ae_pa_20230807.pts"
          "BLE_Test_Command_Set.docx"
          "Profile_Test_Command_Set.docx"
          "------ TCRL2023-1------"
-         "GAP.TS.p44.pdf   (2023.06.29)"
-         "GATT.TS.p24.pdf  (2023.06.29)"
-         "L2CAP.TS.p36.pdf (2023.06.29)"
-         "SM.TS.p24.pdf    (2023.06.29)"
+         "GAP.TS.p45.pdf   (2024.07.01)"
+         "GATT.TS.p25.pdf  (2024.07.01)"
+         "L2CAP.TS.p37.pdf (2024.07.01)"
+         "SM.TS.p25.pdf    (2024.07.01)"
          "-----------------------"
-         "GAP.ICS.p40.pdf  (2023.06.29)"
-         "GATT.ICS.p17.pdf (2023.06.29)"
-         "L2CAP.ICS.p25ed3.pdf  (2023.04.14)"
-         "SMP.ICS.p11.pdf  (2023.02.07)"
+         "GAP.ICS.p41.pdf  (2024.07.01)"
+         "GATT.ICS.p18.pdf (2024.07.01)"
+         "L2CAP.ICS.p26.pdf  (2024.07.01)"
+         "SMP.ICS.p12.pdf  (2024.07.01)"
          "-----------------------"
          "ANP_SPEC_V10.pdf  (2011.09.05)"
          "ANS_SPEC_V10.pdf  (2011.09.15)"
@@ -96,10 +96,10 @@ if [ $REPLY -le ${#items[@]} ]; then
         cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
         ~/.config/nvim-linux64/bin/nvim ${items[$SEL]} 
     elif [ $REPLY -le 11 ]; then
-        cd "/mnt/c/mchpCode/AutoPTS/MiddleWare230807/MiddleWare"
+        cd "/mnt/c/mchpCode/AutoPTS/Endpoint_V1.3.4/Endpoint_V1.3.4"
         cmd.exe /c python main.py
     elif [ $REPLY -le 12 ]; then
-        cd "/mnt/c/mchpCode/AutoPTS/MiddleWare230807/MiddleWare/log"
+        cd "/mnt/c/mchpCode/AutoPTS/Endpoint_V1.3.4/Endpoint_V1.3.4/log"
         ~/.config/nvim-linux64/bin/nvim .
     else
         cd "/mnt/c/mchpCode"

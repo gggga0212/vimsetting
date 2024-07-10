@@ -18,6 +18,18 @@ require("lazy").setup({
     {'nvim-lua/plenary.nvim'},
     { 'sindrets/diffview.nvim'},
     {'tamton-aquib/stuff.nvim'},
+    -- tree
+    {
+      "daishengdong/calltree.nvim",
+      dependencies = {
+        "dhananjaylatkar/cscope_maps.nvim",
+        "folke/which-key.nvim", -- optional [for whichkey hints]
+      },
+      opts = {
+        -- USE EMPTY FOR DEFAULT OPTIONS
+        -- DEFAULTS ARE LISTED BELOW
+      },
+    },
     -- mason
     {
         "williamboman/mason.nvim",

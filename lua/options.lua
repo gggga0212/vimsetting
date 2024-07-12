@@ -25,6 +25,7 @@ require "lsp.stuff"
 require "lsp.cscope"
 require "lsp.nvim-tree"
 require "lsp.hi-my-words"
+require "lsp.calltree"
 
 -- :help option
 vim.opt.encoding      = 'utf-8'
@@ -295,12 +296,8 @@ keymaps('n','<leader>m',[[<cmd>HiMyWordsToggle<CR>]],ntst)
 keymaps('n','<leader>M',[[<cmd>HiMyWordsClear<CR>]],ntst)
 
 keymaps('n','<leader>q',':q!<CR>',ntst)
--- keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
--- keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)
-keymaps('n','<leader>rc',':CallerTreeCscope<CR>',ntst)
-keymaps('n','<leader>rl',':CallerTreeLsp<CR>',ntst)
-keymaps('n','<leader>rq',':CallTreeCloseAll<CR>',ntst)
-keymaps('n','<leader>rs',':CallTreeSwitch<CR>',ntst)
+keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
+keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)
 keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
 keymaps('n','<leader>T','<C-W>=', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)

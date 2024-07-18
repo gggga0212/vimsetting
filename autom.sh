@@ -2,9 +2,9 @@
 
 PS3="Select item please: "
 nv="~/.config/nvim-linux64/bin/nvim"
-items=( "7_peripheral_ae_pa_20240807.pts"
-        "8_central_ae_sync_20240807.pts"
-        "9_central_peripheral_ae_pa_sync_20240807.pts"
+items=( "7_peripheral_ae_pa_20240713.pts"
+        "8_central_ae_sync_20240713.pts"
+        "9_central_peripheral_ae_pa_sync_20240713.pts"
         "cmd.exe /c python AutoPTS.py"
         "cmd.exe /c RunAutoPTS.bat"
         "ProfilesConfigs"
@@ -55,10 +55,10 @@ items=( "7_peripheral_ae_pa_20240807.pts"
          "Assigned_Numbers.pdf (2023.07.25)"
          "CSS_v11.pdf (2023.01.31)")
 
-testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_230713.json"
-        "TestSet_Central_role_only_with_AE_with_PA_feature_230713.json"
-        "TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_230713.json")
-AutoPath="AutoPTS_V3.0.2"
+testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_240713.json"
+        "TestSet_Central_role_only_with_AE_with_PA_feature_240713.json"
+        "TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_240713.json")
+AutoPath="AutoPTS_V3.0.5"
 cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 if [ -f TestSet_old.json ]; then
     rm TestSet_old.json

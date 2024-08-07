@@ -51,6 +51,17 @@ items=( "7_peripheral_ae_pa_20240713.pts"
          "BAS.TS.p5.pdf  (2022.12.27)"
          "HOGP.TS.p9.pdf (2023.02.07)"
          "HIDS.TS.p5.pdf (2023.02.07)"
+         "-------TCRL2024_1------"
+         "PTS_ANP_For_SQA.docx"
+         "PTS_ANS_For_SQA.docx"
+         "PTS_BAS_For_SQA.docx"
+         "PTS_DIS_For_SQA.docx"
+         "PTS_HIDS_For_SQA.docx"
+         "PTS_HOGPS_For_SQA.docx"
+         "PTS_IAS_For_SQA.docx"
+         "PTS_LLS_For_SQA.docx"
+         "PTS_PXP_For_SQA.docx"
+         "PTS_TPS_For_SQA.docx"
          "-----------------------"
          "Assigned_Numbers.pdf (2023.07.25)"
          "CSS_v11.pdf (2023.01.31)")
@@ -58,7 +69,7 @@ items=( "7_peripheral_ae_pa_20240713.pts"
 testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_240713.json"
         "TestSet_Central_role_only_with_AE_with_PA_feature_240713.json"
         "TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_240713.json")
-AutoPath="AutoPTS_V3.0.5"
+AutoPath="AutoPTS_V3.0.6"
 cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 if [ -f TestSet_old.json ]; then
     rm TestSet_old.json
@@ -78,7 +89,6 @@ while true; do
 done
 if [ $REPLY -le ${#items[@]} ]; then
     SEL=$((REPLY-1))
-    echo "sam sel = $SEL"
     if [ $REPLY -le 3 ]; then
         echo "My selection is ${items[$SEL]}"
         cp "/mnt/c/mchpCode/AutoPTS/${items[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"

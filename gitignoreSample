@@ -5,7 +5,7 @@
 *.swp
 *.dump
 *.ctu-info
-*.bak
+*.bak*
 cscope.*
 tags
 *.00

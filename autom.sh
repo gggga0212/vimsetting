@@ -115,24 +115,6 @@ testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_240713.json
         "TCRL_2024_1_DIS.json"
         "TCRL_2024_1_HIDS.json"
         "TCRL_2024_1_HOGP.json")
-cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-if [ -f TestSet_old.json ]; then
-    rm TestSet_old.json
-    echo "TestSet_old is existed"
-else
-    echo "TestSet_old is not existed"
-fi
-
-while true; do
-    select index in "${index[@]}" Quit
-    do
-        if [ $REPLY -le ${#index[@]} ]; then
-            echo "Selected item #$REPLY which means $index"; break 2;
-        else
-            echo "Ooops - unknown choice $REPLY"; exit;
-        fi
-    done
-done
 
 function selAuto()
 {
@@ -161,12 +143,10 @@ function selRunAutoPTS()
             if [ $REPLY -le ${#item_RunAutoPTS[@]} ]; then
                 SEL=$((REPLY-1))
                 if [ $SEL -le 1 ]; then
-                    echo "Ooops a - unknown choice $SEL";
                     cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
                     ${item_RunAutoPTS[$SEL]}
                     exit;
                 elif [ $SEL -eq 2 ]; then
-                    echo "Ooops b - unknown choice $SEL";
                     cd "/mnt/c/mchpCode/AutoPTS/$MidPath/$MidPath"
                     cmd.exe /c python main.py
                     exit;
@@ -228,20 +208,39 @@ function selApp()
         done
     done
 }
-if [ $REPLY -le ${#index[@]} ]; then
-      SEL=$((REPLY-1))
-      if [ $REPLY -eq 1 ]; then
-          selAuto;
-      elif [ $REPLY -eq 2 ]; then
-          selRunAutoPTS;
-      elif [ $REPLY -eq 3 ]; then
-          selvimEdit
-      elif [ $REPLY -eq 4 ]; then
-          selFolder
-      elif [ $REPLY -eq 5 ]; then
-          selApp
-      else
-            echo "unknow choice";exit;
-      fi
 
-fi
+function mainInit()
+{
+    cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
+    if [ -f TestSet_old.json ]; then
+        rm TestSet_old.json
+    fi
+    while true; do
+        select index in "${index[@]}" Quit
+        do
+            if [ $REPLY -le ${#index[@]} ]; then
+                echo "Selected item #$REPLY which means $index"; break 2;
+            else
+                echo "Ooops - unknown choice $REPLY"; exit;
+            fi
+        done
+    done
+    if [ $REPLY -le ${#index[@]} ]; then
+          SEL=$((REPLY-1))
+          if [ $REPLY -eq 1 ]; then
+              selAuto;
+          elif [ $REPLY -eq 2 ]; then
+              selRunAutoPTS;
+          elif [ $REPLY -eq 3 ]; then
+              selvimEdit
+          elif [ $REPLY -eq 4 ]; then
+              selFolder
+          elif [ $REPLY -eq 5 ]; then
+              selApp
+          else
+                echo "unknow choice";exit;
+          fi
+
+    fi
+}
+mainInit

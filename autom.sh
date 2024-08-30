@@ -2,13 +2,14 @@
 
 PS3="Select item please: "
 nv="~/.config/nvim-linux64/bin/nvim"
+AutoPath="AutoPTS_V3.0.7"
+MidPath="Endpoint_V1.3.4"
 index=( "Generate AutoPTS Env"
         "Run AutoPTS"
         "vimEdit"
         "Folder"
         "App"
     )
-
 item_Auto=( "7_peripheral_ae_pa_20240713.pts"
         "8_central_ae_sync_20240713.pts"
         "9_central_peripheral_ae_pa_sync_20240713.pts"
@@ -114,7 +115,6 @@ testSets=("TestSet_Peripheral_role_only_with_AE_and_periodic_feature_240713.json
         "TCRL_2024_1_DIS.json"
         "TCRL_2024_1_HIDS.json"
         "TCRL_2024_1_HOGP.json")
-AutoPath="AutoPTS_V3.0.7"
 cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
 if [ -f TestSet_old.json ]; then
     rm TestSet_old.json
@@ -167,7 +167,7 @@ function selRunAutoPTS()
                     exit;
                 elif [ $SEL -eq 2 ]; then
                     echo "Ooops b - unknown choice $SEL";
-                    cd "/mnt/c/mchpCode/AutoPTS/Endpoint_V1.3.4/Endpoint_V1.3.4"
+                    cd "/mnt/c/mchpCode/AutoPTS/$MidPath/$MidPath"
                     cmd.exe /c python main.py
                     exit;
                 else

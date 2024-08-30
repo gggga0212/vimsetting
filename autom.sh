@@ -39,6 +39,7 @@ item_Folder=(
          "MiddleTestLog"
     )
 item_App=(
+         "stack_test_script.ptp"
          "Core_v5.2.pdf"
          "Core_v5.3.pdf"
          "Core_v5.4.pdf"
@@ -46,13 +47,13 @@ item_App=(
          "BLE_Test_Command_Set.docx"
          "Profile_Test_Command_Set.docx"
          "------ TCRL2023-1------"
-         "GAP.TS.p45.pdf   (2024.07.01)"
-         "GATT.TS.p25.pdf  (2024.07.01)"
-         "L2CAP.TS.p37.pdf (2024.07.01)"
-         "SM.TS.p25.pdf    (2024.07.01)"
+         "GAP.TS.p46.pdf   (2024.09.04)"
+         "GATT.TS.p26.pdf  (2024.09.04)"
+         "L2CAP.TS.p38.pdf (2024.09.04)"
+         "SM.TS.p26.pdf    (2024.09.04)"
          "-----------------------"
-         "GAP.ICS.p41.pdf  (2024.07.01)"
-         "GATT.ICS.p18.pdf (2024.07.01)"
+         "GAP.ICS.p42.pdf  (2024.09.04)"
+         "GATT.ICS.p19.pdf (2024.09.04)"
          "L2CAP.ICS.p26.pdf  (2024.07.01)"
          "SM.ICS.p12.pdf  (2024.07.01)"
          "-----------------------"
@@ -64,7 +65,7 @@ item_App=(
          "TPS.ICS.p4.pdf  (2023.02.07)"
          "BAS.ICS.p5.pdf  (2024.07.01)"
          "DIS.ICS.p5.pdf  (2023.06.23)"
-         "HID11.ICS.p12ed2.pdf  (2023.02.27)"
+         "HIDS.ICS.p3.pdf  (2023.02.27)"
          "HOGP.ICS.p8.pdf  (2024.07.01)"
          "-----------------------"
          "ANP_SPEC_V10.pdf  (2011.09.05)"
@@ -75,7 +76,7 @@ item_App=(
          "TPS_SPEC_V10.pdf  (2011.06.21)"
          "BAS_SPEC_V10.pdf  (2011.12.27)"
          "DIS_SPEC_V11r00.pdf  (2011.11.29)"
-         "HID_v1.1.1.pdf (2015.12.15)"
+         "HIDS_SPEC_V10.pdf (2011.12.27)"
          "HOGP_SPEC_V10.pdf (2011.12.27)"
          "-----------------------"
          "ANP.TS.1.0.3ed2.pdf (2019.11.11)"
@@ -86,7 +87,7 @@ item_App=(
          "TPS.TS.p4.pdf  (2011.06.21)"
          "BAS.TS.p6.pdf  (2023.06.29)"
          "DIS.TS.p6.pdf  (2023.06.23)"
-         "HID11.TS.p14.pdf (2024.07.01)"
+         "HIDS.TS.p6.pdf (2024.07.01)"
          "HOGP.TS.p11.pdf (2024.07.01)"
          "-------TCRL2024_1------"
          "PTS_ANP_For_SQA.docx"
@@ -123,7 +124,8 @@ function selAuto()
         do
             if [ $REPLY -le ${#item_Auto[@]} ]; then
                 SEL=$((REPLY-1))
-                cp "/mnt/c/mchpCode/AutoPTS/${items[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"
+                rm "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"
+                cp "/mnt/c/mchpCode/AutoPTS/${item_Auto[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"
                 cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/Function"
                 cmd.exe /c python GeneratePtsConfig.py ../pics.pts
                 cp "/mnt/c/mchpCode/AutoPTS/${testSets[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/TestSet.json"
@@ -226,21 +228,18 @@ function mainInit()
         done
     done
     if [ $REPLY -le ${#index[@]} ]; then
-          SEL=$((REPLY-1))
-          if [ $REPLY -eq 1 ]; then
-              selAuto;
-          elif [ $REPLY -eq 2 ]; then
-              selRunAutoPTS;
-          elif [ $REPLY -eq 3 ]; then
-              selvimEdit
-          elif [ $REPLY -eq 4 ]; then
-              selFolder
-          elif [ $REPLY -eq 5 ]; then
-              selApp
-          else
-                echo "unknow choice";exit;
-          fi
-
+        case $REPLY in
+        1) selAuto;
+        ;;
+        2) selRunAutoPTS;
+        ;;
+        3) selvimEdit;
+        ;;
+        4) selFolder;
+        ;;
+        5) selApp;
+        ;;
+        esac
     fi
 }
 mainInit

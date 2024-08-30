@@ -145,6 +145,7 @@ rm -rf ../../.git/*.lock;'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
 alias ag=' ~/.config/nvim/autom.sh'
 alias ar="rm -rf ../Testset_old.json"
+alias tp="python ~/.config/nvim/autom.py"
 alias wttr='curl http://wttr.in'
 alias lz='lazygit'
 alias csc='cp ~/.config/nvim/lua/lsp/cscope_cscope.lua ~/.config/nvim/lua/lsp/cscope.lua;

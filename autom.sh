@@ -2,7 +2,14 @@
 
 PS3="Select item please: "
 nv="~/.config/nvim-linux64/bin/nvim"
-items=( "7_peripheral_ae_pa_20240713.pts"
+index=( "Generate AutoPTS Env"
+        "Run AutoPTS"
+        "vimEdit"
+        "Folder"
+        "App"
+    )
+
+item_Auto=( "7_peripheral_ae_pa_20240713.pts"
         "8_central_ae_sync_20240713.pts"
         "9_central_peripheral_ae_pa_sync_20240713.pts"
         "7_peripheral_ae_pa_20240829.pts"
@@ -14,17 +21,23 @@ items=( "7_peripheral_ae_pa_20240713.pts"
         "DIS_For_TCRL_2024_1.pts"
         "HIDS_For_TCRL_2024_1.pts"
         "HOGPS_For_TCRL_2024_1.pts"
-         "-----------------------"
+    )
+item_RunAutoPTS=(
         "cmd.exe /c python AutoPTS.py"
         "cmd.exe /c RunAutoPTS.bat"
-        "ProfilesConfigs"
-        "WorkDirectory"
+        "Run MiddleWareTest"
+    )
+item_vimEdit=(
          "TestSet.json"
          "CaseDefine.json"
          "AutoPTS.py"
-         "MiddleTest"
+    )
+item_Folder=(
+        "ProfilesConfigs"
+        "WorkDirectory"
          "MiddleTestLog"
-         "-----------------------"
+    )
+item_App=(
          "Core_v5.2.pdf"
          "Core_v5.3.pdf"
          "Core_v5.4.pdf"
@@ -109,42 +122,126 @@ if [ -f TestSet_old.json ]; then
 else
     echo "TestSet_old is not existed"
 fi
+
 while true; do
-    select item in "${items[@]}" Quit
+    select index in "${index[@]}" Quit
     do
-        if [ $REPLY -le ${#items[@]} ]; then
-            echo "Selected item #$REPLY which means $item"; break 2;
+        if [ $REPLY -le ${#index[@]} ]; then
+            echo "Selected item #$REPLY which means $index"; break 2;
         else
             echo "Ooops - unknown choice $REPLY"; exit;
         fi
     done
 done
-if [ $REPLY -le ${#items[@]} ]; then
-    SEL=$((REPLY-1))
-    if [ $REPLY -le 13 ]; then
-        echo "My selection is ${items[$SEL]}"
-        cp "/mnt/c/mchpCode/AutoPTS/${items[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"
-        cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/Function"
-        cmd.exe /c python GeneratePtsConfig.py ../pics.pts
-        cp "/mnt/c/mchpCode/AutoPTS/${testSets[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/TestSet.json"
-    elif [ $REPLY -le 15 ]; then
-        cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-        ${items[$SEL]}
-    elif [ $REPLY -le 17 ]; then
-        echo "6 and 7"
-        cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/${items[$SEL]}"
-        ~/.config/nvim-linux64/bin/nvim .
-    elif [ $REPLY -le 20 ]; then
-        cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
-        ~/.config/nvim-linux64/bin/nvim ${items[$SEL]} 
-    elif [ $REPLY -le 21 ]; then
-        cd "/mnt/c/mchpCode/AutoPTS/Endpoint_V1.3.4/Endpoint_V1.3.4"
-        cmd.exe /c python main.py
-    elif [ $REPLY -le 22 ]; then
-        cd "/mnt/c/mchpCode/AutoPTS/Endpoint_V1.3.4/Endpoint_V1.3.4/log"
-        ~/.config/nvim-linux64/bin/nvim .
-    else
-        cd "/mnt/c/mchpCode"
-        cmd.exe /c start ${items[$SEL]}
-    fi
+
+function selAuto()
+{
+    while true; do
+        select item_Auto in "${item_Auto[@]}" Quit
+        do
+            if [ $REPLY -le ${#item_Auto[@]} ]; then
+                SEL=$((REPLY-1))
+                cp "/mnt/c/mchpCode/AutoPTS/${items[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/pics.pts"
+                cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/Function"
+                cmd.exe /c python GeneratePtsConfig.py ../pics.pts
+                cp "/mnt/c/mchpCode/AutoPTS/${testSets[$SEL]}" "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath/TestSet.json"
+                exit;
+            else
+                echo "Ooops - unknown choice $REPLY"; exit;
+            fi
+        done
+    done
+}
+
+function selRunAutoPTS()
+{
+    while true; do
+        select item_RunAutoPTS in "${item_RunAutoPTS[@]}" Quit
+        do
+            if [ $REPLY -le ${#item_RunAutoPTS[@]} ]; then
+                SEL=$((REPLY-1))
+                if [ $SEL -le 1 ]; then
+                    echo "Ooops a - unknown choice $SEL";
+                    cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
+                    ${item_RunAutoPTS[$SEL]}
+                    exit;
+                elif [ $SEL -eq 2 ]; then
+                    echo "Ooops b - unknown choice $SEL";
+                    cd "/mnt/c/mchpCode/AutoPTS/Endpoint_V1.3.4/Endpoint_V1.3.4"
+                    cmd.exe /c python main.py
+                    exit;
+                else
+                    echo "Ooops - unknown choice $REPLY"; exit;
+                fi
+            else
+                echo "Ooops - unknown choice $REPLY"; exit;
+            fi
+        done
+    done
+}
+
+function selvimEdit()
+{
+    while true; do
+        select item_vimEdit in "${item_vimEdit[@]}" Quit
+        do
+            if [ $REPLY -le ${#item_vimEdit[@]} ]; then
+                SEL=$((REPLY-1))
+                cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
+                ~/.config/nvim-linux64/bin/nvim ${item_vimEdit[$SEL]} 
+                exit;
+            else
+                echo "Ooops - unknown choice $REPLY"; exit;
+            fi
+        done
+    done
+}
+function selFolder()
+{
+    while true; do
+        select item_Folder in "${item_Folder[@]}" Quit
+        do
+            if [ $REPLY -le ${#item_Folder[@]} ]; then
+                SEL=$((REPLY-1))
+                cd "/mnt/c/mchpCode/AutoPTS/$AutoPath/$AutoPath"
+                ~/.config/nvim-linux64/bin/nvim .
+                exit;
+            else
+                echo "Ooops - unknown choice $REPLY"; exit;
+            fi
+        done
+    done
+}
+function selApp()
+{
+    while true; do
+        select item_App in "${item_App[@]}" Quit
+        do
+            if [ $REPLY -le ${#item_App[@]} ]; then
+                SEL=$((REPLY-1))
+                cd "/mnt/c/mchpCode"
+                cmd.exe /c start ${item_App[$SEL]}
+                exit;
+            else
+                echo "Ooops - unknown choice $REPLY"; exit;
+            fi
+        done
+    done
+}
+if [ $REPLY -le ${#index[@]} ]; then
+      SEL=$((REPLY-1))
+      if [ $REPLY -eq 1 ]; then
+          selAuto;
+      elif [ $REPLY -eq 2 ]; then
+          selRunAutoPTS;
+      elif [ $REPLY -eq 3 ]; then
+          selvimEdit
+      elif [ $REPLY -eq 4 ]; then
+          selFolder
+      elif [ $REPLY -eq 5 ]; then
+          selApp
+      else
+            echo "unknow choice";exit;
+      fi
+
 fi

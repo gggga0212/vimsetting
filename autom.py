@@ -54,7 +54,7 @@ item_App = {
     ],
     "ICS": [
         "GAP.ICS.p42.pdf  (2024.09.04)",
-        "GATT.ICS.p19.pdf (2024.09.04)",
+        "GATT.ICS.p19.pdf  (2024.09.04)",
         "L2CAP.ICS.p26.pdf  (2024.07.01)",
         "SM.ICS.p12.pdf  (2024.07.01)",
         "ANP.ICS.p6.pdf  (2023.02.07)",
@@ -85,18 +85,18 @@ item_App = {
     "TS": [
         "GAP.TS.p46.pdf   (2024.09.04)",
         "GATT.TS.p26.pdf  (2024.09.04)",
-        "L2CAP.TS.p38.pdf (2024.09.04)",
+        "L2CAP.TS.p38.pdf  (2024.09.04)",
         "SM.TS.p26.pdf    (2024.09.04)",
-        "ANP.TS.1.0.3ed2.pdf (2019.11.11)",
-        "ANS.TS.1.0.5ed2.pdf (2019.11.11)",
+        "ANP.TS.1.0.3ed2.pdf  (2019.11.11)",
+        "ANS.TS.1.0.5ed2.pdf  (2019.11.11)",
         "PXP.TS.p10.pdf  (2024.07.01)",
         "IAS.TS.p3.pdf  (2011.06.21)",
         "LLS.TS.p4.pdf  (2023.06.29)",
         "TPS.TS.p4.pdf  (2011.06.21)",
         "BAS.TS.p6.pdf  (2023.06.29)",
         "DIS.TS.p6.pdf  (2023.06.23)",
-        "HIDS.TS.p6.pdf (2024.07.01)",
-        "HOGP.TS.p11.pdf (2024.07.01)",
+        "HIDS.TS.p6.pdf  (2024.07.01)",
+        "HOGP.TS.p11.pdf  (2024.07.01)",
         "Back to the previous page"
     ],
     "To_SQA": [
@@ -116,8 +116,8 @@ item_App = {
     ],
     "Misc": [
         "stack_test_script.ptp",
-        "Assigned_Numbers.pdf (2023.07.25)",
-        "CSS_v11.pdf (2023.01.31)",
+        "Assigned_Numbers.pdf  (2023.07.25)",
+        "CSS_v11.pdf  (2023.01.31)",
         "Back to the previous page"
     ]
 }
@@ -187,7 +187,7 @@ def selRunAutoPTS():
         ██████╔╝██║   ██║██╔██╗ ██║    ███████║██║   ██║   ██║   ██║   ██║ ██████╔╝   ██║   ███████╗
         ██╔══██╗██║   ██║██║╚██╗██║    ██╔══██║██║   ██║   ██║   ██║   ██║ ██╔═══╝    ██║   ╚════██║
         ██║  ██║╚██████╔╝██║ ╚████║    ██║  ██║╚██████╔╝   ██║   ╚██████╔╝ ██║        ██║   ███████║
-        ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝   ╚═╝        ╚═╝   ╚══════╝
+        ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═╝  ╚═╝ ╚═════╝    ╚═╝    ╚═════╝  ╚═╝        ╚═╝   ╚══════╝
         """)
         SEL = display_menu(item_RunAutoPTS, "Select RunAutoPTS Item")
         if SEL == len(item_RunAutoPTS) - 1:
@@ -250,11 +250,13 @@ def selApp():
         items = item_App[selected_category]
 
         while True:
+            # Display the items with dates properly formatted
+            formatted_items = [item.split('  ')[0] for item in items]
             SEL = display_menu(items, f"Select {selected_category} Item")
             if SEL == len(items) - 1:
                 break
             os.chdir("/mnt/c/mchpCode")
-            subprocess.run(["cmd.exe", "/c", "start", items[SEL]])
+            subprocess.run(["cmd.exe", "/c", "start", formatted_items[SEL]])
 
 def mainInit():
     os.chdir(f"/mnt/c/mchpCode/AutoPTS/{AutoPath}/{AutoPath}")

@@ -1,6 +1,10 @@
-gui:
+git:
+  paging:
+    colorArg: always 
+    pager: diff-so-fancy
   theme:
     selectedLineBgColor:
       - reverse
     selectedRangeBgColor:
       - reverse
+

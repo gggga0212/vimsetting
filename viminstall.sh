@@ -53,6 +53,11 @@ sudo add-apt-repository ppa:longsleep/golang-backports
 sudo apt update
 sudo apt install golang-go
 
+#ydiff
+git clone https://github.com/ymattw/ydiff.git
+cd ydiff
+./setup.py install
+
 pip install pynvim --upgrade
 # clone the package
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -68,7 +73,7 @@ git clone https://github.com/terrortylor/nvim-comment
 cp ~/.config/nvim/gitconfig ~/.gitconfig
 cp ~/.config/nvim/tmux.conf ~/.tmux.conf
 cp ~/.config/nvim/zshrc ~/.zshrc
-
+cp ~/.config/nvim/lz_config.yml ~/.config/lazygit/config.yml
 #treesitter
 npm install tree-sitter-cli
 

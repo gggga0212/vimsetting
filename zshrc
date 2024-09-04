@@ -129,6 +129,7 @@ alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc;
 alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc; 
                   cp ~/.config/nvim/gitconfig ~/.gitconfig;
                   cp ~/.config/nvim/tmux.conf ~/.tmux.conf;
+                  cp ~/.config/nvim/lz_config.yml ~/.config/lazygit/config.yml;
                   source ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
 alias chrome="open -a 'Google Chrome'"
@@ -143,9 +144,8 @@ alias loadigsp='cp ~/.config/nvim/gitignoreSample .gitignore'
 alias rl='rm -rf ../.git/*.lock;
 rm -rf ../../.git/*.lock;'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
-alias ag=' ~/.config/nvim/autom.sh'
 alias ar="rm -rf ../Testset_old.json"
-alias tp="python ~/.config/nvim/autom.py"
+alias ag="python ~/.config/nvim/autom.py"
 alias wttr='curl http://wttr.in'
 alias lz='lazygit'
 alias csc='cp ~/.config/nvim/lua/lsp/cscope_cscope.lua ~/.config/nvim/lua/lsp/cscope.lua;

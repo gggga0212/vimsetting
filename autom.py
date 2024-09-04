@@ -1,3 +1,4 @@
+import json
 import os
 import subprocess
 from colorama import init, Fore, Style
@@ -132,6 +133,30 @@ testSets = [
     "TCRL_2024_1_HIDS.json",
     "TCRL_2024_1_HOGP.json"
 ]
+def getProfileConfig():
+    # Specify the directory path
+    directory_path = f'/mnt/c/mchpCode/AutoPTS/{AutoPath}/{AutoPath}/ProfilesConfigs'
+    
+    # Initialize an empty list to store all test cases
+    all_test_cases = []
+    
+    # Iterate over all files in the specified directory
+    for filename in os.listdir(directory_path):
+        if filename.endswith('.json'):
+            file_path = os.path.join(directory_path, filename)
+            with open(file_path, 'r') as json_file:
+                data = json.load(json_file)
+                # Extract the 'tc' field if it exists
+                test_cases = data.get("tc", [])
+                all_test_cases.extend(test_cases)
+    
+    # Write all test cases to a single file
+    output_file_path = os.path.join(directory_path, 'ProfilesCases.txt')
+    with open(output_file_path, 'w') as output_file:
+        for case in all_test_cases:
+            output_file.write(case + '\n')
+    
+    print(f"All test cases have been written to {output_file_path}")
 
 def display_menu(items, title="Menu"):
     print(Fore.CYAN + Style.BRIGHT + f"\n{title}\n" + "="*len(title))
@@ -151,7 +176,25 @@ def display_menu(items, title="Menu"):
         print(Fore.RED + "Invalid input. ByeBye")
         exit()
 
+def delJson():
+    directory_path = f'/mnt/c/mchpCode/AutoPTS/{AutoPath}/{AutoPath}/ProfilesConfigs'
+    # Initialize an empty list to store all test cases
+    all_test_cases = []
+    # Iterate over all files in the specified directory
+    for filename in os.listdir(directory_path):
+        if filename.endswith('.json'):
+            file_path = os.path.join(directory_path, filename)
+            with open(file_path, 'r') as json_file:
+                data = json.load(json_file)
+                # Extract the 'tc' field if it exists
+                test_cases = data.get("tc", [])
+                all_test_cases.extend(test_cases)
+
+            # Delete the .json file after processing
+            os.remove(file_path)
+
 def selAuto():
+    delJson()
     while True:
         print(Fore.MAGENTA + Style.BRIGHT + """
          █████╗ ██╗   ██╗████████╗ ██████╗     ██████╗ ████████╗███████╗ 
@@ -177,6 +220,7 @@ def selAuto():
             f"/mnt/c/mchpCode/AutoPTS/{testSets[SEL]}",
             f"/mnt/c/mchpCode/AutoPTS/{AutoPath}/{AutoPath}/TestSet.json"
         ])
+        getProfileConfig()
         
 def selRunAutoPTS():
     while True:
@@ -218,12 +262,12 @@ def selvimEdit():
 def selFolder():
     while True:
         print(Fore.MAGENTA + Style.BRIGHT + """
-        ███████╗ ██████╗ ██████╗ ██╗     ███████╗██████╗ 
-        ██╔════╝██╔════╝██╔═══██╗██║     ██╔════╝██╔══██╗
-        ███████╗██║     ██║   ██║██║     █████╗  ██████╔╝
-        ╚════██║██║     ██║   ██║██║     ██╔══╝  ██╔══██╗
-        ███████║╚██████╗╚██████╔╝███████╗███████╗██║  ██║
-        ╚══════╝ ╚═════╝ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝
+        ███████╗ ██████╗ ██╗     ██████╗ ███████╗██████╗ 
+        ██╔════╝██╔═══██╗██║     ██╔══██╗██╔════╝██╔══██╗
+        █████╗  ██║   ██║██║     ██║  ██║█████╗  ██████╔╝
+        ██╔══╝  ██║   ██║██║     ██║  ██║██╔══╝  ██╔══██╗
+        ██║     ╚██████╔╝███████╗██████╔╝███████╗██║  ██║
+        ╚═╝      ╚═════╝ ╚══════╝╚═════╝ ╚══════╝ ╚═╝  ╚═╝
         """)
         SEL = display_menu(item_Folder, "Select Folder Item")
         if SEL == len(item_Folder) - 1:
@@ -234,15 +278,15 @@ def selFolder():
 def selApp():
     while True:
         print(Fore.MAGENTA + Style.BRIGHT + """
-        █████╗ ██████╗ ██████╗ 
-       ██╔══██╗██╔══██╗██╔══██╗
-       ███████║██████╔╝██████╔╝
-       ██╔══██║██╔═══╝ ██╔═══╝ 
-       ██║  ██║██║     ██║     
-       ╚═╝  ╚═╝╚═╝     ╚═╝     
+         █████╗ ██████╗ ██████╗ 
+        ██╔══██╗██╔══██╗██╔══██╗
+        ███████║██████╔╝██████╔╝
+        ██╔══██║██╔═══╝ ██╔═══╝ 
+        ██║  ██║██║     ██║     
+        ╚═╝  ╚═╝╚═╝     ╚═╝     
         """)
         categories = list(item_App.keys()) + ["Back to the previous page"]
-        category_choice = display_menu(categories, "Select App Category")
+        category_choice = display_menu(categories, "Select App Item")
         if category_choice == len(categories) - 1:
             break
         selected_category = categories[category_choice]

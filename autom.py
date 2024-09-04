@@ -2,7 +2,6 @@ import os
 import subprocess
 from colorama import init, Fore, Style
 
-# Initialize colorama
 init(autoreset=True)
 
 nv = "~/.config/nvim-linux64/bin/nvim"

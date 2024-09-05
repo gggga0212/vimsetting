@@ -26,6 +26,7 @@ require "lsp.cscope"
 require "lsp.nvim-tree"
 require "lsp.hi-my-words"
 require "lsp.calltree"
+require "lsp.diffview"
 
 -- :help option
 vim.opt.encoding      = 'utf-8'

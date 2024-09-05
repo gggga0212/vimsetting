@@ -207,7 +207,9 @@ def selAuto():
         SEL = display_menu(item_Auto, "Select AutoPTS Item")
         if SEL == len(item_Auto) - 1:
             break
-        os.remove(f"/mnt/c/mchpCode/AutoPTS/{AutoPath}/{AutoPath}/pics.pts")
+
+        if os.path.isfile(f"/mnt/c/mchpCode/AutoPTS/{AutoPath}/{AutoPath}/pics.pts"):
+            os.remove(f"/mnt/c/mchpCode/AutoPTS/{AutoPath}/{AutoPath}/pics.pts")
         subprocess.run([
             "cp",
             f"/mnt/c/mchpCode/AutoPTS/{item_Auto[SEL]}",

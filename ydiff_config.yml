@@ -1,0 +1,17 @@
+# git:
+#   paging:
+#     colorArg: always 
+#     pager: diff-so-fancy
+#   theme:
+#     selectedLineBgColor:
+#       - reverse
+#     selectedRangeBgColor:
+#       - reverse
+
+#ydiff
+gui:
+  sidePanelWidth: 0.2 # gives you more space to show things side-by-side
+git:
+  paging:
+    colorArg: never
+    pager: ydiff -p cat -s --wrap --width={{columnWidth}}

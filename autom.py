@@ -78,8 +78,8 @@ item_App = {
         "TPS_SPEC_V10.pdf  (2011.06.21)",
         "BAS_SPEC_V10.pdf  (2011.12.27)",
         "DIS_SPEC_V11r00.pdf  (2011.11.29)",
-        "HIDS_SPEC_V10.pdf (2011.12.27)",
-        "HOGP_SPEC_V10.pdf (2011.12.27)",
+        "HIDS_SPEC_V10.pdf  (2011.12.27)",
+        "HOGP_SPEC_V10.pdf  (2011.12.27)",
         "Back to the previous page"
     ],
     "TS": [

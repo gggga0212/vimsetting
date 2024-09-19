@@ -124,12 +124,6 @@ hi default link UfoPreviewSbar PmenuSbar
 hi default link UfoPreviewThumb PmenuThumb
 hi default link UfoFoldedEllipsis Comment
 
-" nvim-comment
-augroup set-commentstring-ag
-autocmd!
-autocmd BufEnter *.c,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-autocmd BufFilePost *.c,*.h :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-augroup END
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline

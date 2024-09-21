@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- My plugins here
     -- Automatically set up your configuration after cloning packer.nvim
-    {'wbthomason/packer.nvim'},
+    -- {'wbthomason/packer.nvim'},
     {'nvim-lua/plenary.nvim'},
     { 'sindrets/diffview.nvim'},
     {'tamton-aquib/stuff.nvim'},

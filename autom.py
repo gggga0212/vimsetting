@@ -124,15 +124,15 @@ item_App = {
 }
 
 testSets = [
-    "TestSet_Peripheral_role_only_with_AE_and_periodic_feature_240713.json",
-    "TestSet_Central_role_only_with_AE_with_PA_feature_240713.json",
-    "TestSet_Central_and_Peripheral_role_with_AE_with_PA_feature_240713.json",
-    "TCRL_2024_1_ANP_ANS_PXP.json",
-    "TCRL_2024_1_IAS_LLS_TPS.json",
-    "TCRL_2024_1_BAS.json",
-    "TCRL_2024_1_DIS.json",
-    "TCRL_2024_1_HIDS.json",
-    "TCRL_2024_1_HOGP.json"
+    "7_peripheral_ae_pa_20240924.json",
+    "8_central_ae_sync_20240924.json",
+    "9_central_peripheral_ae_pa_sync_20240924.json",
+    "TCRL_2024_2_ANP_ANS_PXP.json",
+    "TCRL_2024_2_IAS_LLS_TPS.json",
+    "TCRL_2024_2_BAS.json",
+    "TCRL_2024_2_DIS.json",
+    "TCRL_2024_2_HIDS.json",
+    "TCRL_2024_2_HOGP.json"
 ]
 def getProfileConfig():
     # Specify the directory path
@@ -213,14 +213,14 @@ def selAuto():
             os.remove(f"{BASE_PATH}/AutoPTS/{AutoPath}/{AutoPath}/pics.pts")
         subprocess.run([
             "cp",
-            f"{BASE_PATH}/AutoPTS/{item_Auto[SEL]}",
+            f"{BASE_PATH}/AutoPTS/Json/{item_Auto[SEL]}",
             f"{BASE_PATH}/AutoPTS/{AutoPath}/{AutoPath}/pics.pts"
         ])
         os.chdir(f"{BASE_PATH}/AutoPTS/{AutoPath}/{AutoPath}/Function")
         subprocess.run(["cmd.exe", "/c", "python", "GeneratePtsConfig.py", "../pics.pts"])
         subprocess.run([
             "cp",
-            f"{BASE_PATH}/AutoPTS/{testSets[SEL]}",
+            f"{BASE_PATH}/AutoPTS/Json/{testSets[SEL]}",
             f"{BASE_PATH}/AutoPTS/{AutoPath}/{AutoPath}/TestSet.json"
         ])
         getProfileConfig()

@@ -159,6 +159,48 @@ git crlf false;
                   echo "packer is changed to cscope."'
 alias csf='cp ~/.config/nvim/lua/lsp/cscope_fzf.lua ~/.config/nvim/lua/lsp/cscope.lua;
                   echo "packer is changed to cscope."'
+alias wbz6='
+# Enable CRLF conversion
+git crlf true
+# Define directory variables
+APP_DIR="/mnt/c/mchpCode/AppSample"
+BZ6_REPO="https://bitbucket.microchip.com/scm/wsgsw/pic32cx-bz6_ble_apps.git"
+BZ6_DIR="$APP_DIR/pic32cx-bz6_ble_apps"
+WIRELESS_DIR="$APP_DIR/wireless_ble"
+APPS_DIR="$WIRELESS_DIR/apps/pic32_cxbz6"
+APPS=("ble_ancs_app" "ble_anpc_app" "ble_anps_app" "ble_pxpm_app" "ble_pxpr_app" "ble_hogps_app")
+
+# Change to the working directory
+cd $APP_DIR
+
+# Remove old directories and clone new repositories
+rm -rf $BZ6_DIR
+git clone --recursive $BZ6_REPO
+
+# Switch to the development branch in BZ6 repository
+cd $BZ6_DIR
+git checkout dev
+
+# Ensure no lock file exists and update the wireless repository
+cd $WIRELESS_DIR
+rm -rf .git/index.lock
+git rt
+git checkout dev
+git pull
+# Create and switch to the new branch
+git checkout -b BBUCKSW-254-sampleCodeBZ6Update
+# Remove old application directories and copy new ones
+for app in "${APPS[@]}"; do
+    rm -rf $APPS_DIR/$app
+    cp -r $BZ6_DIR/$app $APPS_DIR/$app
+done
+
+# Prompt the user to check and push changes
+cd $WIRELESS_DIR
+echo "Please check and push to the git"
+'
+
+
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

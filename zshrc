@@ -188,15 +188,13 @@ git rt
 git checkout dev
 git pull
 # Create and switch to the new branch
-git checkout -b BBUCKSW-254-sampleCodeBZ6Update
+git checkout -b feature/BBUCKSW-254-sampleCodeBZ6
 # Remove old application directories and copy new ones
 for app in "${APPS[@]}"; do
     rm -rf $APPS_DIR/$app
     cp -r $BZ6_DIR/$app $APPS_DIR/$app
 done
 
-# Prompt the user to check and push changes
-cd $WIRELESS_DIR
 echo "Please check and push to the git"
 '
 

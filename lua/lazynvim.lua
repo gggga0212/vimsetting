@@ -152,7 +152,7 @@ require("lazy").setup({
     {'pacha/vem-tabline'},
     -- todo
     {'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
-    {'mhartington/formatter.nvim'},
+    -- {'mhartington/formatter.nvim'},
     {'ranjithshegde/ccls.nvim'},
     {'simonefranza/nvim-conv'},
     -- {'glepnir/lspsaga.nvim'},

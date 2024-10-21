@@ -159,6 +159,7 @@ git crlf false;
                   echo "packer is changed to cscope."'
 alias csf='cp ~/.config/nvim/lua/lsp/cscope_fzf.lua ~/.config/nvim/lua/lsp/cscope.lua;
                   echo "packer is changed to cscope."'
+alias rmc="~/.config/nvim/rvCmd.sh"
 alias wbz6='
 # Enable CRLF conversion
 git crlf true

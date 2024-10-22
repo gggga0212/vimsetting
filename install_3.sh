@@ -18,14 +18,14 @@ sudo apt-get install -y curl
 curl -fsSL https://deb.nodesource.com/setup_lts.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
-sudo apt-get install fonts-powerline tmux pip
-sudo apt-get install exuberant-ctags cscope
-sudo apt-get install gcc g++ make
-sudo apt-get install tree mscgen
-sudo apt-get install ripgrep fd-find
-sudo apt-get install python python3
-sudo apt-get install cmatrix screenfetch
-sudo apt-get install graphviz cflow gawk zip
+sudo apt-get install -y fonts-powerline tmux pip
+sudo apt-get install -y exuberant-ctags cscope
+sudo apt-get install -y gcc g++ make
+sudo apt-get install -y tree mscgen
+sudo apt-get install -y ripgrep fd-find
+sudo apt-get install -y python python3
+sudo apt-get install -y cmatrix screenfetch
+sudo apt-get install -y graphviz cflow gawk zip
 sudo ln -s /usr/bin/python3 /usr/local/bin/python
 
 git clone https://github.com/amboar/tceetree.git ~/.config/tceetree
@@ -34,7 +34,7 @@ make
 # go-lang
 sudo add-apt-repository ppa:longsleep/golang-backports
 sudo apt update
-sudo apt install golang-go
+sudo apt install -y golang-go
 
 #ydiff
 git clone https://github.com/ymattw/ydiff.git

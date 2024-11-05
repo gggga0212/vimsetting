@@ -10,7 +10,7 @@ import subprocess
 BASE_PATH = "/mnt/c/mchpCode"
 
 nv = "~/.config/nvim-linux64/bin/nvim"
-AutoPath = "AutoPTS_V3.1.1"
+AutoPath = "AutoPTS_V3.1.2"
 MidPath = "Endpoint_V1.3.4"
 
 # Function to dynamically load filenames from the 'To_SQA' folder

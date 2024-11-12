@@ -2,7 +2,8 @@
 # Diffview needs the lastest git version
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
-sudo apt install git
+sudo apt install -y git
+sudo apt-get install -y curl
 
 git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
 #zsh

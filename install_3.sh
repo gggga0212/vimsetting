@@ -16,7 +16,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 #echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 #source ~/.zshrc
 
-sudo apt-get install -y curl
 curl -fsSL https://deb.nodesource.com/setup_lts.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs

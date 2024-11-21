@@ -6,3 +6,5 @@ sudo apt install -y wget git
 sudo apt-get install -y curl zsh
 
 git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
+cd ~/.config/nvim
+./install_3.sh

@@ -10,7 +10,6 @@ require("mason").setup({
 require("mason-lspconfig").setup {
     ensure_installed = {
         "clangd",
-        "jsonls",
         "pyright",
         "lua_ls"
     },

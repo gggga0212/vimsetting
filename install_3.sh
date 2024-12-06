@@ -69,3 +69,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 #ubuntu github authentication
 #curl -u username:token https://api.github.com/user
+
+# lazygit windows install
+# Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+# Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+# scoop bucket add extras
+# scoop install lazygit

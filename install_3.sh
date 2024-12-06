@@ -59,8 +59,6 @@ npm install tree-sitter-cli
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-#zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # nvim comment
 # mkdir -p ~/.local/share/nvim/site/pack/plugins/start 

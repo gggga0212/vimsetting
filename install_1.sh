@@ -7,4 +7,7 @@ sudo apt-get install -y curl zsh
 
 git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
 cd ~/.config/nvim
+#zsh
+sudo apt-get install -y zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ./install_3.sh

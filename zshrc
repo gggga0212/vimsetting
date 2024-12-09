@@ -162,7 +162,7 @@ alias csf='cp ~/.config/nvim/lua/lsp/cscope_fzf.lua ~/.config/nvim/lua/lsp/cscop
 alias rmc="~/.config/nvim/rvCmd.sh"
 alias auto1="cp ~/.config/nvim/autom1.py ~/.config/nvim/autom.py"
 alias auto2="cp ~/.config/nvim/autom2.py ~/.config/nvim/autom.py"
-alias cm="cmd.exe"
+alias cm="cmd.exe /c lazygit"
 alias wbz6='
 # Enable CRLF conversion
 git crlf true

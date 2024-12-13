@@ -192,7 +192,7 @@ rm -rf apps
 git rt
 git co dev
 git pull
-git branch -d new_wireless_ble
+git branch -D new_wireless_ble
 # Create and switch to the new branch
 git branch new_wireless_ble
 git checkout new_wireless_ble

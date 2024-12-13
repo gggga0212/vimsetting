@@ -1,10 +1,10 @@
 import json
 import os
 import subprocess
-from colorama import init, Fore, Style
+# from colorama import init, Fore, Style
 
 # Initialize colorama
-init(autoreset=True)
+# init(autoreset=True)
 
 # Macro for the base path
 BASE_PATH = "/mnt/c/mchpCode"
@@ -22,7 +22,7 @@ def load_to_sqa_files():
         # Filter only files (exclude directories)
         return [file for file in files if os.path.isfile(os.path.join(to_sqa_path, file))]
     except FileNotFoundError:
-        print(Fore.RED + f"Directory '{to_sqa_path}' not found.")
+        print(f"Directory '{to_sqa_path}' not found.")
         return []
         
 index = [
@@ -160,10 +160,10 @@ def getProfileConfig():
     print(f"All test cases have been written to {output_file_path}")
 
 def display_menu(items, title="Menu"):
-    print(Fore.CYAN + Style.BRIGHT + f"\n{title}\n" + "="*len(title))
+    print(f"\n{title}\n" + "="*len(title))
     for idx, item in enumerate(items):
-        print(Fore.GREEN + f"{idx + 1}. {item}")
-    choice = input(Fore.YELLOW + "Select item please: ")
+        print(f"{idx + 1}. {item}")
+    choice = input("Select item please: ")
     if choice.lower() == 'b':
         return len(items) - 1
     try:
@@ -171,10 +171,10 @@ def display_menu(items, title="Menu"):
         if 1 <= choice <= len(items):
             return choice - 1
         else:
-            print(Fore.RED + "Invalid choice. ByeBye")
+            print("Invalid choice. ByeBye")
             exit()
     except ValueError:
-        print(Fore.RED + "Invalid input. ByeBye")
+        print("Invalid input. ByeBye")
         exit()
 
 def delJson():
@@ -197,7 +197,7 @@ def delJson():
 def selAuto():
     delJson()
     while True:
-        print(Fore.MAGENTA + Style.BRIGHT + """
+        print("""
          █████╗ ██╗   ██╗████████╗ ██████╗     ██████╗ ████████╗███████╗ 
         ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗    ██╔══██╗╚══██╔══╝██╔════╝
         ███████║██║   ██║   ██║   ██║   ██║    ██████╔╝   ██║   ███████╗
@@ -227,7 +227,7 @@ def selAuto():
         
 def selRunAutoPTS():
     while True:
-        print(Fore.MAGENTA + Style.BRIGHT + """
+        print("""
         ██████╗ ██╗   ██╗███╗   ██╗     █████╗ ██╗   ██╗████████╗ ██████╗  ██████╗ ████████╗███████╗ 
         ██╔══██╗██║   ██║████╗  ██║    ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗ ██╔══██╗╚══██╔══╝██╔════╝
         ██████╔╝██║   ██║██╔██╗ ██║    ███████║██║   ██║   ██║   ██║   ██║ ██████╔╝   ██║   ███████╗
@@ -247,7 +247,7 @@ def selRunAutoPTS():
 
 def selvimEdit():
     while True:
-        print(Fore.MAGENTA + Style.BRIGHT + """
+        print("""
         ██╗   ██╗██╗███╗   ███╗
         ██║   ██║██║████╗ ████║
         ██║   ██║██║██╔████╔██║
@@ -264,7 +264,7 @@ def selvimEdit():
 
 def selFolder():
     while True:
-        print(Fore.MAGENTA + Style.BRIGHT + """
+        print("""
         ███████╗ ██████╗ ██╗     ██████╗ ███████╗██████╗ 
         ██╔════╝██╔═══██╗██║     ██╔══██╗██╔════╝██╔══██╗
         █████╗  ██║   ██║██║     ██║  ██║█████╗  ██████╔╝
@@ -280,7 +280,7 @@ def selFolder():
 
 def selApp():
     while True:
-        print(Fore.MAGENTA + Style.BRIGHT + """
+        print("""
          █████╗ ██████╗ ██████╗ 
         ██╔══██╗██╔══██╗██╔══██╗
         ███████║██████╔╝██████╔╝
@@ -309,7 +309,7 @@ def mainInit():
     if os.path.isfile("TestSet_old.json"):
         os.remove("TestSet_old.json")
 
-    print(Fore.MAGENTA + Style.BRIGHT + """
+    print("""
     ███╗   ███╗ █████╗ ██╗███╗   ██╗    ███╗   ███╗███████╗███╗   ██╗██╗   ██╗
     ████╗ ████║██╔══██╗██║████╗  ██║    ████╗ ████║██╔════╝████╗  ██║██║   ██║
     ██╔████╔██║███████║██║██╔██╗ ██║    ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║
@@ -320,7 +320,7 @@ def mainInit():
 
     while True:
         SEL = display_menu(index, "Main Menu")
-        print(Fore.CYAN + f"Selected item #{SEL + 1} which means {index[SEL]}")
+        print(f"Selected item #{SEL + 1} which means {index[SEL]}")
         if SEL == 0:
             selAuto()
         elif SEL == 1:

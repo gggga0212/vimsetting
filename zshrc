@@ -167,7 +167,6 @@ alias wbz6='
 # Enable CRLF conversion
 git crlf true
 # Define directory variables
-WIRELESS_BRANCH="feature/BBUCKSW-419-sampleApplicationEac1Rc2"
 FW_DIR="/mnt/c/mchpCode/fwMcc231012"
 APP_DIR="/mnt/c/mchpCode/AppSample"
 BZ6_REPO="https://bitbucket.microchip.com/scm/wsgsw/pic32cx-bz6_ble_apps.git"
@@ -189,14 +188,16 @@ git checkout dev
 
 # Ensure no lock file exists and update the wireless repository
 cd $WIRELESS_DIR
-rm -rf .git/index.lock
-for app in "${APPS[@]}"; do
-    rm -rf $APPS_DIR/$app
-done
+rm -rf apps
 git rt
-# Create and switch to the new branch
-git checkout $WIRELESS_BRANCH
+git co dev
 git pull
+git branch -d new_wireless_ble
+# Create and switch to the new branch
+git branch new_wireless_ble
+git checkout new_wireless_ble
+
+rm -rf .git/index.lock
 # Remove old application directories and copy new ones
 for app in "${APPS[@]}"; do
     rm -rf $APPS_DIR/$app

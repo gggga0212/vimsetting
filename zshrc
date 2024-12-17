@@ -163,6 +163,7 @@ alias rmc="~/.config/nvim/rvCmd.sh"
 alias auto1="cp ~/.config/nvim/autom1.py ~/.config/nvim/autom.py"
 alias auto2="cp ~/.config/nvim/autom2.py ~/.config/nvim/autom.py"
 alias cm="cmd.exe /c lazygit"
+alias cmd="cmd.exe"
 alias wbz6='
 # Enable CRLF conversion
 git crlf true

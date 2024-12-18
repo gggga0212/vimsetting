@@ -139,6 +139,8 @@ alias nrm='rm -rf ~/.config/nvim-linux64 ~/.config/nvim-linux64.tar.gz'
 alias ndl='wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz'
 alias nup='tar xzvf nvim-linux64.tar.gz'
 alias nv='~/.config/nvim-linux64/bin/nvim'
+alias nu='git crlf false;nv --headless "+Lazy! sync" +qa;git crlf true;nv'
+
 alias nvig='nv .gitignore'
 alias loadigsp='cp ~/.config/nvim/gitignoreSample .gitignore'
 alias rl='rm -rf ../.git/*.lock;
@@ -192,6 +194,7 @@ cd $WIRELESS_DIR
 rm -rf apps
 git rt
 git co dev
+git tag | xargs git tag -d
 git pull
 git branch -D new_wireless_ble
 # Create and switch to the new branch

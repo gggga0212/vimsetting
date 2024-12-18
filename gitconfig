@@ -1,6 +1,6 @@
 [core]
     editor = vim
-	autocrlf = false
+    autocrlf = false
     pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     co = checkout
@@ -11,51 +11,53 @@
     cotest = checkout host_stack_test
     coteam = checkout host_stack_team
     crlf = config --global core.autocrlf
-	d = difftool
+    d = difftool
     v = remote -v
-	rt = reset --hard
-	ct = checkout ./firmware/src/config/default/ble/lib/include ./firmware/src/config/default/ble/middleware_ble ./firmware/src/config/default/ble/profile_ble ./firmware/src/config/default/ble/service_ble ./firmware/src/version.h
+    rt = reset --hard
+    ct = checkout ./firmware/src/config/default/ble/lib/include ./firmware/src/config/default/ble/middleware_ble ./firmware/src/config/default/ble/profile_ble ./firmware/src/config/default/ble/service_ble ./firmware/src/version.h
+
+    rmtag = tag | xargs git tag -d
     dlwble = clone --recursive https://bitbucket.microchip.com/scm/mh3/wireless_ble.git
     dlwbz = clone --recursive https://bitbucket.microchip.com/scm/mh3/wireless_pic32cxbz_wbz.git
     dlzigbee = clone --recursive https://bitbucket.microchip.com/scm/mh3/wireless_zigbee.git
     dlmhc = clone --recursive https://bitbucket.microchip.com/scm/mh3/mhc_archive.git
 [credential]
-	helper = store
+    helper = store
 [color "diff"]
-	meta = 11
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	func = 146 bold
-	commit = yellow bold
-	whitespace = red reverse
+    meta = 11
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    func = 146 bold
+    commit = yellow bold
+    whitespace = red reverse
     diff = auto
 [interactive]
     diffFilter = diff-so-fancy --patch
 [color]
-	ui = true
+    ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [color "status"]
-	added = green normal bold
-	changed = yellow normal bold
-	untracked = red normal bold
+    added = green normal bold
+    changed = yellow normal bold
+    untracked = red normal bold
 [color "branch"]
-	remote = red normal bold
-	local = white normal bold
-	current = green normal bold
+    remote = red normal bold
+    local = white normal bold
+    current = green normal bold
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
 [difftool]
-	prompt = false
-	trustExitCode = true
+    prompt = false
+    trustExitCode = true
 [merge]
     tool = nvimdiff
 [mergetool]
-	trustExitCode = true
+    trustExitCode = true
 [user]
-	name = Sam.Kuo
-	email = Sam.Kuo@microchip.com
+    name = Sam.Kuo
+    email = Sam.Kuo@microchip.com

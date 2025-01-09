@@ -146,7 +146,6 @@ alias loadigsp='cp ~/.config/nvim/gitignoreSample .gitignore'
 alias rl='rm -rf ../.git/*.lock;
 rm -rf ../../.git/*.lock;'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
-alias ar="rm -rf ../Testset_old.json"
 alias ag="python ~/.config/nvim/autom.py"
 alias wttr='curl http://wttr.in'
 alias lz='cp ~/.config/nvim/lz_config.yml ~/.config/lazygit/config.yml;lazygit'
@@ -162,11 +161,11 @@ git crlf true;
 alias csf='cp ~/.config/nvim/lua/lsp/cscope_fzf.lua ~/.config/nvim/lua/lsp/cscope.lua;
                   echo "packer is changed to cscope."'
 alias rmc="~/.config/nvim/rvCmd.sh"
+alias mixh="~/.config/nvim/mixh.sh"
 alias auto1="cp ~/.config/nvim/autom1.py ~/.config/nvim/autom.py"
 alias auto2="cp ~/.config/nvim/autom2.py ~/.config/nvim/autom.py"
 alias cm="cmd.exe /c lazygit"
 alias cmd="cmd.exe"
-
 alias rmtag="git tag | xargs git tag -d"
 alias wbz6='
 # Enable CRLF conversion

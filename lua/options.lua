@@ -139,7 +139,7 @@ keymaps('n','cF',[[<cmd>lua require('cscope_maps').cscope_prompt('f',vim.fn.expa
 keymaps('n','cI',[[<cmd>lua require('cscope_maps').cscope_prompt('i',vim.fn.expand("<cword>"))<CR>]],ntst)
 keymaps('n','cD',[[<cmd>lua require('cscope_maps').cscope_prompt('d',vim.fn.expand("<cword>"))<CR>]],ntst)
 
--- keymaps('n','cj',':<C-U><C-R>=printf("Cscope find ")<CR>',ntsf)
+keymaps('n','cj',':<C-U><C-R>=printf("Cscope find ")<CR>',ntsf)
 -- vim.opt.cscopequickfix = 's-,g-,c-,d-,i-,t-,e-,f-,a-'
 
 keymaps('n','cx', ':copen 10<CR>',  ntst)

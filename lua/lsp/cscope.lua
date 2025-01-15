@@ -3,7 +3,7 @@ require("cscope_maps").setup(
   -- maps related defaults
   disable_maps = false, -- "true" disables default keymaps
   skip_input_prompt = false, -- "true" doesn't ask for input
-  prefix = "<leader>c", -- prefix to trigger maps
+  prefix = "cj", -- prefix to trigger maps
 
   -- cscope related defaults
   cscope = {

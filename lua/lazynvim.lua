@@ -67,13 +67,13 @@ require("lazy").setup({
     {'nvim-treesitter/tree-sitter-query'},
     {'RRethy/nvim-treesitter-textsubjects'},
     {'HiPhish/rainbow-delimiters.nvim'},
-	{ 'numToStr/Comment.nvim',
+    { 'numToStr/Comment.nvim',
         opts = {
         -- add any options here
         }
     },
     {"nvim-tree/nvim-tree.lua"},
-	{"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", },
+    {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", },
     {'tpope/vim-fugitive'},
     {'tpope/vim-rhubarb'},
     {'bootleq/vim-gitdiffall'},
@@ -147,7 +147,14 @@ require("lazy").setup({
     {'mg979/vim-visual-multi'},
     {'kyazdani42/nvim-web-devicons'},
 
-    {'Yggdroot/indentLine'},
+    -- {'Yggdroot/indentLine'},
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
+    },
     {'ryanoasis/vim-devicons'},
     {'pacha/vem-tabline'},
     -- todo

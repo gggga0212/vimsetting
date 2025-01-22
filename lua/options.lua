@@ -301,9 +301,7 @@ keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
 keymaps('n','<leader>T','<C-W>=', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
 keymaps('n','<leader>W',':%s/\t/    /g<CR>',ntst)
-keymaps('n','<leader>zx',':Cscope find f ble_gap.h<CR>',ntst)
-keymaps('n','<leader>z',':Cscope find f cmd_evt.c<CR>',ntst)
-keymaps('n','<leader>Z',':Cscope find f cmd_evt_profile.c<CR>',ntst)
+keymaps('n','<leader>z',':AerialToggle!<CR>',ntst)
 
 keymaps('n','<leader>st',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<leader>sT',':Telescope live_grep_args<CR>',   ntst)
@@ -312,6 +310,7 @@ keymaps('n','<leader>sf',':Telescope find_files<CR>', ntst)
 keymaps('n','<leader>sF',':Telescope dir find_files<CR>', ntst)
 keymaps('n','<leader>sh',':Telescope help_tags<CR>',    ntst)
 keymaps('n','<leader>ss',':Telescope grep_string<CR>',    ntst)
+keymaps('n','<leader>sa',':Telescope aerial<CR>',    ntst)
 
 -- paste
 keymaps('x','p','pgvy',ntsf)

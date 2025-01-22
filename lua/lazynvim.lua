@@ -15,6 +15,15 @@ require("lazy").setup({
     -- My plugins here
     -- Automatically set up your configuration after cloning packer.nvim
     -- {'wbthomason/packer.nvim'},
+    {
+      'stevearc/aerial.nvim',
+      opts = {},
+      -- Optional dependencies
+      dependencies = {
+         "nvim-treesitter/nvim-treesitter",
+         "nvim-tree/nvim-web-devicons"
+      },
+    },
     {'nvim-lua/plenary.nvim'},
     { 'sindrets/diffview.nvim'},
     {'tamton-aquib/stuff.nvim'},
@@ -88,7 +97,7 @@ require("lazy").setup({
     {'wesleyche/Trinity'},
     {'vim-syntastic/syntastic'},
     {'preservim/tagbar'},
-    {'terryma/vim-multiple-cursors'},
+    {'jake-stewart/multicursor.nvim'},
     {'https://github.com/nanotech/jellybeans.vim'},
     {'https://github.com/tomasr/molokai'},
     {'shaunsingh/solarized.nvim'},

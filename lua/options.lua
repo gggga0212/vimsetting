@@ -296,10 +296,10 @@ keymaps('n','<leader>M',[[<cmd>HiMyWordsClear<CR>]],ntst)
 
 keymaps('n','<leader>q',':q!<CR>',ntst)
 
-keymaps('n','<leader>rr',':CallTreeCloseAll<CR><CR>:CallerTreeCscope<CR><CR>',ntst) --cscope
-keymaps('n','<leader>rf',':CallTreeCloseAll<CR><CR>:CalleeTreeCscope<CR><CR>',ntst) --cscope
-keymaps('n','<leader>rR',':CallTreeCloseAll<CR><CR>:CallerTreeLsp<CR><CR>',ntst) --lsp
-keymaps('n','<leader>rF',':CallTreeCloseAll<CR><CR>:CalleeTreeLsp<CR><CR>',ntst) --lsp
+keymaps('n','<leader>rr',':CallerTreeCscope<CR><CR>',ntst) --cscope
+keymaps('n','<leader>rf',':CalleeTreeCscope<CR><CR>',ntst) --cscope
+keymaps('n','<leader>rR',':CallerTreeLsp<CR><CR>',ntst) --lsp
+keymaps('n','<leader>rF',':CalleeTreeLsp<CR><CR>',ntst) --lsp
 keymaps('n','<leader>rq',':CallTreeCloseAll<CR><CR>',ntst)
 
 -- keymaps('n','<leader>f',':CCTreeTraceForward<CR><CR>', ntst)

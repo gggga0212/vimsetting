@@ -22,7 +22,6 @@ require "lsp.stuff"
 require "lsp.cscope"
 require "lsp.nvim-tree"
 require "lsp.hi-my-words"
-require "lsp.calltree"
 require "lsp.indent_blankline"
 
 -- :help option
@@ -287,7 +286,6 @@ keymaps('n','<leader>b','~',ntst)
 keymaps('n','<leader>d','2<C-W>l:%s/\\r//g<CR>:w<CR>2<C-W>h',  ntst)
 keymaps('n','<leader>D',':%s/\\r//g<CR>:w<CR>',  ntst)
 keymaps('n','<leader>e',':e!<CR>',ntst)
--- keymaps('n','<leader>f',':CCTreeTraceForward<CR><CR>', ntst)
 keymaps('n','<leader>g','<C-]>',ntst)
 keymaps('n','<leader>j','mN *',ntst)
 keymaps('n','<leader>k','mN #',ntst)
@@ -296,8 +294,17 @@ keymaps('n','<leader>m',[[<cmd>HiMyWordsToggle<CR>]],ntst)
 keymaps('n','<leader>M',[[<cmd>HiMyWordsClear<CR>]],ntst)
 
 keymaps('n','<leader>q',':q!<CR>',ntst)
-keymaps('n','<leader>r',':CCTreeTraceReverse<CR><CR>',ntst)
-keymaps('n','<leader>R',':CCTreeLoadDB<CR><CR>', ntst)
+
+keymaps('n','<leader>rr',':CallerTreeCscope<CR><CR>',ntst) --cscope
+keymaps('n','<leader>rf',':CalleeTreeCscope<CR><CR>',ntst) --cscope
+keymaps('n','<leader>rR',':CallerTreeLsp<CR><CR>',ntst) --lsp
+keymaps('n','<leader>rF',':CalleeTreeLsp<CR><CR>',ntst) --lsp
+keymaps('n','<leader>rq',':CallTreeCloseAll<CR><CR>',ntst)
+
+-- keymaps('n','<leader>f',':CCTreeTraceForward<CR><CR>', ntst)
+-- keymaps('n','<leader>rc',':CCTreeTraceReverse<CR><CR>',ntst)
+-- keymaps('n','<leader>rl',':CCTreeLoadDB<CR><CR>', ntst)
+
 keymaps('n','<leader>t',':q<CR>:vs<CR>', ntst)
 keymaps('n','<leader>T','<C-W>=', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)

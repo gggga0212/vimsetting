@@ -132,3 +132,5 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " autocmd WinLeave * setlocal nocursorline
 " autocmd BufWritePre * :%s/\s\+$//e
 map , <leader>
+" used for zM
+set foldmethod=indent

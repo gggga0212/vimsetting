@@ -85,7 +85,7 @@ require("lazy").setup({
     {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", },
     {'tpope/vim-fugitive'},
     {'tpope/vim-rhubarb'},
-    {'bootleq/vim-gitdiffall'},
+    -- {'bootleq/vim-gitdiffall'},
     {'christoomey/vim-tmux-navigator'},
     {'aserowy/tmux.nvim'},
     {'voldikss/vim-floaterm'},
@@ -112,6 +112,17 @@ require("lazy").setup({
             -- do whatever you want for further customization~
           end
     },
+    {"ray-x/lsp_signature.nvim",
+        event = "InsertEnter",
+        opts = {
+            bind = true,
+            handler_opts = {
+              border = "rounded"
+            }
+        },
+        config = function(_, opts) require'lsp_signature'.setup(opts) end
+    },
+
     {'hachy/eva01.vim'},
     {'hzchirs/vim-material'},
     {'kshenoy/vim-signature'},
@@ -144,7 +155,7 @@ require("lazy").setup({
     config = function()
         require("colortils").setup()
     end,},
-    {"stevearc/dressing.nvim"},
+    -- {"stevearc/dressing.nvim"},
     {"ziontee113/icon-picker.nvim",
       config = function()
         require("icon-picker").setup({

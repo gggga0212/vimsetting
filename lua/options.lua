@@ -24,6 +24,7 @@ require "lsp.nvim-tree"
 require "lsp.hi-my-words"
 require "lsp.indent_blankline"
 require "lsp.calltree"
+require "lsp.winbar"
 
 -- :help option
 vim.opt.encoding      = 'utf-8'
@@ -62,7 +63,7 @@ vim.opt.foldmethod = 'syntax'
 vim.opt.foldenable = false
 -- winbar
 -- vim.opt.winbar = '%m%f'
-vim.opt.winbar = "%{%v:lua.require'lsp.winbar'.eval()%}"
+-- vim.opt.winbar = "%{%v:lua.require'lsp.winbar'.eval()%}"
 -- ctags
 vim.g.tags = './tags'
 -- ctrlp

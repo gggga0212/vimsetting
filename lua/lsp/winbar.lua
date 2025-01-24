@@ -1,35 +1,19 @@
-require('winbar').setup({
-    enabled = true,
+local M = {}
 
-    show_file_path = true,
-    show_symbols = true,
+vim.api.nvim_set_hl(0, 'WinBarPath', { bg = '#dedede', fg = '#363636' })
+vim.api.nvim_set_hl(0, 'WinBarModified', { bg = '#dedede', fg = '#ff3838' })
 
-    colors = {
-        path = '#00bfff', -- You can customize colors like #c946fd
-        file_name = '#fee715',
-        symbols = '',
-    },
+function M.eval()
+    local file_path = vim.api.nvim_eval_statusline('%f', {}).str
+    local modified = vim.api.nvim_eval_statusline('%M', {}).str == '+' and '@' or ''
+    -- file_path = file_path:gsub('/', ' > ')
 
-    icons = {
-        file_icon_default = '',
-        seperator = '>',
-        editor_state = '●',
-        lock_icon = '',
-    },
+    return '%#WinBarPath#'
+    .. file_path
+    .. '%*'
+    .. '%#WinBarModified#'
+    .. modified
+    .. '%*'
+end
 
-    exclude_filetype = {
-        'help',
-        'startify',
-        'dashboard',
-        'packer',
-        'neogitstatus',
-        'NvimTree',
-        'Trouble',
-        'alpha',
-        'lir',
-        'Outline',
-        'spectre_panel',
-        'toggleterm',
-        'qf',
-    }
-})
+return M

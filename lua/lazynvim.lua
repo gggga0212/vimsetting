@@ -144,7 +144,7 @@ require("lazy").setup({
             })
         end },
     {'hari-rangarajan/CCTree'},
-    {'fgheng/winbar.nvim'},
+    -- {'fgheng/winbar.nvim'},
     {'norcalli/nvim-colorizer.lua'},
     {'ziontee113/color-picker.nvim',
     config = function()

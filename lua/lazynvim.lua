@@ -112,16 +112,16 @@ require("lazy").setup({
             -- do whatever you want for further customization~
           end
     },
-    {"ray-x/lsp_signature.nvim",
-        event = "InsertEnter",
-        opts = {
-            bind = true,
-            handler_opts = {
-              border = "rounded"
-            }
-        },
-        config = function(_, opts) require'lsp_signature'.setup(opts) end
-    },
+    -- {"ray-x/lsp_signature.nvim",
+    --     event = "InsertEnter",
+    --     opts = {
+    --         bind = true,
+    --         handler_opts = {
+    --           border = "rounded"
+    --         }
+    --     },
+    --     config = function(_, opts) require'lsp_signature'.setup(opts) end
+    -- },
 
     {'hachy/eva01.vim'},
     {'hzchirs/vim-material'},

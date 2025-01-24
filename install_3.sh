@@ -30,9 +30,11 @@ sudo apt-get install -y cmatrix screenfetch
 sudo apt-get install -y graphviz cflow gawk zip
 sudo ln -s /usr/bin/python3 /usr/local/bin/python
 
-git clone https://github.com/amboar/tceetree.git ~/.config/tceetree
-cd ~/.config/tceetree
-make
+# tceetree
+# git clone https://github.com/amboar/tceetree.git ~/.config/tceetree
+# cd ~/.config/tceetree
+# make
+
 # go-lang
 sudo add-apt-repository ppa:longsleep/golang-backports
 sudo apt update

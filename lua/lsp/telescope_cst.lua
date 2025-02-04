@@ -57,7 +57,7 @@ require('telescope').setup({
         -- file_ignore_patterns = {
         --     "./firmware/src/config/default/ble/service_ble"},
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-        path_display = { "tail" }, -- tail,absolute
+        path_display = { "absolute" }, -- tail,absolute
         -- path_display = { truncate = 2 }, -- tail,absolute
         -- layout_strategy = "vertical",
         -- layout_config = {mirror = true},

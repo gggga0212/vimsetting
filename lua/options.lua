@@ -217,6 +217,7 @@ keymaps('n','<space>tc',':Telescope colorscheme<CR>', ntst)
 -- keymaps("n",'<space>tC',':PickColor<CR>', ntst)
 -- keymaps("i",'<space>tC',':PickColorInsert<CR>', ntst)
 keymaps('n','<space>td',':normal! J<CR>', ntst)
+keymaps('n','<space>tf',':Telescope file_browser path=%:p:h select_buffer=true<CR>', ntst)
 keymaps('n','<space>tg',':!go run main.go<CR>', ntst)
 keymaps('n','<space>th',':NvimTreeToggle<CR>',  ntst)
 keymaps('n','<space>ti','gg=G', ntst)
@@ -342,4 +343,4 @@ keymaps('n','<C-H>',':TmuxNavigateLeft<CR>', ntst)
 keymaps('n','<C-K>',':TmuxNavigateUp<CR>', ntst)
 keymaps('n','<C-L>',':TmuxNavigateRight<CR>', ntst)
 keymaps('n','<C-J>',':TmuxNavigateDown<CR>', ntst)
-vim.cmd [[colorscheme ronny]]
+vim.cmd [[colorscheme tokyonight]]

@@ -48,12 +48,12 @@
     local = white normal bold
     current = green normal bold
 [diff]
-    tool = nvimdiff
+    tool = vimdiff
 [difftool]
     prompt = false
     trustExitCode = true
 [merge]
-    tool = nvimdiff
+    tool = vimdiff
 [mergetool]
     trustExitCode = true
 [user]

@@ -119,6 +119,7 @@ item_App = {
     "To_SQA": load_to_sqa_files(),  # Dynamically load To_SQA files
     "Misc": [
         "stack_test_script.ptp",
+        "profile_test_script.ptp",
         "Back to the previous page"
     ]
 }

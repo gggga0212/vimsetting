@@ -17,8 +17,6 @@ nmap <leader>la :!rm -rf cscope.*<CR>
             \:!cp ~/.config/nvim/rgignore .rgignore<CR>
             \:!cp ~/.config/nvim/gitattributes ../ble_stack_lib/src/ble_stack/.gitattributes<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
-            \-or -path "../ble_stack_lib/src/inc/api/cxbz3" -prune \
-            \-or -path "../ble_stack_lib/src/inc/api/cxbz6" -prune \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
             \-or -path "./fir1ware/src/config/default/ble/middleware_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
@@ -26,14 +24,12 @@ nmap <leader>la :!rm -rf cscope.*<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:!rm -rf tags<CR>
             \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
-            \--exclude="../ble_stack_lib/src/inc/api/cxbz3" \
-            \--exclude="../ble_stack_lib/src/inc/api/cxbz6" \
             \--exclude="./firmware/src/config/default/ble/lib/include" \
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
             \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
+            \:!cp ~/.config/nvim/lua/lsp/telescope_csc.lua ~/.config/nvim/lua/lsp/telescope.lua<CR>
             \:so $MYVIMRC<CR>
-            \:echo $MYVIMRC<CR>
             \:echo "bz236 done, so" $MYVIMRC<CR>
 
 " bz2

@@ -12,6 +12,30 @@ nmap <F6> :!rm -rf cscope.*<CR>
             \:echo $MYVIMRC<CR>
             \:echo "All done, so" $MYVIMRC<CR>
 
+" bz236
+nmap <leader>la :!rm -rf cscope.*<CR>
+            \:!cp ~/.config/nvim/rgignore .rgignore<CR>
+            \:!cp ~/.config/nvim/gitattributes ../ble_stack_lib/src/ble_stack/.gitattributes<CR>
+            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
+            \-or -path "../ble_stack_lib/src/inc/api/cxbz3" -prune \
+            \-or -path "../ble_stack_lib/src/inc/api/cxbz6" -prune \
+            \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
+            \-or -path "./fir1ware/src/config/default/ble/middleware_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
+            \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
+            \:!rm -rf tags<CR>
+            \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
+            \--exclude="../ble_stack_lib/src/inc/api/cxbz3" \
+            \--exclude="../ble_stack_lib/src/inc/api/cxbz6" \
+            \--exclude="./firmware/src/config/default/ble/lib/include" \
+            \--exclude="./firmware/src/config/default/ble/middleware_ble" \
+            \--exclude="./firmware/src/config/default/ble/profile_ble" \
+            \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
+            \:so $MYVIMRC<CR>
+            \:echo $MYVIMRC<CR>
+            \:echo "bz236 done, so" $MYVIMRC<CR>
+
 " bz2
 nmap <leader>lr :!rm -rf cscope.*<CR>
             \:!cp ~/.config/nvim/rgignore .rgignore<CR>

@@ -3,98 +3,96 @@
 filetype off        "required
     lua require('lazynvim')
     lua require('options')
-nmap <F5> :!rm -rf cscope.*<CR>
-            \:!find "." -iname '*.c' -o -iname '*.h'<CR>
-            \:!cscope -b -c -R<CR>
-            \:!~/.config/tceetree/tceetree -V -i cscope.out<CR>
-            \:!dot -Tpdf -O tceetree.out<CR>
-            \:!cmd.exe /C start tceetree.out.pdf<CR>
 nmap <F6> :!rm -rf cscope.*<CR>
             \:!find "./" -iname '*.c' -o -iname '*.h' > cscope.files<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:!rm -rf tags<CR>
             \:!ctags -R<CR>
-" \:!clangd-indexer -executor=all-TUs /path/to/project > index.yaml<CR>
-nmap <F7> :!rm -rf cscope.*<CR>
-            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' \
-            \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
-            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
-            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
-            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
-            \:!cscope -b -c -R<CR>
-            \:!~/.config/tceetree/tceetree -V -i cscope.out<CR>
-            \:!dot -Tpdf -O tceetree.out<CR>
-            \:!cmd.exe /C start tceetree.out.pdf<CR>
-            " \:!mimeopen -d tceetree.pdf<CR>
-            " dot, neato,wwopi,circo,fdp,sfdp
-"ble_stack_test_lib
-nmap <F8> :!rm -rf cscope.*<CR>
+            \:so $MYVIMRC<CR>
+            \:echo $MYVIMRC<CR>
+            \:echo "All done, so" $MYVIMRC<CR>
+
+" bz2
+nmap <leader>lr :!rm -rf cscope.*<CR>
             \:!cp ~/.config/nvim/rgignore .rgignore<CR>
             \:!cp ~/.config/nvim/gitattributes ../ble_stack_lib/src/ble_stack/.gitattributes<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
-            \-or -path "../ble_stack_lib/src/ble_stack/host_ble/inc/include" -prune \
-            \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble" -prune \
-            \-or -path "../ble_stack_lib/src/ble_stack/profile_ble" -prune \
-            \-or -path "../ble_stack_lib/src/ble_stack/service_ble" -prune \
-            \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
-            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
-            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
-            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
-            \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
-            \:!rm -rf tags<CR>
-            \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
-            \--exclude="../ble_stack_lib/src/ble_stack/host_ble/inc/include" \
-            \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble" \
-            \--exclude="../ble_stack_lib/src/ble_stack/profile_ble" \
-            \--exclude="../ble_stack_lib/src/ble_stack/service_ble" \
-            \--exclude="./firmware/src/config/default/ble/lib/include" \
-            \--exclude="./firmware/src/config/default/ble/middleware_ble" \
-            \--exclude="./firmware/src/config/default/ble/profile_ble" \
-            \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
-" Buckland MW
-nmap <F9> :!rm -rf cscope.*<CR>
-            \:!cp ~/.config/nvim/rgignore .rgignore<CR>
-            \:!cp ~/.config/nvim/gitattributes ../ble_stack_lib/src/ble_stack/.gitattributes<CR>
-            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
-            \-or -path "../ble_stack_lib/src/ble_stack/host_ble/inc/include" -prune \
+            \-or -path "../ble_stack_lib/src/inc/api/cxbz3" -prune \
+            \-or -path "../ble_stack_lib/src/inc/api/cxbz6" -prune \
             \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz3" -prune \
             \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz6" -prune \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
-            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
+            \-or -path "./fir1ware/src/config/default/ble/middleware_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:!rm -rf tags<CR>
             \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
-            \--exclude="../ble_stack_lib/src/ble_stack/host_ble/inc/include" \
+            \--exclude="../ble_stack_lib/src/inc/api/cxbz3" \
+            \--exclude="../ble_stack_lib/src/inc/api/cxbz6" \
             \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz3" \
             \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz6" \
             \--exclude="./firmware/src/config/default/ble/lib/include" \
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
             \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
-" Buckland MW
-nmap <F10> :!rm -rf cscope.*<CR>
+            \:so $MYVIMRC<CR>
+            \:echo $MYVIMRC<CR>
+            \:echo "bz2 done, so" $MYVIMRC<CR>
+" bz3
+nmap <leader>ls :!rm -rf cscope.*<CR>
             \:!cp ~/.config/nvim/rgignore .rgignore<CR>
             \:!cp ~/.config/nvim/gitattributes ../ble_stack_lib/src/ble_stack/.gitattributes<CR>
             \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
-            \-or -path "../ble_stack_lib/src/ble_stack/host_ble/inc/include" -prune \
+            \-or -path "../ble_stack_lib/src/inc/api/cxbz2" -prune \
+            \-or -path "../ble_stack_lib/src/inc/api/cxbz6" -prune \
             \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz2" -prune \
             \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz6" -prune \
             \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
-            \-or -path "./firmware/src/config/default/ble/middleware_ble" -prune \
+            \-or -path "./fir1ware/src/config/default/ble/middleware_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
             \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
             \:!rm -rf tags<CR>
             \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
-            \--exclude="../ble_stack_lib/src/ble_stack/host_ble/inc/include" \
+            \--exclude="../ble_stack_lib/src/inc/api/cxbz2" \
+            \--exclude="../ble_stack_lib/src/inc/api/cxbz6" \
             \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz2" \
             \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz6" \
             \--exclude="./firmware/src/config/default/ble/lib/include" \
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
             \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
+            \:so $MYVIMRC<CR>
+            \:echo $MYVIMRC<CR>
+            \:echo "bz3 done, so" $MYVIMRC<CR>
+" bz6
+nmap <leader>ll :!rm -rf cscope.*<CR>
+            \:!cp ~/.config/nvim/rgignore .rgignore<CR>
+            \:!cp ~/.config/nvim/gitattributes ../ble_stack_lib/src/ble_stack/.gitattributes<CR>
+            \:!find "./" "../ble_stack_lib/src/ble_stack" -iname '*.c' -o -iname '*.h' \
+            \-or -path "../ble_stack_lib/src/inc/api/cxbz2" -prune \
+            \-or -path "../ble_stack_lib/src/inc/api/cxbz3" -prune \
+            \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz3" -prune \
+            \-or -path "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz6" -prune \
+            \-or -path "./firmware/src/config/default/ble/lib/include" -prune \
+            \-or -path "./fir1ware/src/config/default/ble/middleware_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/profile_ble" -prune \
+            \-or -path "./firmware/src/config/default/ble/service_ble" -prune> cscope.files<CR>
+            \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
+            \:!rm -rf tags<CR>
+            \:!ctags "./" "../ble_stack_lib/src/ble_stack" \
+            \--exclude="../ble_stack_lib/src/inc/api/cxbz2" \
+            \--exclude="../ble_stack_lib/src/inc/api/cxbz3" \
+            \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz2" \
+            \--exclude="../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz3" \
+            \--exclude="./firmware/src/config/default/ble/lib/include" \
+            \--exclude="./firmware/src/config/default/ble/middleware_ble" \
+            \--exclude="./firmware/src/config/default/ble/profile_ble" \
+            \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
+            \:so $MYVIMRC<CR>
+            \:echo "bz6 done, so" $MYVIMRC<CR>
+
 filetype plugin indent on
 " colorscheme tokyonight
 syntax enable

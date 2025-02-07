@@ -61,7 +61,7 @@ require('telescope').setup({
             "./firmware/src/config/default/ble/profile_ble",
             "./firmware/src/config/default/ble/service_ble"},
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-        path_display = { "absolute" }, -- tail,absolute
+        path_display = { "tail" }, -- tail,absolute
         -- path_display = { truncate = 2 }, -- tail,absolute
         -- layout_strategy = "vertical",
         -- layout_config = {mirror = true},

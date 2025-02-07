@@ -313,6 +313,7 @@ keymaps('n','<leader>T','<C-W>=', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
 keymaps('n','<leader>W',':%s/\t/    /g<CR>',ntst)
 
+keymaps('n','<leader>so',':so $MYVIMRC<CR>',   ntst)
 keymaps('n','<leader>st',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<leader>sT',':Telescope live_grep_args<CR>',   ntst)
 keymaps('n','<leader>sd',':Telescope diagnostics<CR>', ntst)

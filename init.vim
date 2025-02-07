@@ -60,8 +60,8 @@ nmap <leader>lr :!rm -rf cscope.*<CR>
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
             \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
+            \:!cp ~/.config/nvim/lua/lsp/telescope_csc2.lua ~/.config/nvim/lua/lsp/telescope.lua<CR>
             \:so $MYVIMRC<CR>
-            \:echo $MYVIMRC<CR>
             \:echo "bz2 done, so" $MYVIMRC<CR>
 " bz3
 nmap <leader>ls :!rm -rf cscope.*<CR>
@@ -87,8 +87,8 @@ nmap <leader>ls :!rm -rf cscope.*<CR>
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
             \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
+            \:!cp ~/.config/nvim/lua/lsp/telescope_csc3.lua ~/.config/nvim/lua/lsp/telescope.lua<CR>
             \:so $MYVIMRC<CR>
-            \:echo $MYVIMRC<CR>
             \:echo "bz3 done, so" $MYVIMRC<CR>
 " bz6
 nmap <leader>ll :!rm -rf cscope.*<CR>
@@ -114,6 +114,7 @@ nmap <leader>ll :!rm -rf cscope.*<CR>
             \--exclude="./firmware/src/config/default/ble/middleware_ble" \
             \--exclude="./firmware/src/config/default/ble/profile_ble" \
             \--exclude="./firmware/src/config/default/ble/service_ble"<CR>
+            \:!cp ~/.config/nvim/lua/lsp/telescope_csc6.lua ~/.config/nvim/lua/lsp/telescope.lua<CR>
             \:so $MYVIMRC<CR>
             \:echo "bz6 done, so" $MYVIMRC<CR>
 

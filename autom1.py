@@ -9,7 +9,7 @@ init(autoreset=True)
 # Macro for the base path
 BASE_PATH = "/mnt/c/mchpCode"
 
-nv = "~/.config/nvim-linux64/bin/nvim"
+nv = "~/.config/nvim-linux-x86_64/bin/nvim"
 AutoPath = "AutoPTS_V3.1.5"
 MidPath = "Endpoint_V1.3.6"
 

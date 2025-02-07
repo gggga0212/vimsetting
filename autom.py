@@ -1,15 +1,15 @@
 import json
 import os
 import subprocess
-# from colorama import init, Fore, Style
+from colorama import init, Fore, Style
 
 # Initialize colorama
-# init(autoreset=True)
+init(autoreset=True)
 
 # Macro for the base path
 BASE_PATH = "/mnt/c/mchpCode"
 
-nv = "~/.config/nvim-linux64/bin/nvim"
+nv = "~/.config/nvim-linux-x86_64/bin/nvim"
 AutoPath = "AutoPTS_V3.1.5"
 MidPath = "Endpoint_V1.3.6"
 
@@ -22,7 +22,7 @@ def load_to_sqa_files():
         # Filter only files (exclude directories)
         return [file for file in files if os.path.isfile(os.path.join(to_sqa_path, file))]
     except FileNotFoundError:
-        print(f"Directory '{to_sqa_path}' not found.")
+        print(Fore.RED + f"Directory '{to_sqa_path}' not found.")
         return []
         
 index = [
@@ -161,10 +161,10 @@ def getProfileConfig():
     print(f"All test cases have been written to {output_file_path}")
 
 def display_menu(items, title="Menu"):
-    print(f"\n{title}\n" + "="*len(title))
+    print(Fore.CYAN + Style.BRIGHT + f"\n{title}\n" + "="*len(title))
     for idx, item in enumerate(items):
-        print(f"{idx + 1}. {item}")
-    choice = input("Select item please: ")
+        print(Fore.GREEN + f"{idx + 1}. {item}")
+    choice = input(Fore.YELLOW + "Select item please: ")
     if choice.lower() == 'b':
         return len(items) - 1
     try:
@@ -172,10 +172,10 @@ def display_menu(items, title="Menu"):
         if 1 <= choice <= len(items):
             return choice - 1
         else:
-            print("Invalid choice. ByeBye")
+            print(Fore.RED + "Invalid choice. ByeBye")
             exit()
     except ValueError:
-        print("Invalid input. ByeBye")
+        print(Fore.RED + "Invalid input. ByeBye")
         exit()
 
 def delJson():
@@ -198,7 +198,7 @@ def delJson():
 def selAuto():
     delJson()
     while True:
-        print("""
+        print(Fore.MAGENTA + Style.BRIGHT + """
          █████╗ ██╗   ██╗████████╗ ██████╗     ██████╗ ████████╗███████╗ 
         ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗    ██╔══██╗╚══██╔══╝██╔════╝
         ███████║██║   ██║   ██║   ██║   ██║    ██████╔╝   ██║   ███████╗
@@ -228,7 +228,7 @@ def selAuto():
         
 def selRunAutoPTS():
     while True:
-        print("""
+        print(Fore.MAGENTA + Style.BRIGHT + """
         ██████╗ ██╗   ██╗███╗   ██╗     █████╗ ██╗   ██╗████████╗ ██████╗  ██████╗ ████████╗███████╗ 
         ██╔══██╗██║   ██║████╗  ██║    ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗ ██╔══██╗╚══██╔══╝██╔════╝
         ██████╔╝██║   ██║██╔██╗ ██║    ███████║██║   ██║   ██║   ██║   ██║ ██████╔╝   ██║   ███████╗
@@ -248,7 +248,7 @@ def selRunAutoPTS():
 
 def selvimEdit():
     while True:
-        print("""
+        print(Fore.MAGENTA + Style.BRIGHT + """
         ██╗   ██╗██╗███╗   ███╗
         ██║   ██║██║████╗ ████║
         ██║   ██║██║██╔████╔██║
@@ -265,7 +265,7 @@ def selvimEdit():
 
 def selFolder():
     while True:
-        print("""
+        print(Fore.MAGENTA + Style.BRIGHT + """
         ███████╗ ██████╗ ██╗     ██████╗ ███████╗██████╗ 
         ██╔════╝██╔═══██╗██║     ██╔══██╗██╔════╝██╔══██╗
         █████╗  ██║   ██║██║     ██║  ██║█████╗  ██████╔╝
@@ -281,7 +281,7 @@ def selFolder():
 
 def selApp():
     while True:
-        print("""
+        print(Fore.MAGENTA + Style.BRIGHT + """
          █████╗ ██████╗ ██████╗ 
         ██╔══██╗██╔══██╗██╔══██╗
         ███████║██████╔╝██████╔╝
@@ -310,7 +310,7 @@ def mainInit():
     if os.path.isfile("TestSet_old.json"):
         os.remove("TestSet_old.json")
 
-    print("""
+    print(Fore.MAGENTA + Style.BRIGHT + """
     ███╗   ███╗ █████╗ ██╗███╗   ██╗    ███╗   ███╗███████╗███╗   ██╗██╗   ██╗
     ████╗ ████║██╔══██╗██║████╗  ██║    ████╗ ████║██╔════╝████╗  ██║██║   ██║
     ██╔████╔██║███████║██║██╔██╗ ██║    ██╔████╔██║█████╗  ██╔██╗ ██║██║   ██║
@@ -321,7 +321,7 @@ def mainInit():
 
     while True:
         SEL = display_menu(index, "Main Menu")
-        print(f"Selected item #{SEL + 1} which means {index[SEL]}")
+        print(Fore.CYAN + f"Selected item #{SEL + 1} which means {index[SEL]}")
         if SEL == 0:
             selAuto()
         elif SEL == 1:

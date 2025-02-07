@@ -135,9 +135,6 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
 alias chrome="open -a 'Google Chrome'"
 alias brave="open -a 'Brave Browser'"
 # alias nv='~/.config/nvim/nvim-macos/bin/nvim'
-alias nrm='rm -rf ~/.config/nvim-linux64 ~/.config/nvim-linux64.tar.gz'
-alias ndl='wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz'
-alias nup='tar xzvf nvim-linux64.tar.gz'
 alias nv='~/.config/nvim-linux-x86_64/bin/nvim'
 alias nu='git crlf false;nv --headless "+Lazy! sync" +qa;git crlf true;nv'
 

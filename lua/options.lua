@@ -49,6 +49,7 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop    = 4
 vim.opt.softtabstop= 0 
 vim.opt.laststatus = 2
+vim.opt.rnu = true --relativenumber 
 
 vim.g.t_Co         = 256
 vim.g.backspace    = 2
@@ -313,6 +314,7 @@ keymaps('n','<leader>T','<C-W>=', ntst)
 keymaps('n','<leader>w',':w!<CR>',ntst)
 keymaps('n','<leader>W',':%s/\t/    /g<CR>',ntst)
 
+keymaps('n','<leader>sr',':set rnu!<CR>',   ntst)
 keymaps('n','<leader>so',':so $MYVIMRC<CR>',   ntst)
 keymaps('n','<leader>st',':Telescope live_grep<CR>',   ntst)
 keymaps('n','<leader>sT',':Telescope live_grep_args<CR>',   ntst)
@@ -344,4 +346,4 @@ keymaps('n','<C-H>',':TmuxNavigateLeft<CR>', ntst)
 keymaps('n','<C-K>',':TmuxNavigateUp<CR>', ntst)
 keymaps('n','<C-L>',':TmuxNavigateRight<CR>', ntst)
 keymaps('n','<C-J>',':TmuxNavigateDown<CR>', ntst)
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme jellybeans]]

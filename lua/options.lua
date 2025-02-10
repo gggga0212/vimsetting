@@ -346,4 +346,4 @@ keymaps('n','<C-H>',':TmuxNavigateLeft<CR>', ntst)
 keymaps('n','<C-K>',':TmuxNavigateUp<CR>', ntst)
 keymaps('n','<C-L>',':TmuxNavigateRight<CR>', ntst)
 keymaps('n','<C-J>',':TmuxNavigateDown<CR>', ntst)
-vim.cmd [[colorscheme jellybeans]]
+vim.cmd [[colorscheme tokyonight]]

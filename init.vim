@@ -3,6 +3,7 @@
 filetype off        "required
     lua require('lazynvim')
     lua require('options')
+map , <leader>
 nmap <F6> :!rm -rf cscope.*<CR>
             \:!find "./" -iname '*.c' -o -iname '*.h' > cscope.files<CR>
             \:!cscope -R -b -c -q -i cscope.files -f cscope.out<CR>
@@ -150,6 +151,5 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " autocmd WinEnter * setlocal cursorline
 " autocmd WinLeave * setlocal nocursorline
 " autocmd BufWritePre * :%s/\s\+$//e
-map , <leader>
 " used for zM
 set foldmethod=indent

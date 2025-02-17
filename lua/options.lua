@@ -339,6 +339,7 @@ keymaps('o','/','<Plug>(easymotion-tn)', ntst)
 -- Lspsaga
 -- keymaps('n','gh',':Lspsaga lsp_finder<CR>', ntst)
 keymaps('n','J','j', ntst)
+keymaps('n','V','0v$', ntst)
 keymaps('n','[[','[[k', ntst)
 keymaps('i','kk','<ESC>', ntst)
 keymaps('i','jj','<ESC>', ntst)

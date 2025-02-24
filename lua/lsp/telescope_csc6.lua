@@ -55,10 +55,10 @@ require('telescope').setup({
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
         file_ignore_patterns = {
+            "../ble_stack_lib/src/inc/api/cxbz2",
             "../ble_stack_lib/src/inc/api/cxbz3",
-            "../ble_stack_lib/src/inc/api/cxbz6",
+            "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz2",
             "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz3",
-            "../ble_stack_lib/src/ble_stack/middleware_ble/ble_util/cxbz6",
             "./firmware/src/config/default/ble/lib/include",
             "./firmware/src/config/default/ble/middleware_ble",
             "./firmware/src/config/default/ble/profile_ble",

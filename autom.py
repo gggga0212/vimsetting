@@ -33,15 +33,6 @@ index = [
     "App"
 ]
 item_Auto = [
-    "7_peripheral_ae_pa_20240924.pts",
-    "8_central_ae_sync_20240924.pts",
-    "9_central_peripheral_ae_pa_sync_20240924.pts",
-    "ANP_ANS_PXP_For_TCRL_2024_2.pts",
-    "IAS_LLS_TPS_For_TCRL_2024_2.pts",
-    "BAS_For_TCRL_2024_2.pts",
-    "DIS_For_TCRL_2024_2.pts",
-    "HIDS_For_TCRL_2024_2.pts",
-    "HOGPS_For_TCRL_2024_2.pts",
     "Back to the previous page"
 ]
 item_RunAutoPTS = [

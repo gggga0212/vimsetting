@@ -1,5 +1,6 @@
 #!/bin/bash
 # Diffview needs the lastest git version
+wsl --set-default-version 1
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install -y wget git

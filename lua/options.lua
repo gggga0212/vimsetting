@@ -328,7 +328,7 @@ keymaps('n','<leader>sa',':Telescope aerial<CR>',    ntst)
 -- paste
 keymaps('x','p','pgvy',ntsf)
 
-keymaps('v','<leader>c','"*y :let @+=@*<CR>',ntsf)
+keymaps('v','cc','"*y :let @+=@*<CR>',ntsf)
 keymaps('n','<leader>v','"+p',ntsf)
 keymaps('v','<leader>v','"+p',ntsf)
 

@@ -22,7 +22,7 @@ sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
 sudo apt-get install -y fonts-powerline tmux pip
 sudo apt-get install -y exuberant-ctags cscope
-sudo apt-get install -y gcc g++ make
+sudo apt-get install -y gcc g++ make gdb
 sudo apt-get install -y tree mscgen
 sudo apt-get install -y ripgrep fd-find
 sudo apt-get install -y python python3

@@ -223,13 +223,15 @@ keymaps('n','<space>tg',':!go run main.go<CR>', ntst)
 keymaps('n','<space>th',':NvimTreeToggle<CR>',  ntst)
 keymaps('n','<space>ti','gg=G', ntst)
 keymaps('n','<space>tj',':Telescope ', ntsf)
-keymaps('n','<space>tm',':!make all<CR>', ntst)
 keymaps('n','<space>tk',':Telescope keymaps<CR>',  ntst)
 keymaps('n','<space>tK',':!pkill -f tmux<CR>', ntst)
 -- Move to line
 keymaps('','<space>tl','<Plug>(easymotion-bd-jk)',         ntst)
 keymaps('n','<space>tl','<Plug>(easymotion-overwin-line)', ntst)
 -- highlight
+keymaps('n','<space>tm',':!make all<CR>', ntst)
+keymaps('n','<space>tn',':!make gdb<CR>', ntst)
+
 
 keymaps('n','<space>to',':<C-U><C-R>=printf("!~/.config/tceetree/tceetree -V -p ")<CR>',ntsf)
 keymaps('n','<space>tO',':<C-U><C-R>=printf("!dot -Tpdf -O tceetree.out")<CR><CR>:!cmd.exe /C start tceetree.out.pdf<CR>',ntsf)

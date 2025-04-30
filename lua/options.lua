@@ -22,7 +22,7 @@ require "lsp.stuff"
 require "lsp.cscope"
 require "lsp.nvim-tree"
 require "lsp.hi-my-words"
-require "lsp.indent_blankline"
+-- require "lsp.indent_blankline"
 require "lsp.calltree"
 -- require "lsp.winbar"
 
@@ -49,7 +49,7 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop    = 4
 vim.opt.softtabstop= 0 
 vim.opt.laststatus = 2
-vim.opt.rnu = true --relativenumber 
+vim.opt.rnu = false --relativenumber 
 
 vim.g.t_Co         = 256
 vim.g.backspace    = 2

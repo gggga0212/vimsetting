@@ -168,13 +168,13 @@ require("lazy").setup({
     {'kyazdani42/nvim-web-devicons'},
 
     -- {'Yggdroot/indentLine'},
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
-        opts = {},
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     main = "ibl",
+    --     ---@module "ibl"
+    --     ---@type ibl.config
+    --     opts = {},
+    -- },
     {'ryanoasis/vim-devicons'},
     {'pacha/vem-tabline'},
     -- todo

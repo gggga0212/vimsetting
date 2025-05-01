@@ -141,7 +141,7 @@ alias nu='git crlf false;nv --headless "+Lazy! sync" +qa;git crlf true;nv'
 
 alias nvig='nv .gitignore'
 alias loadigsp='cp ~/.config/nvim/gitignoreSample .gitignore'
-alias rl='rm -rf ../.git/*.lock;
+alias rl='rm -rf .git/*.lock;
 rm -rf ../../.git/*.lock;'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
 alias ag="python ~/.config/nvim/autom.py"
@@ -214,3 +214,5 @@ echo "Please check and push to the git"
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

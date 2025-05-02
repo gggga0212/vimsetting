@@ -1,6 +1,6 @@
 [core]
     editor = vim
-    autocrlf = false
+	autocrlf = true
     pager = diff-so-fancy | less --tabs=4 -RFX
 [alias]
     co = checkout
@@ -57,5 +57,5 @@
 [mergetool]
     trustExitCode = true
 [user]
-    name = Sam.Kuo
-    email = Sam.Kuo@GR.com
+	name = sam.kuo
+	email = sam.kuo@

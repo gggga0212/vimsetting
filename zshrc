@@ -135,8 +135,10 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
 alias chrome="open -a 'Google Chrome'"
 alias brave="open -a 'Brave Browser'"
 # alias nv='~/.config/nvim/nvim-macos/bin/nvim'
-# alias nv='~/.config/nvim-linux-x86_64/bin/nvim'
-alias nv='~/.config/nvim-linux64/bin/nvim'
+alias nv='~/.config/nvim-linux-x86_64/bin/nvim'
+# alias nv='~/.config/nvim-linux64/bin/nvim'
+#alias nv='~/.config/nvim-linux-x86-arm64/bin/nvim'
+
 alias nu='git crlf false;nv --headless "+Lazy! sync" +qa;git crlf true;nv'
 
 alias nvig='nv .gitignore'

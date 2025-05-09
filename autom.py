@@ -30,7 +30,8 @@ index = [
     "Run AutoPTS",
     "Vim",
     "Folder",
-    "App"
+    "App",
+    "Copy Code"
 ]
 item_Auto = [
     "Back to the previous page"
@@ -220,7 +221,7 @@ def selAuto():
 def selRunAutoPTS():
     while True:
         print(Fore.MAGENTA + Style.BRIGHT + """
-        ██████╗ ██╗   ██╗███╗   ██╗     █████╗ ██╗   ██╗████████╗ ██████╗  ██████╗ ████████╗███████╗ 
+        ██████╗ ██╗   █╗███╗   ██╗     █████╗ ██╗   ██╗████████╗ ██████╗  ██████╗ ████████╗███████╗ 
         ██╔══██╗██║   ██║████╗  ██║    ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗ ██╔══██╗╚══██╔══╝██╔════╝
         ██████╔╝██║   ██║██╔██╗ ██║    ███████║██║   ██║   ██║   ██║   ██║ ██████╔╝   ██║   ███████╗
         ██╔══██╗██║   ██║██║╚██╗██║    ██╔══██║██║   ██║   ██║   ██║   ██║ ██╔═══╝    ██║   ╚════██║
@@ -296,6 +297,21 @@ def selApp():
             os.chdir(BASE_PATH)
             subprocess.run(["cmd.exe", "/c", "start", formatted_items[SEL]])
 
+def copyCode():
+    """
+    執行 copy.bat 檔案
+    """
+    try:
+        print(Fore.CYAN + "=== Executing copy.bat ===")
+        os.chdir("/mnt/c/SamCode/GrCode/airoha")
+        subprocess.run(["cmd.exe", "/c", "copy.bat"], shell=True)
+        # subprocess.run("copy.bat", shell=True)
+        print(Fore.GREEN + "=== Done ===")
+        input("Press Enter to continue...")
+    except Exception as e:
+        print(Fore.RED + f"Error occurred: {str(e)}")
+        input("Press Enter to continue...")
+
 def mainInit():
     os.chdir(f"{BASE_PATH}/AutoPTS/{AutoPath}/{AutoPath}")
     if os.path.isfile("TestSet_old.json"):
@@ -323,6 +339,8 @@ def mainInit():
             selFolder()
         elif SEL == 4:
             selApp()
+        elif SEL == 5:
+            copyCode()
 
 if __name__ == "__main__":
     mainInit()

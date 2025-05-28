@@ -167,58 +167,15 @@ alias auto2="cp ~/.config/nvim/autom2.py ~/.config/nvim/autom.py"
 alias cm="cmd.exe /c lazygit"
 alias cmd="cmd.exe"
 alias rmtag="git tag | xargs git tag -d"
-alias diff1='rm -rf doc/Registers/*.csv;
+alias diffreg='rm -rf DiffExl.patch;
+             rm -rf doc/Registers/*.csv;
              rm -rf doc/Registers/*.xlsx;
-             cp ../DiffRegisterMap/*.xlsx doc/Registers;'
-alias diff2='rm -rf doc/Registers/*.xlsx;
+             cp ../DiffRegisterMap/*.xlsx doc/Registers;
+             python doc/Registers/convert_excel_to_csv.py;
+             rm -rf doc/Registers/*.xlsx;
              git add doc/Registers;
-             git commit -m "delete csv";'
-
-alias wbz6='
-# Enable CRLF conversion
-git crlf true
-# Define directory variables
-FW_DIR="/mnt/c/mchpCode/fwMcc231012"
-APP_DIR="/mnt/c/mchpCode/AppSample"
-BZ6_REPO="https://bitbucket.microchip.com/scm/wsgsw/pic32cx-bz6_ble_apps.git"
-BZ6_DIR="$APP_DIR/pic32cx-bz6_ble_apps"
-WIRELESS_DIR="$FW_DIR/wireless_ble"
-APPS_DIR="$WIRELESS_DIR/apps/pic32_cxbz6"
-APPS=("ble_ancs_app" "ble_anpc_app" "ble_anps_app" "ble_pxpm_app" "ble_pxpr_app" "ble_hogps_app")
-
-# Change to the working directory
-cd $APP_DIR
-
-# Remove old directories and clone new repositories
-rm -rf $BZ6_DIR
-git clone --recursive $BZ6_REPO
-
-# Switch to the development branch in BZ6 repository
-cd $BZ6_DIR
-git checkout dev
-
-# Ensure no lock file exists and update the wireless repository
-cd $WIRELESS_DIR
-rm -rf apps
-git rt
-git co dev
-git tag | xargs git tag -d
-git pull
-git branch -D new_wireless_ble
-# Create and switch to the new branch
-git branch new_wireless_ble
-git checkout new_wireless_ble
-
-rm -rf .git/index.lock
-# Remove old application directories and copy new ones
-for app in "${APPS[@]}"; do
-    rm -rf $APPS_DIR/$app
-    cp -r $BZ6_DIR/$app $APPS_DIR/$app
-done
-
-echo "Please check and push to the git"
-'
-
+             git commit -m "delete csv";
+             git diff @^ @ ./>DiffExl.patch;'
 
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.

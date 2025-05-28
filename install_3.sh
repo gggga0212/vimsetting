@@ -45,6 +45,8 @@ git clone https://github.com/ymattw/ydiff.git
 cd ydiff
 ./setup.py install
 pip install pynvim --upgrade
+pip install openpyxl
+pip3 install pandas
 # clone the package
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo npm install -g diff-so-fancy

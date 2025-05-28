@@ -167,6 +167,13 @@ alias auto2="cp ~/.config/nvim/autom2.py ~/.config/nvim/autom.py"
 alias cm="cmd.exe /c lazygit"
 alias cmd="cmd.exe"
 alias rmtag="git tag | xargs git tag -d"
+alias diff1='rm -rf doc/Registers/*.csv;
+             rm -rf doc/Registers/*.xlsx;
+             cp ../DiffRegisterMap/*.xlsx doc/Registers;'
+alias diff2='rm -rf doc/Registers/*.xlsx;
+             git add doc/Registers;
+             git commit -m "delete csv";'
+
 alias wbz6='
 # Enable CRLF conversion
 git crlf true

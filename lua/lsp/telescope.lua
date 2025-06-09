@@ -56,10 +56,8 @@ require('telescope').setup({
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
         file_ignore_patterns = {
-            "./firmware/src/config/default/ble/lib/include",
-            "./firmware/src/config/default/ble/middleware_ble",
-            "./firmware/src/config/default/ble/profile_ble",
-            "./firmware/src/config/default/ble/service_ble"},
+            "tags",
+            "cscope.*"},
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = { "tail" }, -- tail,absolute
         -- path_display = { truncate = 2 }, -- tail,absolute

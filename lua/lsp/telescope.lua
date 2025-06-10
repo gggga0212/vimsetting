@@ -57,7 +57,8 @@ require('telescope').setup({
         file_sorter = require("telescope.sorters").get_fuzzy_file,
         file_ignore_patterns = {
             "tags",
-            "cscope.*"},
+            "cscope.*",
+            "doc/Registers"},
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = { "tail" }, -- tail,absolute
         -- path_display = { truncate = 2 }, -- tail,absolute

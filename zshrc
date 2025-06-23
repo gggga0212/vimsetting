@@ -167,16 +167,24 @@ alias auto2="cp ~/.config/nvim/autom2.py ~/.config/nvim/autom.py"
 alias cm="cmd.exe /c lazygit"
 alias cmd="cmd.exe"
 alias rmtag="git tag | xargs git tag -d"
-alias diffreg='rm -rf DiffExl.patch;
-             rm -rf doc/Registers/*.csv;
-             rm -rf doc/Registers/*.xlsx;
-             cp ../DiffRegisterMap/*.xlsx doc/Registers;
-             python doc/Tools/convert_excel_to_csv.py;
-             rm -rf doc/Registers/*.xlsx;
-             git add doc/Registers;
-             git commit -m "delete csv";
-             git diff @^ @ ./>DiffExl.patch;'
-
+alias diffreg='
+rm -rf DiffExl.patch;
+rm -rf doc/Registers/*.csv;
+rm -rf doc/Registers/*.xlsx;
+cp ../DiffRegisterMap/*.xlsx doc/Registers;
+python doc/Tools/convert_excel_to_csv.py;
+rm -rf doc/Registers/*.xlsx;
+git add doc/Registers;
+cat <<EOF > .git_commit_msg
+Register20250xxx
+-The bitfile was updated.
+-This commit converts Designer'\''s Register xlsx files to csv format for
+ better git diff comparison.
+EOF
+git commit -F .git_commit_msg;
+rm .git_commit_msg;
+git diff @^ @ ./>DiffExl.patch;
+'
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -171,7 +171,7 @@ alias diffreg='rm -rf DiffExl.patch;
              rm -rf doc/Registers/*.csv;
              rm -rf doc/Registers/*.xlsx;
              cp ../DiffRegisterMap/*.xlsx doc/Registers;
-             python doc/Registers/convert_excel_to_csv.py;
+             python doc/Tools/convert_excel_to_csv.py;
              rm -rf doc/Registers/*.xlsx;
              git add doc/Registers;
              git commit -m "delete csv";

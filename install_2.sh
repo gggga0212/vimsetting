@@ -8,7 +8,7 @@ cd ~/.config
 # tar xzvf nvim-linux64.tar.gz
 
 NVIM_ARCHIVE="nvim-linux-x86_64"
-NVIM_VERSION="v0.11.2"
+NVIM_VERSION="v0.11.3"
 DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/$NVIM_VERSION/${NVIM_ARCHIVE}.tar.gz"
 
 rm -rf "${NVIM_ARCHIVE}.tar.gz" "${NVIM_ARCHIVE}.tar" "$NVIM_ARCHIVE"

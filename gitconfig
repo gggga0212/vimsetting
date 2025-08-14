@@ -2,8 +2,11 @@
     editor = vim
 	autocrlf = true
     pager = diff-so-fancy | less --tabs=4 -RFX
+    whitespace = cr-at-eol
 [alias]
     co = checkout
+    wa = worktree add
+    wr = worktree remove
     st = status
     br = branch -a
     ls = log --stat --graph
@@ -58,4 +61,4 @@
     trustExitCode = true
 [user]
 	name = sam.kuo
-	email = sam.kuo@
+	email = sam.kuo@gearradio.net

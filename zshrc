@@ -148,7 +148,10 @@ rm -rf ../../.git/*.lock;'
 alias doxy='cmd.exe /c "sdk_library_release.bat"'
 alias ag="python ~/.config/nvim/autom.py"
 alias wttr='curl http://wttr.in'
-alias lz='cp ~/.config/nvim/lz_config.yml ~/.config/lazygit/config.yml;lazygit'
+alias lz='cp ~/.config/nvim/lz_config.yml ~/.config/lazygit/config.yml;
+rm -rf lazygit;
+cp -r ~/.config/lazygit .;
+lazygit'
 alias yz='cp ~/.config/nvim/ydiff_config.yml ~/.config/lazygit/config.yml;lazygit'
 alias csc='cp ~/.config/nvim/lua/lsp/cscope_cscope.lua ~/.config/nvim/lua/lsp/cscope.lua;
 cp ~/.config/nvim/lua/lsp/telescope_csc.lua ~/.config/nvim/lua/lsp/telescope.lua;

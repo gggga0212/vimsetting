@@ -209,7 +209,7 @@ keymaps('n','<space>gb',':Git blame<CR>',            ntst)
 keymaps('n','<space>gf',':DiffviewFileHistory %<CR>',ntst)
 keymaps('n','<space>gh',':DiffviewFileHistory<CR>',  ntst)
 keymaps('n','<space>gk',':LazyGit<CR>',              ntst)
-keymaps('n','<space>gl',':!cmd.exe /C start ./lazygit/lazygit.exe<CR>',              ntst)
+keymaps('n','<space>gl',':!cmd.exe /C start /max ./lazygit/lazygit.exe<CR>',              ntst)
 
 keymaps('n','<space>go',':DiffviewOpen -uno<CR>',    ntst)
 keymaps('n','<space>gp',':DiffviewOpen @^ -uno<CR>', ntst)

@@ -1,6 +1,6 @@
 [core]
     editor = vim
-	autocrlf = true
+	autocrlf = false
     pager = diff-so-fancy | less --tabs=4 -RFX
     whitespace = cr-at-eol
 [alias]

@@ -132,7 +132,7 @@ require("lazy").setup({
     {'morhetz/gruvbox'},
     {'vim-airline/vim-airline'},
     {'vim-airline/vim-airline-themes'},
-    {'kien/ctrlp.vim'},
+    {'ctrlpvim/ctrlp.vim'},
     {'easymotion/vim-easymotion'},
     { "catppuccin/nvim", as = "catppuccin"},
     { "kylechui/nvim-surround",

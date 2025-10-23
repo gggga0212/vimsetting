@@ -36,9 +36,9 @@ sudo ln -s /usr/bin/python3 /usr/local/bin/python
 # make
 
 # go-lang
-sudo add-apt-repository ppa:longsleep/golang-backports
-sudo apt update
-sudo apt install -y golang-go
+# sudo add-apt-repository ppa:longsleep/golang-backports
+# sudo apt update
+# sudo apt install -y golang-go
 
 #ydiff
 git clone https://github.com/ymattw/ydiff.git

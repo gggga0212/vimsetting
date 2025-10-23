@@ -13,4 +13,6 @@ DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/$NVIM_VERSION/$
 
 rm -rf "${NVIM_ARCHIVE}.tar.gz" "${NVIM_ARCHIVE}.tar" "$NVIM_ARCHIVE"
 wget "$DOWNLOAD_URL"
+wget "https://github.com/jesseduffield/lazygit/releases/download/v0.55.1/lazygit_0.55.1_windows_x86_64.zip"
 tar xzvf "${NVIM_ARCHIVE}.tar.gz"
+unzip lazygit_0.55.1_windows_x86_64.zip -d lazygit

@@ -206,12 +206,9 @@ keymaps('n','gn',':Gitsigns next_hunk<CR>',    ntst)
 keymaps('n','gp',':Gitsigns prev_hunk<CR>',    ntst)
 keymaps('n','gu',':Gitsigns reset_hunk<CR>',   ntst)
 keymaps('n','<space>gb',':Git blame<CR>',            ntst)
-
 keymaps('n','<space>gf',':DiffviewFileHistory %<CR>',ntst)
 keymaps('n','<space>gh',':DiffviewFileHistory<CR>',  ntst)
--- keymaps('n','<space>gl',':LazyGit<CR>',              ntst)
-keymaps('n','<space>gl',':!cmd.exe /C start ./lazygit/lazygit.exe<CR>',              ntst)
-
+keymaps('n','<space>gl',':LazyGit<CR>',              ntst)
 keymaps('n','<space>go',':DiffviewOpen -uno<CR>',    ntst)
 keymaps('n','<space>gp',':DiffviewOpen @^ -uno<CR>', ntst)
 keymaps('n','<space>gs',':DiffviewOpen $Sam -uno<CR>', ntst)

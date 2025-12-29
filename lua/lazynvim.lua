@@ -71,7 +71,7 @@ require("lazy").setup({
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "nvim-telescope/telescope-fzf-native.nvim" },
     {'lewis6991/gitsigns.nvim'},
-    {'nvim-treesitter/nvim-treesitter'},
+    {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
     {'nvim-treesitter/nvim-treesitter-context'},
     {'nvim-treesitter/tree-sitter-query'},
     {'RRethy/nvim-treesitter-textsubjects'},

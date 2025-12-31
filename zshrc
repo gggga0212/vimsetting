@@ -153,8 +153,10 @@ alias mixh="~/.config/nvim/mixh.sh"
 alias cm="cmd.exe /c lazygit"
 alias cmd="cmd.exe"
 alias rmtag="git tag | xargs git tag -d"
-alias bitbake26='cd ~/AST2600_qemu/openbmc/as26_build;bitbake obmc-phosphor-image'
-alias bitbake27="cd ~/AST2700_qemu/openbmc/as27_build;bitbake obmc-phosphor-image"
+alias to26='cd ~/AST2600_qemu/openbmc/as26_build'
+# bitbake obmc-phosphor-image
+alias to27='cd ~/AST2700_qemu/openbmc/as27_build'
+# bitbake obmc-phosphor-image
 alias runbmc="cp ./tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd;
 ./qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu"
 alias kq='pkill qemu-system-arm'

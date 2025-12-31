@@ -119,9 +119,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias tnew='tmux -f ~/.tmux.conf new-session \; split-window -h \; split-window -v \; attach'
-alias gt='cd ../ble_stack_lib/src/ble_stack'
-alias gotodoxy='cd ../ble_stack_lib/ble_stack_lib.X/doxygen_script'
-alias checkoutteam='cd ../ble_stack_lib/src/ble_stack;git checkout host_stack_team'
 alias saveconfig='cp ~/.zshrc ~/.config/nvim/zshrc; 
                   cp ~/.gitconfig ~/.config/nvim/gitconfig;
                   cp ~/.tmux.conf ~/.config/nvim/tmux.conf;
@@ -132,8 +129,6 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
                   cp ~/.config/nvim/lz_config.yml ~/.config/lazygit/config.yml;
                   source ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
-alias chrome="open -a 'Google Chrome'"
-alias brave="open -a 'Brave Browser'"
 alias nv='~/.config/nvim-linux-x86_64/bin/nvim'
 alias nu='git crlf false;nv --headless "+Lazy! sync" +qa;nv'
 alias nvig='nv .gitignore'
@@ -153,15 +148,14 @@ alias mixh="~/.config/nvim/mixh.sh"
 alias cm="cmd.exe /c lazygit"
 alias cmd="cmd.exe"
 alias rmtag="git tag | xargs git tag -d"
-alias to26='cd ~/AST2600_qemu/openbmc/as26_build'
-# bitbake obmc-phosphor-image
-alias to27='cd ~/AST2700_qemu/openbmc/as27_build'
-# bitbake obmc-phosphor-image
+alias bf='cd ~/AST2600_qemu/openbmc;. setup ast2600-default as26_build;bitbake obmc-phosphor-image --runall=fetch'
+alias bb='cd ~/AST2600_qemu/openbmc;. setup ast2600-default as26_build;bitbake obmc-phosphor-image'
 alias runbmc="cp ./tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd;
+cd ~/AST2600_qemu/openbmc/as26_build;
 ./qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu"
 alias kq='pkill qemu-system-arm'
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+[ -f ~/.bashrc ] && . ~/.bashrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

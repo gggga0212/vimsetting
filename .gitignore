@@ -4,3 +4,5 @@ gccCode/test.png
 bundle/vundle/
 bundle/coc.nvim/
 lazy-lock.json
+lazygit
+ydiff

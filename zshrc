@@ -134,13 +134,8 @@ alias loadconfig='cp ~/.config/nvim/zshrc ~/.zshrc;
                   echo "load zsh, gitconfig, tmux to linux"'
 alias chrome="open -a 'Google Chrome'"
 alias brave="open -a 'Brave Browser'"
-# alias nv='~/.config/nvim/nvim-macos/bin/nvim'
 alias nv='~/.config/nvim-linux-x86_64/bin/nvim'
-# alias nv='~/.config/nvim-linux64/bin/nvim'
-#alias nv='~/.config/nvim-linux-x86-arm64/bin/nvim'
-
 alias nu='git crlf false;nv --headless "+Lazy! sync" +qa;nv'
-
 alias nvig='nv .gitignore'
 alias loadigsp='cp ~/.config/nvim/gitignoreSample .gitignore'
 alias rl='rm -rf .git/*.lock;
@@ -153,34 +148,16 @@ rm -rf lazygit;
 cp -r ~/.config/lazygit .;
 lazygit'
 alias yz='cp ~/.config/nvim/ydiff_config.yml ~/.config/lazygit/config.yml;lazygit'
-                  echo "packer is changed to cscope."'
-alias csf='cp ~/.config/nvim/lua/lsp/cscope_fzf.lua ~/.config/nvim/lua/lsp/cscope.lua;
-                  echo "packer is changed to cscope."'
 alias rmc="~/.config/nvim/rvCmd.sh"
 alias mixh="~/.config/nvim/mixh.sh"
-alias auto1="cp ~/.config/nvim/autom1.py ~/.config/nvim/autom.py"
-alias auto2="cp ~/.config/nvim/autom2.py ~/.config/nvim/autom.py"
 alias cm="cmd.exe /c lazygit"
 alias cmd="cmd.exe"
 alias rmtag="git tag | xargs git tag -d"
-alias diffreg='
-rm -rf DiffExl.patch;
-rm -rf doc/Registers/*.csv;
-rm -rf doc/Registers/*.xlsx;
-cp ../DiffRegisterMap/*.xlsx doc/Registers;
-python doc/Tools/convert_excel_to_csv.py;
-rm -rf doc/Registers/*.xlsx;
-git add doc/Registers;
-cat <<EOF > .git_commit_msg
-Register20250xxx
--The bitfile was updated.
--This commit converts Designer'\''s Register xlsx files to csv format for
- better git diff comparison.
-EOF
-git commit -F .git_commit_msg;
-rm .git_commit_msg;
-git diff @^ @ ./>DiffExl.patch;
-'
+alias bitbake26='cd ~/AST2600_qemu/openbmc/as26_build;bitbake obmc-phosphor-image'
+alias bitbake27="cd ~/AST2700_qemu/openbmc/as27_build;bitbake obmc-phosphor-image"
+alias runbmc="cp ./tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd;
+./qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu"
+alias kq='pkill qemu-system-arm'
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

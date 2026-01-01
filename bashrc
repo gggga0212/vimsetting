@@ -7,7 +7,7 @@ bf() {
 }
 
 # 2. 執行編譯 (Build)
-bb() {
+bk() {
     cd ~/AST2600_qemu/openbmc && \
     . setup ast2600-default as26_build && \
     bitbake obmc-phosphor-image
@@ -38,7 +38,7 @@ bf() {
 }
 
 # 2. 執行編譯 (Build)
-bb() {
+bk() {
     cd ~/AST2700_qemu/openbmc && \
     . setup ast2700-default as27_build && \
     bitbake obmc-phosphor-image

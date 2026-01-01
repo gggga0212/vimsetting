@@ -157,5 +157,5 @@ alias kq='pkill qemu-system-arm'
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -f ~/.bashrc ] && . ~/.bashrc
+# [ -f ~/.bashrc ] && . ~/.bashrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

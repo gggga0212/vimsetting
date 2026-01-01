@@ -58,4 +58,7 @@ runbmc() {
         -net nic \
         -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu
 }
+============
+BB_NUMBER_THREADS = "4"
+PARALLEL_MAKE = "-j 4"
 

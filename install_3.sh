@@ -70,7 +70,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # git clone https://github.com/terrortylor/nvim-comment
 
 #ubuntu github authentication
-#curl -u username:token https://api.github.com/user
+curl -u username:token https://api.github.com/user
 
 # lazygit windows install
 # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser

@@ -206,6 +206,9 @@ tiof() {
     command tio "$@"
   fi
 }
+export LS_COLORS="di=01;36"
+alias ls='ls --color=auto'
+
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

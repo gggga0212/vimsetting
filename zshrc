@@ -154,6 +154,43 @@ alias runbmc="cp ./tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600
 cd ~/AST2600_qemu/openbmc/as26_build;
 ./qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu"
 alias kq='pkill qemu-system-arm'
+function s4() {
+    # 左右分
+    tmux split-window -h
+    # 右半部上下分
+    tmux split-window -v
+    # 回到左半部 (索引 0)
+    tmux select-pane -t 0
+    # 左半部上下分
+    tmux split-window -v
+    # 重新排列成整齊的網格
+    tmux select-layout tiled
+    # 最後回到左上角的第一格
+    tmux select-pane -t 0
+}
+function runbmc27() {
+cd ~/AST2700_qemu/openbmc/as27_build/tmp/deploy/images/
+IMGDIR=ast2700-default
+UBOOT_SIZE=$(stat --format=%s -L ${IMGDIR}/u-boot-nodtb.bin)
+qemu-system-aarch64 -M ast2700fc \
+  -device loader,force-raw=on,addr=0x400000000,file=${IMGDIR}/u-boot-nodtb.bin \
+  -device loader,force-raw=on,addr=$((0x400000000 + ${UBOOT_SIZE})),file=${IMGDIR}/u-boot.dtb \
+  -device loader,force-raw=on,addr=0x430000000,file=${IMGDIR}/bl31.bin \
+  -device loader,force-raw=on,addr=0x430080000,file=${IMGDIR}/optee/tee-raw.bin \
+  -device loader,cpu-num=0,addr=0x430000000 \
+  -device loader,cpu-num=1,addr=0x430000000 \
+  -device loader,cpu-num=2,addr=0x430000000 \
+  -device loader,cpu-num=3,addr=0x430000000 \
+  -drive file=${IMGDIR}/image-bmc,if=mtd,format=raw \
+  -device loader,file=${IMGDIR}/zephyr-aspeed-ssp.elf,cpu-num=4 \
+  -device loader,file=${IMGDIR}/zephyr-aspeed-tsp.elf,cpu-num=5 \
+  -serial pty -serial pty -serial pty \
+  -net nic \
+  -net user,hostfwd=tcp:127.0.0.1:5355-:5355,hostfwd=:127.0.0.1:2022-:22,hostfwd=:127.0.0.1:2443-:443,hostfwd=tcp:127.0.0.1:2080-:80,hostfwd=tcp:127.0.0.1:2200-:2200,hostfwd=udp:127.0.0.1:2623-:623,hostfwd=udp:127.0.0.1:2664-:664,hostname=qemu \
+  -snapshot \
+  -S -nographic
+
+}
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

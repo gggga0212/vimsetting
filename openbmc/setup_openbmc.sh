@@ -23,6 +23,8 @@ show_menu() {
     echo "2: Clone and set env."
     echo "3: Download image."
     echo "4: Build image."
+    echo "5: Setup Qemu."
+    echo "6: Run Qemu."
     echo "q: Quit."
     echo ""
     echo -n "Please select an option: "
@@ -196,6 +198,217 @@ build_image() {
     read
 }
 
+# Setup Qemu
+setup_qemu() {
+    clear
+    echo "=========================================="
+    echo "      Setup Qemu"
+    echo "=========================================="
+    echo "Platform: $CURRENT_PLATFORM"
+    echo ""
+    
+    # Save current directory
+    ORIGINAL_DIR=$(pwd)
+    
+    if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
+        echo "Setting up QEMU for AST2600..."
+        echo ""
+        
+        # Install QEMU packages
+        sudo apt install qemu-system qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager -y
+        
+        # Download qemu-system-arm
+        wget https://jenkins.openbmc.org/job/latest-qemu-x86/lastSuccessfulBuild/artifact/qemu/build/qemu-system-arm
+        
+        # Add execute permission
+        chmod a+x qemu-system-arm
+        
+        echo ""
+        echo "AST2600 QEMU setup completed!"
+    else
+        echo "Setting up QEMU for AST2700..."
+        echo ""
+        
+        # Install QEMU packages
+        sudo apt install qemu-system qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager -y
+        
+        # Install build dependencies
+        sudo apt install -y build-essential libglib2.0-dev libpixman-1-dev zlib1g-dev git python3-pip ninja-build python3-venv libslirp-dev
+        
+        # Install tomli
+        pip install tomli
+        
+        # Install additional packages
+        sudo apt install pkg-config -y
+        sudo apt install cmake libgtk-3-dev -y
+        
+        # Clone QEMU repository
+        git clone https://gitlab.com/qemu-project/qemu.git
+        cd qemu || exit
+        
+        # Show available versions
+        echo "Available QEMU versions:"
+        git tag | sort -V
+        
+        # Checkout specific version for AST2700
+        echo ""
+        echo "Checking out v10.1.0-rc4 (required for 2700fc with A35 + M4*2)..."
+        git checkout v10.1.0-rc4
+        
+        # Build QEMU
+        mkdir -p build
+        cd build || exit
+        ../configure --target-list=aarch64-softmmu --enable-slirp --enable-debug --enable-gtk
+        echo ""
+        echo "Building QEMU (this may take a while)..."
+        sudo make -j$(nproc)
+        echo ""
+        echo "Installing QEMU..."
+        sudo make install
+        
+        # Return to original directory
+        cd "$ORIGINAL_DIR" || return
+        
+        echo ""
+        echo "AST2700 QEMU setup completed!"
+    fi
+    
+    echo ""
+    echo "Press Enter to continue..."
+    read
+}
+
+# Run Qemu
+run_qemu() {
+    clear
+    echo "=========================================="
+    echo "      Run Qemu"
+    echo "=========================================="
+    echo "Platform: $CURRENT_PLATFORM"
+    echo ""
+    
+    # Save current directory
+    ORIGINAL_DIR=$(pwd)
+    
+    if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
+        echo "Running QEMU for AST2600..."
+        echo ""
+        
+        # Check if build directory exists
+        if [ ! -d "AST2600_qemu/openbmc/as26_build/tmp/deploy/images/ast2600-default" ]; then
+            echo "Error: AST2600 build directory not found. Please run option 4 (Build image) first."
+            echo ""
+            echo "Press Enter to continue..."
+            read
+            return 1
+        fi
+        
+        # Check if qemu-system-arm exists
+        if [ ! -f "qemu-system-arm" ]; then
+            echo "Error: qemu-system-arm not found. Please run option 5 (Setup Qemu) first."
+            echo ""
+            echo "Press Enter to continue..."
+            read
+            return 1
+        fi
+        
+        # Copy image file
+        echo "Copying image file..."
+        cp ./AST2600_qemu/openbmc/as26_build/tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd
+        
+        if [ ! -f "ast2600.static.mtd" ]; then
+            echo "Error: Failed to copy image file."
+            echo ""
+            echo "Press Enter to continue..."
+            read
+            return 1
+        fi
+        
+        echo ""
+        echo "Starting QEMU for AST2600..."
+        echo "Press Ctrl+A then X to exit QEMU"
+        echo ""
+        
+        # Run QEMU
+        ./qemu-system-arm -m 1024 -M ast2600-evb -nographic \
+            -drive file=./ast2600.static.mtd,format=raw,if=mtd \
+            -net nic \
+            -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu
+        
+    else
+        echo "Running QEMU for AST2700..."
+        echo ""
+        
+        # Check if build directory exists
+        IMG_BASE_DIR="$HOME/AST2700_qemu/openbmc/as27_build/tmp/deploy/images"
+        if [ ! -d "$IMG_BASE_DIR/ast2700-default" ]; then
+            echo "Error: AST2700 build directory not found. Please run option 4 (Build image) first."
+            echo ""
+            echo "Press Enter to continue..."
+            read
+            return 1
+        fi
+        
+        # Check if qemu-system-aarch64 exists
+        if ! command -v qemu-system-aarch64 &> /dev/null; then
+            echo "Error: qemu-system-aarch64 not found. Please run option 5 (Setup Qemu) first."
+            echo ""
+            echo "Press Enter to continue..."
+            read
+            return 1
+        fi
+        
+        # Change to images directory
+        cd "$IMG_BASE_DIR" || exit
+        
+        IMGDIR=ast2700-default
+        
+        # Check if required files exist
+        if [ ! -f "${IMGDIR}/u-boot-nodtb.bin" ] || [ ! -f "${IMGDIR}/u-boot.dtb" ] || [ ! -f "${IMGDIR}/bl31.bin" ]; then
+            echo "Error: Required image files not found in ${IMGDIR}/"
+            echo ""
+            echo "Press Enter to continue..."
+            read
+            cd "$ORIGINAL_DIR" || return
+            return 1
+        fi
+        
+        # Calculate UBOOT_SIZE
+        UBOOT_SIZE=$(stat --format=%s -L ${IMGDIR}/u-boot-nodtb.bin)
+        
+        echo "Starting QEMU for AST2700..."
+        echo "Press Ctrl+A then X to exit QEMU"
+        echo ""
+        
+        # Run QEMU
+        qemu-system-aarch64 -M ast2700fc \
+            -device loader,force-raw=on,addr=0x400000000,file=${IMGDIR}/u-boot-nodtb.bin \
+            -device loader,force-raw=on,addr=$((0x400000000 + ${UBOOT_SIZE})),file=${IMGDIR}/u-boot.dtb \
+            -device loader,force-raw=on,addr=0x430000000,file=${IMGDIR}/bl31.bin \
+            -device loader,force-raw=on,addr=0x430080000,file=${IMGDIR}/optee/tee-raw.bin \
+            -device loader,cpu-num=0,addr=0x430000000 \
+            -device loader,cpu-num=1,addr=0x430000000 \
+            -device loader,cpu-num=2,addr=0x430000000 \
+            -device loader,cpu-num=3,addr=0x430000000 \
+            -drive file=${IMGDIR}/image-bmc,if=mtd,format=raw \
+            -device loader,file=${IMGDIR}/zephyr-aspeed-ssp.elf,cpu-num=4 \
+            -device loader,file=${IMGDIR}/zephyr-aspeed-tsp.elf,cpu-num=5 \
+            -serial pty -serial pty -serial pty \
+            -net nic \
+            -net user,hostfwd=tcp:127.0.0.1:5355-:5355,hostfwd=:127.0.0.1:2022-:22,hostfwd=:127.0.0.1:2443-:443,hostfwd=tcp:127.0.0.1:2080-:80,hostfwd=tcp:127.0.0.1:2200-:2200,hostfwd=udp:127.0.0.1:2623-:623,hostfwd=udp:127.0.0.1:2664-:664,hostname=qemu \
+            -snapshot \
+            -S -nographic
+        
+        # Return to original directory
+        cd "$ORIGINAL_DIR" || return
+    fi
+    
+    echo ""
+    echo "QEMU session ended."
+    echo "Press Enter to continue..."
+    read
+}
+
 # Main program loop
 while true; do
     show_menu
@@ -213,6 +426,12 @@ while true; do
             ;;
         4)
             build_image
+            ;;
+        5)
+            setup_qemu
+            ;;
+        6)
+            run_qemu
             ;;
         q|Q)
             echo ""

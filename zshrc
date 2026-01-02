@@ -150,7 +150,7 @@ alias cmd="cmd.exe"
 alias rmtag="git tag | xargs git tag -d"
 alias bf='cd ~/AST2600_qemu/openbmc;. setup ast2600-default as26_build;bitbake obmc-phosphor-image --runall=fetch'
 alias bb='cd ~/AST2600_qemu/openbmc;. setup ast2600-default as26_build;bitbake obmc-phosphor-image'
-alias runbmc="cp ./tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd;
+alias runbmc26="cp ./tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd;
 cd ~/AST2600_qemu/openbmc/as26_build;
 ./qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu"
 alias kq='pkill qemu-system-arm'
@@ -190,6 +190,19 @@ qemu-system-aarch64 -M ast2700fc \
   -snapshot \
   -S -nographic
 
+}
+# 自定義 tio function
+tiof() {
+  # 檢查第一個參數是否為純數字
+  if [[ "$1" =~ ^[0-9]+$ ]]; then
+    # 如果是數字，將其轉換為 /dev/pts/n，並保留後續其他參數
+    local pts_dev="/dev/pts/$1"
+    shift # 移除第一個參數 (原本的數字)
+    command tio "$pts_dev" "$@"
+  else
+    # 如果不是數字（例如帶有路徑或參數），則按原樣執行
+    command tio "$@"
+  fi
 }
 setopt no_nomatch
 # To customize promptconfig/nvim/~/, run `p10k configure` or edit ~/.p10k.zsh.

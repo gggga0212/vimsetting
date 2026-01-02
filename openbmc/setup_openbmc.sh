@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Change to home directory first
+
 # Default platform
 CURRENT_PLATFORM="AST2600_qemu"
 

@@ -143,8 +143,14 @@ download_image() {
     # Enter openbmc directory and execute download
     if cd "$OPENBMC_DIR" 2>/dev/null; then
         echo "Downloading image for $CURRENT_PLATFORM..."
+        if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
+            SETUP_ARGS="ast2600-default as26_build"
+        else
+            SETUP_ARGS="ast2700-default as27_build"
+        fi
+        # Setup environment
+        . setup $SETUP_ARGS
         bitbake obmc-phosphor-image --runall=fetch
-        echo ""
         echo "Download completed!"
         # Return to original directory
         cd "$ORIGINAL_DIR" || return

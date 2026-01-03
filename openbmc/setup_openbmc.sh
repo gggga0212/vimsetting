@@ -107,7 +107,7 @@ clone_and_set_env() {
     sudo apt update
     sudo apt install -y git gcc g++ make file wget gawk diffstat bzip2 cpio chrpath zstd lz4 bzip2
     sudo locale-gen en_US.UTF-8
-    
+    bitbake obmc-phosphor-image --runall=fetch
     echo ""
     echo "$CURRENT_PLATFORM environment setup completed!"
     echo ""

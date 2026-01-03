@@ -1,0 +1,4 @@
+%UserProfile%
+[wsl2]
+memory=28GB
+swap=32GB

@@ -151,9 +151,9 @@ download_image() {
         # Setup environment
         . setup $SETUP_ARGS
         bitbake obmc-phosphor-image --runall=fetch
-        echo "Download completed!"
         # Return to original directory
         cd "$ORIGINAL_DIR" || return
+        echo "Download completed!"
     else
         echo "Error: Cannot access $OPENBMC_DIR directory."
         cd "$ORIGINAL_DIR" || return
@@ -173,26 +173,39 @@ build_image() {
     echo "Platform: $CURRENT_PLATFORM"
     echo ""
     
-    if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
-        if [ -d "AST2600_qemu" ] && [ -d "AST2600_qemu/openbmc" ]; then
-            cd AST2600_qemu/openbmc || exit
-            echo "Building image for AST2600_qemu..."
-            bitbake obmc-phosphor-image
-            echo ""
-            echo "Build completed!"
+    # Set directory path based on current platform
+    PLATFORM_DIR="$CURRENT_PLATFORM"
+    OPENBMC_DIR="$PLATFORM_DIR/openbmc"
+    
+    # Check if environment exists
+    if [ ! -d "$PLATFORM_DIR" ] || [ ! -d "$OPENBMC_DIR" ]; then
+        echo "Error: $CURRENT_PLATFORM environment not found. Please run option 2 first."
+        echo ""
+        echo "Press Enter to continue..."
+        read
+        return 1
+    fi
+    
+    # Save current directory
+    ORIGINAL_DIR=$(pwd)
+    
+    # Enter openbmc directory and execute build code.
+    if cd "$OPENBMC_DIR" 2>/dev/null; then
+        echo "Downloading image for $CURRENT_PLATFORM..."
+        if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
+            SETUP_ARGS="ast2600-default as26_build"
         else
-            echo "Error: AST2600_qemu environment not found. Please run option 2 first."
+            SETUP_ARGS="ast2700-default as27_build"
         fi
+        # Setup environment
+        . setup $SETUP_ARGS
+        bitbake obmc-phosphor-image
+        # Return to original directory
+        cd "$ORIGINAL_DIR" || return
+        echo "Download completed!"
     else
-        if [ -d "AST2700_qemu" ] && [ -d "AST2700_qemu/openbmc" ]; then
-            cd AST2700_qemu/openbmc || exit
-            echo "Building image for AST2700_qemu..."
-            bitbake obmc-phosphor-image
-            echo ""
-            echo "Build completed!"
-        else
-            echo "Error: AST2700_qemu environment not found. Please run option 2 first."
-        fi
+        echo "Error: Cannot access $OPENBMC_DIR directory."
+        cd "$ORIGINAL_DIR" || return
     fi
     
     echo ""

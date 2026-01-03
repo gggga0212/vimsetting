@@ -115,11 +115,30 @@ clone_and_set_env() {
     read
 }
 
-# Download image
-download_image() {
+# Build or download image (unified function)
+# Usage: build_or_download_image <action>
+# action: "download" for --runall=fetch, "build" for normal build
+build_or_download_image() {
+    local action=$1
+    local title
+    local message
+    local bitbake_cmd
+    
+    if [ "$action" = "download" ]; then
+        title="Download Image"
+        message="Downloading"
+        bitbake_cmd="bitbake obmc-phosphor-image --runall=fetch"
+        completion_msg="Download completed!"
+    else
+        title="Build Image"
+        message="Building"
+        bitbake_cmd="bitbake obmc-phosphor-image"
+        completion_msg="Build completed!"
+    fi
+    
     clear
     echo "=========================================="
-    echo "      Download Image"
+    echo "      $title"
     echo "=========================================="
     echo "Platform: $CURRENT_PLATFORM"
     echo ""
@@ -140,9 +159,9 @@ download_image() {
     # Save current directory
     ORIGINAL_DIR=$(pwd)
     
-    # Enter openbmc directory and execute download
+    # Enter openbmc directory and execute build/download
     if cd "$OPENBMC_DIR" 2>/dev/null; then
-        echo "Downloading image for $CURRENT_PLATFORM..."
+        echo "${message} image for $CURRENT_PLATFORM..."
         if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
             SETUP_ARGS="ast2600-default as26_build"
         else
@@ -150,10 +169,10 @@ download_image() {
         fi
         # Setup environment
         . setup $SETUP_ARGS
-        bitbake obmc-phosphor-image --runall=fetch
+        $bitbake_cmd
         # Return to original directory
         cd "$ORIGINAL_DIR" || return
-        echo "Download completed!"
+        echo "$completion_msg"
     else
         echo "Error: Cannot access $OPENBMC_DIR directory."
         cd "$ORIGINAL_DIR" || return
@@ -164,53 +183,14 @@ download_image() {
     read
 }
 
+# Download image
+download_image() {
+    build_or_download_image "download"
+}
+
 # Build image
 build_image() {
-    clear
-    echo "=========================================="
-    echo "      Build Image"
-    echo "=========================================="
-    echo "Platform: $CURRENT_PLATFORM"
-    echo ""
-    
-    # Set directory path based on current platform
-    PLATFORM_DIR="$CURRENT_PLATFORM"
-    OPENBMC_DIR="$PLATFORM_DIR/openbmc"
-    
-    # Check if environment exists
-    if [ ! -d "$PLATFORM_DIR" ] || [ ! -d "$OPENBMC_DIR" ]; then
-        echo "Error: $CURRENT_PLATFORM environment not found. Please run option 2 first."
-        echo ""
-        echo "Press Enter to continue..."
-        read
-        return 1
-    fi
-    
-    # Save current directory
-    ORIGINAL_DIR=$(pwd)
-    
-    # Enter openbmc directory and execute build code.
-    if cd "$OPENBMC_DIR" 2>/dev/null; then
-        echo "Downloading image for $CURRENT_PLATFORM..."
-        if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
-            SETUP_ARGS="ast2600-default as26_build"
-        else
-            SETUP_ARGS="ast2700-default as27_build"
-        fi
-        # Setup environment
-        . setup $SETUP_ARGS
-        bitbake obmc-phosphor-image
-        # Return to original directory
-        cd "$ORIGINAL_DIR" || return
-        echo "Download completed!"
-    else
-        echo "Error: Cannot access $OPENBMC_DIR directory."
-        cd "$ORIGINAL_DIR" || return
-    fi
-    
-    echo ""
-    echo "Press Enter to continue..."
-    read
+    build_or_download_image "build"
 }
 
 # Setup Qemu

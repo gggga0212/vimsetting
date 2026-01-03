@@ -92,12 +92,6 @@ clone_and_set_env() {
     # Create platform directory
     mkdir -p "$PLATFORM_DIR"
     cd "$PLATFORM_DIR" || exit
-    
-    # Determine clone location based on platform
-    if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
-        cd ~ || exit
-    fi
-    
     # Clone repository
     if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
         git clone https://github.com/AspeedTech-BMC/openbmc.git

@@ -35,7 +35,7 @@ show_menu() {
 }
 
 # Change platform
-change_platform() {
+openbmc_change_platform() {
     clear
     echo "=========================================="
     echo "      Change Platform"
@@ -72,10 +72,10 @@ change_platform() {
 }
 
 # Clone and set env
-clone_and_set_env() {
+openbmc_clone_and_download() {
     clear
     echo "=========================================="
-    echo "      Clone and Set Environment"
+    echo "      Clone OpenBMC and Download"
     echo "=========================================="
     echo "Platform: $CURRENT_PLATFORM"
     echo ""
@@ -186,17 +186,17 @@ build_or_download_image() {
 }
 
 # Download image
-download_image() {
+openbmc_download_image() {
     build_or_download_image "download"
 }
 
 # Build image
-build_image() {
+openbmc_build_image() {
     build_or_download_image "build"
 }
 
 # Setup Qemu
-setup_qemu() {
+qemu_setup() {
     clear
     echo "=========================================="
     echo "      Setup Qemu"
@@ -276,7 +276,7 @@ setup_qemu() {
 }
 
 # Run Qemu
-run_qemu() {
+qemu_run() {
     clear
     echo "=========================================="
     echo "      Run Qemu"
@@ -413,22 +413,22 @@ while true; do
     
     case $choice in
         1)
-            change_platform
+            openbmc_change_platform
             ;;
         2)
-            clone_and_set_env
+            openbmc_clone_and_download
             ;;
         3)
-            download_image
+            openbmc_download_image
             ;;
         4)
-            build_image
+            openbmc_build_image
             ;;
         5)
-            setup_qemu
+            qemu_setup
             ;;
         6)
-            run_qemu
+            qemu_run
             ;;
         q|Q)
             echo ""

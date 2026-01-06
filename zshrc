@@ -155,7 +155,7 @@ cd ~/AST2600_qemu/openbmc/as26_build;
 ./qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu"
 alias kq26='pkill qemu-system-arm'
 alias kq27='pkill -9 qemu-system-aar'
-alias sb="~/.config/nvim/openbmc/setup_openbmc.sh"
+alias bz="~/.config/nvim/openbmc/setup_openbmc.sh"
 
 function s4() {
     # 左右分

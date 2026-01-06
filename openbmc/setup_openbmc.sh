@@ -103,7 +103,7 @@ openbmc_clone_and_download() {
     cd openbmc || exit
     
     # Setup environment
-    . setup $SETUP_ARGS
+    . ./setup $SETUP_ARGS
     
     # Install dependencies (shared by both platforms)
     sudo apt update

@@ -3,7 +3,7 @@
 # Change to home directory first
 
 # Default platform
-CURRENT_PLATFORM="AST2600_qemu"
+CURRENT_PLATFORM="AST2700_qemu"
 
 # Show menu
 show_menu() {

@@ -144,9 +144,10 @@ build_or_download_image() {
     echo "=========================================="
     echo "Platform: $CURRENT_PLATFORM"
     echo ""
-    
+     # Save current directory
+    ORIGINAL_DIR=$(pwd)
     # Set directory path based on current platform
-    PLATFORM_DIR="$CURRENT_PLATFORM"
+    PLATFORM_DIR="$HOME/$CURRENT_PLATFORM"
     OPENBMC_DIR="$PLATFORM_DIR/openbmc"
     
     # Check if environment exists
@@ -157,9 +158,6 @@ build_or_download_image() {
         read
         return 1
     fi
-    
-    # Save current directory
-    ORIGINAL_DIR=$(pwd)
     
     # Enter openbmc directory and execute build/download
     if cd "$OPENBMC_DIR" 2>/dev/null; then
@@ -287,12 +285,21 @@ qemu_run() {
     # Save current directory
     ORIGINAL_DIR=$(pwd)
     
+    # Set platform-specific paths
+    PLATFORM_DIR="$HOME/$CURRENT_PLATFORM"
+    OPENBMC_DIR="$PLATFORM_DIR/openbmc"
+    
     if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
         echo "Running QEMU for AST2600..."
         echo ""
         
+        # Set AST2600 specific paths
+        IMG_DIR="$OPENBMC_DIR/as26_build/tmp/deploy/images/ast2600-default"
+        QEMU_BINARY="$HOME/qemu-system-arm"
+        MTD_FILE="$HOME/ast2600.static.mtd"
+        
         # Check if build directory exists
-        if [ ! -d "AST2600_qemu/openbmc/as26_build/tmp/deploy/images/ast2600-default" ]; then
+        if [ ! -d "$IMG_DIR" ]; then
             echo "Error: AST2600 build directory not found. Please run option 4 (Build image) first."
             echo ""
             echo "Press Enter to continue..."
@@ -301,7 +308,7 @@ qemu_run() {
         fi
         
         # Check if qemu-system-arm exists
-        if [ ! -f "qemu-system-arm" ]; then
+        if [ ! -f "$QEMU_BINARY" ]; then
             echo "Error: qemu-system-arm not found. Please run option 5 (Setup Qemu) first."
             echo ""
             echo "Press Enter to continue..."
@@ -311,9 +318,9 @@ qemu_run() {
         
         # Copy image file
         echo "Copying image file..."
-        cp ./AST2600_qemu/openbmc/as26_build/tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd
+        cp "$IMG_DIR/obmc-phosphor-image-ast2600-default.static.mtd" "$MTD_FILE"
         
-        if [ ! -f "ast2600.static.mtd" ]; then
+        if [ ! -f "$MTD_FILE" ]; then
             echo "Error: Failed to copy image file."
             echo ""
             echo "Press Enter to continue..."
@@ -327,8 +334,8 @@ qemu_run() {
         echo ""
         
         # Run QEMU
-        ./qemu-system-arm -m 1024 -M ast2600-evb -nographic \
-            -drive file=./ast2600.static.mtd,format=raw,if=mtd \
+        "$QEMU_BINARY" -m 1024 -M ast2600-evb -nographic \
+            -drive file="$MTD_FILE",format=raw,if=mtd \
             -net nic \
             -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu
         
@@ -336,9 +343,12 @@ qemu_run() {
         echo "Running QEMU for AST2700..."
         echo ""
         
+        # Set AST2700 specific paths
+        IMG_BASE_DIR="$OPENBMC_DIR/as27_build/tmp/deploy/images"
+        IMGDIR="$IMG_BASE_DIR/ast2700-default"
+        
         # Check if build directory exists
-        IMG_BASE_DIR="$HOME/AST2700_qemu/openbmc/as27_build/tmp/deploy/images"
-        if [ ! -d "$IMG_BASE_DIR/ast2700-default" ]; then
+        if [ ! -d "$IMGDIR" ]; then
             echo "Error: AST2700 build directory not found. Please run option 4 (Build image) first."
             echo ""
             echo "Press Enter to continue..."
@@ -355,23 +365,17 @@ qemu_run() {
             return 1
         fi
         
-        # Change to images directory
-        cd "$IMG_BASE_DIR" || exit
-        
-        IMGDIR=ast2700-default
-        
         # Check if required files exist
         if [ ! -f "${IMGDIR}/u-boot-nodtb.bin" ] || [ ! -f "${IMGDIR}/u-boot.dtb" ] || [ ! -f "${IMGDIR}/bl31.bin" ]; then
             echo "Error: Required image files not found in ${IMGDIR}/"
             echo ""
             echo "Press Enter to continue..."
             read
-            cd "$ORIGINAL_DIR" || return
             return 1
         fi
         
         # Calculate UBOOT_SIZE
-        UBOOT_SIZE=$(stat --format=%s -L ${IMGDIR}/u-boot-nodtb.bin)
+        UBOOT_SIZE=$(stat --format=%s -L "${IMGDIR}/u-boot-nodtb.bin")
         
         echo "Starting QEMU for AST2700..."
         echo "Press Ctrl+A then X to exit QEMU"
@@ -379,25 +383,22 @@ qemu_run() {
         
         # Run QEMU
         qemu-system-aarch64 -M ast2700fc \
-            -device loader,force-raw=on,addr=0x400000000,file=${IMGDIR}/u-boot-nodtb.bin \
-            -device loader,force-raw=on,addr=$((0x400000000 + ${UBOOT_SIZE})),file=${IMGDIR}/u-boot.dtb \
-            -device loader,force-raw=on,addr=0x430000000,file=${IMGDIR}/bl31.bin \
-            -device loader,force-raw=on,addr=0x430080000,file=${IMGDIR}/optee/tee-raw.bin \
+            -device loader,force-raw=on,addr=0x400000000,file="${IMGDIR}/u-boot-nodtb.bin" \
+            -device loader,force-raw=on,addr=$((0x400000000 + ${UBOOT_SIZE})),file="${IMGDIR}/u-boot.dtb" \
+            -device loader,force-raw=on,addr=0x430000000,file="${IMGDIR}/bl31.bin" \
+            -device loader,force-raw=on,addr=0x430080000,file="${IMGDIR}/optee/tee-raw.bin" \
             -device loader,cpu-num=0,addr=0x430000000 \
             -device loader,cpu-num=1,addr=0x430000000 \
             -device loader,cpu-num=2,addr=0x430000000 \
             -device loader,cpu-num=3,addr=0x430000000 \
-            -drive file=${IMGDIR}/image-bmc,if=mtd,format=raw \
-            -device loader,file=${IMGDIR}/zephyr-aspeed-ssp.elf,cpu-num=4 \
-            -device loader,file=${IMGDIR}/zephyr-aspeed-tsp.elf,cpu-num=5 \
+            -drive file="${IMGDIR}/image-bmc",if=mtd,format=raw \
+            -device loader,file="${IMGDIR}/zephyr-aspeed-ssp.elf",cpu-num=4 \
+            -device loader,file="${IMGDIR}/zephyr-aspeed-tsp.elf",cpu-num=5 \
             -serial pty -serial pty -serial pty \
             -net nic \
             -net user,hostfwd=tcp:127.0.0.1:5355-:5355,hostfwd=:127.0.0.1:2022-:22,hostfwd=:127.0.0.1:2443-:443,hostfwd=tcp:127.0.0.1:2080-:80,hostfwd=tcp:127.0.0.1:2200-:2200,hostfwd=udp:127.0.0.1:2623-:623,hostfwd=udp:127.0.0.1:2664-:664,hostname=qemu \
             -snapshot \
             -S -nographic
-        
-        # Return to original directory
-        cd "$ORIGINAL_DIR" || return
     fi
     
     echo ""

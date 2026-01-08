@@ -82,25 +82,29 @@ openbmc_clone_and_download() {
     
     echo "Setting up $CURRENT_PLATFORM..."
     
+    # Save current directory
+    ORIGINAL_DIR=$(pwd)
+    
     # Set platform-specific parameters
     if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
-        PLATFORM_DIR="AST2600_qemu"
+        PLATFORM_DIR="$HOME/AST2600_qemu"
         SETUP_ARGS="ast2600-default as26_build"
     else
-        PLATFORM_DIR="AST2700_qemu"
+        PLATFORM_DIR="$HOME/AST2700_qemu"
         SETUP_ARGS="ast2700-default as27_build"
     fi
     
     # Create platform directory
     mkdir -p "$PLATFORM_DIR"
-    cd "$PLATFORM_DIR" || exit
+    
     # Clone repository
     if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
-        git clone https://github.com/AspeedTech-BMC/openbmc.git
+        git clone https://github.com/AspeedTech-BMC/openbmc.git "$PLATFORM_DIR/openbmc"
     else
-        git clone -b v09.06 https://github.com/AspeedTech-BMC/openbmc.git
+        git clone -b v09.06 https://github.com/AspeedTech-BMC/openbmc.git "$PLATFORM_DIR/openbmc"
     fi
-    cd openbmc || exit
+    
+    cd "$PLATFORM_DIR/openbmc" || exit
     
     # Setup environment
     . ./setup $SETUP_ARGS

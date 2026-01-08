@@ -240,7 +240,7 @@ qemu_setup() {
         # Install additional packages
         sudo apt install pkg-config -y
         sudo apt install cmake libgtk-3-dev -y
-        
+        cd "$HOME/AST2700_qemu"
         # Clone QEMU repository
         git clone https://gitlab.com/qemu-project/qemu.git
         cd qemu || exit

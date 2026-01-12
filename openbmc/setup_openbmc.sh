@@ -111,7 +111,7 @@ openbmc_clone_and_download() {
     
     # Install dependencies (shared by both platforms)
     sudo apt update
-    sudo apt install -y git gcc g++ make file wget gawk diffstat bzip2 cpio chrpath zstd lz4 bzip2
+    sudo apt install -y git gcc g++ make file wget gawk diffstat bzip2 cpio chrpath zstd lz4 bzip2 tio
     sudo locale-gen en_US.UTF-8
     bitbake obmc-phosphor-image --runall=fetch
     echo ""

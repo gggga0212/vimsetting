@@ -311,6 +311,7 @@ qemu_run() {
         
         # Check if build directory exists
         if [ ! -d "$IMGDIR" ]; then
+            cd "$ORIGINAL_DIR"
             echo "Error: AST2700 build directory not found. Please run option 4 (Build image) first."
             echo ""
             echo "Press Enter to continue..."
@@ -320,6 +321,7 @@ qemu_run() {
         
         # Check if qemu-system-aarch64 exists
         if ! command -v qemu-system-aarch64 &> /dev/null; then
+            cd "$ORIGINAL_DIR"
             echo "Error: qemu-system-aarch64 not found. Please run option 5 (Setup Qemu) first."
             echo ""
             echo "Press Enter to continue..."
@@ -329,6 +331,7 @@ qemu_run() {
         
         # Check if required files exist
         if [ ! -f "${IMGDIR}/u-boot-nodtb.bin" ] || [ ! -f "${IMGDIR}/u-boot.dtb" ] || [ ! -f "${IMGDIR}/bl31.bin" ]; then
+            cd "$ORIGINAL_DIR"
             echo "Error: Required image files not found in ${IMGDIR}/"
             echo ""
             echo "Press Enter to continue..."
@@ -362,7 +365,7 @@ qemu_run() {
             -snapshot \
             -S -nographic
     fi
-    
+    cd "$ORIGINAL_DIR"
     echo ""
     echo "QEMU session ended."
     echo "Press Enter to continue..."

@@ -1,2 +1,4 @@
 alias bm="~/.config/nvim/openbmc/setup_openbmc.sh"
+alias setup26=". ./setup ast2600-default as26_build"
+alias setup27=". ./setup ast2700-default as27_build"
 export LS_COLORS=$LS_COLORS:'di=01;36:'

@@ -296,53 +296,11 @@ qemu_run() {
     if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
         echo "Running QEMU for AST2600..."
         echo ""
-        
-        # Set AST2600 specific paths
-        IMG_DIR="$OPENBMC_DIR/as26_build/tmp/deploy/images/ast2600-default"
-        QEMU_BINARY="$HOME/qemu-system-arm"
-        MTD_FILE="$HOME/ast2600.static.mtd"
-        
-        # Check if build directory exists
-        if [ ! -d "$IMG_DIR" ]; then
-            echo "Error: AST2600 build directory not found. Please run option 4 (Build image) first."
-            echo ""
-            echo "Press Enter to continue..."
-            read
-            return 1
-        fi
-        
-        # Check if qemu-system-arm exists
-        if [ ! -f "$QEMU_BINARY" ]; then
-            echo "Error: qemu-system-arm not found. Please run option 5 (Setup Qemu) first."
-            echo ""
-            echo "Press Enter to continue..."
-            read
-            return 1
-        fi
-        
-        # Copy image file
-        echo "Copying image file..."
-        cp "$IMG_DIR/obmc-phosphor-image-ast2600-default.static.mtd" "$MTD_FILE"
-        
-        if [ ! -f "$MTD_FILE" ]; then
-            echo "Error: Failed to copy image file."
-            echo ""
-            echo "Press Enter to continue..."
-            read
-            return 1
-        fi
-        
-        echo ""
-        echo "Starting QEMU for AST2600..."
-        echo "Press Ctrl+A then X to exit QEMU"
-        echo ""
-        
-        # Run QEMU
-        "$QEMU_BINARY" -m 1024 -M ast2600-evb -nographic \
-            -drive file="$MTD_FILE",format=raw,if=mtd \
-            -net nic \
-            -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu
-        
+    # Set AST2600 specific paths
+    IMG_BASE_DIR="$OPENBMC_DIR/as26_build"
+    cd "$IMG_BASE_DIR" || exit
+    cp ./tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd
+    ./qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu
     else
         echo "Running QEMU for AST2700..."
         echo ""

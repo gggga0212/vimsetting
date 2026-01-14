@@ -212,7 +212,7 @@ qemu_setup() {
     if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
         echo "Setting up QEMU for AST2600..."
         echo ""
-        
+        cd "$HOME/AST2600_qemu"
         # Install QEMU packages
         sudo apt install qemu-system qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager -y
         
@@ -300,7 +300,7 @@ qemu_run() {
     IMG_BASE_DIR="$OPENBMC_DIR/as26_build"
     cd "$IMG_BASE_DIR" || exit
     cp ./tmp/deploy/images/ast2600-default/obmc-phosphor-image-ast2600-default.static.mtd ./ast2600.static.mtd
-    ./qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu
+    ../../qemu-system-arm -m 1024 -M ast2600-evb -nographic -drive file=./ast2600.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=::3333-:22,hostfwd=::2443-:443,hostfwd=udp::2623-:623,hostname=qemu
     else
         echo "Running QEMU for AST2700..."
         echo ""

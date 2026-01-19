@@ -30,6 +30,10 @@ show_menu() {
     echo "└────────────────────────────────────────┘"
     echo "  5: Setup QEMU"
     echo "  6: Run QEMU"
+    echo "┌────────────────────────────────────────┐"
+    echo "│  Devtool                               │"
+    echo "└────────────────────────────────────────┘"
+    echo "  7: Linux Kernel Menuconfig"
     echo "  q: Quit"
     echo -n "  Please select an option: "
 }
@@ -372,6 +376,62 @@ qemu_run() {
     read
 }
 
+# Linux Kernel Menuconfig
+linux_menuconfig() {
+    clear
+    echo "=========================================="
+    echo "      Linux Kernel Menuconfig"
+    echo "=========================================="
+    echo "Platform: $CURRENT_PLATFORM"
+    echo ""
+    
+    # Save current directory
+    ORIGINAL_DIR=$(pwd)
+    
+    # Set platform-specific paths
+    PLATFORM_DIR="$HOME/$CURRENT_PLATFORM"
+    OPENBMC_DIR="$PLATFORM_DIR/openbmc"
+    
+    # Check if environment exists
+    if [ ! -d "$PLATFORM_DIR" ] || [ ! -d "$OPENBMC_DIR" ]; then
+        echo "Error: $CURRENT_PLATFORM environment not found. Please run option 2 first."
+        echo ""
+        echo "Press Enter to continue..."
+        read
+        return 1
+    fi
+    
+    # Enter openbmc directory and execute menuconfig
+    if cd "$OPENBMC_DIR" 2>/dev/null; then
+        echo "Running devtool menuconfig linux-aspeed for $CURRENT_PLATFORM..."
+        echo ""
+        
+        if [ "$CURRENT_PLATFORM" = "AST2600_qemu" ]; then
+            SETUP_ARGS="ast2600-default as26_build"
+        else
+            SETUP_ARGS="ast2700-default as27_build"
+        fi
+        
+        # Setup environment
+        . setup $SETUP_ARGS
+        
+        # Run menuconfig
+        devtool menuconfig linux-aspeed
+        
+        # Return to original directory
+        cd "$ORIGINAL_DIR" || return
+        echo ""
+        echo "Menuconfig completed!"
+    else
+        echo "Error: Cannot access $OPENBMC_DIR directory."
+        cd "$ORIGINAL_DIR" || return
+    fi
+    
+    echo ""
+    echo "Press Enter to continue..."
+    read
+}
+
 # Main program loop
 while true; do
     show_menu
@@ -395,6 +455,9 @@ while true; do
             ;;
         6)
             qemu_run
+            ;;
+        7)
+            linux_menuconfig
             ;;
         q|Q)
             echo ""

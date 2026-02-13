@@ -76,7 +76,12 @@ run_phosphor_fpga() {
 
 run_poky_qemu() {
     cd /home/samkuo/JM/qemu-private/build
-    ./qemu-system-aarch64 -s -M jm-mercury-fpga -smp cpus=1 -nographic -serial mon:stdio -device loader,addr=0x80000000,cpu-num=0 -device "loader,file=$U_BOOT_BIN,addr=0x80000000,force-raw=on -device "loader,file=$LINUX_FIT,addr=0x88000000,force-raw=on
+# ./qemu-system-aarch64 -s -M jm-mercury-fpga -smp cpus=1 -nographic \ 
+#     -serial mon:stdio \ 
+#     -device loader,addr=0x80000000,cpu-num=0 \ 
+#     -device "loader,file=$U_BOOT_BIN,addr=0x80000000,force-raw=on" \ 
+#     -device "loader,file=$LINUX_FIT,addr=0x88000000,force-raw=on"
+    $QEMU_BIN -s -M jm-mercury-fpga -smp cpus=1 -nographic -serial mon:stdio -device loader,addr=0x80000000,cpu-num=0 -device "loader,file=$U_BOOT_BIN,addr=0x80000000,force-raw=on" -device "loader,file=$LINUX_FIT,addr=0x88000000,force-raw=on"
 }
 
 # 進入工作目錄
@@ -107,9 +112,26 @@ while true; do
             break
             ;;
         4)
-            echo "U_BOOT_BIN=$U_BOOT_BIN"
-            echo "LINUX_FIT=$LINUX_FIT"
-            echo "QEMU_BIN=$QEMU_BIN"
+            echo "U_BOOT_BIN="
+            if [ -e "$U_BOOT_BIN" ]; then
+                echo "  -> $U_BOOT_BIN exists."
+            else
+                echo "  -> $U_BOOT_BIN does NOT exist!"
+            fi
+
+            echo "LINUX_FIT="
+            if [ -e "$LINUX_FIT" ]; then
+                echo "  -> $LINUX_FIT exists."
+            else
+                echo "  -> $LINUX_FIT does NOT exist!"
+            fi
+
+            echo "QEMU_BIN="
+            if [ -e "$QEMU_BIN" ]; then
+                echo "  -> $QEMU_BIN exists."
+            else
+                echo "  -> $QEMU_BIN does NOT exist!"
+            fi
             echo ""
             echo -n "Press Enter to continue..."
             read -r

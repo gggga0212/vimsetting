@@ -1,0 +1,11 @@
+# 第一個帳號 (JMicron 工作用)
+Host github-jm
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+
+# 第二個帳號 (個人用)
+Host github-personal
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_gggga0212

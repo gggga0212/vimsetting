@@ -11,6 +11,10 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export U_BOOT_BIN=$HOME/JM/openbmc-private/build/mercury-fpga-poky/tmp/deploy/images/mercury-fpga-poky/u-boot.bin
+export LINUX_FIT=$HOME/JM/openbmc-private/build/mercury-fpga-poky/tmp/deploy/images/mercury-fpga-poky/fitImage-fpga-image-initramfs-mercury-fpga-poky-mercury-fpga-poky
+export QEMU_BIN=$HOME/JM/qemu-private/build/qemu-system-aarch64
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -161,6 +165,8 @@ alias kq27='pkill -9 qemu-system-aar'
 alias bz="~/.config/nvim/openbmc/setup_openbmc.sh"
 alias bj="~/.config/nvim/openbmc/setup_openbmc_jm.sh"
 alias gk= "git format-patch HEAD^ --stdout | ./scripts/checkpatch.pl"
+alias bbp="echo $BBPATH"
+alias bbc="cd $BBPATH"
 function s4() {
     # 左右分
     tmux split-window -h

@@ -28,6 +28,8 @@ show_menu() {
     echo "    . ./setup mercury-qemu-webui"
     echo "  3: Use OpenBMC phosphor distro on FPGA"
     echo "    . ./setup mercury-fpga-webui"
+    echo "  4: Show QEMU/build paths (U_BOOT_BIN, LINUX_FIT, QEMU_BIN)"
+    echo "  5: Run Poky (QEMU)"
     echo "  q: Quit"
     echo ""
     echo -n "  Please select an option: "
@@ -42,6 +44,11 @@ run_poky() {
     echo ">>> TEMPLATECONF=meta-jmicron/meta-mercury-poky/conf/templates/default source oe-init-build-env build/mercury-fpga-poky"
     TEMPLATECONF=meta-jmicron/meta-mercury-poky/conf/templates/default source oe-init-build-env build/mercury-fpga-poky
     bitbake fpga-image-initramfs
+# TEMPLATECONF=meta-jmicron/meta-mercury-poky/conf/templates/default source oe-init-build-env build/mercury-fpga-poky 
+# U_BOOT_BIN="$BBPATH/tmp/deploy/images/mercury-fpga-poky/u-boot.bin" 
+# LINUX_FIT="$BBPATH/tmp/deploy/images/mercury-fpga-poky/fitImage-fpga-image-initramfs-mercury-fpga-poky-mercury-fpga-poky"
+# QEMU_BIN="$HOME/JM/qemu-private/build/qemu-system-aarch64"
+    #./qemu-system-aarch64 -s -M jm-mercury-fpga -smp cpus=1 -nographic -serial mon:stdio -device loader,addr=0x80000000,cpu-num=0 -device "loader,file=$U_BOOT_BIN,addr=0x80000000,force-raw=on -device "loader,file=$LINUX_FIT,addr=0x88000000,force-raw=on
 }
 
 run_phosphor_qemu() {
@@ -65,6 +72,11 @@ run_phosphor_fpga() {
     echo ">>> . ./setup mercury-fpga-webui"
     . ./setup mercury-fpga-webui
     bitbake qemu-image-initramfs-webui
+}
+
+run_poky_qemu() {
+    cd /home/samkuo/JM/qemu-private/build
+    ./qemu-system-aarch64 -s -M jm-mercury-fpga -smp cpus=1 -nographic -serial mon:stdio -device loader,addr=0x80000000,cpu-num=0 -device "loader,file=$U_BOOT_BIN,addr=0x80000000,force-raw=on -device "loader,file=$LINUX_FIT,addr=0x88000000,force-raw=on
 }
 
 # 進入工作目錄
@@ -92,6 +104,18 @@ while true; do
             ;;
         3)
             run_phosphor_fpga
+            break
+            ;;
+        4)
+            echo "U_BOOT_BIN=$U_BOOT_BIN"
+            echo "LINUX_FIT=$LINUX_FIT"
+            echo "QEMU_BIN=$QEMU_BIN"
+            echo ""
+            echo -n "Press Enter to continue..."
+            read -r
+            ;;
+        5)
+            run_poky_qemu
             break
             ;;
         q|Q)

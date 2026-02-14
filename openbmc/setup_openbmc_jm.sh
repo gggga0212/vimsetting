@@ -75,12 +75,11 @@ run_phosphor_fpga() {
 }
 
 run_poky_qemu() {
+    POKY_MACHINE=mercury-fpga-poky
+    U_BOOT_BIN=$HOME/JM/openbmc-private/build/$POKY_MACHINE/tmp/deploy/images/$POKY_MACHINE/u-boot.bin
+    LINUX_FIT=$HOME/JM/openbmc-private/build/$POKY_MACHINE/tmp/deploy/images/$POKY_MACHINE/fitImage-fpga-image-initramfs-${POKY_MACHINE}-${POKY_MACHINE}
+    QEMU_BIN=$HOME/JM/qemu-private/build/qemu-system-aarch64
     cd /home/samkuo/JM/qemu-private/build
-# ./qemu-system-aarch64 -s -M jm-mercury-fpga -smp cpus=1 -nographic \ 
-#     -serial mon:stdio \ 
-#     -device loader,addr=0x80000000,cpu-num=0 \ 
-#     -device "loader,file=$U_BOOT_BIN,addr=0x80000000,force-raw=on" \ 
-#     -device "loader,file=$LINUX_FIT,addr=0x88000000,force-raw=on"
     $QEMU_BIN -s -M jm-mercury-fpga -smp cpus=1 -nographic -serial mon:stdio -device loader,addr=0x80000000,cpu-num=0 -device "loader,file=$U_BOOT_BIN,addr=0x80000000,force-raw=on" -device "loader,file=$LINUX_FIT,addr=0x88000000,force-raw=on"
 }
 

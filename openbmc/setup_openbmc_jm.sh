@@ -30,6 +30,7 @@ show_menu() {
     echo "    . ./setup mercury-fpga-webui"
     echo "  4: Show QEMU/build paths (U_BOOT_BIN, LINUX_FIT, QEMU_BIN)"
     echo "  5: Run Poky (QEMU)"
+    echo "  6: Build QEMU"
     echo "  q: Quit"
     echo ""
     echo -n "  Please select an option: "
@@ -81,6 +82,24 @@ run_poky_qemu() {
     QEMU_BIN=$HOME/JM/qemu-private/build/qemu-system-aarch64
     cd /home/samkuo/JM/qemu-private/build
     $QEMU_BIN -s -M jm-mercury-fpga -smp cpus=1 -nographic -serial mon:stdio -device loader,addr=0x80000000,cpu-num=0 -device "loader,file=$U_BOOT_BIN,addr=0x80000000,force-raw=on" -device "loader,file=$LINUX_FIT,addr=0x88000000,force-raw=on"
+}
+
+build_qemu() {
+    cd /home/samkuo/JM/qemu-private
+    TARGET=aarch64-softmmu
+    TARGET+=,arm-softmmu
+    FLAGS=
+    FLAGS+=" --target-list=$TARGET"
+    FLAGS+=" --enable-debug"
+    FLAGS+=" --enable-rng-none"
+    FLAGS+=" --enable-trace-backends=simple"
+    FLAGS+=" --enable-curses"
+    FLAGS+=" --enable-libdw"
+    FLAGS+=" --enable-slirp"
+    FLAGS+=" --disable-docs"
+    mkdir build && cd build
+    ../configure $FLAGS
+    make -j "$(nproc)"
 }
 
 # 進入工作目錄
@@ -137,6 +156,10 @@ while true; do
             ;;
         5)
             run_poky_qemu
+            break
+            ;;
+        6)
+            build_qemu
             break
             ;;
         q|Q)

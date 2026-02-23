@@ -29,7 +29,7 @@ show_menu() {
     echo "  3: Use OpenBMC phosphor distro on FPGA"
     echo "    . ./setup mercury-fpga-webui"
     echo "  4: Show QEMU/build paths (U_BOOT_BIN, LINUX_FIT, QEMU_BIN)"
-    echo "  5: Run Poky (QEMU)"
+    echo "  5: Run Poky (QEMU),please keyin bootm"
     echo "  6: Build QEMU"
     echo "  q: Quit"
     echo ""

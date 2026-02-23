@@ -97,7 +97,11 @@ build_qemu() {
     FLAGS+=" --enable-libdw"
     FLAGS+=" --enable-slirp"
     FLAGS+=" --disable-docs"
-    mkdir build && cd build
+    if [ -d build ]; then
+        cd build
+    else
+        mkdir build && cd build
+    fi
     ../configure $FLAGS
     make -j "$(nproc)"
 }

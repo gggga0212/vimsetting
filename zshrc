@@ -221,3 +221,4 @@ setopt no_nomatch
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # [ -f ~/.bashrc ] && . ~/.bashrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="$HOME/.local/bin:$PATH"

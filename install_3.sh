@@ -71,6 +71,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 #ubuntu github authentication
 curl -u username:token https://api.github.com/user
+#claude
+curl -fsSL https://claude.ai/install.sh | bash
 
 # lazygit windows install
 # Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser

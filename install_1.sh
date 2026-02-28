@@ -7,7 +7,7 @@ sudo apt install -y wget git gdb
 sudo apt-get install -y zsh curl unzip npm
 
 # git clone https://github.com/gggga0212/vimsetting ~/.config/nvim
-git clone git@github.com:gggga0212/vimsetting.git
+git clone git@github.com:gggga0212/vimsetting.git ~/.config/nvim
 
 cd ~/.config/nvim
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

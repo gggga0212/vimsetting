@@ -6,6 +6,52 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 這是 Chang-Han（Sam）Kuo 的個人 Neovim 設定檔。使用 **lazy.nvim** 作為套件管理器，採用 vimscript 與 Lua 混合架構，主要針對 C/嵌入式開發工作流程，整合了 cscope、ctags 與 LSP 支援。
 
+## 安裝步驟（Ubuntu / Debian）
+
+### Step 1：安裝基礎依賴並 clone 設定檔
+```bash
+bash install_1.sh
+```
+安裝內容：git、zsh、curl、npm、gdb、oh-my-zsh，並 clone 此 repo。
+
+### Step 2：下載 Neovim 與 LazyGit
+```bash
+bash install_2.sh
+```
+下載 Neovim v0.11.5（`nvim-linux-x86_64`）並解壓縮至 `~/.config/`。
+同時下載 LazyGit Windows 版（供 WSL 使用）。
+
+將 Neovim 加入 PATH（加入 `~/.zshrc` 或 `~/.bashrc`）：
+```bash
+export PATH="$HOME/.config/nvim-linux-x86_64/bin:$PATH"
+```
+
+### Step 3：完整環境安裝
+```bash
+bash install_3.sh
+```
+安裝內容包含：
+- LazyGit（Linux 版）
+- zsh 插件：zsh-autosuggestions、zsh-syntax-highlighting、zsh-z、powerlevel10k
+- Node.js（LTS）、Python3、pip
+- 開發工具：gcc、g++、make、gdb、ctags、cscope、ripgrep、fd-find、graphviz、mscgen
+- fzf、tmux、diff-so-fancy
+- Claude CLI、Gemini CLI
+- 複製設定檔：`~/.gitconfig`、`~/.tmux.conf`、`~/.zshrc`、lazygit config
+
+### Step 4：啟動 Neovim，自動安裝套件
+```bash
+nvim
+```
+首次啟動時，lazy.nvim 會自動安裝所有套件。安裝完成後重新啟動 Neovim。
+
+### Step 5：安裝 LSP 伺服器
+進入 Neovim 後執行：
+```
+:Mason
+```
+預設會自動安裝 `clangd`、`pyright`、`lua_ls`。
+
 ## 架構
 
 ### 進入點

@@ -3,32 +3,46 @@
 ![quick_key](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)
 ![quick_key2](http://www.viemu.com/vi-vim-cheat-sheet.gif)
 
-## 環境需求
+## 安裝步驟（Ubuntu / Debian）
 
-### Debian / Ubuntu
+### Step 1：安裝基礎依賴並 clone 設定檔
 ```bash
-sudo apt-get install git curl exuberant-ctags cscope ripgrep
+bash install_1.sh
+```
+安裝內容：git、zsh、curl、npm、gdb、oh-my-zsh，並 clone 此 repo。
+
+### Step 2：下載 Neovim 與 LazyGit
+```bash
+bash install_2.sh
+```
+下載 Neovim v0.11.5（`nvim-linux-x86_64`）並解壓縮至 `~/.config/`。
+同時下載 LazyGit Windows 版（供 WSL 使用）。
+
+將 Neovim 加入 PATH（加入 `~/.zshrc` 或 `~/.bashrc`）：
+```bash
+export PATH="$HOME/.config/nvim-linux-x86_64/bin:$PATH"
 ```
 
-### macOS
+### Step 3：完整環境安裝
 ```bash
-brew install git ctags cscope ripgrep
+bash install_3.sh
 ```
+安裝內容包含：
+- LazyGit（Linux 版）
+- zsh 插件：zsh-autosuggestions、zsh-syntax-highlighting、zsh-z、powerlevel10k
+- Node.js（LTS）、Python3、pip
+- 開發工具：gcc、g++、make、gdb、ctags、cscope、ripgrep、fd-find、graphviz、mscgen
+- fzf、tmux、diff-so-fancy
+- Claude CLI、Gemini CLI
+- 複製設定檔：`~/.gitconfig`、`~/.tmux.conf`、`~/.zshrc`、lazygit config
 
-## 安裝步驟
-
-### Step 1：Clone 設定檔
-```bash
-git clone https://github.com/gggga0212/vimsetting.git ~/.config/nvim
-```
-
-### Step 2：啟動 Neovim，自動安裝套件
+### Step 4：啟動 Neovim，自動安裝套件
 ```bash
 nvim
 ```
-首次啟動時，lazy.nvim 會自動 clone 並安裝所有套件。安裝完成後重新啟動 Neovim。
+首次啟動時，lazy.nvim 會自動安裝所有套件。安裝完成後重新啟動 Neovim。
 
-### Step 3：安裝 LSP 伺服器
+### Step 5：安裝 LSP 伺服器
 進入 Neovim 後執行：
 ```
 :Mason

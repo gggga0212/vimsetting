@@ -172,8 +172,8 @@ Leader 鍵：`,`
 
 在 Neovim 內執行：
 ```
-:Lazy sync      " 更新所有套件
 :Lazy           " 開啟 lazy.nvim 介面
+:Lazy sync      " 更新所有套件
 ```
 
 ## Cscope 工作流程（C 專案）

@@ -1,246 +1,178 @@
-# VIM setting by SamKuo    
-![quick_key](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)   
+# Neovim 設定 by SamKuo
+
+![quick_key](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)
 ![quick_key2](http://www.viemu.com/vi-vim-cheat-sheet.gif)
-## Step 0: Check the environment  
-  ### The vim need the following tool, if not, please install by the following command    
-#### Debian (ubuntu)  
-  
-  ```vim
-  sudo apt-get install git  
-  sudo apt-get install curl  
-  sudo apt-get install exuberant-ctags  
-  sudo apt-get install cscope  
-  ```
-#### MacOS
-  1. Press Command+Space and type Terminal and press enter/return key.  
-  2. Run in Terminal app:  
-  ``` vim
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
-  ```
-  3. Run:  
-  ```vim
-  brew install ctags  
-  brew install cscope  
-  brew install git  
-  ```   
-#### Windows Cygwin   
-  1. Cygwin download and install in https://www.cygwin.com/   
-  2. Cygwin install as the following tool   
-    *1. [Need for programmer] gcc, make, wget, lynx, svn, git, vim, curl   
-    *2. [Need for apt-get] wget, tar, gawk, bzip2   
-  3. Install the apt-cyg    
-  
-  ```vim    
-  lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg   
-  install apt-cyg /bin    
-  ```   
 
-  4. Install the cscope     
-  ```vim    
-  apt-cyg install cscope    
-  apt-cyg install ctags   
-  ```
-## Step 1: Download the Vundle by git   
-```vim
-  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle  
+## 環境需求
+
+### Debian / Ubuntu
+```bash
+sudo apt-get install git curl exuberant-ctags cscope ripgrep
 ```
 
-## Step 2: Overwrite the vimrc
-```vim
-  git clone https://github.com/gggga0212/vimsetting.git  
-  cd vimsetting 
-  cp vimrc ~/.vimrc 
-```   
-## Step 3: Install the vimrc plugin function  
-  Enter to vim normal mode  
-```vim    
-  :PluginInstall
+### macOS
+```bash
+brew install git ctags cscope ripgrep
+```
+
+## 安裝步驟
+
+### Step 1：Clone 設定檔
+```bash
+git clone https://github.com/gggga0212/vimsetting.git ~/.config/nvim
+```
+
+### Step 2：啟動 Neovim，自動安裝套件
+```bash
+nvim
+```
+首次啟動時，lazy.nvim 會自動 clone 並安裝所有套件。安裝完成後重新啟動 Neovim。
+
+### Step 3：安裝 LSP 伺服器
+進入 Neovim 後執行：
+```
+:Mason
+```
+預設會自動安裝 `clangd`、`pyright`、`lua_ls`。
+
+## 套件管理
+
+本設定使用 [lazy.nvim](https://github.com/folke/lazy.nvim) 作為套件管理器。
 
 ```
-  When install Done, exit the vim and re-enter to the vim  
-## Step 4: Others install   
-### fzf   
-```vim
-cd ~/.vim/bundle/fzf    
-./install
+:Lazy          " 開啟套件管理介面
+:Lazy sync     " 更新所有套件
 ```
-### powerline-fonts
-```vim
-cd ~/.vim/bundle/powerline-fonts    
-./install.sh
-```   
-### auto_update_cscope_ctags_database    
 
-python2   
-```vim    
-cd ~/.vim/bundle/vim    
-./configure -with-features=huge --enable-rubyinterp --enable-perlinterp=yes --enable-tclinterp=yes --enable-pythoninterp=yes --enable-python=yes --with-python-config-dir=/usr/lib/python2.7/config-arm-linux-gnueabihf/    
-(this dir may diff between diff pc)  
+## 首次使用（C 專案）
+
+進入專案目錄後：
+1. `F6` — 建立 `cscope.files` 並產生 `cscope.out` 資料庫
+2. `F12` — 產生 `tags`（ctags）
+3. 開始使用 cscope 快捷鍵進行程式碼導航
+
+## 快捷鍵
+
+### 視窗切換
+| 按鍵 | 功能 |
+|------|------|
+| `Ctrl-H` | 移到左側視窗 |
+| `Ctrl-J` | 移到下方視窗 |
+| `Ctrl-K` | 移到上方視窗 |
+| `Ctrl-L` | 移到右側視窗 |
+
+### Cscope 查詢（`c*`）
+| 按鍵 | 功能 |
+|------|------|
+| `cg` | 跳至定義 |
+| `cm` | 尋找所有符號參考 |
+| `cc` | 尋找所有呼叫者 |
+| `cd` | 尋找此函式所呼叫的函式 |
+| `ct` | 尋找文字 |
+| `ce` | egrep 搜尋 |
+| `cf` | 開啟檔案 |
+| `ci` | 尋找 include 此檔案的檔案 |
+| `cv` | 在 Telescope 中開啟 quickfix 結果 |
+| `cx` | 開啟 quickfix 視窗 |
+
+### LSP（緩衝區內）
+| 按鍵 | 功能 |
+|------|------|
+| `gd` | 跳至定義 |
+| `gD` | 跳至宣告 |
+| `gk` | 顯示 hover 說明 |
+| `gi` | 跳至實作 |
+| `gr` | 顯示所有參考 |
+| `<space>rn` | 重新命名 |
+| `<space>ca` | 程式碼動作 |
+| `<space>f` | 格式化 |
+
+### Git（`<space>g*`）
+| 按鍵 | 功能 |
+|------|------|
+| `gj` | 預覽目前 hunk |
+| `gn` | 下一個 hunk |
+| `gp` | 上一個 hunk |
+| `gu` | 還原 hunk |
+| `<space>go` | DiffviewOpen（與 HEAD 比較）|
+| `<space>gf` | 目前檔案的 git 歷史 |
+| `<space>gh` | 整個專案的 git 歷史 |
+| `<space>gl` | 開啟 LazyGit |
+| `<space>gt` | Telescope git 狀態 |
+
+### Telescope（`<space>t*` / `<leader>s*`）
+| 按鍵 | 功能 |
+|------|------|
+| `<leader>sf` | 搜尋檔案 |
+| `<leader>st` | Live grep |
+| `<leader>ss` | 搜尋游標下的字串 |
+| `<leader>sd` | 診斷訊息 |
+| `<space>tb` | 檔案瀏覽器 |
+| `<space>tc` | 切換色彩主題 |
+| `<space>tk` | 查看所有快捷鍵 |
+
+### Calltree（呼叫樹）
+| 按鍵 | 功能 |
+|------|------|
+| `<leader>rr` | 顯示呼叫者樹（Cscope）|
+| `<leader>rf` | 顯示被呼叫樹（Cscope）|
+| `<leader>rR` | 顯示呼叫者樹（LSP）|
+| `<leader>rF` | 顯示被呼叫樹（LSP）|
+| `<leader>rq` | 關閉所有呼叫樹 |
+
+### Floaterm（`<space>f*`）
+| 按鍵 | 功能 |
+|------|------|
+| `<space>ft` | 新增 floaterm |
+| `<space>ff` | 切換 floaterm |
+| `<space>fn` | 下一個 floaterm |
+| `<space>fp` | 上一個 floaterm |
+| `<space>fk` | 關閉 floaterm |
+
+### Claude Code（`<leader>a*`）
+| 按鍵 | 功能 |
+|------|------|
+| `<leader>ac` | 開關 Claude Code |
+| `<leader>af` | 聚焦 Claude Code |
+| `<leader>ab` | 加入目前緩衝區 |
+| `<leader>as` | 傳送選取內容（Visual 模式）|
+| `<leader>aa` | 接受 diff |
+| `<leader>ad` | 拒絕 diff |
+
+## 主要套件
+
+| 套件 | 用途 |
+|------|------|
+| [lazy.nvim](https://github.com/folke/lazy.nvim) | 套件管理器 |
+| [mason.nvim](https://github.com/williamboman/mason.nvim) | LSP 伺服器管理 |
+| [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LSP 設定 |
+| [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) | 模糊搜尋 |
+| [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 語法高亮與解析 |
+| [cscope_maps.nvim](https://github.com/dhananjaylatkar/cscope_maps.nvim) | Cscope 整合 |
+| [calltree.nvim](https://github.com/daishengdong/calltree.nvim) | 呼叫樹視圖 |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) | Git 行內標示 |
+| [diffview.nvim](https://github.com/sindrets/diffview.nvim) | Git diff 視圖 |
+| [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) | LazyGit 整合 |
+| [vim-floaterm](https://github.com/voldikss/vim-floaterm) | 浮動終端機 |
+| [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) | 檔案樹 |
+| [vim-airline](https://github.com/vim-airline/vim-airline) | 狀態列 |
+| [claudecode.nvim](https://github.com/coder/claudecode.nvim) | Claude Code 整合 |
+
+## 鍵盤設定參考
+
+交換 Caps Lock 與 Ctrl（Linux）：
+```bash
+# 編輯 /etc/default/keyboard
+XKBOPTIONS="ctrl:swapcaps"   # 互換
+XKBOPTIONS="ctrl:nocaps"     # Caps Lock 改為 Ctrl
+# 修改後重新開機
 ```
-python3   
-```vim    
-cd ~/.vim/bundle/vim    
-./configure -with-features=huge --enable-rubyinterp --enable-perlinterp=yes --enable-tclinterp=yes -enable-python3interp=yes --enable-python3=yes --with-python-config-dir=/usr/lib/python3.5/config-3.5m-arm-linux-gnueabihf/    
-(this dir may diff between diff pc)   
-```
-suggest build with python2    
 
-```vim
-make -j2
-sudo make install   
-```   
-when see the error message    
-no terminal library found
-checking for tgetent()... configure: error: NOT FOUND!
+## 參考資源
 
-please install the ncurses    
-on ubuntu 16.04:    
-```vim    
-sudo apt-get install ncurses-dev    
-```
-open a new terminal input command: vim --version to check vim support feature
-## If you want to uninstall the plugin function  
-  Remove the vimrc Plugin root, and save the vimrc. 
-  Enter to vim normal mode    
-  ```vim
-  :PluginClean  
-  ```   
-## When you first time to use the vimrc 
-  At the first time, please create the cscope file and tags files.    
-  1. Enter to the folder you want to choose for using vim in terminal.   
-  2. F6(Create the cscope.files)->F5(Load cscope)->F12(Create the tags).  
-  3. Press F7 (EnDisable Trinity the SrcExpl, TagList, NERDTree when the bottom is pressed.)   
-  
-  Ctrl-H: left to the vim screan  
-  Ctrl-J: down to the vim screan  
-  Ctrl-K: up to the vim screan  
-  Ctrl-L: right to the vim screan
-  
-  Select what folder you want to open and press "o" to open it.
-## What are Plugin in vimrc 
-* [airline](https://github.com/vim-airline/vim-airline): lean & mean status/tabline for vim that's light as air     
-* [ctrlp](https://github.com/ctrlpvim/ctrlp.vim) : Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.   
-* [ctrlp-funky](https://github.com/tacahiroy/ctrlp-funky) : Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.  
-    * [ctrlp Chinese](http://www.wklken.me/posts/2015/06/07/vim-plugin-ctrlp.html#shi-yong)   
-* [multiple-cursors](https://github.com/terryma/vim-multiple-cursors) :True Sublime Text style multiple selections for Vim.   
-* [auto_update_cscope_ctags_database](https://github.com/haolongzhangm/auto_update_cscope_ctags_database) :Auto update cscops and tags.   
-* [bufexplorer](https://github.com/jlanzarotta/bufexplorer) :BufExplorer Plugin for Vim.    
-* [fzf](https://github.com/junegunn/fzf): A command-line fuzzy finder   
-    * [fzf Chinese](https://segmentfault.com/a/1190000011328080) :   
-* [vim-monokai](https://github.com/sickill/vim-monokai): Monokai color scheme for Vim converted from Textmate theme
-* [Nerd Tree](https://github.com/scrooloose/nerdtree): A tree explorer plugin for navigating the filesystem.  
-* [NERDCommenter](https://github.com/scrooloose/nerdcommenter): Vim plugin for intensely orgasmic commenting  
-* [powerline-fonts.git](https://github.com/Lokaltog/powerline-fonts.git): Patched fonts for Powerline users. 
-* [SrcExpl](https://github.com/wesleyche/SrcExpl): the Source code Explorer which works like the context window of "Source Insight" 
-* [UltIsSnips](https://github.com/SirVer/ultisnips): UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips! 
-* [Snippets](https://github.com/honza/vim-snippets): vim-snipmate default snippets (Previously snipmate-snippets) 
-* [SuperTab](https://github.com/ervandew/supertab): Perform all your vim insert mode complete with tab  
-* [TagList](https://github.com/vim-scripts/taglist.vim): The "Tag List" plugin is a source code browser for the Vim editor. 
-* [Trinity](https://github.com/trinityrnaseq/trinityrnaseq): the Trinity of taglist, NERDtree and SrcExpl: an IDE works like "Source Insight"   
+- [Vim 基本指令](http://blog.jex.tw/blog/2013/05/15/vim/)
+- [Vim 速查表](http://blog.vgod.tw/wp-content/uploads/2009/12/vim-cheat-sheet-full.png)
 
-## how to init the airline in macOS
-```vim
-cd ~/.vim/bundle/powerline-fonts  
-./install.sh
-```
-And need to add the terminal's fonts as Meslo LG M  
+## 作者
 
-![default](https://user-images.githubusercontent.com/30749497/34326391-acd11712-e8e5-11e7-9664-31089cd9eac1.jpeg) 
-
-## Functin: Keyboard Function for Fn key  
-  F3: Previous select for SrcExpl  
-  F4: Next select for SrcExpl  
-  F5: Load the cscope  
-  F6: Ceate the cscope.files  
-  F7: EnDisable Trinity the SrcExpl, TagList, NERDTree when the bottom is pressed.    
-  F8: EnDisable the TagList  
-  F9: EnDisable the NERDTree  
-  F10: EnDisable the SrcExpl    
-  F12: Create the tags  
-  
-  Ctrl-H: left to the vim screan  
-  Ctrl-J: down to the vim screan  
-  Ctrl-K: up to the vim screan  
-  Ctrl-L: right to the vim screan   
-  Ctrl-O: Jump to SrcExpl screan  
-  ### cscope find cmd
-  cs: 's'   symbol: find all references to the token under cursor.  
-  cg: 'g'   global: find global definition(s) of the token under cursor.  
-  cc: 'c'   calls:  find all calls to the function name under cursor.   
-  ct: 't'   text:   find all instances of the text under cursor.   
-  ce: 'e'   egrep:  egrep search for the word under cursor.    
-  cf: 'f'   file:   open the filename under cursor.   
-  ci: 'i'   includes: find files that include the filename under cursor.   
-  cd: 'd'   called: find functions that function under cursor calls.  
-  ### ctrlp   
-  leader+f 模糊搜尋最近打開的文件    
-  leader+p 模糊搜尋此目錄及子目錄的文件
-  搜索框出來後，輸入關鍵字，然後可以下列指令打開文件   
-  ctrl + j/k 進行上下的選擇    
-  ctrl + x 在當前窗口水平分屏打開文件    
-  ctrl + v 同上, 垂直分屏打開文件   
-  ctrl + t 在tab 中打開文件   
-  ### ctrlp-funky   
-  leader+fu 進入當前文件的function列表搜索    
-  ### vim basic mark    
-  m 創見標記    
-  ' 移動到標記的文本行首    
-  ` 移動到標記的光標位置    
-  :marks 列示所有標記   
-  :delmarks 刪除指定標記。例：:delmarks a b c 可以指定或刪除多標記   
-  :delmarks! 刪除所有標記   
-  ### Windows vimrc setting SOP
-  * [WIN](https://www.jianshu.com/p/3e3f881bb5bd) : Windows setting for vim.    
-  
-  ### Final vim photo of MacOS 
-![mac_vim](https://user-images.githubusercontent.com/30749497/34325970-eec21ed6-e8dc-11e7-8168-fdf6bb21be91.jpg)    
-
-## NICE REFERENCE   
-[BASIC VIM CMD](http://blog.jex.tw/blog/2013/05/15/vim/)
-
-## Terminal color
-How to show colors in terminal. (ubuntu)
-```vim
-vim ~/.bashrc
-force_color_prompt=yes
-```
-```vim
-wget https://raw.github.com/trapd00r/LS_COLORS/master/LS_COLORS -O ~/.dircolors
-vim ~/.dircolors
-```
-## autoCrlf
-```vim
-git config --global core.autocrlf true
-git config --global core.autocrlf false
-```
-## diff-so-fancy
-```vim
-sudo apt-get install npm
-npm install -g diff-so-fancy
-```
-## gitconfig
-```vim
-[core]
-    editor = vim
-    autocrlf = true
-[alias]
-    co = checkout
-    st = status
-    br = branch -a
-    ls = log --stat --graph
-    sub = submodule
-```
-## To config keyboard.
-vim /etc/default/keyboard
-## To swap Caps Lock and Control.
-XKBOPTIONS="ctrl:swapcaps"
-## To make Caps Lock an additional Control key
-XKBOPTIONS="ctrl:nocaps"
-
-then reboot
-
-
-
-## Author
 Chang-Han, Kuo
-

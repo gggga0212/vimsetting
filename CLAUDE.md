@@ -33,15 +33,94 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Calltree**（`calltree.nvim`）：使用 cscope 或 LSP 顯示呼叫者/被呼叫者樹狀結構。
 
 ### 快捷鍵摘要
-- Leader 鍵：`,`
-- `<space>` 前綴：主要功能切換（git、telescope、floaterm、檔案樹、LSP）
-- `<leader>` 前綴：buffer/tab 導航、cscope calltree、快速操作
-- `c*` 前綴：cscope 查詢（`cg`=定義、`cm`=符號、`cc`=呼叫者、`cd`=被呼叫函式等）
-- `g*`：gitsigns（程式碼區塊）、LSP（`gd`=定義、`gD`=宣告、`gk`=hover、`gi`=實作、`gr`=參考）
-- `<space>g*`：git/diffview 操作
-- `<space>t*`：telescope 選擇器與其他工具
-- `<space>f*`：floaterm 管理
-- `<space>a*`：Claude Code 整合（`<leader>ac`=開關、`<leader>ab`=加入緩衝區、`<leader>as`=傳送選取內容）
+
+Leader 鍵：`,`
+
+**視窗切換**
+| 按鍵 | 功能 |
+|------|------|
+| `Ctrl-H` | 移到左側視窗 |
+| `Ctrl-J` | 移到下方視窗 |
+| `Ctrl-K` | 移到上方視窗 |
+| `Ctrl-L` | 移到右側視窗 |
+
+**Cscope 查詢（`c*`）**
+| 按鍵 | 功能 |
+|------|------|
+| `cg` | 跳至定義 |
+| `cm` | 尋找所有符號參考 |
+| `cc` | 尋找所有呼叫者 |
+| `cd` | 尋找此函式所呼叫的函式 |
+| `ct` | 尋找文字 |
+| `ce` | egrep 搜尋 |
+| `cf` | 開啟檔案 |
+| `ci` | 尋找 include 此檔案的檔案 |
+| `cv` | 在 Telescope 中開啟 quickfix 結果 |
+| `cx` | 開啟 quickfix 視窗 |
+
+**LSP（緩衝區內）**
+| 按鍵 | 功能 |
+|------|------|
+| `gd` | 跳至定義 |
+| `gD` | 跳至宣告 |
+| `gk` | 顯示 hover 說明 |
+| `gi` | 跳至實作 |
+| `gr` | 顯示所有參考 |
+| `<space>rn` | 重新命名 |
+| `<space>ca` | 程式碼動作 |
+| `<space>f` | 格式化 |
+
+**Git（`<space>g*`）**
+| 按鍵 | 功能 |
+|------|------|
+| `gj` | 預覽目前 hunk |
+| `gn` | 下一個 hunk |
+| `gp` | 上一個 hunk |
+| `gu` | 還原 hunk |
+| `<space>go` | DiffviewOpen（與 HEAD 比較）|
+| `<space>gf` | 目前檔案的 git 歷史 |
+| `<space>gh` | 整個專案的 git 歷史 |
+| `<space>gl` | 開啟 LazyGit |
+| `<space>gt` | Telescope git 狀態 |
+
+**Telescope（`<space>t*` / `<leader>s*`）**
+| 按鍵 | 功能 |
+|------|------|
+| `<leader>sf` | 搜尋檔案 |
+| `<leader>st` | Live grep |
+| `<leader>ss` | 搜尋游標下的字串 |
+| `<leader>sd` | 診斷訊息 |
+| `<space>tb` | 檔案瀏覽器 |
+| `<space>tc` | 切換色彩主題 |
+| `<space>tk` | 查看所有快捷鍵 |
+
+**Calltree（呼叫樹）**
+| 按鍵 | 功能 |
+|------|------|
+| `<leader>rr` | 顯示呼叫者樹（Cscope）|
+| `<leader>rf` | 顯示被呼叫樹（Cscope）|
+| `<leader>rR` | 顯示呼叫者樹（LSP）|
+| `<leader>rF` | 顯示被呼叫樹（LSP）|
+| `<leader>rq` | 關閉所有呼叫樹 |
+
+**Floaterm（`<space>f*`）**
+| 按鍵 | 功能 |
+|------|------|
+| `<space>ft` | 新增 floaterm |
+| `<space>ff` | 切換 floaterm |
+| `<space>fn` | 下一個 floaterm |
+| `<space>fp` | 上一個 floaterm |
+| `<space>fk` | 關閉 floaterm |
+
+**Claude Code（`<leader>a*`）**
+| 按鍵 | 功能 |
+|------|------|
+| `<leader>ac` | 開關 Claude Code |
+| `<leader>af` | 聚焦 Claude Code |
+| `<leader>ab` | 加入目前緩衝區 |
+| `<leader>as` | 傳送選取內容（Visual 模式）|
+| `<leader>aa` | 接受 diff |
+| `<leader>ad` | 拒絕 diff |
 
 ## 套件更新
 

@@ -45,9 +45,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- require("lspconfig").clangd.setup {
---     on_attach = on_attach
--- }
--- require("lspconfig").lua_ls.setup {
---     on_attach = on_attach
--- }
+vim.lsp.enable({ "clangd", "pyright", "lua_ls" })

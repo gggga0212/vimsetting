@@ -314,10 +314,10 @@ keymaps('n','<leader>M',[[<cmd>HiMyWordsClear<CR>]],ntst)
 
 keymaps('n','<leader>q',':q!<CR>',ntst)
 
-keymaps('n','<leader>rr',':CallerTreeCscope<CR><CR>',ntst) --cscope
-keymaps('n','<leader>rf',':CalleeTreeCscope<CR><CR>',ntst) --cscope
-keymaps('n','<leader>rR',':CallerTreeLsp<CR><CR>',ntst) --lsp
-keymaps('n','<leader>rF',':CalleeTreeLsp<CR><CR>',ntst) --lsp
+-- keymaps('n','<leader>rr',':CallerTreeCscope<CR><CR>',ntst) --cscope
+-- keymaps('n','<leader>rf',':CalleeTreeCscope<CR><CR>',ntst) --cscope
+keymaps('n','<leader>rr',':CallerTreeLsp<CR><CR>',ntst) --lsp who calls the function
+keymaps('n','<leader>rf',':CalleeTreeLsp<CR><CR>',ntst) --lsp the function calls who
 keymaps('n','<leader>rq',':CallTreeCloseAll<CR><CR>',ntst)
 
 -- keymaps('n','<leader>f',':CCTreeTraceForward<CR><CR>', ntst)

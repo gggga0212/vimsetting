@@ -160,9 +160,10 @@ alias kq26='pkill qemu-system-arm'
 alias kq27='pkill -9 qemu-system-aar'
 alias bz="~/.config/nvim/openbmc/setup_openbmc.sh"
 alias bj="~/.config/nvim/openbmc/setup_openbmc_jm.sh"
-alias gk= "git format-patch HEAD^ --stdout | ./scripts/checkpatch.pl"
+alias gk="git format-patch HEAD~ --stdout | ./scripts/checkpatch.pl"
 alias bbp="echo $BBPATH"
 alias bbc="cd $BBPATH"
+alias mcc="python3 scripts/clang-tools/gen_compile_commands.py -d build/ -o compile_commands.json"
 function s4() {
     # 左右分
     tmux split-window -h

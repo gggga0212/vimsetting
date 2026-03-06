@@ -47,4 +47,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+vim.lsp.config('clangd', {
+  cmd = {
+    'clangd',
+    '--background-index',
+    '--query-driver=**/bin/*gcc*,**/bin/*g++*,**/bin/*clang*',
+  },
+})
+
 vim.lsp.enable({ "clangd", "pyright", "lua_ls" })

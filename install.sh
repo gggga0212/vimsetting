@@ -5,7 +5,7 @@ set -e
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo add-apt-repository -y ppa:ubuntu-support-team/gdb
 sudo apt update
-sudo apt install -y wget git gdb zsh curl unzip npm
+sudo apt install -y wget git gdb zsh curl unzip
 
 # ─── Step 2: Clone repo ───────────────────────────────────────────────
 git clone git@github.com:gggga0212/vimsetting.git ~/.config/nvim
@@ -49,7 +49,7 @@ git clone https://github.com/agkozak/zsh-z                       "$ZSH_CUSTOM/pl
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
 
 # ─── Step 7: Node.js（LTS）───────────────────────────────────────────
-curl -fsSL https://deb.nodesource.com/setup_lts.x -o nodesource_setup.sh
+curl -fsSL https://deb.nodesource.com/setup_24.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
 

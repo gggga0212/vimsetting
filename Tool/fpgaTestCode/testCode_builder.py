@@ -31,6 +31,15 @@ def save_config(cfg):
 # ─── Path helpers ─────────────────────────────────────────────────────────────
 def to_wsl_path(win_path: str) -> str:
     p = win_path.replace("\\", "/")
+    # UNC path: //wsl.localhost/<distro>/... → /...
+    if p.lower().startswith("//wsl.localhost/") or p.lower().startswith("//wsl$/"):
+        prefix = "//wsl.localhost/" if p.lower().startswith("//wsl.localhost/") else "//wsl$/"
+        rest = p[len(prefix):]
+        # Strip the distro name (first path component)
+        idx = rest.find("/")
+        if idx != -1:
+            return rest[idx:]
+        return "/"
     if len(p) >= 2 and p[1] == ":":
         return "/mnt/" + p[0].lower() + p[2:]
     return p
@@ -439,7 +448,7 @@ class App(tk.Tk):
         rel_path     = os.path.relpath(win_path, build_sh_dir).replace("\\", "/")
         wsl_build_dir = to_wsl_path(build_sh_dir)
 
-        bash_cmd = f"cd '{wsl_build_dir}' && ./build.sh '{rel_path}'"
+        bash_cmd = f"cd '{wsl_build_dir}' && chmod 777 build.sh && ./build.sh '{rel_path}'"
         subprocess.Popen(
             ["wsl.exe", "-d", "Ubuntu-24.04", "--", "bash", "-c",
              f"{bash_cmd}; echo; read -p 'Press Enter to close...'"],

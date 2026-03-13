@@ -24,6 +24,7 @@ require "lsp.nvim-tree"
 require "lsp.hi-my-words"
 -- require "lsp.indent_blankline"
 require "lsp.calltree"
+require "lsp.diffview"
 -- require "lsp.winbar"
 
 -- :help option

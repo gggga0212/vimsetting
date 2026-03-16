@@ -1,3 +1,6 @@
 require("diffview").setup({
-    diff_args = { "--ignore-cr-at-eol" },
+    default_args = {
+        DiffviewOpen = { "--ignore-cr-at-eol" },
+        DiffviewFileHistory = { "--ignore-cr-at-eol" },
+    },
 })
